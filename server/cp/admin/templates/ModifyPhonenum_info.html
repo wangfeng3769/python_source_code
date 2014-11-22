@@ -1,0 +1,137 @@
+<!-- $Id: agency_info.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+{include file="pageheader.htm"}
+{insert_scripts files="../js/transport.js,../js/region.js"}
+<script type="text/JavaScript" src="../js/formcheck.js"></script>
+<div class="main-div">
+<form method="post" action="ModifyPhonenum.php" name="theForm" enctype="multipart/form-data" onSubmit="return Validator.Validate(this,2)">
+<table cellspacing="1" cellpadding="3" width="100%" >
+  <tr>
+    <td><input type="hidden" name="id" size="10" maxlength="60" value="{$credit_card.id}"/></td>
+    <td>弃用手机号码
+	<input require="false" dataType="Mobile" msg="手机号码不正确" name="oldphone" id="oldphone" size="16" maxlength="60" onblur="checkphone(this.value);"/>
+      现用手机号码
+      ：
+    	<input require="false" dataType="Mobile" msg="手机号码不正确" name="newphone" id="newphone" size="16" maxlength="60" onblur="checkphone(this.value);"/><font color="red"><span id="oldphoneName"></span></font><font color="red"><span id="newphoneName"></span></font></td>
+    <td></td><td></td>
+  </tr>
+  <tr>
+    <td class="label">{$lang.credit_card_BANK}</td>
+    <td>请正确输入手机验证码=> 旧：
+
+      <input name="Captchaold" dataType="Number" msg="只允许数字" value="" size="12" maxlength="60" />  
+      现
+      ：
+      <input  dataType="Number" msg="只允许数字" name="Captchanew" size="10" maxlength="60" value=""	/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    </td>
+    <td>    </td><td></td>
+  </tr>
+  <tr>
+    <td class="label">&nbsp;</td>
+    <td><span class="baikuang1">
+      <p class="huise-16" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	  <button id="vGetCaptcha2" name="vGetCaptcha2" type="button" onClick="onGetCaptcha2();">
+				         点击获取手机验证码	  </button>
+		</p>
+		</span></td>
+ 	<td></td><td></td>
+  </tr>
+</table>
+
+<table align="center">
+  <tr>
+    <td colspan="2" align="center">
+      <input type="submit" class="button" value="{$lang.button_submit}"/>
+      <input type="hidden" name="act" value="{$form_action}" />
+      <input type="hidden" name="id" value="{$credit_card.id}" />
+    </td>
+  </tr>
+</table>
+</form>
+</div>
+{insert_scripts files="../js/utils.js,validator.js"}
+{literal}
+<script language="JavaScript">
+function validate()
+{
+	validator = new Validator("theForm");
+	validator.required("oldphone","弃用手机号码不能为空");
+	validator.required("newphone","现用手机号码不能为空");
+	return validator.passed();
+}
+ function checkphone(phone)  
+  {  
+    /*未输入，则提示此项为必填*/ 
+	var reg0=/^13\d{9}$/;
+	var reg1=/^153\d{8}$/;
+	var reg2=/^159\d{8}$/;
+	var reg3=/^158\d{8}$/;
+	var reg4=/^150\d{8}$/;
+	var　Name=(phone == oldphone) ? 'oldphoneName' : 'newphoneName';
+    if (phone=="" || phone.length!=11)  
+    {  
+        document.all(Name).innerText = phone+"手机号码长度不合法且本项不能为空";  
+        return false;  
+    }  
+    /*输入后，将提示删除*/  
+    else  
+    {  
+       if(!reg0.test(phone) && !reg1.test(phone) && !reg2.test(phone) && !reg3.test(phone) && !reg4.test(phone))
+	   {
+	   		document.all(Name).innerText = phone+"手机号码不合法";				
+	   }else{
+	   		document.all(Name).innerText = "";
+	   } 
+	    
+    }
+    return true;  
+  }
+    
+
+	function onGetCaptcha2() {
+		var frm = document.forms['theForm'];
+		var oldphone = frm.elements['oldphone'].value;
+		var newphone = frm.elements['newphone'].value;
+		var Captchaold = frm.elements['Captchaold'].value;
+		var Captchanew = frm.elements['Captchanew'].value;
+		var vGetCaptcha2 = frm.elements['vGetCaptcha2'].value;
+		if (oldphone.length == 0)
+		{
+			alert("弃用手机号不能为空");
+			return ;
+		}
+		if (newphone.length == 0)
+		{
+			alert("现用用手机号不能为空");
+			return ;
+		}
+
+		var url = "http://localhost/EduoAuto/src/server/client/index.php?class=ModifyPhone&item=getCaptcha&phone=" + oldphone + "," + newphone;
+		
+		Ajax.call( url , '' , function(str){
+			if( 2000 == str.errno){
+				alert("发送验证码成功。")
+			}else{
+				alert( "发送验证码失败。" );
+			}
+		} , 'GET' , 'JSON' );
+
+
+		var btn = vGetCaptcha2;
+		btn.disabled = true;
+
+		var time = 59;
+		var timer = setInterval(function() {
+			vGetCaptcha2.innerText = time + "秒后重新获取";
+			--time;
+			if (0 == time) {
+				clearInterval(timer);
+
+				btn.innerText = "免费获取验证码";
+				btn.disabled = false;
+			}
+		}, 1000);
+
+	}
+		</script>
+{/literal}
+{include file="pagefooter.htm"}

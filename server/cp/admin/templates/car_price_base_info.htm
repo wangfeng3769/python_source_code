@@ -1,0 +1,66 @@
+<!-- $Id: equipment_info.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+{include file="pageheader.htm"}
+<div class="main-div">
+<form method="post" action="" name="theForm" enctype="multipart/form-data" onsubmit="return validate()">
+<table cellspacing="1" cellpadding="3" width="100%">
+  <tr>
+    <td class="label">{$lang[hour_price]}</td>
+    <td><input type="text" name="serial" maxlength="60" value="{$brand.hour_price}" /></td>
+  </tr>
+  <tr>
+    <td class="label">{$lang[hour_contain_km]}</td>
+    <td><input type="text" name="hour_km" maxlength="60" value="{$brand.hour_km}" /></td>
+  </tr>
+  <tr>
+    <td class="label">{$lang[top_price_24]}</td>
+    <td><input type="text" name="top_price" maxlength="60" value="{$brand.top_price}" /></td>
+  </tr>
+  <tr>
+    <td class="label">{$lang[top_km_24]}</td>
+   <td><input type="text" name="top_km" maxlength="60" value="{$brand.top_km}" /></td>
+  </tr>
+   <tr>
+    <td class="label">{$lang[price_km]}</td>
+   <td><input type="text" name="price_km" maxlength="60" value="{$brand.price_km}" /></td>
+  <tr>
+    <td class="label">{$lang[price_time_out]}</td>
+    <td><input type="text" name="price_time_out" maxlength="60" value="{$brand.price_time_out}" /></td>
+    
+  </tr>
+
+  </tr>
+
+  <tr>
+    <td colspan="2" align="center"><br />
+      <input type="submit" class="button" value="{$lang.button_submit}" />
+      <input type="reset" class="button" value="{$lang.button_reset}" />
+      <input type="hidden" name="act" value="{$form_action}" />
+      <input type="hidden" name="id" value="{$brand.id}" />
+      <input type="hidden" name="old_brandlogo" value="{$brand.equipment_logo}">
+    </td>
+  </tr>
+</table>
+</form>
+</div>
+{insert_scripts files="../js/utils.js,validator.js"}
+{literal}
+<script language="JavaScript">
+<!--
+onload = function()
+{
+    // 开始检查订单
+    startCheckOrder();
+}
+/**
+ * 检查表单输入的数据
+ */
+function validate()
+{
+    validator = new Validator("theForm");
+    validator.isNumber("sort_order", require_num, true);
+    return validator.passed();
+}
+//-->
+</script>
+{/literal}
+{include file="pagefooter.htm"}

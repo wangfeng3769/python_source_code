@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="keywords" content="乐影客" />
+<meta http-equiv="description" content="乐影客" />
+<title>活动页面详情</title>
+<link href="/static/web/css/css.css" rel="stylesheet" type="text/css" />
+<link href="/static/web/css/css_atv_inner.css" rel="stylesheet" type="text/css" />
+<!--[if IE 6]>
+<script src="/static/web/js/DD_belatedPNG_0.0.8a.js"></script>
+<script>DD_belatedPNG.fix('*'); </script>
+<![endif]-->
+
+<body>
+<!--<iframe src="header.html" border="0" vspace="0" hspace="0" marginwidth="0" marginheight="0" framespacing="0" frameborder="0" scrolling="no" height="82" width="100%" heigh="110"  ></iframe>-->
+{% include 'header.html' %}
+<div class="atv_inner_main">
+	<div class="atv_inner_left fl">
+    	<div class="atv_inner_left_title"><a href="/lykweb/activity/list">更多</a></div>
+        {% if activityinfo %}
+        <div class="atv_inner_left_content">
+            <div class="atv_inner_left_content_top">
+                <h3>{{activityinfo.title}}</h3>
+            </div>
+            <div class="atv_inner_left_content_middle">
+                {% if activityinfo.image_url %}
+                <div class="content_pic fl"><img src="/static/web/images/atv_inner_img1.jpg" alt="" title="" /></div>
+                <div class="atv_text fl">
+                {% else %}
+                <div class="atv_text_NoPic fl">
+                {% endif %}
+                	<h4>{{activityinfo.introduction}}</h4>
+                    <p><strong>活动时间：</strong>{{activityinfo.starttime}}至{{activityinfo.endtime}}</p>
+					{% if activityinfo.citylist %}
+                    <p><strong>活动地点：</strong>
+                        {% for cityname in activityinfo.citylist %}
+                        {% if forloop.counter <= 40 %}
+                        {% if forloop.counter == 1 %}
+                            {{ cityname }}
+                        {% else %}
+                            、{{ cityname }}
+                        {% endif %}
+                        {% endif %}
+                        {% endfor %}
+                    </p>
+                    {% endif %}
+                    {% if activityinfo.type %}
+                    <p><strong>活动类型：</strong>{{activityinfo.type}}</p>
+                    {% endif %}
+                    <!--<p><strong>参加人数：</strong>209</p>-->
+                    <p><strong>活动费用：</strong>免费</p>
+                </div>
+            </div>
+            {% if activityinfo.description %}
+            <div class="atv_inner_left_content_bottom">
+            	<div class="content_bottom_title"><span>活动详情</span></div>
+                <p class="content_bottom_txt">
+                	 {{activityinfo.description}}
+                </p>
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+        <div class="up_shadow_bg2"></div>
+    </div>
+    <div class="main_right fr">
+        {% if activitylist %}
+        <div class="right_title">
+            <p class="fl">全城共有<span class="right_title_text" >{{activitycount}}</span>个活动正在举行</p>
+            <p class="activity_more fr"><a href="/lykweb/activity/list">更多</a></p>
+        </div>
+        <div class="activity_content">
+            {% for activity in activitylist %}
+            {% if forloop.counter <= 3 %}
+            {% if activity.image_url %}
+            <div class="activity pr">
+                <p class="atv_P pa">活动<span class="activity_num pa">{{forloop.counter}}.</span></p>
+                <div class="activity_title">
+                    <span><a href="/lykweb/activity/info/{{activity.id}}">{{activity.title}}</a></span>
+                </div>
+                <div class="activity_pic fl">
+                    <a href="/lykweb/activity/info/{{activity.id}}"><img src="{{activity.image_url}}" width="306" height="188" alt="" title="" /></a>
+                </div>
+                <div class="activity_text_total fl">
+                    <p class="activity_text"><a href="/lykweb/activity/info/{{activity.id}}">{{activity.description}}</a></p>
+                    <div class="activity_time">
+                        <a href="/lykweb/activity/info/{{activity.id}}">
+                            &nbsp;&nbsp;活动时间：<br/>
+                            <span>{{activity.starttime}}至</span><br/>
+                            <span>{{activity.endtime}}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="activity_NoPic pr">
+                <p class="atv_P pa">活动<span class="activity_num pa">{{forloop.counter}}.</span></p>
+                <div class="activity_title">
+                    <span><a href="/lykweb/activity/info/{{activity.id}}">{{activity.title}}</a></span>
+                </div>
+                <p class="activity_NoPic_text">
+                    <a href="/lykweb/activity/info/{{activity.id}}">{{activity.description}}</a>
+                </p>
+                <div class="activity_NoPic_time">
+                    <a href="/lykweb/activity/info/{{activity.id}}">
+                        活动时间：<br/>
+                        <span>{{activity.starttime}}至{{activity.endtime}}</span>
+                    </a>
+                </div>
+            </div>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+<!--<iframe src="footer.html" border="0" vspace="0" hspace="0" marginwidth="0" marginheight="0" framespacing="0" frameborder="0" scrolling="no" width="100%" height="260" ></iframe>-->
+{% include 'footer.html' %}
+<script src="/static/web/js/base.js" type="text/javascript"></script>
+<script src="/static/web/js/header.js" type="text/javascript"></script>
+</body>
+</html>

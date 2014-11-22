@@ -1,0 +1,153 @@
+@charset "utf-8";
+.order_confirmation{ background:url(../images/order_bg.png) repeat-x; width:1024px; height:448px; margin:0 auto;}
+.order_confirmation_tle{ height:70px; border-bottom:#63564d solid 1px;}
+.order_confirmation_tle ul{ height:34px;  padding:18px 0;}
+.order_confirmation_tle ul li{ float:left; width:150px; height:40px;}
+.confirmation1{ background:url(../images/order_pay.png) no-repeat; background-position:0 0; margin-left:54px; margin-right:98px; display:inline;}
+.confirmation2{ background:url(../images/order_pay.png) no-repeat; background-position:0 -260px; margin-right:98px; display:inline;}
+.confirmation3{ background:url(../images/order_pay.png) no-repeat; background-position:0 -86px; margin-right:98px; display:inline;}
+.confirmation4{ background:url(../images/order_pay.png) no-repeat; background-position:0 -130px; display:inline;}
+.confirmation1_active{ background:url(../images/order_pay.png) no-repeat; background-position:0 -303px; margin-left:54px; margin-right:98px; display:inline;}
+.confirmation2_active{ background:url(../images/order_pay.png) no-repeat; background-position:0 -44px; margin-right:98px; display:inline;}
+.confirmation3_active{ background:url(../images/order_pay.png) no-repeat; background-position:0 -86px; margin-right:98px; display:inline;}
+.confirmation4_active{ background:url(../images/order_pay.png) no-repeat; background-position:0 -174px; display:inline;}
+
+/*==========================选座-订单确认==========================*/
+.order_mov{ height:430px; }
+.order_mov_mes{ height:220px;  }
+.order_mov_mes_pic{width:250px; padding:20px 0 20px 20px; }
+.order_mov_mes_pic img{ width:236px; height:148px;}
+.order_mov_mes_pic p{ height:36px; font-size:20px;  color:#010101; text-align:center; /*font-family:"方正准圆简体"; font-weight:bold;border:#000 solid 1px;*/}
+.order_mov_mes_name{ width:728px; height:170px; padding-top:54px; padding-left:0px; }
+.order_checked_seat_div{ background:url(../images/order_checked_seat_bg.png) repeat-x; width:708px; height:140px; padding-left:20px; padding-top:10px; }
+.order_mov_mes_name_p{ width:656px; height:44px; font-size:18px; color:#010101; }
+.order_mov_mes_name_p span{ width:72px; height:46px; font-size:12px; color:#62564c; font-weight:bold; background:#b9b1a9; padding:2px 10px;}
+.pay_icon{ background:url(../images/order_pay_icon.png) no-repeat; background-position:0 0; width:101px; height:26px; left:559px; top:0; padding:8px 50px;}
+.pay_icon_active{ background:url(../images/order_pay_icon.png) no-repeat; background-position:-1px 0px; width:101px; height:26px; left:638px; top:0; padding:4px 50px;}
+.order_mov_mes_name ul{ width:652px; height:100px; }
+.order_mov_mes_name ul li{ float:left; height:14px; padding-top:10px; font-size:16px; color:#010101;/* line-height:34px;*/}
+.mov_play_time{ width:340px;}
+.mov_play_time span{ padding:0px 16px; color:#010101;}
+.mov_play_money{ width:300px; padding-left:10px;}
+.mov_play_date{ width:340px;}
+.mov_play_num{ width:300px; padding-left:10px;}
+.mov_play_type{ width:340px;}
+.mov_play_tol_money{ width:300px; padding-left:10px;}
+.ticket_from_span{ font-size:12px; color:#010101; left:580px; top:10px;}
+.ticket_from_span a:link{ padding:0 8px; text-decoration:underline; font-size:12px; color:#010101;}
+
+.order_atv_num3{ width:470px;  font-size:22px; color:#000; left:42px; top:40px; }
+.order_atv_num3 span{ padding-left:2px;}
+.order_atv_num3 strong{ padding-left:20px; font-size:18px; color:#a63f1e; left:262px; top:0px; }
+
+.no_pay_icon_active{background:url(../images/order_pay_icon.png) no-repeat; background-position:-1px -34px; width:101px; height:26px; left:638px; top:0; padding:8px 50px;}
+/*==========================官方活动==========================*/
+.order_mov_atv{ width:980px; height:142px; padding-top:0px; margin-left:20px; background:#f2f0ee;  }
+.order_atv_tit{ background:url(../images/order_atv_img.png) no-repeat; width:132px; height:37px;}
+.order_atv_tit a{ text-align:center; left:922px; top:3px; background:#62564c; width:54px; height:28px; line-height:24px;}
+.order_atv_tit a:link{ color:#FFF; font-size:14px;}
+.order_mov_atv ul{ width:980px; padding-left:0px; font-size:14px; color:#000; font-weight:bold; }
+.order_mov_atv ul li{ height:34px; line-height:28px; border-bottom:#d8d8d8 solid 1px; padding-left:46px;}
+
+/*==========================支付信息==========================*/
+.order_pay{ background:url(../images/order_pay_bg.png) repeat-x; width:896px; height:176px; margin:0 auto; padding-left:128px; padding-top:30px; }
+.order_pay_information{ font-size:16px; color:#000;}
+.pay_information{ width:340px; height:40px; line-height:34px;}
+.information_warn{ width:340px; height:40px; font-size:16px; color:#a63f1e; line-height:34px;}
+
+.order_pay_btn{ width:270px; height:200px; padding-left:118px; text-align:center;}
+.pay_total{ height:60px; font-size:20px; color:#000;}
+.pay_total span{ font-size:34px; color:#a63f1e;}
+.pay_btn{ width:270px; height:48px; background:#44687d; font-size:18px; color:#fff; line-height:50px; margin-bottom:20px;}
+.pay_btn a:link{ font-size:18px; color:#fff;}
+.pay_warn{ margin-top:20px; font-size:14px; color:#a33921}
+
+/*==========================选座-订单成功==========================*/
+.order_success{background:url(../images/order_bg.png) repeat-x; width:1024px; height:406px; margin:0 auto;}
+.order_atv_num{ width:470px;  font-size:18px; color:#000; left:270px; top:24px; }
+.order_atv_num span{ padding-left:2px;}
+.order_atv_num strong{ padding-left:20px; font-size:18px; color:#a63f1e; left:262px; top:0px; }
+
+/*==========================订单信息==============================*/
+.order_pay_exchange{background:url(../images/order_pay_bg.png) repeat-x; width:1000px;height:246px; margin:0 auto;padding-left:24px; padding-top:30px;}
+.order_pay_information em{ font-size:14px; color:#44687d; font-style:normal; font-weight:bold; left:350px; top:74px;}
+
+/*==========================选座-在线支付==========================*/
+.order_online_pay_num{background:url(../images/order_bg.png) repeat-x; width:1024px; height:150px; margin:0 auto;}
+.order_online_pay{background:url(../images/order_pay_bg.png) repeat; width:980px;height:666px; margin:0 auto;padding-left:44px; margin-bottom:20px;  }
+.online_pay_tle{ width:926px; height:30px; border-bottom:#62564c solid 1px; font-size:16px; color:#62564c; font-weight:bold; line-height:28px; padding-top:14px;}
+.online_pay_con{ background:url(../images/onlin_pay_bg.png) repeat-x; width:926px; height:307px; margin-top:5px;}
+.online_pay_con ul{ width:948px; overflow:hidden; padding-left:5px;}
+.online_pay_con ul li{ float:left; width:133px; height:30px; padding:10px 0px 0 0; }
+.online_pay_con ul li img{ vertical-align:middle; margin-left:4px; display:inline;}
+.online_pay_con ul li input{ vertical-align: middle; padding-right:2px;}
+.ather_pay{ width:926px; height:144px; padding-top:10px; border-bottom:#62564c dashed 1px; }
+.ather_pay_con{ background: url(../images/ather_bank_bg.png) repeat-x; width:926px; height:54px;}
+.ather_pay_con ul{width:948px; overflow:hidden; padding-left:5px;}
+.ather_pay_con ul li{ float:left; width:136px; height:30px; padding:12px 0px 0 0;}
+.ather_pay_con ul li img{ vertical-align:middle; margin-left:4px; display:inline;}
+.online_pay_btn_outer{ width:926px; height:110px;}
+.online_pay_btn{ background:#44687d; width:268px; height:36px; text-align:center; padding-top:10px; cursor:pointer; left:328px; top:32px; }
+.online_pay_btn input{ background:none;border:0; text-align:center; font-size:18px; color:#fff;line-height:28px;cursor:pointer; }
+
+/*==========================选座-在线选座==========================*/
+.order_mov_time{ background: url(../images/order_select_seat_time_bg.png) repeat-x; width:1024px; height:616px; margin:0 auto; /*padding-left:130px;*/ padding-top:10px; }
+
+.tab_title{ width:800px;}
+.tab_title ol{ height:38px; padding-left:350px;}
+.tab_title ol li{ float:left; width:133px; height:39px; background:url(../images/seat_time_btn3.png) no-repeat; text-align:center; font-size:14px; color:#000;margin:1px -1px 0 0; ;  line-height:40px; font-weight:bold; cursor:pointer}
+.tab_title ol li.active{ background:url(../images/seat_time_btn1.png) no-repeat; width:133px; height:38px; }
+.time_tab_box_inner{ width:1024px; height:572px; }
+.time_tab_box{ width:1024px; height:116px; background:url(../images/seat_time_bg_bottom.png) repeat-x; }
+.time_box{ padding-left:130px; padding-top:1px;  width:892px; height:116px; }
+.time_box ul li{ background:#44687d; margin-top:10px;  width:74px; height:28px;  padding-top:4px;cursor:pointer;}
+.time_box ul li.time_bg1{ background:#d1d2c8;}
+.time_box ul li.time_bg2{ background:#62564c;}
+.time_box p{ width:700px; height:22px; padding-top:2px; line-height:24px; font-size:12px; color:#000; text-align:center;  }
+.time_box p span{ padding-right:20px; }
+
+
+
+.order_mov_time ul{ width:860px; height:94px; overflow:hidden;}
+.order_mov_time ul li{ float:left; margin-right:68px; font-size:16px; color:#FFF; text-align:center;}
+.order_sel_seat{ background:url(../images/sel_seat_bg.png) repeat-x; width:868px; height:448px; margin:0 auto; padding-left:156px;}
+
+.seating_area_type{ width:654px; height:100px; padding-left:46px; padding-top:10px; overflow:hidden; }
+.seating_area_type ul{ width:756px; height:20px; padding-top:10px; padding-bottom:10px; }
+.seating_area_type ul li{ width:120px; height:26px; margin-right:56px; float:left; font-size:16px; color:#000;  }
+.can_seat{ background:url(../images/sel_seat.png) no-repeat; background-position:0 1px; width:30px; height:26px; padding:4px 16px 4px 16px; }
+.lovers_seat{ background:url(../images/sel_seat.png) no-repeat; background-position:0 -90px; width:52px; height:26px; padding:4px 27px 4px 27px; }
+.selected_seat{ background:url(../images/sel_seat.png) no-repeat; background-position:0 -29px; width:30px; height:26px; padding:4px 16px 4px 16px; }
+.no_seat{ background:url(../images/sel_seat.png) no-repeat; background-position:0 -59px; width:30px; height:26px; padding:4px 16px 4px 16px; }
+.seating_area_type p{ background:url(../images/screen.png) no-repeat; width:655px; height:29px;}
+.seat_num{ width:656px; height:38px; font-size:14px; color:#62564c; font-weight:bold; text-align:center; }
+.seating_area{ width:694px; height:auto; padding-left:6px;}
+.seating_area_num{ height:auto;  font-size:16px; color:#fffefe; text-align:center;}
+.seating_area_num ol{ width:29px;background:#62564c;}
+.seating_area_num li{ width:29px; height:24px; margin-top:11px; padding-bottom:3px; }
+.sel_seating_area{padding-left:17px;padding-top:10px; width:648px;}
+.sel_seating_area ul{ width:648px; height:auto; }
+.sel_seating_area ul li{float:left; display:inline; margin:0 4px 14px; width:28px; height:24px; cursor:pointer;}
+.sel_seating_area ul li.bg01{background:url(../images/sel_seat.png) no-repeat 0px 1px;}
+.sel_seating_area ul li.bg02{background:url(../images/sel_seat.png) no-repeat 0px -31px;}
+.sel_seating_area ul li.bg03{background:url(../images/sel_seat.png) no-repeat 0px -61px;}
+
+.sel_seating_area table{ width:648px;}
+.sel_seating_area table tr td{ height:37px; line-height:37px; text-align:center; }
+.sel_seating_area table tr td img{ cursor:pointer; }
+
+.seat_message { width:1024px; margin:0 auto; padding-top:15px; text-align:center; }
+.selected_seat_num{ font-size:20px; color:#000; text-align:left; padding-left:280px;}
+.selected_seat_num em{ font-style:normal; font-size:18px; color:#000; padding:0 8px;}
+.selected_seat_num span{ font-size:18px; color:#000; padding:0 8px;}
+.selected_seat_warn{ font-size:14px; color:#a33921; padding-top:20px;}
+.seating_submit_btn{ width:810px; text-align:left; padding-left:250px; padding-top:25px;}
+.seating_submit_btn p{padding-bottom:27px; width:574px; height:47px; line-height:47px; font-size:20px; color:#62564c ;}
+.seating_submit_btn p.submit-btn{padding-top:24px; padding-bottom:0; text-align:center;}
+.seating_submit_btn p.submit-btn input{width:268px; background:#44687d; border:none; font-size:18px;color:#FFF;}
+.seating_submit_btn input{padding-left:10px; background:none; border:0; width:334px; height:45px; line-height:45px; border:1px solid #62564c; vertical-align:middle;}
+.seating_submit_btn a{display:inline-block; margin-left:18px; width:89px; height:36px; line-height:36px; text-align:center; font-size:14px; font-weight:bold; color:#62564c;background:url(../images/seating_submit_btn_a.png) no-repeat;  vertical-align:middle;}
+.last-writing{padding-left:46px; height:48px; font-size:14px; line-height:48px; color:#a33921;}
+
+
+

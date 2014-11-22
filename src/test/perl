@@ -1,0 +1,35 @@
+server
+{
+listen 80;
+server_name mon.freebsdsystem.org;
+root /usr/local/nagios/share;
+index index.php;
+location ~ .*\.(php|php5)?$
+{
+#root /usr/local/nagios/share;
+fastcgi_pass unix:/tmp/php-cgi.sock;
+fastcgi_index index.php;
+fastcgi_param SCRIPT_FILENAME /scripts$fastcgi_script_name;
+fastcgi_param HTTP_ACCEPT_LANGUAGE zh-cn;
+include fcgi.conf;
+auth_basic "Nagios Login pain";
+auth_basic_user_file /usr/local/webserver/nginx/conf/htpasswd;
+}
+location ~ .*\.cgi$ {
+root /usr/local/nagios/sbin;
+rewrite ^/nagios/cgi-bin/(.*)\.cgi /$1.cgi break;
+fastcgi_pass unix:/var/run/nginx-fcgi.sock;
+fastcgi_index index.cgi;
+fastcgi_param SCRIPT_FILENAME /usr/local/nagios/sbin/$fastcgi_script_name;
+fastcgi_param HTTP_ACCEPT_LANGUAGE zh-cn;
+include fcgi.conf;
+auth_basic "Nagios Login pain";
+auth_basic_user_file /usr/local/webserver/nginx/conf/htpasswd;
+}
+location /nagios {
+alias /usr/local/nagios/share/;
+#index index.html index.htm index.php;
+#auth_basic "Nagios Login pain";
+#auth_basic_user_file /usr/local/webserver/nginx/conf/htpasswd;
+}
+

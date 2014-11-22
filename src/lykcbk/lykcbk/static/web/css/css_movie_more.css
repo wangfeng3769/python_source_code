@@ -1,0 +1,45 @@
+@charset "utf-8";
+body,textarea,input,select,option{font-size:12px;color:#333;font-family:微软雅黑,Tahoma,Arial,sans-serif;}
+body,h1,h2,h3,h4,h5,h6,p,dl,dd,ul,ol,textarea,input,select,option,form{margin:0;padding:0;}
+th,td,ul,ol,textarea,input,select,option{padding:0}
+textarea{overflow:auto;resize:none}
+table{border-collapse:collapse}
+li{list-style:none}
+a img{border:none}
+a{ text-decoration: none;}
+a:hover{color:#ff5050;text-decoration:none;}
+.fl{float:left}
+.fr{float:right}
+.clears{zoom:1;}
+.clears:after{content:"";display:block;height:0;clear:both;visibility:hidden;}
+.img img{display:block}
+
+html{height:100%;}
+.pa{position:absolute;}
+.pr{position:relative;}
+
+
+
+#hot_movie_Box{border:#333333 solid 1px; width:860px; height:950px; background:#f0ede9; margin:0 auto; padding:10px 20px 10px 20px;}
+.hot_movie_title{ width:860px; height:78px; border-bottom:#6e6259 solid 1px;}
+.hot_movie_pic{ width:300px; height:68px; }
+.hot_movie_text{ width:556px; height:42px; padding-top:26px;  font-size:14px; color:#6e6259; font-weight:bold;}
+.hot_movie_text span{padding:0 6px; font-size:18px; color:#61842e;}
+.hot_movie_text em{ padding:0 6px; font-size:24px; color:#a63f1e; font-style:normal;}
+
+.hot_movie_delete{ left:860px; top:2px; background:url(../images/icon.png) no-repeat; background-position:-1px -184px; width:16px; height:16px;}
+
+.hot_movie_content{ height:870px;}
+.hot_movie_tab_title{ width:570px; height:60px; padding-left:300px; padding-top:20px;  text-align:center;}
+.hot_movie_tab_title ul{}
+.hot_movie_tab_title ul li{ float:left; height:30px; width:136px; padding-top:10px; border:#756960 solid 1px; font-size:14px; color:#6e6259;}
+.hot_movie_tab_title ul li.active{ float:left; height:30px; width:136px;padding-top:10px; color:#fff; font-size:14px; /*font-weight:bold;*/ background:#44687e;}
+
+.hot_movie_tab_box{ width:860px; height:780px; padding-top:10px; border:#FFF solid 1px; overflow:hidden;}
+.hot_movie_tab_box ul{ width:1080px; height:790px; overflow:hidden;}
+.hot_movie_tab_box ul li{ float:left; width:168px; height:254px; margin-right:60px;}
+.hot_movie_tab_box ul li p{ text-align:center; font-size:16px;}
+
+
+
+

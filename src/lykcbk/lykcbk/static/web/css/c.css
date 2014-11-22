@@ -1,0 +1,47 @@
+@charset "utf-8";
+body,textarea,input,select,option{font-size:12px;color:#333;font-family:微软雅黑,Tahoma,Arial,sans-serif;}
+body,h1,h2,h3,h4,h5,h6,p,dl,dd,ul,ol,textarea,input,select,option,form{margin:0;padding:0;}
+th,td,ul,ol,textarea,input,select,option{padding:0}
+textarea{overflow:auto;resize:none}
+table{border-collapse:collapse}
+li{list-style:none}
+a img{border:none}
+a{ text-decoration: none;}
+a:hover{color:#ff5050;text-decoration:none;}
+.fl{float:left}
+.fr{float:right}
+.clears{zoom:1;}
+.clears:after{content:"";display:block;height:0;clear:both;visibility:hidden;}
+.img img{display:block}
+body{ background:url(../img/body_bg.gif) repeat; /*height:100%;*/width:100%;}
+html{height:100%;}
+.pa{position:absolute;}
+.pr{position:relative;}
+
+/*主体样式*/
+#wrap{ width:100%; margin:0 auto; }
+
+.bar{ width:100%; height:20px; background:#000;}
+.bar p{ text-align:center; font-size:12px; color:#cacaca;}
+.header{ width:100%; height:44px; margin:0 auto; background:url(../img/BG.png) repeat-x;}
+
+.main{ margin:0 auto; width:100%; /*height:300px;*/ padding-top:16px;}
+.icon{ height:110px; padding-left:10px; padding-right:10px; width:80px;}
+.icon li{font-size:8px; padding-left: 5px;}
+
+.content{ height:150px;}
+
+.title{ color:#000; font-size:18px; text-align:center; padding-bottom:12px;font-weight: bold;}
+.title2{ color:#000; font-size:13px; font-weight: bold;}
+.main ul { padding-top:7px; padding-bottom:10px;padding-right: 10px;padding-left: 100px;}
+.main ul li{ font-size:12px; color:#4c4c4c;line-height: 13px;padding-bottom: 7px;}
+.pic{ width:100%; margin:0 auto;text-align: center;}
+.loading_title{ text-align:center; margin:0 auto;}
+
+.footer{ width:100%; height:46px; margin:0 auto; text-align:center; padding-top: 10px;}
+.btn{ margin:0 auto; width:268px;text-align: center;font-size:12px; color:#fff; font-weight:bold; text-align:center; line-height:42px; }
+.btn a{color:#fff;}
+.btn a:visited{color:#fff;}
+.bottom_logo{ width:100%; height:40px; padding-top:20px; text-align:center;}
+.iphone{ width:123px; height:44px; background:#228088; margin:0 auto; margin-right:10px; cursor: pointer;}
+.android{ width:123px; height:44px; background:#678b34; margin:0 auto; cursor: pointer;}

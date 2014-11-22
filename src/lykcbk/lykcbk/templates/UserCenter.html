@@ -1,0 +1,432 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="keywords" content="乐影客" />
+<meta http-equiv="description" content="乐影客" />
+<title>乐影客</title>
+<link href="/static/web/css/css.css" rel="stylesheet" type="text/css" />
+<link href="/static/web/css/css_user_center_atv.css" rel="stylesheet" type="text/css" />
+<!--[if IE 6]>
+<script src="/static/web/js/DD_belatedPNG_0.0.8a.js"></script>
+<script>DD_belatedPNG.fix('*'); </script>
+<![endif]-->
+</head>
+
+<body>
+<!--<iframe src="header.html" border="0" vspace="0" hspace="0" marginwidth="0" marginheight="0" framespacing="0" frameborder="0" scrolling="no" height="82" width="100%" heigh="110"  ></iframe>-->
+{% include 'header.html' %}
+<div id="user_center">
+    <div id="left_title" class="left_title pr fl">
+        <div class="bar pa">&nbsp;</div>
+        <ul>
+            <li class="user_center_left1"></li>
+            <!--<li class="user_center_left2"></li>-->
+            <li class="user_center_left3"></li>
+            <li class="user_center_left4"></li>
+            <li class="user_center_left5"></li>
+        </ul>
+    </div>
+    
+    <div id="right_box_outer" class="right_box_outer fl">
+    	<div class="right_box" style="display:block; height:714px;" >
+        	{% if clientuserJson %}
+            <div id="user_center_info">
+                <div class="user_center_personal_message_div">
+                    <div class="user_center_personal_message_title">
+                        <div class="user_title fl">欢迎<span>{{ clientuserJson.nickname }}</span></div><div class="user_title_bg fl"><img src="/static/web/images/user_title_bg.png" /></div>
+                    </div>
+                </div>
+                <div class="user_center_right_content pr">
+                    <div class="header_pic_box fl">
+                        {% if clientuserJson.portrait_imgurl %}
+                        <div class="header_pic"><img src="{{clientuserJson.portrait_imgurl}}" width="175" height="175" alt="" title="" /></div>
+                        {% else %}
+                        <div class="header_pic"><img src="/static/web/images/user_header_bg.jpg" width="175" height="175" alt="" title="" /></div>
+                        {% endif %}
+                        <p class="name_p">{{ clientuserJson.nickname }}</p>
+                    </div>
+                    <div class="personal_message fl">
+                        <p>昵称：{{ clientuserJson.nickname }}</p>
+                        <p>手机：{{ clientuserJson.phonenumber }}</p>
+                        <!--<p>积分：721</p>-->
+                        <!--<p>绑定：&nbsp;&nbsp;<img src="/static/web/images/personal_message_logo.png" width="86" height="39" alt="" title="" align="absmiddle" /></p>-->
+                    </div>
+                    <span id="modify_personal_message" class="modify_personal_message pa">修改个人信息</span>
+                </div>
+            </div>
+            <div id="modify_message" class="modify_message" style="display:none">
+                <form action="/lykweb/user/update" method="post" enctype="multipart/form-data">
+                    <div class="upload_header_outer">
+                        {% if clientuserJson.portrait_imgurl %}
+                        <div class="upload_header fl">
+                            <img src="{{clientuserJson.portrait_imgurl}}" width="175" height="175" />
+                        </div>
+                        {% else %}
+                        <div class="upload_header fl">
+                            <img src="/static/web/images/user_header_bg.jpg" width="175" height="175" />
+                        </div>
+                        {% endif %}
+                        <div class="upload_header_input fl pr"><input class="pa" type="file" name="portrait"/></div>
+                    </div>
+                    <div class="modify_content">
+                        <div class="modify_nama">
+                            <p class="fl"><label>昵称</label></p><p class="input_border fl"><input type="text" name="username" value="{{ clientuserJson.nickname }}"  /></p>
+                        </div>
+                    </div>
+                    <div class="modify_tel">
+                        <span>手机号</span>
+                        {% if clientuserJson.phonenumber %}
+                        <input id="tel_btn_bg" class="tel_btn_bg" style="background: url('/static/web/images/cbind_btn.png') no-repeat" type="button" value=""  />
+                        {% else %}
+                        <input id="tel_btn_bg" class="tel_btn_bg" type="button" value=""  />
+                        {% endif %}
+                    </div>
+                    <div id="modify_content_hidden" class="modify_content_hidden">
+                        <div class="modify_tel_num">
+                            {% if clientuserJson.phonenumber %}
+                            <p class="input_border fl"><input id="phonenum" type="text" name="phonenum" value="{{clientuserJson.phonenumber}}"  /></p>
+                            {% else %}
+                            <p class="input_border fl"><input id="phonenum" type="text" name="phonenum" value="输入手机号"  /></p>
+                            {% endif %}
+                            <p id="submit_tel_code_btn" class="submit_tel_code_btn fl"></p>
+                        </div>
+                        <div class="submit_code">
+                            <p class="code_name fl">验证码</p>
+                            <p class="input_border fl"><input id="code" type="text" name="code" value=""  /></p>
+                            <p id="bind_btn" class="bind_btn fl"></p>
+                        </div>
+                    </div>
+                    <div class="modify_submit_btn">
+                        <input id="save_btn" class="save_btn" type="submit" value="" /><input id="cancel_btn" class="cancel_btn" type="reset" value="" />
+                    </div>
+                </form>
+            </div>
+            {% endif %}
+        </div>
+        
+    	<div class="right_box" style="display:none; padding-left:0;">
+        	<div class="user_center_right_title">
+            	<p class="fl">已参加<span>{{activitycount}}</span>场次活动，加油哦！</p>
+                <!--<div class="user_center_search fl">-->
+                	<!--<input class="fl" type="text" value="快速搜索" />-->
+                    <!--<span class="user_center_search_btn fl"></span>-->
+                <!--</div>-->
+            </div>
+        	<div class="user_center_right_content">
+            	<ul style=" padding-left:32px;">
+                    {% if useractivitylist %}
+                    {% for activity in useractivitylist %}
+                    <li class="user_center_content_li">
+                        {% if activity.image_url %}
+                        <div class="user_center_right_content_pic fl">
+                            <img src="{{activity.image_url}}" width="122" height="154" alt="" title="" />
+                        </div>
+                        {% endif %}
+                        <div class="user_center_right_content_text pr fl">
+                            <p class="text_p1 pr">
+                                <strong>{{activity.title}}</strong>
+                                <span>{{activity.status}}</span>
+                                {% if activity.qrcode %}
+                                <em class="pa"></em>
+                                {% endif %}
+                            </p>
+                            <p class="text_p2">{{activity.introduction}}</p>
+                            <span class="user_center_time pa">{{activity.starttime}}-{{activity.endtime}}</span>
+                            {% if activity.qrcode %}
+                            <div class="user_center_code pa" style="display:block;">
+                                <p class="code_p">兑换码：<span>2398274382799978374</span></p>
+                                <p>二维码：<span><img src="/static/web/images/user_center_code.jpg" width="65" height="65" align="middle" alt="" title="" /></span></p>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </li>
+                    {% endfor %}
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+        
+        <!--<div class="right_box" style="display:none;">
+
+        	<div class="user_center_right_content">
+            	<ul>
+                    <li>
+                    	<div class="user_center_booking">
+                        	<p class="pr">订单号：<strong>20121101185323</strong><span>下单时间：2012年11月1日  19:43:20</span><samp class="cancel_btn pa">取消</samp><samp class="pay_btn pa">付款</samp></p>
+                        </div>
+                        <div class="user_center_booking_message pr">
+                        	<div class="my_movie_life_pic fl"><img src="/static/web/images/user_center_booking_img1.jpg" width="76" height="98" alt="" title="" /></div>
+                            <div class="my_movie_life_pic_title fl">
+                            	<p class="my_movie_life_pic_title_p1">《飓风营救2》</p>
+                                <p class="my_movie_life_pic_title_p2">语言：英语</p>
+                                <p class="my_movie_life_pic_title_p2">片长：93分钟</p>
+                            </div>
+                            <div class="my_movie_life_text fl">
+                                <p class="my_movie_life_text_p1"><span>金逸国际影城 （中关村店）</span><em>详细地址</em></p>
+                                <p class="my_movie_life_text_p2"><em>12:45</em></p>
+                                <p class="my_movie_life_text_p3"><span>2012年10月8日</span></p>
+                                <p class="my_movie_life_text_p4">3号厅  4排5座  6排6座  6排7座  6排8座</p>
+                                <p class="my_movie_life_money pa">票价：<span>&yen;35</span></p>
+                                <p class="my_movie_life_num pa">数量：<span>4</span></p>
+                                <p class="my_movie_life_total pa">总价：<span>&yen;140</span></p>
+                                <span class="pay_icon pa"></span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                    	<div class="user_center_booking">
+                        	<p class="pr">订单号：<strong>20121101185323</strong><span>下单时间：2012年11月1日  19:43:20</span><samp class="cancel_btn pa">取消</samp><samp class="pay_btn pa">付款</samp></p>
+                        </div>
+                        <div class="user_center_booking_message pr">
+                        	<div class="my_movie_life_pic fl"><img src="/static/web/images/user_center_booking_img1.jpg" width="76" height="98" alt="" title="" /></div>
+                            <div class="my_movie_life_pic_title fl">
+                            	<p class="my_movie_life_pic_title_p1">《飓风营救2》</p>
+                                <p class="my_movie_life_pic_title_p2">语言：英语</p>
+                                <p class="my_movie_life_pic_title_p2">片长：93分钟</p>
+                            </div>
+                            <div class="my_movie_life_text fl">
+                                <p class="my_movie_life_text_p1"><span>金逸国际影城 （中关村店）</span><em>详细地址</em></p>
+                                <p class="my_movie_life_text_p2"><em>12:45</em></p>
+                                <p class="my_movie_life_text_p3"><span>2012年10月8日</span></p>
+                                <p class="my_movie_life_text_p4">3号厅  4排5座  6排6座  6排7座  6排8座</p>
+                                <p class="my_movie_life_money pa">票价：<span>&yen;35</span></p>
+                                <p class="my_movie_life_num pa">数量：<span>4</span></p>
+                                <p class="my_movie_life_total pa">总价：<span>&yen;140</span></p>
+                                <span class="pay_icon pa"></span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                    	<div class="user_center_booking">
+                        	<p class="pr">订单号：<strong>20121101185323</strong><span>下单时间：2012年11月1日  19:43:20</span><samp class="cancel_btn pa">取消</samp><samp class="pay_btn pa">付款</samp></p>
+                        </div>
+                        <div class="user_center_booking_message pr">
+                        	<div class="my_movie_life_pic fl"><img src="/static/web/images/user_center_booking_img1.jpg" width="76" height="98" alt="" title="" /></div>
+                            <div class="my_movie_life_pic_title fl">
+                            	<p class="my_movie_life_pic_title_p1">《飓风营救2》</p>
+                                <p class="my_movie_life_pic_title_p2">语言：英语</p>
+                                <p class="my_movie_life_pic_title_p2">片长：93分钟</p>
+                            </div>
+                            <div class="my_movie_life_text fl">
+                                <p class="my_movie_life_text_p1"><span>金逸国际影城 （中关村店）</span><em>详细地址</em></p>
+                                <p class="my_movie_life_text_p2"><em>12:45</em></p>
+                                <p class="my_movie_life_text_p3"><span>2012年10月8日</span></p>
+                                <p class="my_movie_life_text_p4">3号厅  4排5座  6排6座  6排7座  6排8座</p>
+                                <p class="my_movie_life_money pa">票价：<span>&yen;35</span></p>
+                                <p class="my_movie_life_num pa">数量：<span>4</span></p>
+                                <p class="my_movie_life_total pa">总价：<span>&yen;140</span></p>
+                                <span class="pay_icon pa"></span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                    	<div class="user_center_booking">
+                        	<p class="pr">订单号：<strong>20121101185323</strong><span>下单时间：2012年11月1日  19:43:20</span><samp class="cancel_btn pa">取消</samp><samp class="pay_btn pa">付款</samp></p>
+                        </div>
+                        <div class="user_center_booking_message pr">
+                        	<div class="my_movie_life_pic fl"><img src="/static/web/images/user_center_booking_img1.jpg" width="76" height="98" alt="" title="" /></div>
+                            <div class="my_movie_life_pic_title fl">
+                            	<p class="my_movie_life_pic_title_p1">《飓风营救2》</p>
+                                <p class="my_movie_life_pic_title_p2">语言：英语</p>
+                                <p class="my_movie_life_pic_title_p2">片长：93分钟</p>
+                            </div>
+                            <div class="my_movie_life_text fl">
+                                <p class="my_movie_life_text_p1"><span>金逸国际影城 （中关村店）</span><em>详细地址</em></p>
+                                <p class="my_movie_life_text_p2"><em>12:45</em></p>
+                                <p class="my_movie_life_text_p3"><span>2012年10月8日</span></p>
+                                <p class="my_movie_life_text_p4">3号厅  4排5座  6排6座  6排7座  6排8座</p>
+                                <p class="my_movie_life_money pa">票价：<span>&yen;35</span></p>
+                                <p class="my_movie_life_num pa">数量：<span>4</span></p>
+                                <p class="my_movie_life_total pa">总价：<span>&yen;140</span></p>
+                                <span class="pay_icon pa"></span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>-->
+        
+        <div class="right_box" style="display:none; padding-left:0; height:800px;">
+        	<div class="user_center_right_title">
+            	<p class="fl">已有<span>{{favorcinemacount}}</span>家喜欢的影院</p>
+                <!--<div class="user_center_search fl">-->
+                	<!--<input class="fl" type="text" value="快速搜索" />-->
+                    <!--<span class="user_center_search_btn fl"></span>-->
+                <!--</div>-->
+            </div>
+        	<div class="user_center_cinema_right_content">
+            	<ul id="love_cinemas" style="padding-left:28px;">
+                    {% if favorcinemalist %}
+                    {% for cinema in favorcinemalist %}
+                    <li>
+                        <div class="user_center_cinema_pic fl">
+                            {% if cinema.image_url %}
+                            <a href="/lykweb/cinema/info/{{cinema.id}}"><img src="{{cinema.image_url}}" width="149" height="112" alt="" title="" /></a>
+                            {% endif %}
+                        </div>
+                        <div class="user_center_cinema_text pr fl pr">
+                            <p class="love_cinema_p"><a href="/lykweb/cinema/info/{{cinema.id}}">{{cinema.name}}</a></p>
+                            <p class="love_cinema_address_p"><span>地址：{{cinema.address}}</span><em class="movie_list_addr"><img src="/static/web/images/map_icon.gif" width="24" height="24" /></em></p>
+                            <p class="love_cinema_tel_p">电话：{{cinema.tel}}</p>
+                            <div class="love_icon pa">
+                                <input class="like_btn" type="button" value="" />&nbsp;
+                                <input class="dislike_btn" type="button" value="" />
+                            </div>
+                            <input class="Love" type="hidden" value="1"/>
+                            <input class="cinema_id" type="hidden" value="{{cinema.id}}" />
+                            <input class="cinema_list_lon" type="hidden" value="{{cinema.longitude_baidu}}"/>
+                            <input class="cinema_list_lat" type="hidden" value="{{cinema.latitude_baidu}}"/>
+                            <input class="cinema_list_name" type="hidden" value="{{cinema.name}}"/>
+                            <input class="cinema_list_tel" type="hidden" value="{{cinema.telephone}}"/>
+                            <input class="cinema_list_addr" type="hidden" value="{{cinema.address}}"/>
+                            <input class="cinema_list_logo" type="hidden" value="{{cinema.image_url}}"/>
+                        </div>
+                    </li>
+                    {% endfor %}
+                    {% endif %}
+                </ul>
+            </div>
+            <div id="pageLove" class="page" style=" padding-bottom:0; border:0;"></div>
+        </div>
+        
+        <div id="right_box_MyMovieLife" class="right_box" style="display:none; height:auto; overflow: auto; min-height: 718px;">
+        	{% if usermovielife %}
+            <div class="user_center_MyMovieLife_right_content">
+                {% if usermovielife.list1 %}
+                <ul>
+                {% for object in usermovielife.list1 %}
+                    {% if object.fallstype == 'activity' %}
+                    <li>
+                        <div class="MyMovieLife_time">{{object.updatetime}}</div>
+                        <p class="MyMovieLife_title"><a href="/lykweb/activity/info/{{object.id}}">{{object.title}}</a></p>
+                        {% if object.image_url %}
+                        <div class="MyMovieLife_pic">
+                            <a href="/lykweb/activity/info/{{object.id}}"><img src="{{object.image_url}}" width="180" height="236" alt="" title="" /></a>
+                        </div>
+                        {% endif %}
+                        <p class="MyMovieLife_text">{{object.introduction}}</p>
+                    </li>
+                    {% else %}
+                    <li>
+                        <div class="MyMovieLife_time">{{object.updatetime}}</div>
+                        <p class="MyMovieLife_title"><a href="/lykweb/cinema/info/{{object.id}}">{{object.name}}</a></p>
+                        {% if object.image_url %}
+                        <div class="MyMovieLife_CinemaLogo">
+                            <a href="/lykweb/cinema/info/{{object.id}}"><img src="{{object.image_url}}" alt="" title="" /></a>
+                        </div>
+                        {% endif %}
+                        <p class="MyMovieLife_text_add">地址：{{object.address}}</p>
+                        <p class="MyMovieLife_text_tel">电话：{{object.tel}}</p>
+                    </li>
+                    {% endif %}
+                {% endfor %}
+                </ul>
+                {% endif %}
+                {% if usermovielife.list2 %}
+                <ul>
+                    {% for object in usermovielife.list2 %}
+                    {% if object.fallstype == 'activity' %}
+                    <li>
+                        <div class="MyMovieLife_time">{{object.updatetime}}</div>
+                        <p class="MyMovieLife_title"><a href="/lykweb/activity/info/{{object.id}}">{{object.title}}</a></p>
+                        {% if object.image_url %}
+                        <div class="MyMovieLife_pic">
+                            <a href="/lykweb/activity/info/{{object.id}}"><img src="{{object.image_url}}" width="180" height="236" alt="" title="" /></a>
+                        </div>
+                        {% endif %}
+                        <p class="MyMovieLife_text">{{object.introduction}}</p>
+                    </li>
+                    {% else %}
+                    <li>
+                        <div class="MyMovieLife_time">{{object.updatetime}}</div>
+                        <p class="MyMovieLife_title"><a href="/lykweb/cinema/info/{{object.id}}">{{object.name}}</a></p>
+                        {% if object.image_url %}
+                        <div class="MyMovieLife_CinemaLogo">
+                            <a href="/lykweb/cinema/info/{{object.id}}"><img src="{{object.image_url}}" alt="" title="" /></a>
+                        </div>
+                        {% endif %}
+                        <p class="MyMovieLife_text_add">地址：{{object.address}}</p>
+                        <p class="MyMovieLife_text_tel">电话：{{object.tel}}</p>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                {% if usermovielife.list3 %}
+                <ul>
+                    {% for object in usermovielife.list3 %}
+                    {% if object.fallstype == 'activity' %}
+                    <li>
+                        <div class="MyMovieLife_time">{{object.updatetime}}</div>
+                        <p class="MyMovieLife_title"><a href="/lykweb/activity/info/{{object.id}}">{{object.title}}</a></p>
+                        {% if object.image_url %}
+                        <div class="MyMovieLife_pic">
+                            <a href="/lykweb/activity/info/{{object.id}}"><img src="{{object.image_url}}" width="180" height="236" alt="" title="" /></a>
+                        </div>
+                        {% endif %}
+                        <p class="MyMovieLife_text">{{object.introduction}}</p>
+                    </li>
+                    {% else %}
+                    <li>
+                        <div class="MyMovieLife_time">{{object.updatetime}}</div>
+                        <p class="MyMovieLife_title"><a href="/lykweb/cinema/info/{{object.id}}">{{object.name}}</a></p>
+                        {% if object.image_url %}
+                        <div class="MyMovieLife_CinemaLogo">
+                            <a href="/lykweb/cinema/info/{{object.id}}"><img src="{{object.image_url}}" alt="" title="" /></a>
+                        </div>
+                        {% endif %}
+                        <p class="MyMovieLife_text_add">地址：{{object.address}}</p>
+                        <p class="MyMovieLife_text_tel">电话：{{object.tel}}</p>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                {% if usermovielife.list4 %}
+                <ul>
+                    {% for object in usermovielife.list4 %}
+                    {% if object.fallstype == 'activity' %}
+                    <li>
+                        <div class="MyMovieLife_time">{{object.updatetime}}</div>
+                        <p class="MyMovieLife_title"><a href="/lykweb/activity/info/{{object.id}}">{{object.title}}</a></p>
+                        {% if object.image_url %}
+                        <div class="MyMovieLife_pic">
+                            <a href="/lykweb/activity/info/{{object.id}}"><img src="{{object.image_url}}" width="180" height="236" alt="" title="" /></a>
+                        </div>
+                        {% endif %}
+                        <p class="MyMovieLife_text">{{object.introduction}}</p>
+                    </li>
+                    {% else %}
+                    <li>
+                        <div class="MyMovieLife_time">{{object.updatetime}}</div>
+                        <p class="MyMovieLife_title"><a href="/lykweb/cinema/info/{{object.id}}">{{object.name}}</a></p>
+                        {% if object.image_url %}
+                        <div class="MyMovieLife_CinemaLogo">
+                            <a href="/lykweb/cinema/info/{{object.id}}"><img src="{{object.image_url}}" alt="" title="" /></a>
+                        </div>
+                        {% endif %}
+                        <p class="MyMovieLife_text_add">地址：{{object.address}}</p>
+                        <p class="MyMovieLife_text_tel">电话：{{object.tel}}</p>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<!--<iframe src="/static/web/footer.html" border="0" vspace="0" hspace="0" marginwidth="0" marginheight="0" framespacing="0" frameborder="0" scrolling="no" width="100%" height="160" ></iframe>-->
+{% include 'footer.html' %}
+
+<script src="/static/web/js/base.js" type="text/javascript"></script>
+<script src="/static/web/js/user_center.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.3"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- $Id: brand_list.htm 15898 2009-05-04 07:25:41Z liuhui $ -->
+{if $full_page}
+{include file="pageheader.htm"}
+{insert_scripts files="../js/utils.js,listtable.js"}
+<!-- 品牌搜索 -->
+{include file="brand_search.htm"}
+<form method="post" action="" name="listForm">
+<!-- start brand list -->
+<div class="list-div" id="listDiv">
+{/if}
+  <table cellpadding="3" cellspacing="1">
+    <tr>
+      <th>ID</th>
+      <th>登录名</th>
+      <th>提交时间</th>
+      <th>状态</th>
+      <th>{$lang.handler}</th>
+    </tr>
+    {foreach from=$brand_list item=brand}
+    <tr>
+      <td align="center">{$brand.uid}</td>
+      <td align="center">{$brand.phone}</td>
+      <td align="center">{$brand.fm_time}</td>
+      <td align="center">{if $brand.is_processed==0}待审核{elseif $brand.is_processed==1}已处理{/if}|
+                          {if $brand.approve_stat==7 || $brand.approve_stat==3}审核通过{else}审核不通过{/if}</td>
+      <td align="center">
+        {if $brand.is_processed==0}
+          <a href="identity_approve.php?act=approve&id={$brand.id}" title="待审核">待审核</a> | 
+        {elseif $brand.is_processed==1 } 
+          <a title="已审核">已审核</a> |
+        {/if}
+        <a href="identity_approve.php?act=log&uid={$brand.uid}" title="记录">过往记录</a> 
+      </td>
+    </tr>
+    {foreachelse}
+    <tr><td class="no-records" colspan="10">{$lang.no_records}</td></tr>
+    {/foreach}
+    <tr>
+      <td align="right" nowrap="true" colspan="6">
+      {include file="page.htm"}
+      </td>
+    </tr>
+  </table>
+
+{if $full_page}
+<!-- end brand list -->
+</div>
+</form>
+
+<script type="text/javascript" language="javascript">
+  <!--
+  listTable.recordCount = {$record_count};
+  listTable.pageCount = {$page_count};
+
+  {foreach from=$filter item=item key=key}
+  listTable.filter.{$key} = '{$item}';
+  {/foreach}
+
+  {literal}
+  onload = function()
+  {
+      // 开始检查订单
+      startCheckOrder();
+  }
+  {/literal}
+  //-->
+</script>
+{include file="pagefooter.htm"}
+{/if}

@@ -1,0 +1,67 @@
+<!-- $Id: brand_info.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+{include file="pageheader.htm"}
+<script type="text/JavaScript" src="../js/formcheck.js"></script>
+
+<div class="main-div">
+<form method="post" action="" name="theForm" enctype="multipart/form-data" onSubmit="return Validator.Validate(this,2)">
+<table cellspacing="1" cellpadding="3" width="100%">
+  <tr>
+    <td class="label">站点</td>
+    <td><select name="station_id"  dataType="Require" msg="未选择站点">
+			<option value="">为选择站点</option>
+			{foreach from=$station item='s'}
+			<option value="{$s.id}" {if $brand.station_id eq $s.id}selected{/if}>{$s.name}</option>
+			{/foreach}
+		</select></td>
+  </tr>
+  <tr>
+    <td class="label">会员组</td>
+    <td><select name="group_id" dataType="Require" msg="所有">
+      <option value="-1" >所有</option>
+			{foreach from=$group item='s'}
+			<option value="{$s.user_group_id}" {if $brand.group_id eq $s.user_group_id}selected{/if}>{$s.title}</option>
+			{/foreach}
+		</select></td>
+  </tr>
+  <tr>
+    <td class="label">会员类别</td>
+    <td>
+        <input type="radio" name="user_type_id" value="-1" {if $brand.user_type_id eq -1} checked {/if} />所有
+        <input type="radio" name="user_type_id" value="1" {if $brand.user_type_id eq 1} checked {/if} />学生
+        <input type="radio" name="user_type_id"  dataType="Group" msg="必须选定一个" value="0" {if $brand.user_type_id eq 0} checked {/if} />个人
+    </td>
+  </tr>
+  <tr>
+    <td class="label">使用押金</td>
+    <td><input   name="deposit"  dataType="Range" min="0" max="1000"  msg="数值在{0,1000}之间" value="{$brand.deposit}">%</td>
+	
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><br />
+      <input type="submit" class="button" value="{$lang.button_submit}" />
+      <input type="reset" class="button" value="{$lang.button_reset}" />
+      <input type="hidden" name="act" value="{$form_action}" />
+      <input type="hidden" name="id" value="{$brand.id}" />
+    </td>
+  </tr>
+</table>
+</form>
+</div>
+{insert_scripts files="../js/utils.js"}
+{literal}
+<script language="JavaScript">
+<!--
+
+onload = function()
+{
+    // 开始检查订单
+    startCheckOrder();
+}
+/**
+ * 检查表单输入的数据
+ */
+
+//-->
+</script>
+{/literal}
+{include file="pagefooter.htm"}

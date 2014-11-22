@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+/*========================客户端下载===============================*/
+.software_loading{ width:928px; height:660px; margin:0 auto; padding:0 48px; }
+.software_loading_left{ width:348px;}
+.software_loading_left_title{ width:348px; height:170px; font-size:64px}
+.software_loading_left ul{ width:348px; height:200px; padding-top:16px;}
+.software_loading_left ul li{ width:318px; height:38px; padding-left:30px; font-size:20px; color:#7f7e7e; position:relative}
+.software_loading_left ul li em{ background:url(../images/list_icon.png) no-repeat; background-position:-1px -140px; position:absolute; left:2px; top:10px; width:8px; height:8px; padding:0 4px;}
+
+.software_loading_btn1{ width:264px; height:85px; padding-top:46px; }
+.software_loading_btn2{ width:264px; height:85px; padding-top:20px; }
+
+.software_loading_right{ width:580px;}
+.software_loading_right .pic{ background:url(../images/iphone_img.png) no-repeat; width:545px; height:502px;}
+.software_loading_right .code{ width:545px; height:106px; }
+.code_text{ width:355px;padding:34px 20px 0 24px; font-size:14px; color:#000; }

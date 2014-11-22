@@ -1,0 +1,220 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- $Id: equipment_info.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+{include file="pageheader.htm"}
+{insert_scripts files="../js/utils.js,../js/calendar.php?lang=,"}
+<link href="../js/calendar/calendar.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+    function check_Identity_num (argument) {
+      
+    }
+</script>
+<script type="text/JavaScript" src="../js/formcheck.js"></script>
+<style type="text/css">
+
+</style>
+<div class="main-div">
+  <form method="post" action="" name="theForm" enctype="multipart/form-data" onSubmit="return Validator.Validate(this,2)">
+    <table class="approve" border=0 cellspacing=0 cellpadding=5>
+	  <tr>
+	  	<td width="179" height="65">真实姓名</td>
+		<td width="369">
+      <input dataType="Require" msg="真实姓名不能为空" class="input" name="true_name" id="" style="" value={$brand.true_name}>
+    </td>
+	  	<td width="135" rowspan=3>身份证正面:</td>
+		<td width="300" rowspan=3>
+      <a href="../{$brand.img_identity_front}"  target=_blank><img src="../{$brand.img_identity_front}" width="300" height="200" /></a></td>				
+	  </tr>	  
+
+	  <tr>
+	  	<td height="55">出生日期</td>
+		<td><input  class="input" datatype="Date" format="ymd" msg="生日格式不正确" name="birthday" id="birthday" style="" value={$brand.birthday} onclick="return showCalendar(this, '%Y-%m-%d', '24', false, this);"></td>				
+	  </tr>
+
+	  <tr>
+	  	<td height="40">性别:</td>
+		<td>
+		<div>  
+              {if $brand.sex == 1}<input name="sex" type="radio" checked value="1"/>男<input name="sex" type="radio" value="0" />女
+              {else}
+              <input name="sex" type="radio" value="1" />男<input name="sex" type="radio" checked value="0" />女
+              {/if}
+		</div>		
+		</td>		  
+	  </tr>
+	 
+	  <tr>
+	  	<td height="55">身份证号码:</td>
+		<td>
+			<input dataType="IdCard" msg="身份证格式不正确" id="IDnumber" name="IDnumber" type="text" value={$brand.identity_num} >
+    </td>
+		<td rowspan=6>身份证背面,驾驶证:</td>
+		<td rowspan=6> <a href="../{$brand.img_others}"  target=_blank><img src="../{$brand.img_others}" width="300" height="200" ></a></td>											  
+	  </tr>	  	  
+	  <tr>
+	  	<td height="55">身份证号码是否通过:</td>
+		<td>
+    <div>    
+            {if ($brand.approve_stat==1)||($brand.approve_stat==3)||($brand.approve_stat==7)}   
+              <input name="IDis" type="radio" checked value=1 onclick="switch_input(this)" >是
+              <input name="IDis" type="radio"  value=0 onclick="switch_input(this)" >否
+              <input type="text" class="input" name="IDis_reason" id="IDis_reason" style="display:none;"
+               value="身份证不通过原因:".{$brand.IDis_or_reason}/>
+            {else}
+              <input name="IDis" type="radio"   value=1 onclick="switch_input(this)" >是
+              <input name="IDis" type="radio" checked value=0 onclick="switch_input(this)" >否  
+              <input type="text" class="input" name="IDis_reason" id="IDis_reason" style="display:none;"
+               value="身份证不通过原因:".{$brand.IDis_or_reason}/>
+            {/if}              
+        </div>             
+    </td>	  
+	  </tr>	  	   
+	  <tr>
+	  	<td height="55">驾照有效期限</td>
+		<td>
+			<input dataType="Date" format="ymd" msg="有效期限不正确"  class="input" name="VailFor" id="" style="" value={$validfor} onclick="return showCalendar(this, '%Y-%m-%d', '24', false, this);">		</td>
+	  </tr>
+      <tr>
+        <td height="55">有效期限是否通过:</td>
+		<td>
+		<div>    
+            {if ($brand.approve_stat==2)||($brand.approve_stat==3)||($brand.approve_stat==7)}    
+              <input name="VailFor_or" type="radio" checked value=1 onclick="switch_input(this)" >是
+              <input name="VailFor_or" type="radio"  value=0 onclick="switch_input(this)" >否
+              <input type="text" class="input" name="VailFor_or_reason" id="VailFor_or_reason" style="display:none;" value="驾照不通过原因:".{$brand.VailFor_or_reason}/>
+            {else}
+              <input name="VailFor_or" type="radio"   value=1 onclick="switch_input(this)" >是
+              <input name="VailFor_or" type="radio" checked value=0 onclick="switch_input(this)" >否  
+              <input type="text" class="input" name="VailFor_or_reason" id="VailFor_or_reason" style="display:none;" value="驾照不通过原因:".{$brand.VailFor_or_reason}/>            
+            {/if}              
+        </div>
+
+		</td>
+      </tr>	  	  
+      <tr>
+        <td height="55">是否是学生</td>
+		<td>
+		<div> 
+			  {if $brand.user_type == 1}<input name="user_type" type="radio" checked value="1" />是<input name="user_type" type="radio" value="0" />否
+              {else}
+              <input name="user_type" type="radio" value="1"/>是<input name="user_type" type="radio" checked value="0" />否
+              {/if}       
+        </div>
+		</td>
+      </tr>
+      <!-- add by yangbei 2013-06-27 增加颁发奖章选项  start-->
+      <tr>
+        <td height="55">是否颁发奖章</td>
+        <td>
+        <div> 
+            {if $brand.allocMedal == 1}<input name="allocMedal" type="radio" checked value="1" />是<input name="allocMedal" type="radio" value="0" />否
+                  {else}
+                  <input name="allocMedal" type="radio" value="1"/>是<input name="allocMedal" type="radio" checked value="0" />否
+                  {/if}       
+            </div>
+        </td>
+      </tr>
+       <!-- add by yangbei 2013-06-27 增加颁发奖章选项 end--> 
+       <tr>
+        <td height="55">用户群组：</td>
+      <td>
+        <select name="group_id" >
+         <?php require_once ROOT_PATH . 'includes/lib_user.php' ;
+        $group = getUserGroup();
+        foreach ($group as $k) {
+          echo "<option value =".$k['user_group_id'].">".$k['title']."</option>";
+        }
+        ?>
+        </select>
+      </td>
+      </tr>	  
+
+      <tr>
+	  	<td>
+        {if ($brand.approve_stat==2)||($brand.approve_stat==3)||($brand.approve_stat==7)}
+        已通过审核
+        {else}
+        {$brand.reason.reason}
+        {/if}
+      </td>
+        <td colspan="2" align="center">
+          <input type="submit" class="button" value="审核通过" onClick="ispass();"/>
+          <input type="submit" class="button" value="不通过" onClick="nopass();"/>
+          <input type="hidden" name="pass" id="pass" value="0"/>
+          <input type="hidden" name="act" value="{$form_action}" />
+          <input type="hidden" name="id" value="{$brand.id}" />
+          <input type="hidden" name="uid" value="{$brand.uid}" />
+      <input type="hidden" name="sort_order" value="{$brand.sort_order}">	  </tr>
+    </table>
+  </form>
+</div>
+{insert_scripts files="../js/utils.js"}
+{literal}
+<script language="JavaScript">
+<!--
+onload = function()
+{
+    // 开始检查订单
+    // alert({$brand.img_student});
+    startCheckOrder();
+}
+/**
+ * 检查表单输入的数据
+ */
+
+//查询身份证号码
+function queryID(n)
+{
+  var f = document.getElementById('IDnumber');
+
+  alert("身份证号为:"+f.value);
+}
+function ispass()
+{
+  var f = document.getElementById('pass');
+  f.value=1;
+  //alert(f.value)
+}
+function nopass()
+{
+  var f = document.getElementById('pass');
+  f.value=0;
+  //alert(f.value)
+}
+function switch_input(e)
+{
+  var str = e.name+'_reason';
+
+  var t = document.getElementById(str);
+  if(!+"\v1"){
+    //ie  
+    if (e.value==1) 
+    {
+      t.style.setAttribute("cssText","display:none");
+    }
+    else
+    {
+      t.style.setAttribute("cssText","display:block");
+    }
+  } else {
+    //firefox  
+    if (e.value==1) 
+    {
+      t.setAttribute("style","display:none");
+    }
+    else
+    {
+      t.setAttribute("style","display:block");
+    }
+  } 
+
+
+
+
+  
+  //alert(t.innerHTML);
+  //alert(e.nodeValue());
+}
+//-->
+</script>
+{/literal}
+{include file="pagefooter.htm"}

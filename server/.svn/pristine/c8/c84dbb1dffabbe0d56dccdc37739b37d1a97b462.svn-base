@@ -1,0 +1,60 @@
+<!-- $Id: equipment_info.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+{include file="pageheader.htm"}
+<script language="JavaScript" src="../js/formcheck.js"></script>
+<div class="main-div">
+<form method="post" action="" name="theForm" enctype="multipart/form-data" onSubmit="return Validator.Validate(this,2)">
+<table cellspacing="1" cellpadding="3" width="100%">
+  <tr>
+    <td class="label">{$lang.oil_card_id}</td>
+    <td><input dataType="Number" msg="只允许数字" dataType="Require" msg="加油卡号不能为空" name="card_id" maxlength="60" value="{$brand.card_id}" /></td>
+  </tr>
+  <tr>
+    <td class="label">{$lang.oil_card_password}</td>
+    <td><input  dataType="Number" msg="密码只允许数字" name="password" maxlength="60" value="{$brand.password}" /></td>
+  </tr>
+  <tr>
+    <td class="label">{$lang.oil_card_provider}</td>
+    <td><input Type="text"  name="provider" id="logo" size="45" value="{$brand.provider}" >
+    </td>
+  </tr>
+  <tr>
+    <td class="label">{$lang.oil_card_monitor_status}</td>
+    <td><input type="radio" name="monitor_status" value='1' {if $brand.monitor_status==1}checked{/if}/>启动<input type="radio" name="monitor_status" dataType="Group" msg="监控必须选定一个" value="0" {if !$brand.monitor_status}checked{/if}//>禁止</td>
+  </tr>
+  <tr>
+    <td class="label">{$lang.oil_card_using_status}</td>
+    <td><input type="radio" name="using_status" value='1' {if $brand.using_status}checked{/if}/>启动<input type="radio" name="using_status" dataType="Group" msg="状态必须选定一个" value="0" {if !$brand.using_status}checked{/if}//>禁止</td>
+  </tr>
+  <tr>
+    <td class="label">{$lang.sort_order}</td>
+    <td><input dataType="Number" msg="排序只允许数字" name="sort_order" maxlength="40" size="15" value="{$brand.sort_order}" /></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><br />
+      <input type="submit" class="button" value="{$lang.button_submit}" />
+      <input type="reset" class="button" value="{$lang.button_reset}" />
+      <input type="hidden" name="act" value="{$form_action}" />
+      <input type="hidden" name="id" value="{$brand.id}" />
+      <input type="hidden" name="old_brandlogo" value="{$brand.equipment_logo}">
+    </td>
+  </tr>
+</table>
+</form>
+</div>
+{insert_scripts files="../js/utils.js"}
+{literal}
+<script language="JavaScript">
+<!--
+onload = function()
+{
+    // 开始检查订单
+    startCheckOrder();
+}
+/**
+ * 检查表单输入的数据
+ */
+
+//-->
+</script>
+{/literal}
+{include file="pagefooter.htm"}

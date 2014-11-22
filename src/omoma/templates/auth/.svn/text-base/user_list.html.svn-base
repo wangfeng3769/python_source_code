@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% comment %}
+users list template for omoma
+copyright 2011 alin voinea
+
+this file is part of omoma.
+
+omoma is free software: you can redistribute it and/or modify
+it under the terms of the gnu general public license as published by
+the free software foundation, version 3.
+
+omoma is distributed in the hope that it will be useful,
+but without any warranty; without even the implied warranty of
+merchantability or fitness for a particular purpose.  see the
+gnu general public license for more details.
+
+you should have received a copy of the gnu general public license
+along with omoma. if not, see <http://www.gnu.org/licenses/>.
+{% endcomment %}
+
+{% load i18n %}
+{% load omoma %}
+
+{% block title %}{% trans "users" %}{% endblock %}
+
+{% block content %}
+    {% contentbox _("users") %}
+        {% if perms.auth.add_user %}
+        <a href="{% url new_user %}"><img src="/static/icon_add.png"
+            class="icon" /> {% trans "add user" %}</a>
+        {% endif %}
+        <table>
+            <tr class="header">
+                <th class="links"></th>
+                <th class="name">{% trans "username" %}</th>
+                <th class="name">{% trans "first name" %}</th>
+                <th class="name">{% trans "last name" %}</th>
+                <th class="name">{% trans "email" %}</th>
+            </tr>
+
+            {% for c in user_list %}
+                <tr>
+                    <td class="links">
+                        {% if perms.auth.delete_user %}
+                        <a href="{% url delete_user cid=c.id %}">
+                            <img src="/static/icon_delete.png" class="icon" />
+                        </a>
+                        {% endif %}
+                        {% if perms.auth.change_user %}
+                        <a href="{% url user cid=c.id %}">
+                            <img src="/static/icon_edit.png" class="icon" />
+                        </a>
+                        {% endif %}
+                    </td>
+                    <td class="name">{{ c }}</td>
+                    <td class="firstname">{{ c.first_name }}</td>
+                    <td class="lastname">{{ c.last_name }}</td>
+                    <td class="email">
+                        {% if perms.auth.change_user %}
+                        {{ c.email }}
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+
+        </table>
+    {% endbox %}
+{% endblock content %}

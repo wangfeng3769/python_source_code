@@ -1,0 +1,66 @@
+{% comment %}
+balance template for omoma
+copyright 2011 sebastien maccagnoni-munch
+
+this file is part of omoma.
+
+omoma is free software: you can redistribute it and/or modify
+it under the terms of the gnu general public license as published by
+the free software foundation, version 3.
+
+omoma is distributed in the hope that it will be useful,
+but without any warranty; without even the implied warranty of
+merchantability or fitness for a particular purpose.  see the
+gnu general public license for more details.
+
+you should have received a copy of the gnu general public license
+along with omoma. if not, see <http://www.gnu.org/licenses/>.
+{% endcomment %}
+
+{% load i18n %}
+{% load omoma %}
+
+{% if not deleted %}
+
+    {% contentbox _('balance') %}
+
+        <table>
+            <tr class="header">
+                {% if not account %}
+                    <th class="links"></th>
+                {% endif %}
+                <th class="name">{% trans "account" %}</th>
+                <th class="currentbalance">{% trans "current balance" %}</th>
+                <th class="validatedbalance">{% trans "validated balance" %}</th>
+            </tr>
+
+            {% if account %}
+                <tr>
+                    <td class="name">{{ account.name }}</td>
+                    <td class="currentbalance">{{ account.current_balance|signedmoney:account }}</td>
+                    <td class="validatedbalance">{{ account.validated_balance|signedmoney:account }}</td>
+                </tr>
+            {% else %}
+
+                {% getaccountslist %}
+
+                {% for account in accountslist %}
+                    <tr>
+                        <td class="links">
+                            <a href="{% url transactions aid=account.id %}">
+                                <img src="/static/icon_details.png" class="icon" />
+                            </a>
+                        </td>
+                        <td class="name">{{ account.name }}</td>
+                        <td class="currentbalance">{{ account.current_balance|signedmoney:account }}</td>
+                        <td class="validatedbalance">{{ account.validated_balance|signedmoney:account }}</td>
+                    </tr>
+                {% endfor %}
+
+            {% endif %}
+
+        </table>
+
+    {% endbox %}
+
+{% endif %}

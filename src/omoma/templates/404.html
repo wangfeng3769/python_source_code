@@ -1,0 +1,29 @@
+{% extends "skeleton.html" %}
+{% comment %}
+error 404 template for omoma
+copyright 2011 sebastien maccagnoni-munch
+
+this file is part of omoma.
+
+omoma is free software: you can redistribute it and/or modify
+it under the terms of the gnu general public license as published by
+the free software foundation, version 3.
+
+omoma is distributed in the hope that it will be useful,
+but without any warranty; without even the implied warranty of
+merchantability or fitness for a particular purpose.  see the
+gnu general public license for more details.
+
+you should have received a copy of the gnu general public license
+along with omoma. if not, see <http://www.gnu.org/licenses/>.
+{% endcomment %}
+
+{% load i18n %}
+
+{% block body %}
+    <div class="dialog">
+        <div class="content">
+            <p>{% trans "page not found!" %}</p>
+        </div>
+    </div>
+{% endblock %}

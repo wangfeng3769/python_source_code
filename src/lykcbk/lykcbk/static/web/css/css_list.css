@@ -1,0 +1,91 @@
+@charset "utf-8";
+/*========================主体样式 影院列表============================*/
+.movie_list_main{ width:980px; /*overflow:hidden;*/ margin:0 auto; min-height:490px; _height:490px;}
+.movie_list_left{ width:609px; }
+.movie_list_left_title{ width:609px;  height:52px; color:#000000; font-size:20px; font-weight:bold; left:0; top:0;}
+.movie_list_search{ padding-top:10px; padding-bottom:4px; height:40px; }
+.list_search_input{ width:228px; height:32px; background:url(../images/search_bg.png) repeat; border:#62564c solid 1px;}
+.list_search_input input{ width:210px; height:32px; background:none; border:0; padding-left:20px;  font-size:14px; line-height:28px; color:#a0978e;}
+.cinema_search_btn{ width:32px; height:32px; background:url(../images/icon.png) no-repeat; background-position:0 -40px; border-top:#62564c solid 1px;border-bottom:#62564c solid 1px;border-right:#62564c solid 1px; cursor:pointer;}
+.cinema_search_btn input{ border:0; width:32px; height:32px; background:none; cursor:pointer;}
+.cinema_search_checked{ width:214px; height:28px; font-size:14px; color:#62564c; padding-top:16px; padding-left:20px; padding-right:112px; overflow:hidden; }
+.cinema_search_checked span{ padding:2px 14px 2px 5px; }
+#free_parking_checked{ background:url(../images/list_icon.png) no-repeat; background-position:-45px -63px; width:20px; height:20px; line-height:18px; padding:2px 10px; cursor:pointer;}
+#imax_checked{ background:url(../images/list_icon.png) no-repeat; background-position:-45px -63px; width:20px; height:20px; line-height:18px; padding:2px 10px; cursor:pointer;}
+.m_l_tit{ width:609px; height:48px; font-size:16px; color:#352f2a; border-bottom:#5b5b5b solid 1px;}
+.cin_name{ left:56px; top:14px;}
+.cin_num{ left:232px; top:14px; cursor:pointer;}
+.cin_num em{  background:url(../images/icon.png) no-repeat; background-position:-24px -120px; width:8px; height:16px; cursor:pointer; left:36px; top:6px;  }
+.movie_total{ left:328px; top:14px;}
+.session_num{ left:404px; top:14px; cursor:pointer;}
+.session_num em{ background:url(../images/icon.png) no-repeat; background-position:-24px -120px; width:8px; height:16px; cursor:pointer; left:36px; top:6px;}
+
+.cin_location_div{ border:#62564c solid 1px; background:url(../images/cin_location_div_bg.png) repeat-x; left:488px; top:12px; padding-left:0px; padding-top:2px; width:96px; height:25px; font-size:16px; color:#62564c; line-height:24px; font-weight:normal;}
+.cin_location{ background:none; border:0; font-size:14px;}
+.cin_location_btn_outer{ width:68px; height:22px;}
+.cin_location_btn_outer input{ background:none;width:68px; height:22px;}
+.cin_area_list_up{ left:-1px; top:30px; background:#e5ded6; width:68px; height: auto;  border-bottom:#62564c solid 1px; border-top:#62564c solid 1px; border-right:#7f756b solid 1px; border-left:#7f756b solid 1px; z-index:66; overflow: hidden; display: none;}
+.cin_area_list_up ol{ width:68px;}
+.cin_area_list_up ol li{ height:24px; text-align:center; font-size:14px; color:#000; cursor:pointer;}
+.cin_area_list_area{ background:#fff;}
+.cin_area_list_area .active{ background:#d9d9d9;}
+
+.cin_location_div em{ left:68px; top:0px; background:url(../images/list_icon.png) no-repeat; background-position:-73px 0px; width:29px; height:28px;  border-left:#62564c solid 1px; cursor:pointer;}
+.movie_list_left_ul{width:581px; padding-left:14px; padding-right:14px; padding-bottom:20px;}
+.movie_list_left_li{width:581px;color:#000; font-size:14px; border-bottom:#62564c dashed 1px; line-height:18px;}
+.movie_ticket_list_box{width:602px; height:64px; line-height:46px; }
+.movie_list_left_name{ width:200px; padding-left:10px; }
+.movie_list_left_name a:link{ font-size:14px; color:#000}
+.movie_list_left_name a:visited{ font-size:14px; color:#000}
+.movie_list_left_num1{ width:54px;text-align:center;}
+.movie_list_left_num2{ width:126px;text-align:center; cursor:pointer}
+.movie_list_left_num3{ width:40px;text-align:center;}
+.movie_list_left_addr{ width:116px; padding-left:20px; }
+.movie_list_gifts{ left:12px; top:40px; font-size:12px; color:#fff; background:#c75732; width:40px; height:20px; text-align:center; line-height:20px; }
+.movie_list_addr{ left:548px; top:14px; background:url(../images/map_icon.gif) no-repeat; font-size:14px; color:#62564c; width:24px; height:24px; text-align:center; cursor:pointer}
+.parking_space{ position: absolute; left:222px; top:40px; background: url(../images/list_icon.png) no-repeat; background-position:-30px -40px; width:30px; height:20px; display:none;}
+.booking_ticket{ left:568px; top:14px; background: url(../images/list_icon.png) no-repeat; background-position:-1px 0px; width:38px; height:38px;}
+.movie_list_IMAX{ position:absolute; left:262px; top:40px; font-family:"Arial"; font-size:14px; font-weight:bold; color:#000;line-height:20px; display:none;}
+.arrow_up{ left:346px; top:20px; background:url(../images/icon.png) no-repeat; background-position:-1px -160px; width:10px; height:10px; display:none; }
+
+.movie_list_left_onclick{ background:url(../images/mov_list_bg.png) no-repeat; width:500px; height:58px; padding:28px 40px; margin-top:-26px; }
+.movie_list_left_onclick p{ width:504px; height:64px; font-size:14px; color:#228088; line-height:32px; }
+.movie_list_left_onclick p a{ padding-right:20px;}
+.movie_list_left_onclick p a:link{font-size:14px; color:#228088; }
+.movie_list_left_onclick p a:visited{font-size:14px; color:#228088; }
+
+.tab_box{ width:609px; background:url(../images/table_bg.png) repeat-y; border-right:#c9c7c4 solid 1px; }
+
+/*========================分页样式============================*/
+.page{ width:609px; height:40px; text-align:center; vertical-align:middle; font-size:16px; padding-top:10px;background:url(../images/table_bg.png) repeat-y;  border-right:#c9c7c4 solid 1px;  border-bottom:#c9c7c4 solid 1px; }
+.page a{ margin:0 2px; display:inline; color:#62564c;}
+.page a:link{ color:#62564c; padding:2px 8px; }
+.page a:hover{ color:#fff; background: #228088; }
+/*.page a:visited{color:#62564c; padding:2px 6px; }*/
+.page samp{ font-size:18px; color:#8e8983}
+.page span a:link{ font-size:18px; color:#a63f1e; }
+.page span a:hover{ font-size:18px; color:#fff; }
+.page .pre{ font-size:18px; color:#b1a79f; padding:0 8px; }
+.page .next a:link{ font-size:18px;  padding:0 8px; }
+
+/*div下部阴影*/
+.up_shadow_bg2{width:609px; height:10px; background:url(../images/up_shadow_bg.png) no-repeat;}
+
+/*========================右侧样式============================*/
+.movie_list_right{ width:361px; padding-top:8px; position:relative; }
+
+
+
+/*==========================百度地图==================================*/
+#MapBoxDiv{ background:#FFF; width:700px; height:550px; position:absolute; left: 0; top: 0; border: 1px solid #000; z-index:1000}
+#MapMask{ background:#000; filter:alpha(opacity=50); opacity:0.5; position: absolute; left: 0; top: 0; z-index:999}
+
+#MapCloseDiv{ width:700px; height:30px; background:#fefefe; }
+#MapClose { position: absolute; right:4px; top:0px; text-decoration: none; color: #000; font-size:22px; display:inline-block;  }
+
+#MapShowDiv{ widows:700px; height:520px; /*background:#0F0;*/ overflow:hidden;}
+
+
+
+
+

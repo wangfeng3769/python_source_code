@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>登陆</title>
+<link href="css/index.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/juicer-min.js"></script>
+<script type="text/javascript" src="js/zepto.min.js"></script>
+<script type="text/javascript" src="js/until.base.js"></script>
+<style>
+	a{color:#4F4F4F;text-decoration:none;}
+
+	.anniu-1:active{ background:url(img/bt-2.png) no-repeat; color:#3A434A;}
+	.fanhui-bt:active{ background:url(img/fanhui-2.jpg) no-repeat; color:#DD5523;}
+	.anniu-3:active{ background:url(img/bt2-2.jpg) no-repeat; color:#fff;}
+	.anniu-4:active{ background:url(img/bt3-2.jpg) no-repeat; color:#fff;}
+	.anniu-5:active{ background:url(img/bt4-2.jpg) no-repeat; color:#616161;}
+	.anniu-6:active{ background:url(img/bt5-2.jpg) no-repeat; color:#fff;}
+
+
+	.youce-bt-3:active{ background:url(img/yc-bt-3-2.jpg) no-repeat; color:#fff;}
+	.fanye-1:active{ background:#F86834; color:#fff;}
+	.tuichu:active{color:#F56833;}
+
+</style>
+</head>
+
+<body>
+<div class="dynamite-container">
+<div class="shouye">
+<div class="shouye-title"><a href="" class="fanhui-bt">刷新</a><p class="title">确认预订</p></div>
+<div style="height:10px;"></div>
+<div class="tishi-2" style="width:230px;"><img src="img/tishi-pic-2.jpg"/><p class="tishi-txt">车辆预订成功！</p></div>
+<div style="height:10px;"></div>
+<div class="shijianzhou" style="width:300px; height:255px;">
+<p style="height:17px;"></p>
+<p class="dingdan-xinxi" style=" height:40px;border-bottom:2px solid #ddd; font-weight:bold;"><b class="xinxi-txt">请于预定时间内取车还车！</b><a href="javascript:cancelOrder()" class="anniu-5" style="margin-left:5px;">取消订单</a></p>
+<p style="height:12px;"></p>
+<p class="dingdan-xinxi">取车时间：<c class="start_time"></c></p>
+<p style="height:7px;"></p>
+<p class="dingdan-xinxi">还车时间：<c class="end_time"></c></p>
+<p style="height:7px;"></p>
+<p class="dingdan-xinxi">车牌号：<c class="carNo"></c></p>
+<p style="height:7px;"></p>
+<p style="width:300px; margin:0 auto;">
+	<a href="javascript:onPickupCar();" id="pickCar" class="anniu-6" style="margin-left:30px;">取车</a>
+	<a href="javascript:ringCar()" class="anniu-6" style="margin-left:10px;">鸣笛</a>
+	<a href="javascript:closeDoor()" class="anniu-6" style="margin-left:10px;">还车</a>
+</p>
+</div>
+<div style="height:25px;"></div>
+
+<div class="tishi" style="height:160px;"><p class="tishi-1">帮助：请在预订时间内取车、还车！如需取消本次订单，点击“取消预订”按钮。在取车时间内，点击“鸣笛”按钮可使车辆鸣笛，帮您快速找到车辆。找到车辆后点击“取车”按钮开门。使用完车辆后，点击“还车”锁门。</p></div>
+</div>
+</div>
+
+</body>
+<script type="text/javascript">
+
+	function carUtil(param, str) {
+		
+		Until.postJson(G.memberApi, {
+			item: 'twGetUserAvailableCar'
+		}, function(order) {
+			// Until.showMsg(order);
+			var dataObj = order;
+			if (dataObj.errno == 2000) {
+				var orderInfo = dataObj.content.order;
+				if (orderInfo.order_stat == 1 || orderInfo.order_stat == 2 || orderInfo.order_stat == 3 || orderInfo.order_stat == 6) {
+					if ("车门已经关闭" == str) {
+						if (1 == orderInfo.order_stat) {
+							Until.showMsg('您还没取车。');
+
+						} else if (2 == orderInfo.order_stat) {
+							Until.showMsg('您已取车，请用钥匙开门。');
+
+						}else if (3 == orderInfo.order_stat||6 == orderInfo.order_stat) {
+							Until.postJson(G.memberApi,{item:param}, function(result) {
+							// Until.showMsg(result);
+							var res = result;
+
+							if (res.errno == 2000) {
+
+								setTimeout("Until.showMsg('" + str + "')", 5000);
+
+							} else {
+								Until.showMsg(res.errstr);
+
+							}
+							});
+						}
+
+					} else {
+						Until.postJson(G.memberApi,{item:param}, function(result) {
+							// Until.showMsg(result);
+							var res = result;
+
+							if (res.errno == 2000) {
+
+								setTimeout("Until.showMsg('" + str + "')", 5000);
+
+							} else {
+								Until.showMsg(res.errstr);
+
+							}
+						});
+					}
+
+
+				}
+
+				checkState();
+			} else {
+				if (dataObj.errno==4060||dataObj.errno==4020)
+				{
+					Until.showNotice({msg:'未登录,请先登录',url:'index.html'});
+				}
+				else
+				{
+					Until.showMsg(dataObj.errstr);
+				}
+				
+
+			}
+		});
+
+	}
+
+	function addTag(order,car){
+		var start_time = DateFormat(order.order_start_time);
+		var end_time = DateFormat(order.order_end_time);
+		$('.carNo').html(car.number);
+		$('.start_time').html(start_time);
+		$('.end_time').html(end_time);
+	}
+	function onPickupCar(){
+		// var url = G.baseUrl + 'client/http/member.php?item=twOpenDoor';
+		var str ="车门已经开启";
+		carUtil('twOpenDoor',str);
+	}
+	function closeDoor(){
+			// var url = G.baseUrl + 'client/http/member.php?item=closeDoor';
+
+			var str ='车门已经关闭';
+			carUtil('closeDoor',str);
+	}
+	function ringCar(){
+
+
+	 	Until.postJson(G.memberApi ,{item:'twGetUserAvailableCar'}, function(order) {
+			 // Until.showMsg(order);
+			var dataObj = order;
+			if (dataObj.errno==2000) {
+				var orderInfo = dataObj.content.order;
+				// var url = G.baseUrl + 'client/http/member.php?item=twRingCar';
+				var str ="鸣笛成功";
+				
+				carUtil('twRingCar',str);
+			}else{
+				Until.showMsg(dataObj.errstr);
+
+			}
+		});
+	
+	}
+	function cancelOrder(){
+
+	 	Until.postJson(G.memberApi , {item:'twGetUserAvailableCar'}, function(order) {
+			 // Until.showMsg(order);
+			var dataObj = order;
+			if (dataObj.errno==2000) {
+				var orderInfo = dataObj.content.order;
+
+				// var url = G.baseUrl + 'client/http/member.php?item=twCancel&order_id='+orderInfo.order_id;
+				Until.postJson(G.memberApi,{item:'twCancel',order_id:orderInfo.order_id},function(result){
+						// Until.showMsg(result);
+						// var res = eval("("+result+")");
+						var res = result;
+
+						if (res.errno==2000) {
+
+							setTimeout("Until.showMsg('订单取消成功')",5000);
+
+						}else{
+							Until.showMsg(res.errstr);
+
+						}
+					});
+				checkState();
+			}else{
+				Until.showMsg(dataObj.errstr);
+
+			}
+		});
+	}
+
+	function checkState() {
+		Until.init();
+
+		Until.postJson(G.memberApi, {
+			item: 'twGetUserAvailableCar'
+		}, function(order) {
+			 // Until.showMsg(order);
+			var dataObj = order;
+			if (dataObj.errno == 2000&&dataObj.content.order.order_stat != 8) {
+				var orderInfo = dataObj.content.order;
+				var carInfo = dataObj.content.car;
+				addTag(orderInfo, carInfo);
+				if (orderInfo.order_stat == 0 || orderInfo.order_stat == 1) {} else {
+					$(".anniu-5").hide();
+				}
+				if (orderInfo.order_stat == 2) {
+					// $("#pickCar").hide();
+				}
+			} else if (dataObj.errno == 4060||dataObj.errno ==4020) {
+				// Until.showMsg(dataObj.errstr);
+				window.location.href = 'login.html';
+
+			} else {
+				window.location.href = 'index.html';
+
+			}
+		});
+
+		
+	}
+	window.onload=checkState();
+</script>
+</html>

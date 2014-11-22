@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/omoma_web
+END
+admin.py
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/omoma_web/admin.py
+END
+views_account.py
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/omoma_web/views_account.py
+END
+views_iou.py
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/omoma_web/views_iou.py
+END
+views_category.py
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/omoma_web/views_category.py
+END
+forbidden.py
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/omoma_web/forbidden.py
+END
+views_userpreferences.py
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/omoma_web/views_userpreferences.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/omoma_web/__init__.py
+END
+views_transactioncategory.py
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/omoma_web/views_transactioncategory.py
+END
+views_transaction.py
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/omoma_web/views_transaction.py
+END
+models.py
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/omoma_web/models.py
+END
+transaction.py
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/omoma_web/transaction.py
+END
+views_currency.py
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/omoma_web/views_currency.py
+END
+views_import.py
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/omoma_web/views_import.py
+END

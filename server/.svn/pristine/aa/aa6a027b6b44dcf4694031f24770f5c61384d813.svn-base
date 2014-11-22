@@ -1,0 +1,61 @@
+<!-- $Id: category_list.htm 17019 2010-01-29 10:10:34Z liuhui $ -->
+{if $full_page}
+{include file="pageheader.htm"}
+
+<!-- 车辆搜索 -->
+
+<!-- 车辆搜索 -->
+<form method="post" action="" name="listForm">
+<!-- start ad position list -->
+<div class="list-div" id="listDiv">
+{/if}
+
+<table width="100%" cellspacing="1"  cellpadding="2" id="list-table">
+  <tr>
+  	<th>订单号</th>
+    <th>订单状态</th>
+	<th>图片</th>
+    <th>昵称</th>
+    <th>车牌号</th>
+    <th>用户名</th>
+    <th>手机号</th>
+    <th>订单结束时间</th>
+    <th>真实结束时间</th>
+    <th>操作</th>
+  </tr>
+  {foreach from=$car_info item=car}
+  <tr align="center"  id="{$car.level}_{$car.id}">
+  	<td >{$car.order_no}</td>
+    <td>{$car.order_stat}</td>
+	<td width="10%" ><img src="../../{$car.icon}" width="150" height="120"/></td>
+    <td align="left" class="first-cell">
+      <span>{$car.name}</span>
+    </td>
+    <td width="2%">{$car.number}</td>
+
+    <td width="10%">{$car.true_name}</td>
+
+    <td width="10%">{$car.phone}</td>
+
+    <td width="2%">{$car.order_end_time}</td>
+    <td width="2%">{$car.real_end_time}</td>
+
+    <td width="24%" align="center">
+    <a href="car_bug.php?act=fix_close&car_id={$car.car_id}">关门指令|</a> 
+    <a href="car_bug.php?act=change_close&order_id={$car.order_id}">修改订单为锁门</a> 
+    </td>
+  </tr>
+  {/foreach}
+</table>
+{if $full_page}
+</div>
+</form>
+
+{literal}
+<script language="JavaScript">
+
+</script>
+{/literal}
+
+{include file="pagefooter.htm"}
+{/if}

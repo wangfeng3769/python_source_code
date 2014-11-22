@@ -1,0 +1,34 @@
+<!-- $Id: agency_info.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+{include file="pageheader.htm"}
+{insert_scripts files="validator.js,../js/transport.js,../js/region.js"}
+<script type="text/JavaScript" src="../js/formcheck.js"></script>
+<div class="main-div">
+<form method="post" action="car_group.php?act=privilege" name="theForm" enctype="multipart/form-data" onSubmit="return Validator.Validate(this,2)" >
+<table cellspacing="1" cellpadding="3" width="100%">
+  <tr>
+    <td class="label">{$car_group_name}</td>
+    <td>
+      {foreach from=$relative item=user_group}
+     <label><input type="checkbox" name='relative[]' value="{$user_group.user_group_id}" {if $user_group.is_checked==1}checked{/if}>
+        <span class="user_group_name" id="user_group_name_1">{$user_group.title}</span></label>
+      </br>
+      {/foreach}
+    </td>
+  </tr>
+  
+</table>
+
+<table align="center">
+  <tr>
+    <td colspan="2" align="center">
+      <input type="submit" class="button" value="{$lang.button_submit}" />
+      <input type="reset" class="button" value="{$lang.button_reset}" />
+      <input type="hidden" name="handle" value="{$form_action}" />
+      <input type="hidden" name="id" value="{$car_group_id}" />
+    </td>
+  </tr>
+</table>
+</form>
+</div>
+
+{include file="pagefooter.htm"}

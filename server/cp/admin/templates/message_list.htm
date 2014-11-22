@@ -1,0 +1,78 @@
+<!-- $Id: message_list.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+
+{if $full_page}
+{include file="pageheader.htm"}
+{insert_scripts files="../js/utils.js,listtable.js"}
+
+
+
+<!-- start admin_message list -->
+<form method="POST" action="message.php?act=list" name="listForm">
+<div class="list-div" id="listDiv">
+{/if}
+
+	<table cellpadding="3" cellspacing="1" border="1"  >
+		<tr >
+		  <th> 
+			  <input onclick='listTable.selectAll(this, "checkboxes")' type="checkbox" />
+			  编号
+		  </th>
+		  <th>发送人名称</th>
+		  <th>信息内容</th>
+		  <th>状态</th>
+		  <th>时间</th>
+		</tr>
+    {foreach from=$message_list item=msg}
+    <tr align="center">
+      <td >{$msg.message_id}</td>
+      <td >{$msg.uname}</td>
+      <td >{$msg.content}</td>
+      <td >{$msg.is_read}</td>
+      <td >{$msg.ctime}</td>
+    </tr>
+    {foreachelse}
+    <tr><td class="no-records" colspan="10">{$lang.no_records}</td></tr>
+    {/foreach}
+  </table>
+
+  <table cellpadding="4" cellspacing="0">
+    <tr>
+      
+      <td align="right">{include file="page.htm"}</td>
+    </tr>
+  </table>
+
+{if $full_page}
+</div>
+</form>
+<script type="text/javascript" language="JavaScript">
+<!--
+  listTable.recordCount = {$record_count};
+  listTable.pageCount = {$page_count};
+
+  {foreach from=$filter item=item key=key}
+  listTable.filter.{$key} = '{$item}';
+  {/foreach}
+
+  {literal}
+  onload = function()
+  {
+    // 开始检查订单
+    startCheckOrder();
+  }
+
+  /**
+   * 查询留言
+   */
+  function searchMessage()
+  {
+    listTable.filter.msg_type = document.forms['theForm'].elements['msg_type'].value;
+    listTable.filter.page = 1;
+    listTable.loadList();
+  }
+  {/literal}
+//-->
+</script>
+
+{include file="pagefooter.htm"}
+{/if}

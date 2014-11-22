@@ -1,0 +1,8 @@
+配置以下文件的数据库信息
+1. cp/data/config.php
+
+2. config.inc.php
+
+3. api/uc_client/uc_config.inc.php
+
+4.server/conf/conf.xml

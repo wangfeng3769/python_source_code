@@ -1,0 +1,140 @@
+@charset "utf-8";
+body,textarea,input,select,option{font-size:12px;color:#333;font-family:微软雅黑,Tahoma,Arial,sans-serif;}
+body,h1,h2,h3,h4,h5,h6,p,dl,dd,ul,ol,textarea,input,select,option,form{margin:0;padding:0;}
+th,td,ul,ol,textarea,input,select,option{padding:0}
+textarea{overflow:auto;resize:none}
+table{border-collapse:collapse}
+li{list-style:none}
+a img{border:none}
+a{ text-decoration: none;}
+a:hover{color:#ff5050;text-decoration:none;}
+.fl{float:left}
+.fr{float:right}
+.clears{zoom:1;}
+.clears:after{content:"";display:block;height:0;clear:both;visibility:hidden;}
+.img img{display:block}
+body{ background:url(../images/body_bg.gif) repeat; height:100%;width:100%;}
+html{height:100%;}
+.pa{position:absolute;}
+.pr{position:relative;}
+
+/*==========================头部样式==========================*/
+.header{ width:1024px; height:124px; margin:0 auto; background:url(../images/header_bg.png) no-repeat; }
+.header .logo{ width:288px; margin-top:20px; }
+.city_list{ width:580px; margin-top:40px; text-align:center; vertical-align:middle; font-size:16px; font-weight:500; color:#6e6259;}
+.released_num{ font-size:24px;color:#a63f1e; font-weight:600; vertical-align:middle; line-height:22px;}
+.set_up{ width:154px; margin-top:34px; left:870px; top:4px; font-size:18px; text-align:center; color:#62564c; font-weight:bold;}
+.set_up a{ color:#62564c;}
+.list{ left:454px; top:0px; width:136px; height:91px; background:url(../images/city_list.png) no-repeat;  text-align:center; vertical-align:middle; }
+.list_text{ left:30px; top:22px; font-size:30px; font-weight:400; color:#96887d;}
+.list_icon{ background:url(../images/icon.png) no-repeat; background-position: -1px -1px; width:17px; height:12px; left:100px; top:36px; text-align:center}
+
+/*==========================主体样式==========================*/
+.main{ width:1024px; height:1700px; margin:0 auto; position:relative; }
+.movie_list{ width:629px; height:45px; margin:0 auto; padding-left:381px; overflow:hidden; position:relative; background:url(../images/movie_list_bg.png) no-repeat;}
+.movie_list ul{ width:1010px; height:22px; padding:13px 0;position:absolute; overflow:hidden;}
+.movie_list ul li{ float:left; width:28px; height:22px; margin-left:3px; display:inline;}
+.movie_list ul li a{ display:block; width:28px; height:22px;font-size:14px;font-weight:bold; color:#847970;line-height:22px;text-align:center;}
+.movie_list ul li a:hover{ font-size:18px; color:#fff; background:#a63f1e;}
+.movie_list ul li.active a{ font-size:18px; color:#fff; background:#a63f1e; }
+.move_pic{ width:1024px; height:382px; margin-top:14px; overflow:hidden;}
+.move_pic ul{ width:9224px; height:382px; overflow:hidden; position:absolute; left:-115px; top:0;}
+.move_pic ul li{ float:left; padding-right:14px; padding-top:10px; display:inline;}
+.move_pic ul li img{ width:239px; height:337px;}
+.move_pic ul li.active{}
+/*.move_pic ul li.active img{ width:260px; height:365px;}*/
+.move_pic_title{ width:239px; padding-top:10px; font-size:14px; color:#000; text-align:center; display:none;}
+.move_pic_title.active{ width:239px; font-size:14px; color:#000; text-align:center; display:block;}
+.pic_bg_active{width:258px; height:382px; background:url(../images/pic_bg.png) no-repeat; left:382px; top:0px; cursor:pointer; z-index:-1}
+.arrow_l{ background:url(../images/arrow_l.png) no-repeat; width:61px; height:99px; left:0; top:118px; cursor:pointer;}
+.arrow_r{ background:url(../images/arrow_r.png) no-repeat; width:61px; height:99px; right:0; top:118px; cursor:pointer;}
+
+/*==========================主体左侧==========================*/
+.main_left{ width:626px; margin-top:50px; }
+.total{ height:40px; margin-left:20px; color:#000000; font-size:20px; font-family:"微软雅黑" }
+.total_text{ font-size:20px; color:#a33921; font-weight:bold; }
+.left_title{ width:604px; margin-left:20px; height:59px;  border-bottom:#7c7664 solid 1px; border-top:#7c7664 solid 1px; color:#000000; font-size:18px; font-weight:bold; left:0; top:0;}
+.title_bg{ background:#c3c9c5; width:74px; height:29px; color:#62564c; margin-left:20px; line-height:26px; text-align:center; font-size:14px; cursor:pointer;display:inline; float:right; }
+.title_bg.active{ background:#a63f1e; width:74px; height:29px; color:#fff; margin-left:20px; line-height:26px; text-align:center; font-size:14px; cursor:pointer;display:inline;}
+.title_bg1{ background:#c3c9c5; width:74px; height:29px; color:#62564c; margin-left:20px; line-height:26px; text-align:center; font-size:14px; cursor:pointer;display:inline; float:right; }
+.title_bg1.active{ background:#a63f1e; width:74px; height:29px; color:#fff; margin-left:20px; line-height:26px; text-align:center; font-size:14px; cursor:pointer;display:inline;}
+.title_bg2{ background:#c3c9c5; width:74px; height:29px; color:#62564c; margin-left:20px; line-height:26px; text-align:center; font-size:14px; cursor:pointer;display:inline; float:right; }
+.title_bg2.active{ background:#a63f1e; width:74px; height:29px; color:#fff; margin-left:20px; line-height:26px; text-align:center; font-size:14px; cursor:pointer;display:inline;}
+.movie_order{width:604px; margin-left:20px;}
+.movie_order li{width:604px;color:#62564c; font-size:16px;  border-bottom:#62564c dashed 1px;}
+
+.buy_ticket{ width:78px; height:60px; color:#FFF; font-size:14px; text-align:right;}
+.movie_name{ width:250px; height:60px; padding-left:10px; cursor:pointer;}
+.group{ width:124px; height:60px; }
+.money{ width:136px; height:60px;}
+.time{ width:80px; height:60px; }
+.buy_ticket input{width:72px; height:26px; background:#a63f1e; border:0; color:#FFF; font-size:14px; text-align:center; padding-bottom:2px; vertical-align:middle; margin-top:24px; cursor:pointer;}
+.tb_arrow1{ cursor:pointer; left:262px; top:12px;}
+.tb_arrow2{ cursor:pointer; left:374px; top:12px;}
+.tb_arrow3{ cursor:pointer; left:522px; top:12px;}
+.tl_name{padding:0px 75px; left:0; top:18px;}
+.tl_group{padding:0px 38px; left:224px; top:18px;}
+.tl_money{padding:0px 30px; left:354px; top:18px;}
+.tl_time{padding:0px 6px; left:508px; top:18px;}
+
+.movie_ticket_list{width:602px; height:60px; line-height:60px; }
+.movie_list_hover{ background:url(../images/ticket_list_bg.png) no-repeat; width:602px; height:80px; padding:0 48px; position:relative; top:-18px; }
+.movie_list_hover span{ padding:0 14px; font-size:16px; vertical-align:middle; height:82px; line-height:82px; display:inline-block; color:#fffefe;}
+
+.page{ width:596px; height:98px; text-align:center; vertical-align:middle; line-height:170px; margin-left:20px; /*display:inline;*/}
+.page a{ margin:0 4px; }
+.page a:link{ font-size:16px; color:#62564c; padding:2px 8px; }
+.page a:hover{ font-size:16px; color:#fff; background: #a63f1e; }
+.page a.active{ font-size:16px; color:#fff; background: #a63f1e; }
+.page a:visited{ font-size:16px; color:#62564c; padding:2px 6px; }
+.page samp{ font-size:18px; color:#8e8983}
+.page span a:link{ font-size:18px; color:#a63f1e; }
+.page span a:hover{ font-size:18px; color:#fff; }
+.page .pre{ font-size:18px; color:#b1a79f; padding:0 8px; }
+.page .next a:link{ font-size:18px;  padding:0 8px; }
+
+/*==========================主体右侧==========================*/
+.main_right{ width:361px; margin-top:50px; position:relative;}
+.right_title{ width:339px; height:40px; color:#000; font-size:18px; border-bottom:#7c7664 solid 1px; }
+.right_title_text{ font-size:20px; color:#a33921}
+.activity_more{ background:#62564c; width:74px; height:30px; text-align:center; line-height:28px; font-size:16px; color:#fffefe}
+.activity_more a:link{font-size:16px; color:#fffefe;}
+.activity_more a:visited{font-size:16px; color:#fffefe;}
+.activity{ width:359px; height:360px; background:url(../images/active_bg.png) no-repeat; margin-top:20px; left:0; top:0;}
+.activity_num{ font-size:36px; color:#FFF; left:12px; top:60px; font-family:"黑体"; font-weight:bold;}
+.activity_time{ left:100px; top:40px; font-size:14px; color:#44687d; font-weight:bold; }
+.activity_title{ left:58px; top:100px; text-align:center; width:278px; font-size:20px; color:#000; font-family:"黑体"}
+.activity_title2{ left:58px; top:86px; width:278px; font-size:20px; color:#000; font-family:"黑体"}
+.activity_pic{ left:30px; top:134px; }
+.activity_text{ width:300px; height:78px; left:32px; top:254px; font-size:14px; color:#575a5d}
+.activity_text2{ width:130px; height:110px; left:200px; top:132px; font-size:14px; color:#575a5d}
+
+
+/*==========================尾部样式==========================*/
+.footer{ width:1024px; height:106px; margin:0 auto; padding-left:40px; }
+.footer_ad{ width:982px; height:135px; margin:0 auto; border-top:#c0b8a1 solid 1px; padding-top:40px; padding-bottom:20px; text-align:center;}
+.footer_ad ol{ width:824px; overflow:hidden; padding-left:120px}
+.footer_ad ol li{ float:left; width:314px; height:100px; margin-right:84px;}
+.bottom{ width:982px; height:100px; padding-top:40px;  border-top:#847a70 solid 2px; font-size:14px; color:#888272; line-height:24px;}
+
+
+/*==========================公共主体下部 热门影院 热门影片==================*/
+.mes_bottom{ width:1004px; height:354px; padding-left:20px; margin:0 auto; }
+.hot_cinema{ padding-left:22px; width:338px; }
+.hot_cinema ul li{ height:32px; font-size:16px; color:#62564c; line-height:24px; padding-top:4px;}
+.mes_atv_title a{ font-size:16px; color:#FFF}
+.hot_cinema ul li a{ font-size:16px; color:#62564c; text-decoration:underline;}
+
+.hot_movie{ width:624px; height:300px; }
+.hot_movie_tle{width:616px; border-bottom:#7c7664 solid 1px; height:34px; font-size:18px; color:#62564c; font-weight:bold;}
+.hot_movie_tle span{ left:512px; top:0px; background:#62564c; padding:4px 10px; color:#FFF; font-weight:400; font-size:14px;}
+.hot_movie_tle a{ color:#FFF; font-weight:400; font-size:14px;}
+.hot_movie ul{ padding-top:10px; width:900px; overflow:hidden; }
+.hot_movie ul li{ float:left; margin-right:11px; width:146px; height:202px;}
+.hot_movie ul li img{ width:146px; height:202px;}
+.hot_movie ol{padding-top:10px; width:900px; overflow:hidden;}
+/*.hot_movie ol li{ float:left; width:160px; height:30px; font-size:16px; color:#62564c; text-align:center;}*/
+.hot_movie ol li{ float:left; width:146px; height:42px; font-size:15px; margin-right:11px; letter-spacing:-1px; color:#62564c; text-align:center;}
+.hot_mov_title span{font-size:16px; color:#62564c; text-align:center; padding:0 8px; border:#000 solid 1px;}
+
+.mes_atv_title{ width:339px; height:33px; color:#000; font-size:18px; border-bottom:#7c7664 solid 1px; margin-bottom:4px; }

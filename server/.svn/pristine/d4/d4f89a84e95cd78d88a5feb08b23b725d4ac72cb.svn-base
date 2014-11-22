@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<skitter>
+	<slide>
+		<link>#randomSmart</link>
+		<image type="directionTop">../../img/poster.jpg</image>
+		<label><![CDATA[<p>randomSmart</p>]]></label>
+	</slide>
+	<slide>
+		<link>#randomSmart</link>
+		<image type="directionTop">../../img/lunbo1.jpg</image>
+		<label><![CDATA[<p>randomSmart</p>]]></label>
+	</slide>
+	<slide>
+		<link>#randomSmart</link>
+		<image type="cubeSize">../../img/lunbo2.jpg</image>
+		<label><![CDATA[<p>randomSmart</p>]]></label>
+	</slide>
+</skitter>

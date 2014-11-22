@@ -1,0 +1,791 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="aecabb39-d789-41ad-b900-593da560bf14" name="Default" comment="" />
+    <ignored path="test.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <file path="E:/git/lykcbk/lykweb/urls.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1363662317062" ignored="false" />
+    <file path="E:/git/lykcbk/lykweb/helpers.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1366183758140" ignored="false" />
+    <file path="/phinex.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1362565097828" ignored="false" />
+    <file path="/helpers.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1366182393000" ignored="false" />
+    <file path="E:/git/lykcbk/lykcbk/local_settings.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1364800181343" ignored="false" />
+    <file path="/fragment.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1362563035578" ignored="false" />
+    <file path="E:/git/lykcbk/lykweb/views.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1366183118859" ignored="false" />
+    <file path="/views.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1367053136609" ignored="false" />
+    <file path="/12.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1362636056594" ignored="false" />
+    <file path="/phniex.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1362564421984" ignored="false" />
+    <file path="/phenix.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1362564729234" ignored="false" />
+    <file path="E:/git/lykcbk/lykcbk/settings.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1363925835796" ignored="false" />
+    <file path="/settings.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1366622340796" ignored="false" />
+    <file path="E:/git/lykcbk/lykcbk/templates/publish_film_message.html" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1366187548875" ignored="false" />
+    <file path="/publish_film_message.html" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1363338380859" ignored="false" />
+    <file path="/Dummy.txt" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1367050834281" ignored="false" />
+    <file path="/human.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1362569609250" ignored="false" />
+    <file path="E:/git/lykcbk/release/views.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1366180271859" ignored="false" />
+    <file path="E:/git/lykcbk/release/urls.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1363689883265" ignored="false" />
+    <file path="/test123.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1362973534484" ignored="false" />
+    <file path="/a.dummy" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1366976967406" ignored="false" />
+    <file path="/input.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1363062518859" ignored="false" />
+    <file path="E:/git/lykcbk/lykweb/models.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1366180271859" ignored="false" />
+    <file path="/models.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1364468558921" ignored="false" />
+    <file path="E:/git/lykcbk/release/helpers.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1366180271859" ignored="false" />
+    <file path="E:/git/lykweixin/lykweixin/settings.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1366622601171" ignored="false" />
+    <file path="/mantianxing.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1363326754796" ignored="false" />
+    <file path="E:/git/lykcbk/lykcbk/templates/add_publish_atv.html" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1363259154592" ignored="false" />
+    <file path="/add_publish_atv.html" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1363258729045" ignored="false" />
+    <file path="E:/git/lykcbk/lykcbk/templates/manage_cinema.html" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1364818424718" ignored="false" />
+    <file path="/manage_cinema.html" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1363262551436" ignored="false" />
+    <file path="E:/git/lykcbk/requirements.txt" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1363320884593" ignored="false" />
+    <file path="/daditest.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1363345141187" ignored="false" />
+    <file path="E:/git/leyingke/lyk/views.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1364530536734" ignored="false" />
+    <file path="E:/git/leyingke/lyk/controller.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1367046124906" ignored="false" />
+    <file path="/controller.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1367054707968" ignored="false" />
+    <file path="/dec.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1366016888369" ignored="false" />
+    <file path="C:/Python27/Lib/site-packages/django/core/cache/__init__.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1363599579468" ignored="false" />
+    <file path="E:/git/leyingke/lyk_data/lykcache.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1363603722796" ignored="false" />
+    <file path="E:/git/lykweixin/weixin/urls.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1363664435875" ignored="false" />
+    <file path="/urls.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1363687377828" ignored="false" />
+    <file path="E:/git/lykweixin/leyweixin/urls.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1363664280484" ignored="false" />
+    <file path="E:/git/lykweixin/weixin/views.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1364871989468" ignored="false" />
+    <file path="E:/git/lykweixin/weixin/helper.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1366021764385" ignored="false" />
+    <file path="/helper.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1366021739556" ignored="false" />
+    <file path="E:/git/lykbk/backends/models.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1363671545750" ignored="false" />
+    <file path="E:/git/lykbk/backends/admin.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1363671545750" ignored="false" />
+    <file path="E:/git/lykbk/lykbk/urls.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1363671545750" ignored="false" />
+    <file path="E:/git/lykbk/lykbk/wsgi.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1363671545750" ignored="false" />
+    <file path="E:/git/lykbk/lykbk/product_settings.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1363671545750" ignored="false" />
+    <file path="E:/git/lykbk/backends/tests.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1363671545750" ignored="false" />
+    <file path="E:/git/lykbk/lykbk/settings.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1363671545750" ignored="false" />
+    <file path="E:/git/lykbk1/lykbk/urls.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1363748958750" ignored="false" />
+    <file path="C:/Python27/Lib/site-packages/dynamic_media_serve/__init__.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1363686012031" ignored="false" />
+    <file path="/__init__.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1363685901531" ignored="false" />
+    <file path="C:/Python27/Lib/site-packages/django/dynamic_media_serve/__init__.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1363689220921" ignored="false" />
+    <file path="/taobao.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1363921903531" ignored="false" />
+    <file path="/pyweixin.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1364466809562" ignored="false" />
+    <file path="$PROJECT_DIR$/../weixin-simulator-master/gui.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1366019398041" ignored="false" />
+    <file path="E:/git/lykweixin/lykweixin/local_settings.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1364462710218" ignored="false" />
+    <file path="E:/git/lykweixin/weixin/models.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1364471605796" ignored="false" />
+    <file path="/gui.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1366019394306" ignored="false" />
+    <file path="$PROJECT_DIR$/../weixin-simulator-master/geventtest.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1364531284125" ignored="false" />
+    <file path="E:/git/lykweixin/weixin/send_info.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1364547843968" ignored="false" />
+    <file path="/send_info.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1364547841812" ignored="false" />
+    <file path="/decimal1.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1364781706453" ignored="false" />
+    <file path="$PROJECT_DIR$/../weixin/doumibook_weixin-master/private_const.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1364558487953" ignored="false" />
+    <file path="/private_const.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1364556223875" ignored="false" />
+    <file path="$PROJECT_DIR$/../weixin/blog/engine/app.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1364807313687" ignored="false" />
+    <file path="$PROJECT_DIR$/../weixin/blog/shell.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1364807583343" ignored="false" />
+    <file path="/123.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1366174098875" ignored="false" />
+    <file path="/upload1.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1366614940265" ignored="false" />
+    <file path="E:/git/lykweixin/manage/views.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1366620847093" ignored="false" />
+    <file path="/hellopython.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1366883769921" ignored="false" />
+    <file path="E:/requests-master/requests/api.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1366964098671" ignored="false" />
+    <file path="E:/git/leyingke_web/lykweb/controller.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1367054727859" ignored="false" />
+    <file path="E:/git/leyingke_web/lykweb_data/cache.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1366969211609" ignored="false" />
+    <file path="E:/git/leyingke_web/leyingkeweb/settings.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1366974127125" ignored="false" />
+    <file path="C:/Python27/Lib/site-packages/django/views/decorators/http.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1366977084921" ignored="false" />
+    <file path="E:/git/leyingke_web/lykweb/views.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1367053752718" ignored="false" />
+    <file path="E:/git/leyingke/lyk_data/models.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1367049694453" ignored="false" />
+    <file path="E:/git/leyingke_web/leyingkeweb/templates/v_second/index_second.html" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1367053203781" ignored="false" />
+    <file path="/index_second.html" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1367053174406" ignored="false" />
+    <file path="E:/git/leyingke_web/lykmobile/controller.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1367049711140" ignored="false" />
+    <file path="E:/git/leyingke_web/leyingkeweb/local_settings.py" changelist="aecabb39-d789-41ad-b900-593da560bf14" time="1367050529515" ignored="false" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="test" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="dec.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dec.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="54" column="12" selection-start="877" selection-end="877" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="123.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/123.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="36" column="49" selection-start="1410" selection-end="1410" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="decimal1.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/decimal1.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="44" column="26" selection-start="991" selection-end="991" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="input.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/input.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mantianxing.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mantianxing.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="phinex.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/phinex.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="26" column="38" selection-start="923" selection-end="923" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="perl" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/perl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="62" selection-start="440" selection-end="440" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hellopython.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/hellopython.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="23" column="31" selection-start="429" selection-end="429" vertical-scroll-proportion="0.38439307">
+              <folding>
+                <element signature="e#23#32#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="string.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://C:/Python27/Lib/string.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/phinex.py" />
+        <option value="$PROJECT_DIR$/12.py" />
+        <option value="$PROJECT_DIR$/test123.py" />
+        <option value="$PROJECT_DIR$/input.py" />
+        <option value="$PROJECT_DIR$/mantianxing.py" />
+        <option value="$PROJECT_DIR$/daditest.py" />
+        <option value="$PROJECT_DIR$/taobao.py" />
+        <option value="$PROJECT_DIR$/pyweixin.py" />
+        <option value="$PROJECT_DIR$/decimal1.py" />
+        <option value="$PROJECT_DIR$/acript.py" />
+        <option value="$PROJECT_DIR$/dec.py" />
+        <option value="$PROJECT_DIR$/123.py" />
+        <option value="$PROJECT_DIR$/upload.py" />
+        <option value="$PROJECT_DIR$/upload1.py" />
+        <option value="$PROJECT_DIR$/perl" />
+        <option value="$PROJECT_DIR$/hellopython.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-4" />
+    <option name="y" value="-4" />
+    <option name="width" value="1608" />
+    <option name="height" value="874" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Buildout</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.Font" />
+    <property name="restartRequiresConfirmation" value="true" />
+    <property name="last_opened_file_path" value="E:/git/leyingke_web" />
+    <property name="FullScreen" value="false" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <PyConsoleSettings />
+    </option>
+    <option name="myDjangoConsoleState">
+      <PyConsoleSettings />
+    </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\src\test" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.hellopython">
+    <configuration default="false" name="dec" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="test" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dec.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Unittests in pyweixin" type="tests" factoryName="Unittests" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="test" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pyweixin.py" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="decimal1" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="test" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/decimal1.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="123" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="test" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/123.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="hellopython" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="test" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hellopython.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="test" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="TARGET" value="" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Python.AppEngineServer" factoryName="App Engine server">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="test" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="browserUrl" value="" />
+      <option name="additionalOptions" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="test" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="test" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PyRemoteDebugConfigurationType" factoryName="Python Remote Debug">
+      <module name="" />
+      <option name="PORT" value="0" />
+      <option name="HOST" value="null" />
+      <PathMappingSettings>
+        <option name="pathMappings">
+          <list />
+        </option>
+      </PathMappingSettings>
+      <option name="REDIRECT_OUTPUT" value="true" />
+      <option name="SUSPEND_AFTER_CONNECT" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="test" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="test" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
+      <option name="VM_PARAMETERS" value="" />
+      <option name="USER_CFG_CLASS" />
+      <option name="CONTEXT_PROVIDER" />
+      <method />
+    </configuration>
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="Python.dec" />
+      <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in pyweixin" />
+      <item index="2" class="java.lang.String" itemvalue="Python.decimal1" />
+      <item index="3" class="java.lang.String" itemvalue="Python.123" />
+      <item index="4" class="java.lang.String" itemvalue="Python.hellopython" />
+    </list>
+    <recent_temporary>
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Python.hellopython" />
+        <item index="1" class="java.lang.String" itemvalue="Python.123" />
+        <item index="2" class="java.lang.String" itemvalue="Python.dec" />
+        <item index="3" class="java.lang.String" itemvalue="Python.decimal1" />
+        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in pyweixin" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="DETECT_NESTED_COPIES" value="true" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <configuration useDefault="true">C:\Documents and Settings\Administrator\Application Data\Subversion</configuration>
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="aecabb39-d789-41ad-b900-593da560bf14" name="Default" comment="" />
+      <created>1353067336453</created>
+      <updated>1353067336453</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-4" y="-4" width="1608" height="874" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18790218" sideWeight="0.44367176" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42461964" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.55510753" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="true" />
+    <option name="myTodoPanelSettings">
+      <value>
+        <are-packages-shown value="false" />
+        <are-modules-shown value="false" />
+        <flatten-packages value="false" />
+        <is-autoscroll-to-source value="false" />
+      </value>
+    </option>
+    <option name="PERFORM_UPDATE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_COMMIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_EDIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_CHECKOUT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
+    <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="false" />
+    <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
+    <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
+    <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
+    <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
+    <option name="SHORT_DIFF_HORIZONTALLY" value="true" />
+    <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
+    <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
+    <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
+    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
+    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
+    <option name="SHOW_DIRTY_RECURSIVELY" value="false" />
+    <option name="LIMIT_HISTORY" value="true" />
+    <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
+    <option name="UPDATE_FILTER_SCOPE_NAME" />
+    <option name="USE_COMMIT_MESSAGE_MARGIN" value="false" />
+    <option name="COMMIT_MESSAGE_MARGIN_SIZE" value="72" />
+    <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
+    <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
+    <option name="LAST_COMMIT_MESSAGE" />
+    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_FILE_COMMIT" value="false" />
+    <option name="FILE_HISTORY_DIALOG_COMMENTS_SPLITTER_PROPORTION" value="0.8" />
+    <option name="FILE_HISTORY_DIALOG_SPLITTER_PROPORTION" value="0.5" />
+    <option name="ACTIVE_VCS_NAME" />
+    <option name="UPDATE_GROUP_BY_PACKAGES" value="false" />
+    <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
+    <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
+    <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
+    <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="3" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/text34.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vista.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="47" selection-start="1160" selection-end="1160" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dec.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="12" selection-start="877" selection-end="877" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/decimal1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="26" selection-start="991" selection-end="991" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/input.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/site-packages/xlrd/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm20/system/python_stubs/-762174762/exceptions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="6" selection-start="2325" selection-end="2325" vertical-scroll-proportion="0.3321918" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/123.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="49" selection-start="1410" selection-end="1410" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/upload.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="98" column="0" selection-start="3170" selection-end="3170" vertical-scroll-proportion="0.9609827" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/upload1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="18" selection-start="899" selection-end="900" vertical-scroll-proportion="0.71387285" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phinex.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="38" selection-start="923" selection-end="923" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/perl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="62" selection-start="440" selection-end="440" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/string.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mantianxing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ip_assign.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="5" selection-start="90" selection-end="90" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hellopython.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="31" selection-start="429" selection-end="429" vertical-scroll-proportion="0.38439307">
+          <folding>
+            <element signature="e#23#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
+

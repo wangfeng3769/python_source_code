@@ -1,0 +1,48 @@
+<!-- $Id: user_rank.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+{if $full_page}
+{include file="pageheader.htm"}
+{insert_scripts files="../js/utils.js,listtable.js"}
+
+<form method="post" action="" name="listForm">
+<!-- start ads list -->
+<div class="list-div" id="listDiv">
+{/if}
+
+<table cellspacing='1' id="list-table">
+  <tr>
+    <th>会员消费等级</th>
+    <th>等级名称</th>
+    <th>修订费用比率</th>
+   <th>免费修改次数</th>
+    <th>{$lang.handler}</th>
+  </tr>
+  {foreach from=$user_ranks item=rank}
+  <tr>
+    <td align="center"><span>{$rank.id}</span></td>
+    <td align="center"><span>{$rank.name}</span></td>
+    <td align="center"><span>{$rank.revise_fee}</span></td>
+    <td align="center"><span>{$rank.free_times}</span></td>
+    <td align="center">
+    <a href="?act=edit&id={$rank.id}"  title="{$lang.edit}"><img src="images/icon_edit.gif" border="0" height="16" width="16"></a>
+    </td>
+  </tr>
+  {/foreach}
+  </table>
+
+{if $full_page}
+</div>
+<!-- end user ranks list -->
+</form>
+<script type="Text/Javascript" language="JavaScript">
+<!--
+{literal}
+onload = function()
+{
+    // 开始检查订单
+    startCheckOrder();
+}
+{/literal}
+//-->
+</script>
+{include file="pagefooter.htm"}
+{/if}

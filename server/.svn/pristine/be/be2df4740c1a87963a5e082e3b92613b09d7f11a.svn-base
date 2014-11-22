@@ -1,0 +1,69 @@
+<!-- $Id: brand_list.htm 15898 2009-05-04 07:25:41Z liuhui $ -->
+
+{if $full_page}
+{include file="pageheader.htm"}
+{insert_scripts files="../js/utils.js,listtable.js"}
+<!-- 品牌搜索 -->
+{include file="brand_search.htm"}
+<form method="post" action="" name="listForm">
+<!-- start brand list -->
+<div class="list-div" id="listDiv">
+{/if}
+
+  <table cellpadding="3" cellspacing="1">
+    <tr>
+      <th>{$lang.car_id}</th>
+      <th>{$lang.car_name}</th>
+      <th>{$lang.car_number}</th>
+      <th>{$lang.hour_price}</th>
+      <th>{$lang.price_km}</th>
+      <th>{$lang.edit}</th>
+    </tr>
+    {foreach from=$brand_list item=brand}
+    <tr>
+      <td align="center">{$brand.id}</td>
+      <td align="center">{$brand.name}</td>
+      <td align="center">{$brand.number}</td>
+      <td align="center">{$brand.hour_price}</td>
+      <td align="center">{$brand.price_km}</td>
+      <td align="center">
+        <a href="car_price_tmpl.php?act=edit&id={$brand.id}&type=0" title="{$lang.workday}">{$lang.workday}</a> |
+        <a href="car_price_tmpl.php?act=edit&id={$brand.id}&type=1" title="{$lang.holiday}">{$lang.holiday}</a> <br> 
+        <a href="car_price_tmpl.php?act=price_list&id={$brand.id}" title="{$lang.holiday}">查看</a>
+      </td>
+    </tr>
+    {foreachelse}
+    <tr><td class="no-records" colspan="10">{$lang.no_records}</td></tr>
+    {/foreach}
+    <tr>
+      <td align="right" nowrap="true" colspan="6">
+      {include file="page.htm"}
+      </td>
+    </tr>
+  </table>
+
+{if $full_page}
+<!-- end brand list -->
+</div>
+</form>
+
+<script type="text/javascript" language="javascript">
+  <!--
+  listTable.recordCount = {$record_count};
+  listTable.pageCount = {$page_count};
+
+  {foreach from=$filter item=item key=key}
+  listTable.filter.{$key} = '{$item}';
+  {/foreach}
+
+  {literal}
+  onload = function()
+  {
+      // 开始检查订单
+      startCheckOrder();
+  }
+  {/literal}
+  //-->
+</script>
+{include file="pagefooter.htm"}
+{/if}

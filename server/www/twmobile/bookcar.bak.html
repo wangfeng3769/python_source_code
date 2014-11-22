@@ -1,0 +1,182 @@
+<html>
+<head>
+<title>易多</title>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no" />
+<META HTTP-EQUIV="pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+<META HTTP-EQUIV="expires" CONTENT="Wed, 26 Feb 1997 08:21:57 GMT">
+<!-- <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,initial-scale=1" /> -->
+<meta name="viewport" content="target-densitydpi=240;width=480;maximum-scale=1.0;minimum-scale=1.0;user-scalable=yes;">
+
+<script type="text/javascript" src="js/zepto.min.js"></script>
+<script type="text/javascript" src="js/juicer-min.js"></script>
+<script type="text/javascript" src="js/until.base.js"></script>
+
+
+<style type="text/css">
+
+#wrapper {
+position: relative;
+width: 320px;
+margin: 0 auto;
+overflow: hidden;
+}
+
+.one {
+height: 783px;
+}
+
+
+#main {
+position: absolute;
+top: 0;
+left: 0;
+z-index: 2;
+width: 100%;
+/*-webkit-transition: 300ms;
+-webkit-transform: translate3d(0,0,0);
+-webkit-animation-timing-function: ease-in-out;
+-moz-transition: 300ms;
+-moz-transform: translate3d(0,0,0);
+box-shadow: 3px 0 3px #999;
+-moz-animation-timing-function: ease-in-out;*/
+}
+
+#page {
+width: 100%;
+height: 100%;
+/*-webkit-transition: 400ms;
+-webkit-transform: translate3d(0,0,0);
+-webkit-animation-timing-function: ease-in-out;
+-moz-transition: 400ms;
+-moz-transform: translate3d(0,0,0);*/
+}
+
+.page {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+z-index: 1;
+}
+
+.head {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 54px;
+	background-color: red;
+	/*background: url(./img/mobile/bg_mobile@2x.png);*/
+	z-index: 2;
+}
+
+.logo {
+margin: 10px auto;
+padding-top: 34px;
+width: 94px;
+height: 0;
+/*background: url(./img/mobile/logo@2x.png);*/
+background-repeat: no-repeat;
+overflow: visible;
+}
+
+h1, h2, h3, h4, h5, h6, strong {
+font-weight: 700;
+font-size: 100%;
+}
+
+.second-page>.body, #body-main {
+top: 54px;
+}
+
+.two {
+height: 739px;
+}
+
+.body {
+position: absolute;
+width: 100%;
+top: 76px;
+left: 0;
+overflow: hidden;
+z-index: 1;
+}
+
+
+img {
+margin-top: 5px;
+max-width: 320px;
+}
+</style>
+</head>
+
+<body style="margin: 0 0 0 0;">
+<script type="text/javascript">
+$(function(){
+
+})
+</script>
+<div id="wrapper" class="one">
+
+<div class="main one" id="main">
+
+            <div id="page">
+				<!-- home page Start -->
+				<div id="home" class="page one second-page">
+					<header class="head">
+						<h1 class="logo"></h1>
+						<a class="btn btn-right btn-my"></a>
+					</header>
+
+					<div class="body two" id="body-home">
+						<div id="content">
+							<!-- <a href="javascript:Until.jumpUrlCheck();">  <img src="car-pic-1.jpg"> </a>
+							<a href="javascript:Until.login(18612254429,123456);">  <img src="car-pic-2.jpg"> </a> -->
+						<a href="">carinfor</a>
+						</div>
+						
+					</div>
+				</div>
+				
+			</div>
+</div>
+
+
+
+</div>
+
+</body>
+
+<script type="text/javascript">
+
+$(function(){
+ 	var carId=Until.getRequest('carid');
+ 	if (carId==null||carId==undefined)
+	{
+		window.location.href='cars.html';
+
+	}
+	else{
+		getCarInfo(carId);
+	}
+})
+Until.init();
+function getCarInfo(carId)
+{
+
+	Until.postJson("client/http/member.php",{item:'twGetCarInfo',car_id:carId},function(data){
+		if (data.errno==4060||data.errno==4020)
+		{
+			window.location.href='login.html';
+		}
+		else
+		{
+			alert(data.errno);
+		}
+	});
+}
+
+</script>
+</html>

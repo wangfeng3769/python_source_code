@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.4"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.4/src/SearchInfoWindow_min.js"></script>
+		<link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.4/src/SearchInfoWindow_min.css" />
+
+		<title>SearchInfoWindow</title>
+	</head>
+	<body>
+		<div id="map" style="height:100%;-webkit-transition: all 0.5s ease-in-out;transition: all 0.5s ease-in-out;"></div>
+		</div>
+
+		<script type="text/javascript">
+			var map = new BMap.Map('map');
+			var poi = new BMap.Point(<?php echo $lng / 1E6;?>,  <?php echo $lat / 1E6;?>);
+			map.centerAndZoom(poi, 28);
+			map.enableScrollWheelZoom();
+
+			var marker = new BMap.Marker(poi);
+			marker.setAnimation(BMAP_ANIMATION_BOUNCE);
+
+			map.addOverlay(marker);
+
+		</script>
+
+	</body>
+</html>
+</script>

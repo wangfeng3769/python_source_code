@@ -1,0 +1,76 @@
+{% comment %}
+sidebar template for omoma
+copyright 2011 sebastien maccagnoni-munch, alin voinea
+
+this file is part of omoma.
+
+omoma is free software: you can redistribute it and/or modify
+it under the terms of the gnu general public license as published by
+the free software foundation, version 3.
+
+omoma is distributed in the hope that it will be useful,
+but without any warranty; without even the implied warranty of
+merchantability or fitness for a particular purpose.  see the
+gnu general public license for more details.
+
+you should have received a copy of the gnu general public license
+along with omoma. if not, see <http://www.gnu.org/licenses/>.
+{% endcomment %}
+
+{% load omoma %}{% load i18n %}
+
+{% contentbox %}
+    <ul>
+        <li>
+            <a href="{% url transactions %}" >{% trans "home" %}</a>
+        </li>
+        <li>
+            <a href="{% url ious %}">{% trans "ious" %}</a>
+        </li>
+    </ul>
+{% endbox %}
+
+{% contentbox _("accounts") %}
+    <ul>
+        {% getaccountslist %}
+        {% for a in accountslist %}
+            <li>
+                <a href="{% url transactions aid=a.id %}">{{ a.name }}</a>
+            </li>
+        {% endfor %}
+        <li>
+            <a href="{% url deleted_transactions %}">[{% trans "deleted" %}]</a>
+        </li>
+    </ul>
+{% endbox %}
+
+{% contentbox _("setup") %}
+    <ul>
+        <li>
+            <a href="{% url accounts %}">{% trans "accounts" %}</a>
+        </li>
+        <li>
+            <a href="{% url categories %}">{% trans "categories" %}</a>
+        </li>
+        <li>
+            <a href="{% url automaticrules %}">{% trans "rules" %}</a>
+        </li>
+        <li>
+            <a href="{% url cleaning %}">{% trans "cleaning" %}</a>
+        </li>
+    </ul>
+{% endbox %}
+
+{% contentbox _("admin") %}
+    <ul>
+        <li>
+            <a href="{% url currencies %}">{% trans "currencies" %}</a>
+        </li>
+        <li>
+            <a href="{% url users %}">{% trans "users" %}</a>
+        </li>
+        <li>
+            <a href="http://code.google.com/p/omoma/issues/entry" target="_blank">{% trans "report a bug" %}</a>
+        </li>
+    </ul>
+{% endbox %}

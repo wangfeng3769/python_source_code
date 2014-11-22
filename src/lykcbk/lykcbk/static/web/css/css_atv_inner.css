@@ -1,0 +1,36 @@
+@charset "utf-8";
+
+/*===========================活动详情子页面===============================*/
+	/*活动详情主体样式*/
+.atv_inner_main{ width:980px; height:786px;  margin:0 auto;}
+
+	/*活动详情主体左侧样式*/
+.atv_inner_left{ width:628px; padding-top:12px;}
+.atv_inner_left_title{ width:628px; height:36px; padding-bottom:6px; background:url(../images/total_bg.png) repeat-x;}
+.atv_inner_left_title a{ float:right; padding-right:10px; padding-top:6px;}
+.atv_inner_left_title a:link{ font-size:14px; color:#fff; font-weight:normal;}
+.atv_inner_left_title a:visited{ font-size:14px; color:#fff; font-weight:normal;}
+
+.atv_inner_left_content{ width:628px; height:688px; background:url(../images/atv_inner_bg.png) repeat-y; border-bottom:#deddd9 solid 1px; border-top:#deddd9 solid 1px; border-left:#deddd9 solid 1px; }
+.atv_inner_left_content_top{ width:628px; height:74px;}
+.atv_inner_left_content_top h3{ width:626px; height:38px; padding-top:36px; font-size:20px; color:#000; text-align:center; border-bottom:#565656 solid 1px;}
+
+.atv_inner_left_content_middle{ width:582px; height:290px; padding:30px 14px 18px 30px;}
+.content_pic img{ width:204px; height:287px;}
+
+	/*有图片时文字样式*/
+.atv_text{ width:362px; padding-left:16px;}
+.atv_text p{ font-size:14px; color:#000; line-height:28px;}
+.atv_text h4{ height:18px; font-size:18px; color:#000; text-align:center; padding-bottom:20px;}
+
+	/*无图片时文字样式*/
+.atv_text_NoPic{ width:552px; padding-left:16px;}
+.atv_text_NoPic p{ font-size:14px; color:#000; line-height:28px;}
+.atv_text_NoPic h4{ height:18px; font-size:18px; color:#000; text-align:center; padding-bottom:20px;}
+
+.atv_inner_left_content_bottom{ width:601px; padding-left:27px;}
+.content_bottom_title{ width:574px; height:27px; border-bottom:#228088 solid 1px;}
+.content_bottom_title span{ display:inline-block; display:block; width:84px; height:28px; background:#228088; color:#FFF; font-size:16px; text-align:center; line-height:24px;}
+.content_bottom_txt{ width:574px; text-indent:2em; font-size:14px; color:#000; padding-top:10px; }
+	/*阴影涂层*/
+.up_shadow_bg2{width:628px; height:10px; background:url(../images/up_shadow_bg.png) no-repeat;}

@@ -1,0 +1,74 @@
+<!-- $Id: agency_info.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+{include file="pageheader.htm"}
+{insert_scripts files="../js/transport.js,../js/region.js"}
+<script type="text/JavaScript" src="../js/formcheck.js"></script>
+<div class="main-div">
+<form method="post" action="medal.php" name="theForm" enctype="multipart/form-data"  onSubmit="return Validator.Validate(this,2)">
+<table cellspacing="1" cellpadding="3" width="100%" >
+  <tr>
+    <td><input type="hidden" name="id"  value="{$medal.id}" /></td>
+    
+    <td>
+		奖章名称<input  name="name" dataType="Chinese" msg="奖章名称只允许中文" value="{$medal.name}" />
+    </td>
+  </tr>
+  <tr>
+    <td class="label">&nbsp;</td>
+    <td>
+		奖章文件
+    <select  name ="file">
+        {foreach from=$medalData key=k item=v}
+          <option value={$k}   {if $medal.file == $v} selected {/if}>{$v}</option>
+        {/foreach}          
+    </select>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">&nbsp;</td>
+    <td>奖章类名<input name="classname" dataType="English" msg="只允许英文" value="{$medal.classname}"/></td>
+  </tr>
+  <tr>
+    <td class="label">&nbsp;</td>
+    <td>图片地址<input name="icon" type="file" value="{$medal.icon}"/></td>
+ 	
+  </tr>
+   <tr>
+    <td class="label">&nbsp;</td>
+    <td>
+		描&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;述
+		<input name="medaldesc" Type="text"  value="{$medal.medaldesc}"/>
+	</td>
+  </tr>
+</table>
+
+<table align="center">
+  <tr>
+    <td colspan="2" align="center">
+      <input type="submit" class="button" value="{$lang.button_submit}" />
+      <input type="reset" class="button" value="{$lang.button_reset}" />
+      <input type="hidden" name="act" value="{$form_action}" />
+      <input type="hidden" name="id" value="{$medal.id}" />
+    </td>
+  </tr>
+</table>
+</form>
+</div>
+{insert_scripts files="../js/utils.js"}
+{literal}
+<script language="JavaScript">
+<!--
+document.forms['theForm'].elements['medal_id'].focus();
+
+onload = function()
+{
+    // 开始检查订单
+    startCheckOrder();
+}
+/**
+ * 检查表单输入的数据
+ */
+
+//-->
+</script>
+{/literal}
+{include file="pagefooter.htm"}

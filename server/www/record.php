@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+</head>
+<body>
+<table style="width: 100% " border="1" cellspacing="0" cellpadding="0">
+	<style type="text/css">
+		td{
+			border-left: 1px #838B8B solid;
+			text-align: center;
+			border-collapse:collapse;
+			background-color: #f1fafa;
+		}
+		.titles{
+			font-size: 20px;
+			font-weight: bold;
+			background-color: #e8e8ff; 
+		}
+	</style>
+	<tr>
+		<td class="titles">Car_id</td>
+		<td class="titles">Send_time</td>
+		<td class="titles">Addon</td>
+		<td class="titles">Status</td>
+	</tr>
+	<?php foreach ($arr as $v) {?>
+    <tr>  
+        <td ><?php echo $v['car_id'] ?></td>
+        <td ><?php echo $v['send_time'] ?></td>
+        <td ><?php echo $v['addon'] ?></td>
+        <td >
+        	<?php 
+        		if($v['state']==0){
+        			echo "没有下发";
+        		}else if ($v['state']==1) {
+        			echo "已下发";
+        		}else if ($v['state']==2) {
+        			echo "接受成功";
+        		}else if($v['state']==3) {
+        			echo "接收失败";
+        		} 
+        	?>
+    </td>
+    </tr>
+      <?php  } ?>
+</table>
+</body>

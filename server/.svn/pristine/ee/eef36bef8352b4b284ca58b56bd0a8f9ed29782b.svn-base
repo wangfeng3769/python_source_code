@@ -1,0 +1,69 @@
+<!-- $Id: equipment_info.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+{include file="pageheader.htm"}
+<script language="JavaScript" src="../js/formcheck.js"></script>
+<div class="main-div">
+<form method="post" action="equipment.php" name="theForm" enctype="multipart/form-data" onSubmit="return Validator.Validate(this,2)">
+<table cellspacing="1" cellpadding="3" width="100%">
+  <tr>
+    <td class="label">{$lang.equipment_version}</td>
+    <td><select name="version" dataType="Require" msg="1.0">
+			<option value="1.0">1.0</option>
+		</select>{$lang.require_field}</td>
+  </tr>
+  <tr>
+    <td class="label">{$lang.equipment_model}</td>
+    <td><input Type="text" name="model" maxlength="60" value="{$brand.model}" /></td>
+  </tr>
+  <tr>
+    <td class="label">{$lang.equipment_serial}</td>
+    <td><input Type="text" name="serial" id="logo" size="45" value="{$brand.serial}" >
+    </td>
+  </tr>
+  <tr>
+    <td class="label">sim卡号码</td>
+    <td>
+      <select name="sim">
+
+      <option value="-1">不选择号码...</option>
+      {foreach from=$sims item=sim}
+      {if $sim.status==0||$sim.id==$brand.sim}
+      <option value={$sim.id} {if $sim.id==$brand.sim} selected{/if}>{$sim.phone_number}</option>
+      {/if}
+      {/foreach}
+
+    </select>
+    </td>
+
+  </tr>
+<!--   <tr>
+    <td class="label">{$lang.equipment_sim}</td>
+    <td><input  require="ture" dataType="Number" msg="SIM卡只允许数字" name="sim" id="logo" size="45" value="{$brand.sim}" >
+    </td>
+  </tr> -->
+  <tr>
+    <td colspan="2" align="center"><br />
+      <input type="submit" class="button" value="{$lang.button_submit}" />
+      <input type="reset" class="button" value="{$lang.button_reset}" />
+      <input type="hidden" name="act" value="{$form_action}" />
+      <input type="hidden" name="id" value="{$brand.id}" />
+      <input type="hidden" name="old_brandlogo" value="{$brand.equipment_logo}">
+    </td>
+  </tr>
+</table>
+</form>
+</div>
+{insert_scripts files="../js/utils.js"}
+{literal}
+<script language="JavaScript">
+<!--
+onload = function()
+{
+    // 开始检查订单
+    startCheckOrder();
+}
+
+
+//-->
+</script>
+{/literal}
+{include file="pagefooter.htm"}

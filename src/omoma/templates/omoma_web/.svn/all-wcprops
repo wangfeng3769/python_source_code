@@ -1,0 +1,119 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/templates/omoma_web
+END
+category_confirm_delete.html
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/templates/omoma_web/category_confirm_delete.html
+END
+category.html
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/templates/omoma_web/category.html
+END
+transaction_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/templates/omoma_web/transaction_list.html
+END
+transactioncategory.html
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/templates/omoma_web/transactioncategory.html
+END
+automaticcategory.html
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/templates/omoma_web/automaticcategory.html
+END
+currency_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/templates/omoma_web/currency_list.html
+END
+transaction.html
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/templates/omoma_web/transaction.html
+END
+account_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/templates/omoma_web/account_list.html
+END
+iou_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/templates/omoma_web/iou_list.html
+END
+currency_confirm_delete.html
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/templates/omoma_web/currency_confirm_delete.html
+END
+apply_automaticcategory.html
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/templates/omoma_web/apply_automaticcategory.html
+END
+currency.html
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/templates/omoma_web/currency.html
+END
+account_confirm_delete.html
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/templates/omoma_web/account_confirm_delete.html
+END
+iou.html
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/templates/omoma_web/iou.html
+END
+account.html
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/templates/omoma_web/account.html
+END
+transactionrenaming.html
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/templates/omoma_web/transactionrenaming.html
+END
+transactions_confirm_delete.html
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/templates/omoma_web/transactions_confirm_delete.html
+END
+category_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/templates/omoma_web/category_list.html
+END
+apply_transactionrenaming.html
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/templates/omoma_web/apply_transactionrenaming.html
+END

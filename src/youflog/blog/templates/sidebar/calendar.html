@@ -1,0 +1,21 @@
+<div id="wp-calendar">
+
+	{{ calendar|safe }}
+	
+	<div class="month-navigation">
+	  <span class="month-previous">
+	    {% if previous_month %}
+	    <a href="{% url entry_by_month previous_month|date:"y" previous_month|date:"m" %}">
+	      &lt;&lt; {{ previous_month|date:"year_month_format" }}
+	    </a>
+	    {% endif %}
+	  </span>
+	  <span class="next">
+	    {% if next_month %}
+	    <a href="{% url entry_by_month next_month|date:"y" next_month|date:"m" %}">
+	      {{ next_month|date:"year_month_format" }} &gt;&gt;
+	    </a>
+	    {% endif %}
+	  </span>
+	</div>
+</div>

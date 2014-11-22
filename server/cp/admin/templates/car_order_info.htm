@@ -1,0 +1,172 @@
+<!-- $Id: order_info.htm 17060 2010-03-25 03:44:42Z liuhui $ -->
+
+{include file="pageheader.htm"}
+{insert_scripts files="topbar.js,../js/utils.js,listtable.js,selectzone.js,../js/common.js"}
+{if $order}
+<div id="topbar">
+  <div align="right"><a href="" onclick="closebar(); return false"><img src="images/close.gif" border="0" /></a></div>
+  <table width="100%" border="0">
+    <caption><strong> {$lang.buyer_info} </strong></caption>
+    <tr>
+      <td> {$lang.email} </td>
+      <td> <a href="mailto:{$user.email}">{$order.email}</a> </td>
+    </tr>
+    <tr>
+      <td> {$lang.user_money} </td>
+      <td> {$user.formated_user_money} </td>
+    </tr>
+    <tr>
+      <td> {$lang.pay_points} </td>
+      <td> {$user.pay_points} </td>
+    </tr>
+    <tr>
+      <td> {$lang.rank_points} </td>
+      <td> {$user.rank_points} </td>
+    </tr>
+    <tr>
+      <td> {$lang.rank_name} </td>
+      <td> {$user.rank_name} </td>
+    </tr>
+    <tr>
+      <td> {$lang.bonus_count} </td>
+      <td> {$user.bonus_count} </td>
+    </tr>
+  </table>
+
+  {foreach from=$address_list item=address}
+  <table width="100%" border="0">
+    <caption><strong> {$lang.consignee} : {$address.consignee|escape} </strong></caption>
+    <tr>
+      <td> {$lang.email} </td>
+      <td> <a href="mailto:{$address.email}">{$address.email}</a> </td>
+    </tr>
+    <tr>
+      <td> {$lang.address} </td>
+      <td> {$address.address|escape} </td>
+    </tr>
+    <tr>
+      <td> {$lang.zipcode} </td>
+      <td> {$address.zipcode|escape} </td>
+    </tr>
+    <tr>
+      <td> {$lang.tel} </td>
+      <td> {$address.tel|escape} </td>
+    </tr>
+    <tr>
+      <td> {$lang.mobile} </td>
+      <td> {$address.mobile|escape} </td>
+    </tr>
+  </table>
+  {/foreach}
+</div>
+{/if}
+
+<form action="car_order.php?act=operate" method="post" name="theForm">
+<div class="list-div" style="margin-bottom: 5px">
+<table width="100%" cellpadding="3" cellspacing="1">
+  <tr>
+    <td colspan="4">
+      <div align="center">
+        <input name="prev" type="button" class="button" onClick="location.href='car_order.php?act=info&order_id={$prev_id}';" value="{$lang.prev}" {if !$prev_id}disabled{/if} />
+        <input name="next" type="button" class="button" onClick="location.href='car_order.php?act=info&order_id={$next_id}';" value="{$lang.next}" {if !$next_id}disabled{/if} />
+    </div></td>
+  </tr>
+  <tr>
+    <th colspan="4">{$lang.base_info}</th>
+  </tr>
+  <tr>
+    <td width="18%"><div align="right"><strong>{$lang.label_order_sn}</strong></div></td>
+    <td width="34%">{$order.order_no}{if $order.extension_code eq "group_buy"}<a href="group_buy.php?act=edit&id={$order.extension_id}">{$lang.group_buy}</a>{elseif $order.extension_code eq "exchange_goods"}<a href="exchange_goods.php?act=edit&id={$order.extension_id}">{$lang.exchange_goods}</a>{/if}</td>
+    <td width="15%"><div align="right"><strong>{$lang.label_order_status}</strong></div></td>
+    <td>{$order.order_stat}
+      </td>
+  </tr>
+  <tr>
+    <td><div align="right"><strong>订车人：</strong></div></td>
+    <td>{$order.uname|default:$lang.anonymous} {if $order.uid > 0}[ <a href="" onclick="staticbar();return false;">{$lang.display_buyer}</a> ]{/if}</td>
+    <td><div align="right"><strong>下单时间：</strong></div></td>
+    <td>{$order.add_time}</td>
+  </tr>
+  <tr>
+    <td><div align="right"><strong>开始时间：</strong></div></td>
+    <td>{$order.order_start_time}</td>
+    <td><div align="right"><strong>结束时间：</strong></div></td>
+    <td>{$order.order_end_time}</td>
+  </tr>
+   <tr>
+    <td><div align="right"><strong>实际取车时间：</strong></div></td>
+    <td>{$order.real_start_time}</td>
+    <td><div align="right"><strong>实际换车时间：</strong></div></td>
+    <td>{$order.real_end_time}</td>
+  </tr>
+   <tr>
+    <td><div align="right"><strong>订单时长：</strong></div></td>
+    <td>{$order.org_time_count}</td>
+    <td><div align="right"><strong>实际时长：</strong></div></td>
+    <td>{$order.real_time_count}</td>
+  </tr>
+  <tr>
+    <td><div align="right"><strong>开始里程：</strong></div></td>
+    <td>{$order.start_mileage}</td>
+    <td><div align="right"><strong>结束里程：</strong></div></td>
+    <td>{$order.end_mileage}</td>
+  </tr>
+  <!-- modify by matao 2013.05.23 -->
+
+  <!--   <tr>
+    <td><div align="right"><strong>开始里程：</strong></div></td>
+    <td>{$order.start_mileage}</td>
+    <td><div align="right"><strong>结束里程：</strong></div></td>
+    <td>{$order.end_mileage}</td>
+  </tr> -->
+  
+  <!-- modify by matao 2013.05.23 -->
+  <tr>
+    <td><div align="right"><strong>行驶里程：</strong></div></td>
+    <!-- modify by matao 2013.05.23 -->
+
+    <!--  <td>{$order.mile_count}</td> -->
+    <td>{$order.all_miles}</td>
+
+    <!-- modify by matao 2013.05.23 -->
+    <td><div align="right"><strong>转移状态：</strong></div></td>
+    <td>
+    {$order.is_shift_stat}
+    </td>
+  </tr>
+</table>
+</div>
+</form>
+{literal}
+<script language="JavaScript">
+{/literal}
+  var oldAgencyId = {$order.agency_id|default:0};
+{literal}
+  onload = function()
+  {
+    // 开始检查订单
+    startCheckOrder();
+  }
+
+  /**
+   * 把订单指派给某办事处
+   * @param int agencyId
+   */
+  function assignTo(agencyId)
+  {
+    if (agencyId == 0)
+    {
+      alert(pls_select_agency);
+      return false;
+    }
+    if (oldAgencyId != 0 && agencyId == oldAgencyId)
+    {
+      alert(pls_select_other_agency);
+      return false;
+    }
+    return true;
+  }
+</script>
+{/literal}
+
+{include file="pagefooter.htm"}

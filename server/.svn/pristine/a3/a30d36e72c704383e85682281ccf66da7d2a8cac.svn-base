@@ -1,0 +1,141 @@
+<!-- $Id: brand_list.htm 15898 2009-05-04 07:25:41Z liuhui $ -->
+
+{if $full_page}
+{include file="pageheader.htm"}
+{insert_scripts files="../js/utils.js,listtable.js"}
+<!-- 品牌搜索 -->
+{include file="brand_search.htm"}
+<form method="post" action="" name="listForm">
+<!-- start brand list -->
+<div class="list-div" id="listDiv">
+{/if}
+    <table cellpadding="6" cellspacing="1">
+      <tr >
+        <th colspan="6">
+          <p>基本计价</p>
+        </th>
+      </tr>
+      <tr>
+          <th>{$lang.car_id}</th>
+          <th>{$lang.car_name}</th>
+          <th>{$lang.car_number}</th>
+          <th>{$lang.hour_price}</th>
+          <th>{$lang.price_km}</th>
+          <th>类型</th>
+      </tr>
+      {foreach from=$base_price item=base_price}
+    <tr>
+      <td align="center">{$base_price.car_id}</td>
+      <td align="center">{$base_price.name}</td>
+      <td align="center">{$base_price.number}</td>
+      <td align="center">{$base_price.hour_price}</td>
+      <td align="center">{$base_price.price_km}</td>
+      <td align="center">
+        {if $base_price.type==0 }工作日{/if}
+        {if $base_price.type==1 }节假日{/if}
+      </td>
+    </tr>
+    {/foreach}
+    </table>
+
+    <table cellpadding="3" cellspacing="1">
+      <tr >
+        <th colspan="8">
+          <p>详细计价</p>
+        </th>
+      </tr>
+
+      <tr>
+        <th>{$lang.car_id}</th>
+        <th>{$lang.car_name}</th>
+        <th>{$lang.car_number}</th>
+        <th>{$lang.time_from}</th>
+        <th>{$lang.time_end}</th>
+        <th>{$lang.price}</th>
+        <th>{$lang.hour_contain_km}(公里)</th>
+        <th>类型</th>
+      </tr>
+
+      <tr>
+    {foreach from=$detail_price item=detail_price}
+    <tr style="backgroundColor:red">
+      <td align="center">{$detail_price.car_id}</td>
+      <td align="center">{$detail_price.name}</td>
+      <td align="center">{$detail_price.number}</td>
+      <td align="center">{$detail_price.time_from}:00</td>
+      <td align="center">{$detail_price.time_end}:00</td>
+      <td align="center">{$detail_price.price}</td>
+      <td align="center">{$detail_price.contain_km}</td>
+      <td align="center">
+        {if $detail_price.type==0 }工作日{/if}
+        {if $detail_price.type==1 }节假日{/if}
+      </td>
+    </tr>
+    {/foreach}
+      </tr>
+    </table>
+      
+
+    <table>
+      <tr >
+        <th colspan="10">
+          <p>封顶计价</p>
+        </th>
+      </tr>
+
+      <tr>
+        <th>{$lang.car_id}</th>
+        <th>{$lang.car_name}</th>
+        <th>{$lang.car_number}</th>
+        <th>{$lang.date_from}</th>
+        <th>{$lang.date_end}</th>
+        <th>{$lang.time_from}</th>
+        <th>{$lang.time_end}</th>
+        <th>{$lang.period_top}</th>
+        <th>{$lang.contain_km}</th>
+        <th>类型</th>
+      </tr>
+
+    {foreach from=$top_price item=top_price}
+    <tr bgcolor="#FF0000" >
+      <td align="center">{$top_price.car_id}</td>
+      <td align="center">{$top_price.name}</td>
+      <td align="center">{$top_price.number}</td>
+      <td align="center">{$top_price.date_from}</td>
+      <td align="center">{$top_price.date_end}</td>
+      <td align="center">{$top_price.time_from}:00</td>
+      <td align="center">{$top_price.time_end}:00</td>      
+      <td align="center">{$top_price.period_top}</td>
+      <td align="center">{$top_price.contain_km}</td>
+      <td align="center">
+        {if $top_price.type==0 }工作日{/if}
+        {if $top_price.type==1 }节假日{/if}
+      </td>
+    </tr>
+    {/foreach}
+    </table>
+{if $full_page}
+<!-- end brand list -->
+</div>
+</form>
+
+<script type="text/javascript" language="javascript">
+  <!--
+  listTable.recordCount = {$record_count};
+  listTable.pageCount = {$page_count};
+
+  {foreach from=$filter item=item key=key}
+  listTable.filter.{$key} = '{$item}';
+  {/foreach}
+
+  {literal}
+  onload = function()
+  {
+      // 开始检查订单
+      startCheckOrder();
+  }
+  {/literal}
+  //-->
+</script>
+{include file="pagefooter.htm"}
+{/if}

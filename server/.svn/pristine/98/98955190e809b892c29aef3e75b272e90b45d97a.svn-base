@@ -1,0 +1,58 @@
+{if $full_page}
+{include file="pageheader.htm"}
+{/if}
+<link rel="stylesheet" type="text/css" href="../js/ng_calendar/assets/css/ng_all.css">
+{insert_scripts files="../js/utils.js"}
+
+<div align='center' id="calendar_setting">Calendar_setting</div>
+
+
+<script type="text/javascript">
+	var ng_config = {
+		assests_dir: '../js/ng_calendar/assets/'	// the path to the assets directory
+	}
+</script>
+{insert_scripts files="../js/ng_calendar/ng_all.js,../js/ng_calendar/components/calendar.js,../js/utils.js"}
+<script type="text/javascript">
+var my_cal;
+var ddd = new Date();
+var golf_year = ddd.getFullYear()
+var str_date = golf_year+'/1/1';
+ng.ready(function(){
+		// creating the calendar
+		my_cal = new ng.Calendar({
+			//input: 'date1',	// the input field id
+			object:'calendar_setting',
+			//start_day:1,
+			days_off:new Array(6,0),
+			allow_dates_off_selection:true,
+			allow_days_off_selection:true,
+			start_date:str_date,	// the start date (default is today)new Date("1 1,"+golf_year)
+			display_date:str_date,	// the display date (default is start_date)
+			num_col:4,
+			num_months:12,
+			multi_selection:true,
+			selected_date:Array({$str_json}),
+			//selected_date:Array({date:1, month:0,year:2012}),
+			//dates_off:Array({date:26, month:11},{date:25, month:11}),
+			server_date_format:'Y-m-d',
+			date_format:'m-d-Y',
+			events: {
+						onUnSelect: function(dt) { 
+													var date = dt.getFullYear()+'-'+(dt.getMonth()+1)+'-'+dt.getDate();
+													Ajax.call('calendar_setting.php?act=unSlect&sdate=' + date,'',null,'POST','TEXT');
+
+												},
+						onSelect:function(dt){
+												var date = dt.getFullYear()+'-'+(dt.getMonth()+1)+'-'+dt.getDate();
+												Ajax.call('calendar_setting.php?act=Slect&sdate=' + date,'',null,'POST','TEXT');
+
+											}
+					},
+			visible:true
+		});
+		
+	});
+</script>
+
+{include file="pagefooter.htm"}

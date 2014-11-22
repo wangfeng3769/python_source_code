@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="keywords" content="乐影客" />
+<meta http-equiv="description" content="乐影客" />
+<title>影院列表</title>
+<link href="/static/web/css/css.css" rel="stylesheet" type="text/css" />
+<link href="/static/web/css/css_list.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<!--<iframe src="/lykweb/header" border="0" vspace="0" hspace="0" marginwidth="0" marginheight="0" framespacing="0" frameborder="0" scrolling="no" width="100%" ></iframe>-->
+{% include 'header.html' %}
+<div class="movie_list_main">
+    <div id="" class="movie_list_left fl">
+    	<div class="total">
+            全城共<span class="total_text">&nbsp;{{cinemacount}}&nbsp;</span>家影院共<span class="total_text">&nbsp;{{filmsessioncount}}&nbsp;</span>场
+        </div>
+        <div class="movie_list_left_title pr">
+        	<div id="movie_list_search" class="movie_list_search">
+            	<div id="cinema_search_checked" class="cinema_search_checked fl">
+                	<em id="free_parking_checked"></em><span>VIP</span>
+                    <em id="imax_checked"></em><span>巨幕</span>
+                </div>
+                <div class="list_search_input fl">
+                    <input id="search_input" type="text" value="影院索引"  />
+                </div>
+                <span id="cinema_search_btn" class="cinema_search_btn fr"><input type="button" value=" " /></span>
+                <input type="hidden" value="" />
+            </div>
+        </div>
+        <div class="tab_box">
+            <div class="m_l_tit pr">
+            	<span class="cin_name pa">影院</span>
+                <span id="cinema_btn" class="cin_num pa">影厅<em id="cinema_btn_em" class="pa"></em></span>
+                <span class="movie_total pa">影片</span>
+                <span id="total_btn" class="session_num pa">场次<em id="cinema_btn_em2" class="pa"></em></span>
+                <div class="cin_location_div pa">
+                    <div class="cin_location_btn_outer">
+                        <input id="cin_location" class="cin_location pa" type="button" value="全部" />
+                    </div>
+                    <em id="cin_area_list_up_btn" class="pa"></em>
+                    <div id="cin_area_list_up" class="cin_area_list_up pa">
+                        <ol id="cin_area_list_up_ol" class="cin_area_list_area">
+                            <li class="active">全部</li>
+                            {% if districts %}
+                                {% for district in districts %}
+                                    <li>{{district.districtname}}</li>
+                                    <input type="hidden" name="areaid" value="{{district.districtid}}" />
+                                {% endfor %}
+                            {% endif %}
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <ul id="movie_list_left_ul" class="movie_list_left_ul">
+                {% if cinemalist %}
+                    {%for cinema in cinemalist%}
+                        <li class="movie_list_left_li">
+                            <div class="movie_ticket_list_box pr" style="display:block">
+                                <div class="movie_list_left_name fl"><a href="/lykweb/cinema/info/{{cinema.id}}">{{cinema.name}}</a></div>
+                                <div class="movie_list_left_num1 fl"><span>{% if cinema.hallcount %}{{cinema.hallcount}}个厅{%else%}&nbsp;{% endif %}</span></div>
+                                <div class="movie_list_left_num2 fl"><span>{{cinema.moviecount}}部</span></div>
+                                <div class="movie_list_left_num3 fl"><span>{{cinema.sessioncount}}场</span></div>
+                                <div class="movie_list_left_addr fr">{{cinema.districtname}}</div>
+                                <!--<span class="movie_list_gifts pa">赠品</span>-->
+                                <span class="movie_list_addr pa"></span>
+                                {% for featureId in cinema.features %}
+                                    {% if featureId == '5' %}
+                                        <span class="movie_list_IMAX">IMAX</span>
+                                    {% elif featureId == '8' %}
+                                        <em class="parking_space"></em>
+                                    {% endif %}
+                                {% endfor %}
+                                <em class="arrow_up pa"></em>
+                                <input class="cinema_list_lon" type="hidden" value="{{cinema.longitude_baidu}}"/>
+                                <input class="cinema_list_lat" type="hidden" value="{{cinema.latitude_baidu}}"/>
+                                <input class="cinema_list_name" type="hidden" value="{{cinema.name}}"/>
+                                <input class="cinema_list_tel" type="hidden" value="{{cinema.telephone}}"/>
+                                <input class="cinema_list_addr" type="hidden" value="{{cinema.address}}"/>
+                                <input class="cinema_list_logo" type="hidden" value="{{cinema.image_url}}"/>
+                            </div>
+                            {% if cinema.movielist %}
+                                <div class="movie_list_left_onclick" style="display:none">
+                                    <p>
+                                        {% for movie in cinema.movielist %}
+                                            <a href="/lykweb/movie/info/{{movie.id}}?1=1">{{movie.title}}</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        {% endfor %}
+                                    </p>
+                                </div>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+        </div>
+        
+        
+        <div id="page" class="page"></div>
+        <div class="up_shadow_bg2" ></div>
+    </div>
+
+    <div class="main_right fr" style="padding-top:0;">
+        {% if activitylist %}
+        <div class="right_title">
+            <p class="fl">全城共有<span class="right_title_text" >{{activitycount}}</span>个活动正在举行</p>
+            <p class="activity_more fr"><a href="/lykweb/activity/list">更多</a></p>
+        </div>
+        <div class="activity_content">
+            {% for activity in activitylist %}
+            {% if forloop.counter <= 3 %}
+            {% if activity.image_url %}
+            <div class="activity pr">
+                <p class="atv_P pa">活动<span class="activity_num pa">{{forloop.counter}}.</span></p>
+                <div class="activity_title">
+                    <span><a href="/lykweb/activity/info/{{activity.id}}">{{activity.title}}</a></span>
+                </div>
+                <div class="activity_pic fl">
+                    <a href="/lykweb/activity/info/{{activity.id}}"><img src="{{activity.image_url}}" width="306" height="188" alt="" title="" /></a>
+                </div>
+                <div class="activity_text_total fl">
+                    <p class="activity_text"><a href="/lykweb/activity/info/{{activity.id}}">{{activity.description}}</a></p>
+                    <div class="activity_time">
+                        <a href="/lykweb/activity/info/{{activity.id}}">
+                            &nbsp;&nbsp;活动时间：<br/>
+                            <span>{{activity.starttime}}至</span><br/>
+                            <span>{{activity.endtime}}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="activity_NoPic pr">
+                <p class="atv_P pa">活动<span class="activity_num pa">{{forloop.counter}}.</span></p>
+                <div class="activity_title">
+                    <span><a href="/lykweb/activity/info/{{activity.id}}">{{activity.title}}</a></span>
+                </div>
+                <p class="activity_NoPic_text">
+                    <a href="/lykweb/activity/info/{{activity.id}}">{{activity.description}}</a>
+                </p>
+                <div class="activity_NoPic_time">
+                    <a href="/lykweb/activity/info/{{activity.id}}">
+                        活动时间：<br/>
+                        <span>{{activity.starttime}}至{{activity.endtime}}</span>
+                    </a>
+                </div>
+            </div>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="mes_bottom">
+	<div class="hot_movie fl">
+        <div id="hot_movie_tle" class="hot_movie_tle pr">
+          热门影片
+          <span id="hot_movie_more_btn" class="pa"><a href="javascript:;">更多</a></span>
+        </div>
+        <ul>
+            {% if hotlist %}
+                {% for movie in hotlist %}
+                    {% if forloop.counter <= 4 %}
+                        <li><a href="/lykweb/movie/info/{{movie.id}}"><img src="{{movie.poster_image_url}}" width="146" height="202" alt="{{movie.title}}" title="{{movie.title}}" /></a></li>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </ul>
+        
+        <ol>
+            {% if hotlist %}
+                {% for movie in hotlist %}
+                    {% if forloop.counter <= 4 %}
+                        <li>《{{movie.title}}》</li>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </ol>
+    </div>
+    
+    <div class="hot_cinema fr">
+        <div class="mes_atv_title">
+            <span class="activity_more fr"><a href="/lykweb/cinema/list">更多</a></span>热门影院
+        </div>
+        <ul>
+            {% if hotcinemas %}
+                {% for cinema in hotcinemas %}
+                    <li><a href="/lykweb/cinema/info/{{cinema.id}}">{{forloop.counter}}.{{cinema.name}}</a></li>
+                {% endfor %}
+            {% endif %}
+        </ul>
+    </div>
+</div>
+
+<div id="hot_movie_Box">
+    <div class="hot_movie_header pr">
+        <div class="hot_movie_title">
+            <div class="hot_movie_pic fl"><h1><img src="/static/web/images/hot_movie_logo.jpg" width="292" height="59" alt="" title="" /></h1></div>
+            <div class="hot_movie_text fl">目前在<span>{{city_name}}</span>有<em>{{hotcount}}</em>部影片正在热映</div>
+            <span id="close" class="hot_movie_delete pa"></span>
+        </div>
+        <div id="hot_movie_tab_title" class="hot_movie_tab_title">
+            <ul>
+                <li class="active">正在热映</li>
+                <li>即将上映</li>
+            </ul>
+        </div>
+    </div>
+    <div class="pop_window_tab_box active">
+        <div id="hot_movie_content" class="hot_movie_content pa">
+            <div id="hot_movie_tab_box" class="hot_movie_tab_box">
+                <ul>
+                    {% if hotlist %}
+                    {% for hotmovie in hotlist %}
+                    <li><a href="/lykweb/movie/info/{{hotmovie.id}}">{% if hotmovie.score %}<em>{{hotmovie.score}}</em>{% endif %}<img src="{{hotmovie.poster_image_url}}" alt="" title="{{hotmovie.title}}" /><p class="HotMovieTitle">《{{hotmovie.title}}》</p><p class="HotMovieFieldNum">共{{hotmovie.sessionscount}}场</p></a></li>
+                    {% endfor %}
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+
+        <div id="define_scroll_bar_outer" class="define_scroll_bar_outer pr">
+            <div id="define_scroll_bar" class="define_scroll_bar"></div>
+        </div>
+    </div>
+
+    <div class="pop_window_tab_box">
+        <div id="hot_movie_content2" class="hot_movie_content pa">
+            <div id="hot_movie_tab_box2" class="hot_movie_tab_box">
+                <ul>
+                    {% if willlist %}
+                    {% for willmovie in willlist %}
+                    <li><a href="/lykweb/movie/info/{{willmovie.id}}">{% if willmovie.score %}<em>{{willmovie.score}}</em>{% endif %}<img src="{{willmovie.poster_image_url}}" alt="" title="{{willmovie.title}}" /><p class="HotMovieTitle">《{{willmovie.title}}》</p></a></li>
+                    {% endfor %}
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+
+        <div id="define_scroll_bar_outer2" class="define_scroll_bar_outer pr">
+            <div id="define_scroll_bar2" class="define_scroll_bar"></div>
+        </div>
+    </div>
+</div>
+<div id="mark_bg" style="display:none"></div>
+
+<!--<iframe src="/static/web/footer.html" border="0" vspace="0" hspace="0" marginwidth="0" marginheight="0" framespacing="0" frameborder="0" scrolling="no" width="100%" height="160" ></iframe>-->
+{% include 'footer.html' %}
+
+<script src="/static/web/js/base.js" type="text/javascript"></script>
+<script src="/static/web/js/CinemaList.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.3"></script>
+</body>
+</html>

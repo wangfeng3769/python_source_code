@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes" />
+    <title>乐影客，电影生活好帮手~</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <link href="/static/web/css/atv.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="wrap">
+	<div class="header">
+    	<h1><img src="/static/web/img/atv-LOGO.png" width="126" height="31" /></h1>
+    </div>
+    {% if activityinfo.image_url %}
+    <div class="main">
+    {% else %}
+    <div class="main" style="height: 180px;">
+    {% endif %}
+        <p class="title">{{activityinfo.title}}</p>
+        {% if activityinfo.image_url %}
+        <div class="icon fl"><img src="{{activityinfo.image_url}}" width="100" height="150" /></div>
+        <div class="content">
+        {% else %}
+        <div class="content fl">
+        {% endif %}
+	        <p class="title2">活动时间：{{activityinfo.starttime}}至{{activityinfo.endtime}}</p>
+            {% if activityinfo.signupstarttime %}
+	        <p class="title2">报名时间：{{activityinfo.signupstarttime}}</p>
+            {% endif %}
+            {% if activityinfo.citylist %}
+	        <p class="title2">活动地点：
+            {% if citycount > 350 %}
+                全国
+            {% else %}
+                {% for cityname in activityinfo.citylist %}
+                    {% if forloop.counter <= 30 %}
+                    {% if forloop.counter == 1 %}
+                        {{cityname}}
+                    {% else %}
+                        、{{cityname}}
+                    {% endif %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            </p>
+            {% endif %}
+            {% if activityinfo.cinemas %}
+	        <p class="title2">活动影院：
+                {% for cinemaname in activityinfo.cinemas %}
+                    {% if forloop.counter == 1 %}
+                        {{cinemaname}}
+                    {% else %}
+                        、{{cinemaname}}
+                    {% endif %}
+                {% endfor %}
+            </p>
+            {% endif %}
+            {% if activityinfo.type %}
+	        <p class="title2">活动类型：{{activityinfo.type}}</p>
+            {% endif %}
+            {% if activityinfo.usernum %}
+	        <p class="title2">参与人数：{{activityinfo.usernum}}</p>
+            {% endif %}
+        </div>
+  	</div>
+    <div class="ruleicon"><img src="/static/web/img/atv.png" width="53" height="28" /></div>
+    <div class="footer">
+     	<!--<p class="atv_p">自即日起至10月7日在影院观看电影《敢死队2》凭电影票即可领取精美纪念品，敢死队英雄巾一条。观影后撰写微博影评，并@乐影客 官方微博更可参与观影赢iphone4S抽奖活动。</p>-->
+        {% if activityinfo.description %}
+        <p class="atv2_p">
+        {{activityinfo.description}}
+		</p>
+        {% endif %}
+    </div>
+</div>
+</body>
+</html>

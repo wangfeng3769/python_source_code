@@ -1,0 +1,55 @@
+<html>
+	<head>
+	</head>
+	<body >
+
+	<p >周一<input id='1' type="text" style="width:60px"></p>
+	<p >周二<input id='2' type="text" style="width:60px"></p>
+	<p >周三<input id='3' type="text" style="width:60px"></p>
+	<p >周四<input id='4' type="text" style="width:60px"></p>
+	<p >周五<input id='5' type="text" style="width:60px"></p>
+		<form action="../client/http/member.php?item=writeRule" onsubmit="return isBeiJing()">
+			<input  id='arr' type="text" name='rule' style='display: none'>
+			<input type="submit" value="提交">
+		</form>
+		
+
+	
+
+	</body>
+	<script type="text/javascript">
+		function isBeiJing () {
+			var arr= new Array();
+			for (var i = 1; i <= 5; i++) {
+				var res = document.getElementById(i).value;
+				// alert(res);
+				switch(i){
+					case 1:
+					day='周一';
+					break;
+					case 2:
+					day='周二';
+					break;
+					case 3:
+					day='周三';
+					break;
+					case 4:
+					day='周四';
+					break;
+					case 5:
+					day='周五';
+					break;
+				}
+				var num1 = res.substr(0,1);
+				arr[num1]=day;
+				var num2 = res.substr(res.length-1,1);
+				arr[num2]=day;
+
+			}
+			// alert(arr);
+			document.getElementById('arr').value = arr;
+			return true;
+		
+		}
+	</script>
+</html>

@@ -1,0 +1,48 @@
+{% extends "skeleton.html" %}
+{% comment %}
+login template for omoma
+copyright 2011 sebastien maccagnoni-munch
+
+this file is part of omoma.
+
+omoma is free software: you can redistribute it and/or modify
+it under the terms of the gnu general public license as published by
+the free software foundation, version 3.
+
+omoma is distributed in the hope that it will be useful,
+but without any warranty; without even the implied warranty of
+merchantability or fitness for a particular purpose.  see the
+gnu general public license for more details.
+
+you should have received a copy of the gnu general public license
+along with omoma. if not, see <http://www.gnu.org/licenses/>.
+{% endcomment %}
+
+{% load i18n %}
+
+{% block body %}
+    <div class="dialog">
+        <div class="content">
+            {% if form.errors %}
+                <p>{% trans "your username and password didn't match. please try again." %}</p>
+            {% endif %}
+
+            <form action="{% url login %}" method="post">
+                {% csrf_token %}
+                <table>
+                    <tr>
+                        <td>{{ form.username.label_tag }}</td>
+                        <td>{{ form.username }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ form.password.label_tag }}</td>
+                        <td>{{ form.password }}</td>
+                    </tr>
+                </table>
+
+                <input type="submit" value="{% trans "login" %}" />
+                <input type="hidden" name="next" value="{{ next }}" />
+            </form>
+        </div>
+    </div>
+{% endblock %}

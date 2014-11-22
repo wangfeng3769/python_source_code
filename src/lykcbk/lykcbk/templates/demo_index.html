@@ -1,0 +1,3938 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="keywords" content="乐影客" />
+<meta http-equiv="description" content="乐影客" />
+<title>乐影客</title>
+<link href="/static/web/css/css_demo.css" rel="stylesheet" type="text/css" />
+<!--[if IE 6]>
+<script src="/static/web/js/DD_belatedPNG_0.0.8a.js"></script>
+<script>DD_belatedPNG.fix('*'); </script>
+<![endif]-->
+</head>
+
+<body>
+
+<iframe src="/lykweb/header" border="0" vspace="0" hspace="0" marginwidth="0" marginheight="0" framespacing="0" frameborder="0" scrolling="no" width="100%" height="110" ></iframe>
+
+<div class="main">
+<div id="movieList" class="movie_list">
+    <ul>
+        {% if hotlist %}
+            {% for movie in hotlist %}
+                {% if forloop.counter == 3 %}
+                    <li class="active"><a href="javascript:;">{{forloop.counter}}</a></li>
+                {% else %}
+                    <li><a href="javascript:;">{{forloop.counter}}</a></li>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    </ul>
+</div>
+<div id="movePic" class="move_pic pr">
+    <ul>
+        {% if hotlist %}
+            {% for movie in hotlist %}
+                {% if forloop.counter == 3 %}
+                    <li><a href="/lykweb/movie/demo/{{movie.id}}"><img src="{{movie.poster_image_url}}" width="239" height="337" alt="{{movie.title}}" title="{{movie.title}}" /></a><p class="move_pic_title" style="display:block">《{{movie.title}}》综合评分{{movie.score}}分</p></li>
+                {% else %}
+                    <li><a href="/lykweb/movie/demo/{{movie.id}}"><img src="{{movie.poster_image_url}}" width="239" height="337" alt="{{movie.title}}" title="{{movie.title}}" /></a><p class="move_pic_title">《{{movie.title}}》综合评分{{movie.score}}分</p></li>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    </ul>
+    <div id="picBg" class="pic_bg_active pa"></div>
+    <div id="arrow_l" class="arrow_l pa"></div>
+    <div id="arrow_r" class="arrow_r pa"></div>
+</div>
+<div id="main_left" class="main_left fl">
+<div class="movie_message_box" style="display:block;">
+<div class="total">
+    <span class="title_bg2">明天</span>
+    <span class="title_bg1 active">今天</span>
+    全城共<span class="total_text">&nbsp;16&nbsp;</span>家影院共<span class="total_text">&nbsp;240&nbsp;</span>场
+</div>
+<div class="left_title pr">
+    <span class="tl_name pa">名称</span>
+    <span class="tl_group pa">剩余</span>
+    <span class="tl_money pa">票价</span>
+    <span class="tl_time pa">最近一场</span>
+</div>
+
+<div class="tab_box" style="display:block">
+    <ul id="movie_order" class="movie_order">
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">13场</div>
+                <div class="money fl">&yen;30</div>
+                <div class="time fl">11：20</div>
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li active">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">11场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">09：20</div>
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">16场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">13：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">12场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">00：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">19：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">2场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">09：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">7场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">3场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">22场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京保利国际影城</div>
+                <div class="group fl">15场</div>
+                <div class="money fl">&yen;80</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="tab_box" style="display:none">
+    <ul id="movie_order" class="movie_order">
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">11场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li active">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">13场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">12场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">00：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">19：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">2场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">09：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">7场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">3场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">22场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京保利国际影城</div>
+                <div class="group fl">15场</div>
+                <div class="money fl">&yen;80</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">2场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">15场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">12场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">8场</div>
+                <div class="money fl">&yen;80</div>
+                <div class="time fl">09：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;90</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="page">
+    <span class="pre">< 前页</span>
+    <a href="#">1</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+    <a href="#">5</a>
+    <samp>......</samp>
+    <a href="#">10</a>
+    <span class="next"><a href="#" >后页 ></a></span>
+</div>
+</div>
+
+<div class="movie_message_box" style="display:none;">
+<div class="total">
+    <span class="title_bg2">明天</span>
+    <span class="title_bg1 active">今天</span>
+    全城共<span class="total_text">&nbsp;12&nbsp;</span>家影院共<span class="total_text">&nbsp;150&nbsp;</span>场
+</div>
+<div class="left_title pr">
+    <span class="tl_name pa">名称</span>
+    <span class="tl_group pa">剩余</span>
+    <span class="tl_money pa">票价</span>
+    <span class="tl_time pa">最近一场</span>
+</div>
+
+<div class="tab_box" style="display:block">
+    <ul id="movie_order" class="movie_order">
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">15场</div>
+                <div class="money fl">&yen;30</div>
+                <div class="time fl">11：20</div>
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li active">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">14场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">09：20</div>
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">长虹影城</div>
+                <div class="group fl">13场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">13：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">12场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">00：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">19：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">2场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">09：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">7场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">3场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">22场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京保利国际影城</div>
+                <div class="group fl">15场</div>
+                <div class="money fl">&yen;80</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京保利国际影城</div>
+                <div class="group fl">15场</div>
+                <div class="money fl">&yen;80</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="tab_box" style="display:none">
+    <ul id="movie_order" class="movie_order">
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li active">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">13场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">2场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">15场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">12场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">8场</div>
+                <div class="money fl">&yen;80</div>
+                <div class="time fl">09：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;90</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="page">
+    <span class="pre">< 前页</span>
+    <a href="#">1</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+    <a href="#">5</a>
+    <samp>......</samp>
+    <a href="#">10</a>
+    <span class="next"><a href="#" >后页 ></a></span>
+</div>
+</div>
+
+<div class="movie_message_box" style="display:none;">
+<div class="total">
+    <span class="title_bg2">明天</span>
+    <span class="title_bg1 active">今天</span>
+    全城共<span class="total_text">&nbsp;17&nbsp;</span>家影院共<span class="total_text">&nbsp;190&nbsp;</span>场
+</div>
+<div class="left_title pr">
+    <span class="tl_name pa">名称</span>
+    <span class="tl_group pa">剩余</span>
+    <span class="tl_money pa">票价</span>
+    <span class="tl_time pa">最近一场</span>
+</div>
+
+<div class="tab_box" style="display:block">
+    <ul id="movie_order" class="movie_order">
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">16场</div>
+                <div class="money fl">&yen;30</div>
+                <div class="time fl">11：20</div>
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li active">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">18场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">09：20</div>
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">12场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">00：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">19：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">2场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">09：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">7场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">3场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">22场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京保利国际影城</div>
+                <div class="group fl">15场</div>
+                <div class="money fl">&yen;80</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">长虹影城</div>
+                <div class="group fl">11场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">13：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京保利国际影城</div>
+                <div class="group fl">15场</div>
+                <div class="money fl">&yen;80</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="tab_box" style="display:none">
+    <ul id="movie_order" class="movie_order">
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li active">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">13场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">2场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">15场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">12场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">8场</div>
+                <div class="money fl">&yen;80</div>
+                <div class="time fl">09：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;90</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="page">
+    <span class="pre">< 前页</span>
+    <a href="#">1</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+    <a href="#">5</a>
+    <samp>......</samp>
+    <a href="#">10</a>
+    <span class="next"><a href="#" >后页 ></a></span>
+</div>
+</div>
+
+<div class="movie_message_box" style="display:none;">
+<div class="total">
+    <span class="title_bg2">明天</span>
+    <span class="title_bg1 active">今天</span>
+    全城共<span class="total_text">&nbsp;22&nbsp;</span>家影院共<span class="total_text">&nbsp;210&nbsp;</span>场
+</div>
+<div class="left_title pr">
+    <span class="tl_name pa">名称</span>
+    <span class="tl_group pa">剩余</span>
+    <span class="tl_money pa">票价</span>
+    <span class="tl_time pa">最近一场</span>
+</div>
+
+<div class="tab_box" style="display:block">
+    <ul id="movie_order" class="movie_order">
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">11场</div>
+                <div class="money fl">&yen;30</div>
+                <div class="time fl">11：20</div>
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li active">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">18场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">09：20</div>
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">12场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">00：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">19：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">2场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">09：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">7场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">3场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">22场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京保利国际影城</div>
+                <div class="group fl">15场</div>
+                <div class="money fl">&yen;80</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">长虹影城</div>
+                <div class="group fl">19场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">13：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京保利国际影城</div>
+                <div class="group fl">25场</div>
+                <div class="money fl">&yen;80</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="tab_box" style="display:none">
+    <ul id="movie_order" class="movie_order">
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li active">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">13场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">2场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">15场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">12场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">8场</div>
+                <div class="money fl">&yen;80</div>
+                <div class="time fl">09：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;90</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="page">
+    <span class="pre">< 前页</span>
+    <a href="#">1</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+    <a href="#">5</a>
+    <samp>......</samp>
+    <a href="#">10</a>
+    <span class="next"><a href="#" >后页 ></a></span>
+</div>
+</div>
+
+<div class="movie_message_box" style="display:none;">
+<div class="total">
+    <span class="title_bg2">明天</span>
+    <span class="title_bg1 active">今天</span>
+    全城共<span class="total_text">&nbsp;14&nbsp;</span>家影院共<span class="total_text">&nbsp;260&nbsp;</span>场
+</div>
+<div class="left_title pr">
+    <span class="tl_name pa">名称</span>
+    <span class="tl_group pa">剩余</span>
+    <span class="tl_money pa">票价</span>
+    <span class="tl_time pa">最近一场</span>
+</div>
+
+<div class="tab_box" style="display:block">
+    <ul id="movie_order" class="movie_order">
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">17场</div>
+                <div class="money fl">&yen;30</div>
+                <div class="time fl">11：20</div>
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">12场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">00：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">19：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">2场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">09：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">7场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">3场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">22场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京保利国际影城</div>
+                <div class="group fl">15场</div>
+                <div class="money fl">&yen;80</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li active">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">18场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">09：20</div>
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">长虹影城</div>
+                <div class="group fl">23场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">13：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京保利国际影城</div>
+                <div class="group fl">21场</div>
+                <div class="money fl">&yen;80</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="tab_box" style="display:none">
+    <ul id="movie_order" class="movie_order">
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li active">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">13场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">2场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">15场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">12场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">8场</div>
+                <div class="money fl">&yen;80</div>
+                <div class="time fl">09：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;90</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="page">
+    <span class="pre">< 前页</span>
+    <a href="#">1</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+    <a href="#">5</a>
+    <samp>......</samp>
+    <a href="#">10</a>
+    <span class="next"><a href="#" >后页 ></a></span>
+</div>
+</div>
+
+<div class="movie_message_box" style="display:none;">
+<div class="total">
+    <span class="title_bg2">明天</span>
+    <span class="title_bg1 active">今天</span>
+    全城共<span class="total_text">&nbsp;19&nbsp;</span>家影院共<span class="total_text">&nbsp;148&nbsp;</span>场
+</div>
+<div class="left_title pr">
+    <span class="tl_name pa">名称</span>
+    <span class="tl_group pa">剩余</span>
+    <span class="tl_money pa">票价</span>
+    <span class="tl_time pa">最近一场</span>
+</div>
+
+<div class="tab_box" style="display:block">
+    <ul id="movie_order" class="movie_order">
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">16场</div>
+                <div class="money fl">&yen;30</div>
+                <div class="time fl">11：20</div>
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li active">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">18场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">09：20</div>
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">长虹影城</div>
+                <div class="group fl">23场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">13：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">12场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">00：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">19：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">2场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">09：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">7场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">3场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">22场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京保利国际影城</div>
+                <div class="group fl">15场</div>
+                <div class="money fl">&yen;80</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京保利国际影城</div>
+                <div class="group fl">15场</div>
+                <div class="money fl">&yen;80</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="tab_box" style="display:none">
+    <ul id="movie_order" class="movie_order">
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li active">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">13场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">2场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">15场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">12场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">8场</div>
+                <div class="money fl">&yen;80</div>
+                <div class="time fl">09：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;90</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="page">
+    <span class="pre">< 前页</span>
+    <a href="#">1</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+    <a href="#">5</a>
+    <samp>......</samp>
+    <a href="#">10</a>
+    <span class="next"><a href="#" >后页 ></a></span>
+</div>
+</div>
+
+<div class="movie_message_box" style="display:none;">
+<div class="total">
+    <span class="title_bg2">明天</span>
+    <span class="title_bg1 active">今天</span>
+    全城共<span class="total_text">&nbsp;22&nbsp;</span>家影院共<span class="total_text">&nbsp;148&nbsp;</span>场
+</div>
+<div class="left_title pr">
+    <span class="tl_name pa">名称</span>
+    <span class="tl_group pa">剩余</span>
+    <span class="tl_money pa">票价</span>
+    <span class="tl_time pa">最近一场</span>
+</div>
+
+<div class="tab_box" style="display:block">
+    <ul id="movie_order" class="movie_order">
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">11场</div>
+                <div class="money fl">&yen;30</div>
+                <div class="time fl">11：20</div>
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li active">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">13场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">09：20</div>
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">长虹影城</div>
+                <div class="group fl">18场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">13：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">12场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">00：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">19：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">2场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">09：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">7场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">3场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">22场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京保利国际影城</div>
+                <div class="group fl">15场</div>
+                <div class="money fl">&yen;80</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京保利国际影城</div>
+                <div class="group fl">15场</div>
+                <div class="money fl">&yen;80</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="tab_box" style="display:none">
+    <ul id="movie_order" class="movie_order">
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li active">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">13场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">2场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">15场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">12场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">8场</div>
+                <div class="money fl">&yen;80</div>
+                <div class="time fl">09：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;90</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="page">
+    <span class="pre">< 前页</span>
+    <a href="#">1</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+    <a href="#">5</a>
+    <samp>......</samp>
+    <a href="#">10</a>
+    <span class="next"><a href="#" >后页 ></a></span>
+</div>
+</div>
+
+<div class="movie_message_box" style="display:none;">
+<div class="total">
+    <span class="title_bg2">明天</span>
+    <span class="title_bg1 active">今天</span>
+    全城共<span class="total_text">&nbsp;28&nbsp;</span>家影院共<span class="total_text">&nbsp;370&nbsp;</span>场
+</div>
+<div class="left_title pr">
+    <span class="tl_name pa">名称</span>
+    <span class="tl_group pa">剩余</span>
+    <span class="tl_money pa">票价</span>
+    <span class="tl_time pa">最近一场</span>
+</div>
+
+<div class="tab_box" style="display:block">
+    <ul id="movie_order" class="movie_order">
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">17场</div>
+                <div class="money fl">&yen;30</div>
+                <div class="time fl">11：20</div>
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li active">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">12场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">09：20</div>
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">长虹影城</div>
+                <div class="group fl">23场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">13：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">12场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">00：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">19：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">2场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">09：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">7场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">3场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">22场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京保利国际影城</div>
+                <div class="group fl">15场</div>
+                <div class="money fl">&yen;80</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京保利国际影城</div>
+                <div class="group fl">25场</div>
+                <div class="money fl">&yen;80</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="tab_box" style="display:none">
+    <ul id="movie_order" class="movie_order">
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li active">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">13场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">2场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">15场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">12场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">8场</div>
+                <div class="money fl">&yen;80</div>
+                <div class="time fl">09：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;90</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="page">
+    <span class="pre">< 前页</span>
+    <a href="#">1</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+    <a href="#">5</a>
+    <samp>......</samp>
+    <a href="#">10</a>
+    <span class="next"><a href="#" >后页 ></a></span>
+</div>
+</div>
+
+<div class="movie_message_box" style="display:none;">
+<div class="total">
+    <span class="title_bg2">明天</span>
+    <span class="title_bg1 active">今天</span>
+    全城共<span class="total_text">&nbsp;13&nbsp;</span>家影院共<span class="total_text">&nbsp;270&nbsp;</span>场
+</div>
+<div class="left_title pr">
+    <span class="tl_name pa">名称</span>
+    <span class="tl_group pa">剩余</span>
+    <span class="tl_money pa">票价</span>
+    <span class="tl_time pa">最近一场</span>
+</div>
+
+<div class="tab_box" style="display:block">
+    <ul id="movie_order" class="movie_order">
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">13场</div>
+                <div class="money fl">&yen;30</div>
+                <div class="time fl">11：20</div>
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li active">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">18场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">09：20</div>
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">长虹影城</div>
+                <div class="group fl">11场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">13：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">12场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">00：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">19：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">2场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">09：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">7场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">3场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">金逸北京新中关店</div>
+                <div class="group fl">22场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京保利国际影城</div>
+                <div class="group fl">15场</div>
+                <div class="money fl">&yen;80</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京保利国际影城</div>
+                <div class="group fl">16场</div>
+                <div class="money fl">&yen;80</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="tab_box" style="display:none">
+    <ul id="movie_order" class="movie_order">
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li active">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">13场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">2场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">15场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">12场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">8场</div>
+                <div class="money fl">&yen;80</div>
+                <div class="time fl">09：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;60</div>
+                <div class="time fl">11：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;40</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+        <li class="movie_order_li">
+            <div class="movie_ticket_list">
+                <div class="movie_name fl">北京紫光影城</div>
+                <div class="group fl">10场</div>
+                <div class="money fl">&yen;90</div>
+                <div class="time fl">21：20</div>
+
+            </div>
+            <div class="movie_list_hover" style="display:none">
+                <span class="">9:50</span>
+                <span class="">11:45</span>
+
+                <span class="">13:50</span>
+                <span class="">15:50</span>
+                <span class="">17:50</span>
+                <span class="">19:50</span>
+                <span class="">21:50</span>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="page">
+    <span class="pre">< 前页</span>
+    <a href="#">1</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+    <a href="#">5</a>
+    <samp>......</samp>
+    <a href="#">10</a>
+    <span class="next"><a href="#" >后页 ></a></span>
+</div>
+</div>
+</div>
+
+<div class="main_right fr">
+    <div class="right_title">
+        <span class="activity_more fr"><a href="/lykweb/activity/list">更多</a></span>全城共有<span class="right_title_text" >25</span>个活动正在举行
+    </div>
+
+    <div class="activity pr">
+        <span class="activity_num pa">1.</span>
+        <div class="activity_time pa">
+            开始时间：<span>2012-10-8 14:25:00</span><br/>
+            结束时间：<span>2012-10-22 14:25:00</span>
+        </div>
+        <div class="activity_title pa">
+            <span>《二次曝光》免费观影报名</span>
+        </div>
+        <div class="activity_pic pa">
+            <img src="/static/web/images/hd_1.jpg" width="298" height="111" alt="" title="" />
+        </div>
+        <p class="activity_text pa">
+            观影后两天内，需在时光网《二次曝光》资料页为其打分、添加观影方式和电影标签，并在时光微评发布一条观影感受；凡参加活动后在规定时间不发布者，将自动失去下次免费观影机会。
+        </p>
+    </div>
+
+    <div class="activity pr">
+        <span class="activity_num pa">2.</span>
+        <div class="activity_time pa">
+            开始时间：<span>2012-10-8 14:25:00</span><br/>
+            结束时间：<span>2012-10-22 14:25:00</span>
+        </div>
+        <div class="activity_title pa">
+            <span>#向李玉提问#赢珍藏好礼</span>
+        </div>
+        <div class="activity_pic pa">
+            <img src="/static/web/images/hd_2.jpg" width="151" height="191" alt="" title="" />
+        </div>
+        <p class="activity_text2 pa">
+            你是从哪部电影开始认识导演李玉的？如果给你一个与她近距离接触的机会，你有什么问题想要问她？  曝光你的内心，向李玉提问，赢取李玉签名《二次曝光》电影珍藏画报！
+        </p>
+    </div>
+
+    <div class="activity pr">
+        <span class="activity_num pa">3.</span>
+        <div class="activity_time pa">
+            开始时间：<span>2012-10-8 14:25:00</span><br/>
+            结束时间：<span>2012-10-22 14:25:00</span>
+        </div>
+        <div class="activity_title2 pa">
+            <span>#曝光青春#赢取《二次曝光》珍藏礼</span>
+        </div>
+        <div class="activity_pic pa">
+            <img src="/static/web/images/hd_3.jpg" width="151" height="191" alt="" title="" />
+        </div>
+        <p class="activity_text2 pa">
+            你的青春什么样？男朋友、女朋友，哪一位更值得留给未来去怀念？
+            曝光你的青春回忆，赢取《二次曝光》环保提包，最动情的2位还有机会得到范冰冰、冯绍峰签名珍藏大海报！
+        </p>
+    </div>
+</div>
+</div>
+<div class="footer_ad">
+    <ol>
+        <li><a href="#"><img src="/static/web/images/m_game.png" width="314" height="100" alt="0" /></a></li>
+        <li><a href="#"><img src="/static/web/images/m_loading.png" width="314" height="100" alt="0" /></a></li>
+    </ol>
+</div>
+<iframe src="/static/web/footer.html" border="0" vspace="0" hspace="0" marginwidth="0" marginheight="0" framespacing="0" frameborder="0" scrolling="no" width="100%" height="160" ></iframe>
+
+<script src="/static/web/js/base.js" type="text/javascript"></script>
+<script src="/static/web/js/common_demo.js" type="text/javascript"></script>
+</body>
+</html>

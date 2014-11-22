@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="keywords" content="乐影客" />
+<meta http-equiv="description" content="乐影客" />
+<title>乐影客——客户端下载</title>
+<link href="/static/web/css/css.css" rel="stylesheet" type="text/css" />
+<link href="/static/web/css/css_loading.css" rel="stylesheet" type="text/css" />
+<!--[if IE 6]>
+<script src="js/DD_belatedPNG_0.0.8a.js"></script>
+<script>DD_belatedPNG.fix('*'); </script>
+<![endif]-->
+</head>
+
+<body>
+<!--<iframe src="header.html" border="0" vspace="0" hspace="0" marginwidth="0" marginheight="0" framespacing="0" frameborder="0" scrolling="no" width="100%" height="110" ></iframe>-->
+{% include 'header.html' %}
+<div class="software_loading">
+	<div class="software_loading_left fl">
+   	  <p class="software_loading_left_title">快捷方便的电影导航</p>
+        <ul>
+        	<li><em></em>找电影</li>
+            <li><em></em>看电影</li>
+            <li><em></em>玩游戏</li>
+            <li><em></em>明星见面会...</li>
+            <li><em></em>全城服务</li>
+        </ul>
+        <div>
+        	<p class="software_loading_btn1"><a href="https://itunes.apple.com/cn/app/dian-ying-sheng-huo/id583237633?ls=1&mt=8"><img src="/static/web/images/software_loading_btn1.png" width="264" height="73" alt="" title="" /></a></p>
+            <p class="software_loading_btn2"><a href="{{androidurl}}"><img src="/static/web/images/software_loading_btn2.png" width="264" height="73" alt="" title="" /></a></p>
+      </div>
+    </div>
+    <div class="software_loading_right fl">
+        <div class="pic"></div>
+        <div class="code">
+            <p class="fl"><img src="/static/web/images/phone_code.png" width="107" height="106" /></p>
+            <p class="code_text fl">用手机上的二维码扫描软件拍摄左侧二维码，或使用手机浏览器访问http://m.leyingke.com/dl.html，可直接下载</p>
+        </div>
+    </div>
+</div>
+
+<!--<iframe src="/static/web/footer.html" border="0" vspace="0" hspace="0" marginwidth="0" marginheight="0" framespacing="0" frameborder="0" scrolling="no" width="100%" height="160" ></iframe>-->
+{% include 'footer.html' %}
+
+<script src="/static/web/js/base.js" type="text/javascript"></script>
+<script src="/static/web/js/header.js" type="text/javascript"></script>
+</body>
+</html>

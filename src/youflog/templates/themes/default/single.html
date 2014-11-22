@@ -1,0 +1,127 @@
+{% extends "themes/default/base.html" %}
+{% load utils %}
+{% block title %} {{entry.title|escape}} - {{blog.title|escape}} {% endblock %}
+
+{% block head_block %}
+
+{% if entry %}
+{%if entry.tags%}<meta name="keywords" content="{{entry.tags|escape}}" />{%endif%}
+{%if entry.excerpt%} <meta name="description" content="{{entry.excerpt|escape}}" />{%endif%}
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+{% if entry %}
+
+	<div class="post">
+		<h3 class="title">{{ entry.title|escape }}</h3>
+
+		<div class="content">
+			<p style="text-align:center;">
+				<script type="text/javascript"><!--
+				google_ad_client = "pub-8325911329891044";
+				/* 468x60, 创建于 10-11-20 */
+				google_ad_slot = "8955502630";
+				google_ad_width = 468;
+				google_ad_height = 60;
+				//-->
+				</script>
+				<script type="text/javascript"
+				src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+				</script>
+			</p>
+			{{ entry.content|safe}}
+			<p style="text-align:center;">
+			<script type="text/javascript"><!--
+			google_ad_client = "pub-8325911329891044";
+			/* 468x15, 创建于 10-11-15 */
+			google_ad_slot = "6291447193";
+			google_ad_width = 468;
+			google_ad_height = 15;
+			//-->
+			</script>
+			<script type="text/javascript"
+			src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+			</script>
+			</p>
+			<div class="fixed"></div>
+		</div>
+
+
+		<div class="meta">
+			<div class="act">{{entry.comments.count}} 条评论</div>
+			<div class="info">
+				{{entry.date|date:"y/m/d h:i"}}
+			</div>
+			<div class="act">
+				<a href="#respond">添加评论</a>
+			</div>
+			{% if entry.tags%}
+				<div class="tags">tags: 
+					{% for tag in entry.get_tags %}
+						{% if forloop.last %}<a href="{{ tag.get_absolute_url }}">{{ tag.name }}</a>. 
+						{% else %}<a href="{{ tag.get_absolute_url }}">{{ tag.name }}</a>, 
+						{% endif %}
+					{% endfor %}
+				</div>
+			{%endif%}
+			<div class="fixed"></div>
+		</div>
+	</div>
+
+	<div class="block">
+		<div class="content g">
+			<b>转载请注明：来自</b><a href="{{blog.baseurl}}" title="{{blog.title|escape}}">{{blog.title|escape}}</a>
+			<br/><b>本文地址：</b><a href="{{entry.fullurl|escape}}" title="{{ entry.title|escape }}">{{entry.fullurl|escape}}</a>
+		</div>
+	</div>
+
+	<div id="postnavi" class="block">
+		<div class="content g">
+			<span class="prev">
+				{%if entry.prev%}<a href="/{{entry.prev.link}}">&laquo; {{entry.prev.title}}</a>
+				{%else%}
+				&laquo;没有了
+				{%endif%}
+			</span>
+			<span class="next">
+			{%if entry.next%}<a href="/{{entry.next.link}}">&raquo; {{entry.next.title}}</a>
+				{%else%}
+				&raquo;没有了
+				{%endif%}
+			</span>
+			
+			<div class="fixed"></div>
+		</div>
+	</div>
+
+	
+	<!-- related-posts start -->
+	
+	<div class="related-posts">
+		<h3 class="title">您还可以看看这些</h3>
+		<ul class="related_post">
+		{%for post in entry.relateposts%}
+			<li><a href="/{{post.get_absolute_url|escape}}">{{post.title|escape}} </a> - {{post.date|date:"y/m/d"}} - 评论({{post.comments.count}})</li>
+		{%endfor%}
+		</ul>
+	</div>
+	
+	<!-- related-posts end -->
+	
+{% else %}
+
+	<div class="block">
+		<div class="content small r">
+			sorry, no posts matched your criteria.
+		</div>
+	</div>
+
+{% endif %}
+
+{% var object = entry %}
+
+{% include "themes/default/comments.html" %}
+{% endblock %}

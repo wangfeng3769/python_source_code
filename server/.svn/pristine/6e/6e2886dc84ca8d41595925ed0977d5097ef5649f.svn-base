@@ -1,0 +1,68 @@
+<!-- $Id: equipment_info.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+{include file="pageheader.htm"}
+<div class="main-div">
+<form method="post" action="" name="theForm" enctype="multipart/form-data" onsubmit="return validate()">
+<table cellspacing="1" cellpadding="3" width="100%">
+  <tr>
+    <td class="label">{$lang[vip_card_serial]}</td>
+    <td><input type="text" name="serial" maxlength="60" value="{$brand.serial}" /></td>
+  </tr>
+  <tr>
+    <td class="label">{$lang[vip_card_group_number]}</td>
+    <td><input type="text" name="group_number" maxlength="60" value="{$brand.group_number}" /></td>
+  </tr>
+  <tr>
+    <td class="label">{$lang[vip_card_number]}</td>
+    <td><input type="text" name="card_number" maxlength="60" value="{$brand.card_number}" /></td>
+  </tr>
+  <tr>
+    <td class="label">{$lang[vip_card_type]}</td>
+   <td><input type="text" name="card_type" maxlength="60" value="{$brand.card_type}" /></td>
+  </tr>
+  <tr>
+    <td class="label">{$lang[vip_card_using_status]}</td>
+    <td><input type="radio" name="using_status" value='1' {if $brand.using_status==1}checked{/if}/>启动<input type="radio" name="using_status" value="0" {if !$brand.using_status}checked{/if}//>禁止</td>
+    
+  </tr>
+   <tr>
+    <td class="label">{$lang[vip_card_allot_status]}</td>
+   <td><input type="radio" name="allot_status" value='1' {if $brand.allot_status==1}checked{/if}/>启动<input type="radio" name="allot_status" value="0" {if !$brand.allot_status}checked{/if}//>禁止</td>
+  </tr>
+  <tr>
+    <td class="label">{$lang.sort_order}</td>
+    <td><input type="text" name="sort_order" maxlength="40" size="15" value="{$brand.sort_order}" /></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><br />
+      <input type="submit" class="button" value="{$lang.button_submit}" />
+      <input type="reset" class="button" value="{$lang.button_reset}" />
+      <input type="hidden" name="act" value="{$form_action}" />
+      <input type="hidden" name="id" value="{$brand.id}" />
+      <input type="hidden" name="old_brandlogo" value="{$brand.equipment_logo}">
+    </td>
+  </tr>
+</table>
+</form>
+</div>
+{insert_scripts files="../js/utils.js,validator.js"}
+{literal}
+<script language="JavaScript">
+<!--
+onload = function()
+{
+    // 开始检查订单
+    startCheckOrder();
+}
+/**
+ * 检查表单输入的数据
+ */
+function validate()
+{
+    validator = new Validator("theForm");
+    validator.isNumber("sort_order", require_num, true);
+    return validator.passed();
+}
+//-->
+</script>
+{/literal}
+{include file="pagefooter.htm"}

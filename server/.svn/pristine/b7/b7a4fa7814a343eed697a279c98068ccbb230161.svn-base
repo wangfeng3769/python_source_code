@@ -1,0 +1,441 @@
+<!-- $Id: goods_info.htm 17126 2010-04-23 10:30:26Z liuhui $ -->
+{include file="pageheader.htm"}
+{insert_scripts files="../js/utils.js,selectzone.js,colorselector.js"}
+<script type="text/javascript" src="../js/calendar.php?lang={$cfg_lang}"></script>
+<script type="text/JavaScript" src="../js/formcheck.js"></script>
+<link href="../js/calendar/calendar.css" rel="stylesheet" type="text/css" />
+
+
+
+<!-- start goods form -->
+<div class="tab-div">
+    <!-- tab bar -->
+    <div id="tabbar-div">
+        <p>
+            <span class="tab-front" id="base-tab">{$lang.base_table}</span>
+            <span class="tab-back" id="detail-tab">{$lang.detail_table}</span>
+            <span class="tab-back" id="top-tab">{$lang.top_table}</span>
+
+        </p>
+    </div>
+
+    <!-- tab body -->
+    <div id="tabbody-div">
+        <form enctype="multipart/form-data" action="car_price_tmpl.php" method="get" name="theForm" onSubmit="return Validator.Validate(this,2)" >
+            <!-- 最大文件限制 -->
+            <input type="hidden" name="MAX_FILE_SIZE" value="2097152" />
+            <!-- 通用信息 -->
+            <table  id= "base-table" cellspacing="1" cellpadding="3" width="100%">
+                <tr>
+                    <td class="label">{$lang[hour_price]}</td>
+                    <td><input dataType="Currency1" msg="时租价格只允许数字" name="base_hour_price" maxlength="60" value="{$base_info.hour_price}" /></td>
+                </tr>
+                <tr>
+                    <td class="label">{$lang[hour_contain_km]}</td>
+                    <td><input dataType="Number" msg="小时租金含公里数只允许数字" name="base_hour_km" maxlength="60" value="{$base_info.hour_km}" /></td>
+                </tr>
+                <tr>
+                    <td class="label">{$lang[top_price_24]}</td>
+                    <td><input dataType="Number" msg="24小时封顶价只允许数字" name="base_top_price" maxlength="60" value="{$base_info.top_price}" /></td>
+                </tr>
+                <tr>
+                    <td class="label">{$lang[top_km_24]}</td>
+                    <td><input dataType="Number" msg="24小时封顶价含公里数只允许数字" name="base_top_km" maxlength="60" value="{$base_info.top_km}" /></td>
+                </tr>
+					{if $ur_here == '工作日'}				
+                <tr>
+                    <td class="label">{$lang[price_km]}</td>
+                    <td><input dataType="Currency1" msg="里程价格只允许数字" name="base_price_km" maxlength="60" value="{$base_info.price_km}" /></td>
+                </tr>
+					{else}
+	
+					{/if}
+                    <td class="label">{$lang[price_time_out]}</td>
+                    <td><input dataType="Currency1" msg="超时价格只允许数字" name="base_price_time_out" maxlength="60" value="{$base_info.price_time_out}" /></td>
+					
+                </tr>
+
+                <tr>
+                    <td colspan="2" align="center"><br />
+
+                    </td>
+                </tr>
+            </table>
+            
+
+            <!-- 详细描述 -->
+            <table class="list-div" cellpadding="3" cellspacing="1" width="90%"  style="display:none" id="detail-table">
+                <tbody id = "body-detai">
+                <tr>
+                    <th>{$lang.time_from}</th>
+                    <th>{$lang.time_end}</th>
+                    <th>{$lang.price}</th>
+                    <th>{$lang.hour_contain_km}</th>
+                </tr>
+                <tr style="display:none">
+                    <td align = 'center' id = "detail_start_hour" >
+                        <select  name ="detail_start_hour[]">
+                            <script style="text/javascript"> 
+                                for(i=0;i<24;i++)
+                                {
+                                    document.write("<option value="+i+ ">"+i+":00</option>");
+                                }
+                            </script>            
+                        </select>
+                    </td>
+                    <td align='center' id = "detail_end_hour" >
+                        <select  name ="detail_end_hour[]">
+                            <script style="text/javascript"> 
+                                for(i=0;i<24;i++)
+                                {
+                                    document.write("<option value="+i+ ">"+i+":00</option>");
+                                }
+                            </script>            
+                        </select>
+                    </td>
+                    <td align='center' id="detail_hour_km">
+                        <input type="text" name="detail_hour_km[]" maxlength="60" value='0'/>元
+                    </td>
+                    <td align="center" id="detail_contain_km">
+                        <input type="text" name="detail_contain_km[]" maxlength="60" value='0'/>
+                    </td>
+                    <td align="center" id="addbtn">
+                        <button type="button" onclick = "appendGrade(this,'body-detai');">+</button>
+                    </td>
+                    <td align="center" id="subbtn">
+                        <button type="button" style="display:none" onclick = "delGrade(this,'body-detai');">-</button>
+                    </td>
+                </tr>
+
+                {foreach from=$detail_list item=detail_info name=detail}
+                <tr>
+                    <td align="center" ><select  name ="detail_start_hour[]">
+                        <script style="text/javascript"> 
+                            for(i=0;i<24;i++)
+                            {
+                                
+                                if(i == parseInt("{$detail_info.time_from}"))
+                                {
+                                    document.write("<option value="+i+ " selected>"+i+":00</option>");
+                                }
+                                else
+                                {
+                                    document.write("<option value="+i+ ">"+i+":00</option>");
+                                }
+                                
+                                
+                            }
+                        </script>                 
+
+                        </select>
+                    </td>
+
+                    <td align="center"><select name ="detail_end_hour[]">
+                        <script style="text/javascript"> 
+                                for(i=0;i<24;i++)
+                                {
+                                    
+                                    if(i == parseInt("{$detail_info.time_end}"))
+                                    {
+                                        document.write("<option value='"+i+ "' selected>"+i+":00</option>");
+                                    }
+                                    else
+                                    {
+                                        document.write("<option value="+i+ ">"+i+":00</option>");
+                                    }
+                                    
+                                    
+                                }
+                            </script>   
+                        </select>
+                    </td>
+                    <td align="center"><input type="text" name="detail_hour_km[]" maxlength="60" value="{$detail_info.price}"/>元</td>
+                    <td align="center" ><input type="text" name="detail_contain_km[]" maxlength="60" value="{$detail_info.contain_km}"/></td>
+                    {if $smarty.foreach.detail.last}
+                    <td align="center"><button type="button" onclick = "appendGrade(this,'body-detai');">+</button></td>
+                    <td align="center"><button type="button" style="display:none"  onclick = "delGrade(this,'body-detai');">-</button></td>
+                    {else}
+                    <td align="center"><button type="button" style="display:none;"  onclick = "appendGrade(this,'body-detai');">+</button></td>
+                    <td align="center"><button type="button" style="display:block"  onclick = "delGrade(this,'body-detai');">-</button></td>
+                    {/if}
+                    
+                </tr>
+                {/foreach} 
+            </tbody>
+            </table >
+
+            <!--封顶信息-->
+            <table class="list-div" cellpadding="3" cellspacing="1" width="90%" id="top-table" style="display:none">
+                <tbody id="body-top">
+                <tr>
+                    
+                    <th>{$lang.date_from}</th>
+                    <th>{$lang.date_end}</th>
+                    <th>{$lang.time_from}</th>
+                    <th>{$lang.time_end}</th>
+                    <th>{$lang.period_top}</th>
+                    <th>{$lang.contain_km}</th>
+                </tr>
+                <tr style="display:none">
+                    <td align="center" id="top_date_from">
+                        <input type="text" name="top_date_from[]" maxlength="60" value="0000-00-00" onclick = "return showCalendar(this, '%Y-%m-%d', '24', false, this);" />
+                    </td>
+                    <td align="center" id="top_date_end">
+                        <input type="text" name="top_date_end[]" maxlength="60" value="0000-00-00" onclick = "return showCalendar(this, '%Y-%m-%d', '24', false, this);" />
+                    </td>
+                    <td align = 'center' id = "top_time_from" >
+                        <select  name ="top_time_from[]">
+                            <script style="text/javascript"> 
+                                for(i=0;i<24;i++)
+                                {
+                                    document.write("<option value="+i+ ">"+i+":00</option>");
+                                }
+                            </script>            
+                        </select>
+                    </td>
+                    <td align = 'center' id = "top_time_end" >
+                        <select  name ="top_time_end[]">
+                            <script style="text/javascript"> 
+                                for(i=0;i<24;i++)
+                                {
+                                    document.write("<option value="+i+ ">"+i+":00</option>");
+                                }
+                            </script>            
+                        </select>
+                    </td>
+                    <td align="center" id="period_top">
+                        <input type="text" name="period_top[]" maxlength="40" value="0"/>
+                    </td>
+                    <td align="center" id="contain_km">
+                        <input type="text" name="contain_km[]" maxlength="40" value="0"/>
+                    </td>
+                    <td align="center" id="addbtn2">
+                        <button type="button" onclick = "appendGrade2(this,'body-top');">+</button>
+                    </td>
+                    <td align="center" id="subbtn2">
+                        <button type="button" style="display:none" onclick = "delGrade(this,'body-top');">-</button>
+                    </td>
+                <tr>
+                {foreach from=$top_list item=top_info name=top}
+                <tr>
+
+
+                    <td align="center"><input type="text" name="top_date_from[]" maxlength="60" value="{$top_info.date_from}" onclick = "return showCalendar(this, '%Y-%m-%d', '24', false, this);" /></td>
+                    <td align="center"><input type="text" name="top_date_end[]" maxlength="60" value="{$top_info.date_end}" onclick = "return showCalendar(this, '%Y-%m-%d', '24', false, this);" /></td>
+
+                    <td align="center" ><select  name ="top_time_from[]">
+                        <script style="text/javascript"> 
+                                for(i=0;i<24;i++)
+                                {
+                                    
+                                    if(i == parseInt("{$top_info.time_from}"))
+                                    {
+                                        document.write("<option value='"+i+ "' selected>"+i+":00</option>");
+                                    }
+                                    else
+                                    {
+                                        document.write("<option value="+i+ ">"+i+":00</option>");
+                                    }
+                                    
+                                    
+                                }
+                            </script>  
+
+                        </select>
+                    </td>
+                    <td align="center" ><select  name ="top_time_end[]">
+                        <script style="text/javascript"> 
+                                for(i=0;i<24;i++)
+                                {
+                                    
+                                    if(i == parseInt("{$top_info.time_end}"))
+                                    {
+                                        document.write("<option value='"+i+ "' selected>"+i+":00</option>");
+                                    }
+                                    else
+                                    {
+                                        document.write("<option value="+i+ ">"+i+":00</option>");
+                                    }
+                                    
+                                    
+                                }
+                            </script>  
+
+                        </select>
+                    </td>
+                    <td align="center"><input type="text" name="period_top[]" maxlength="40" value="{$top_info.period_top}"/></td>
+                    <td align="center"><input type="text" name="contain_km[]" maxlength="40" value="{$top_info.contain_km}"/></td>
+                    {if $smarty.foreach.top.last}
+                    <td align="center"><button type="button" onclick = "appendGrade2(this,'body-top');">+</button></td>
+                    <td align="center"><button style="display:none" type="button" onclick = "delGrade(this,'body-top');">-</button></td>
+                    {else}
+                    <td align="center"><button style="display:none;" type="button" onclick = "appendGrade2(this,'body-top');">+</button></td>
+                    <td align="center"><button style="display:block" type="button" onclick = "delGrade(this,'body-top');">-</button></td>
+                    {/if}
+                    
+                </tr>
+                {/foreach}
+            </tbody>
+            </table>
+
+            <div class="button-div">
+                <input type="hidden" name="car_id" value="{$car_id}" />
+                <input type="hidden" name="type" value="{$type}" />
+                <input type="submit" value="{$lang.button_submit}" class="button" />
+                <input type="reset" value="{$lang.button_reset}" class="button" />
+            </div>
+            <input type="hidden" name="act" value="{$form_act}" />
+        </form>
+    </div>
+</div>
+<!-- end goods form -->
+
+{insert_scripts files="tab.js"}
+
+<script type="text/JavaScript">
+    function delGrade(e,table)
+    {
+        try
+        {
+            var cntobj = e.parentNode.parentNode;
+
+            var tblobj = document.getElementById(table);
+            
+            cntobj.parentNode.removeChild(cntobj);
+            //tblobj.childNodes.removeChild(cntobj);
+            //cntobj.innerHTML = "";
+
+        }
+        catch(e){
+            alert(e);
+        }
+
+
+    }
+    function appendGrade(e,table)
+    {
+        try
+        {
+            var trobj = document.createElement("tr");
+            var td1obj = document.createElement("td");
+            var td2obj = document.createElement("td");
+            var td3obj = document.createElement("td");
+            var td4obj = document.createElement("td");
+            var td5obj = document.createElement("td");
+            var td6obj = document.createElement("td");
+            td1obj.innerHTML = document.getElementById('detail_start_hour').innerHTML;
+            td2obj.innerHTML = document.getElementById('detail_end_hour').innerHTML;
+            td3obj.innerHTML = document.getElementById('detail_hour_km').innerHTML;
+            td4obj.innerHTML = document.getElementById('detail_contain_km').innerHTML;
+            td5obj.innerHTML = document.getElementById('addbtn').innerHTML;
+            td6obj.innerHTML = document.getElementById('subbtn').innerHTML;
+            td1obj.align='center';
+            td2obj.align='center';
+            td3obj.align='center';
+            td4obj.align='center';
+            td5obj.align='center';
+            td6obj.align='center';
+            trobj.appendChild(td1obj);
+            trobj.appendChild(td2obj);
+            trobj.appendChild(td3obj);
+            trobj.appendChild(td4obj);
+            trobj.appendChild(td5obj);
+            trobj.appendChild(td6obj);
+            document.getElementById(table).appendChild(trobj);
+            var cntobj = e.parentNode.parentNode;
+            if(navigator.userAgent.indexOf("MSIE")>0)
+            {
+                nodePisition = cntobj.childNodes.length-1;
+            }
+            else
+            {
+                nodePisition = cntobj.childNodes.length;
+            }
+            //alert(cntobj.childNodes.length);
+            //alert(cntobj.childNodes[nodePisition].innerHTML);
+            e.style.display = 'none';
+            cntobj.childNodes[nodePisition].firstChild.style.display = 'block';
+            
+            
+
+        }
+        catch(e)
+        {
+            
+        }
+        // var cntobj = e.parentNode.parentNode;
+        // var tblobj = document.getElementById(table);
+        // var trobj = document.createElement("tr");  
+        // alert(trobj.innerHTML);
+        // trobj.innerHTML = cntobj.innerHTML;
+        // nodePisition = cntobj.childNodes.length-2;
+        //cntobj.childNodes[15].firstChild.style.display = 'block';
+        
+        // cntobj.childNodes[nodePisition].firstChild.style.display = 'block';
+        //tblobj.appendChild(trobj);
+        //e.style.display = 'none';
+        
+
+    }
+    function appendGrade2(e,table)
+    {
+        try
+        {
+            var trobj = document.createElement("tr");
+            var td1obj = document.createElement("td");
+            var td2obj = document.createElement("td");
+            var td3obj = document.createElement("td");
+            var td4obj = document.createElement("td");
+            var td5obj = document.createElement("td");
+            var td6obj = document.createElement("td");
+            var td7obj = document.createElement("td");
+            var td8obj = document.createElement("td");
+            td1obj.innerHTML = document.getElementById('top_date_from').innerHTML;
+            td2obj.innerHTML = document.getElementById('top_date_end').innerHTML;
+            td3obj.innerHTML = document.getElementById('top_time_from').innerHTML;
+            td4obj.innerHTML = document.getElementById('top_time_end').innerHTML;
+            td5obj.innerHTML = document.getElementById('period_top').innerHTML;
+            td6obj.innerHTML = document.getElementById('contain_km').innerHTML;
+            td7obj.innerHTML = document.getElementById('addbtn2').innerHTML;
+            td8obj.innerHTML = document.getElementById('subbtn2').innerHTML;
+            td1obj.align='center';
+            td2obj.align='center';
+            td3obj.align='center';
+            td4obj.align='center';
+            td5obj.align='center';
+            td6obj.align='center';
+            td7obj.align='center';
+            td8obj.align='center';
+            trobj.appendChild(td1obj);
+            trobj.appendChild(td2obj);
+            trobj.appendChild(td3obj);
+            trobj.appendChild(td4obj);
+            trobj.appendChild(td5obj);
+            trobj.appendChild(td6obj);
+            trobj.appendChild(td7obj);
+            trobj.appendChild(td8obj);
+            document.getElementById(table).appendChild(trobj);
+            var cntobj = e.parentNode.parentNode;
+            if(navigator.userAgent.indexOf("MSIE")>0)
+            {
+                nodePisition = cntobj.childNodes.length-1;
+            }
+            else
+            {
+                nodePisition = cntobj.childNodes.length-2;
+            }
+            //alert(cntobj.childNodes[nodePisition].innerHTML);
+            e.style.display = 'none';
+            cntobj.childNodes[nodePisition].firstChild.style.display = 'block';
+            
+            
+
+        }
+        catch(e)
+        {
+            
+        }     
+    }
+</script>   
+  
+{include file="pagefooter.htm"}

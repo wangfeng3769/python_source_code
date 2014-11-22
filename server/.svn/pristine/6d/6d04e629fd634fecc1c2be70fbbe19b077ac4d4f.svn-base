@@ -1,0 +1,53 @@
+<!-- $Id: brand_info.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+{include file="pageheader.htm"}
+<script type="text/JavaScript" src="../js/formcheck.js"></script>
+<div class="main-div">
+<form method="post" action="" name="theForm" enctype="multipart/form-data" onSubmit="return Validator.Validate(this,2)">
+<table cellspacing="1" cellpadding="3" width="100%">
+  <tr>
+    <td class="label">相邻订单的缓冲时间</td>
+    <td><input dataType="Require" msg="相邻订单的缓冲时间不能为空！！" name="order_interval" maxlength="60" value="{$order_interval}" />{$lang.require_field}</td>
+  </tr>
+  <tr>
+    <td class="label">订单最短时长</td>
+    <td><input dataType="Require" msg="订单最短时长不能为空！！" name="order_min_time" maxlength="60" value="{$order_min_time}" />{$lang.require_field}</td>
+  </tr>
+  <tr>
+    <td class="label">订单最长时长</td>
+    <td>
+		<input dataType="Require" msg="订单最长时长不能为空！！" name="order_max_time" maxlength="60" value="{$order_max_time}" />{$lang.require_field}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">可提前预定时长</td>
+    <td><input dataType="Require" msg="可提前预定时长不能为空！！" name="order_book_time" maxlength="60" value="{$order_book_time}" />{$lang.require_field}</td>
+  </tr>
+
+  <tr>
+    <td colspan="2" align="center"><br />
+      <input type="submit" class="button" value="{$lang.button_submit}" />
+      <input type="reset" class="button" value="{$lang.button_reset}" />
+      <input type="hidden" name="act" value="config" />
+    </td>
+  </tr>
+</table>
+</form>
+</div>
+{insert_scripts files="../js/utils.js"}
+{literal}
+<script language="JavaScript">
+<!--
+document.forms['theForm'].elements['brand_name'].focus();
+onload = function()
+{
+    // 开始检查订单
+    startCheckOrder();
+}
+/**
+ * 检查表单输入的数据
+ */
+
+//-->
+</script>
+{/literal}
+{include file="pagefooter.htm"}

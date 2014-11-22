@@ -1,0 +1,205 @@
+@charset "utf-8";
+
+/*=============================用户中心 参加的活动===================================*/
+#user_center{ width:980px; overflow:hidden; margin:0 auto; margin-top:20px; }
+
+/*=============================用户中心 参加的活动 左侧按钮============================*/
+
+.left_title{  width:123px; height:770px; left:0; top:0; }
+.left_title .bar{ width:8px; height:586px; background:url(../images/user_center_atv_bar.png) repeat-y; left:40px; top:0px; z-index:-1}
+.left_title ul{ width:123px; }
+.left_title ul li{ width:123px; height:81px; /*margin-top:46px;*/ cursor:pointer;}
+.user_center_left1{ width:123px; height:81px; margin-top:55px; background:url(../images/user_center_left1.gif) no-repeat;}
+.user_center_left2{ width:123px; height:81px; margin-top:46px; background:url(../images/user_center_left2.gif) no-repeat;}
+.user_center_left3{ width:123px; height:81px; margin-top:46px; background:url(../images/user_center_left3.gif) no-repeat;}
+.user_center_left4{ width:123px; height:81px; margin-top:50px; background:url(../images/user_center_left4.gif) no-repeat;}
+.user_center_left5{ width:123px; height:81px; margin-top:51px; background:url(../images/user_center_left5.gif) no-repeat;}
+.user_center_left1.active{ width:123px; height:81px; margin-top:55px; background:url(../images/user_center_left1_active.gif) no-repeat;}
+.user_center_left2.active{ width:123px; height:81px; margin-top:46px; background:url(../images/user_center_left2_active.gif) no-repeat;}
+.user_center_left3.active{ width:123px; height:81px; margin-top:46px; background:url(../images/user_center_left3_active.gif) no-repeat;}
+.user_center_left4.active{ width:123px; height:81px; margin-top:50px; background:url(../images/user_center_left4_active.gif) no-repeat;}
+.user_center_left5.active{ width:123px; height:81px; margin-top:51px; background:url(../images/user_center_left5_active.gif) no-repeat;}
+
+/*=============================用户中心 参加的活动 右侧内容============================*/
+.right_box_outer{ width:856px; background:url(../images/user_center_bg.png) repeat-y; border-right:#d8d6d3 solid 1px; border-bottom:#d8d6d3 solid 1px; margin-bottom:20px;}
+.right_box{  width:790px; /*height:764px;*/display:inline; padding-left:34px;}
+.user_center_right_title{ width:857px; height:42px;  padding-top:12px;  border-bottom:#597d84 solid 1px; background:#FFF;}
+.user_center_right_title p{width:484px; height:12px; padding-left:40px; padding-top:10px; font-size:14px; color:#000; font-weight:bold; }
+.user_center_right_title p span{ padding:0px 6px; margin-top:4px; font-size:14px; color:#a33921}
+.user_center_search{ width:298px; height:32px; border:#000 solid 1px;}
+.user_center_search input{ background:none; border:0; width:260px; height:32px; font-size:14px; color:#A0978E; padding-top:0px; padding-left:5px; line-height:30px;}
+.user_center_search_btn{ width:32px; height:32px; background:url(../images/icon.png) no-repeat; background-position:0 -40px;border-left:#62564c solid 1px;}
+
+.user_center_right_content{ width:794px; height:750px; padding-top:18px; }
+.user_center_right_content ul{width:790px; height:750px;}
+.user_center_content_li{ width:768px; height:161px; padding:10px 10px 0px 10px; /*margin-bottom:8px;*/ background:url(../images/user_center_right_li_bg.png) repeat-x;}
+
+.user_center_shadow_bg{ background:url(../images/user_center_shadow_bg.png) no-repeat; width:770px; height:10px; padding:0 10px;}
+
+.user_center_right_content_pic{ width:122px; height:154px;}
+.user_center_right_content_pic img{width:122px; height:154px;}
+.user_center_right_content_text{ width:636px; padding-left:10px;}
+.text_p1{ width:646px; height:28px; font-size:18px; color:#000; }
+.text_p1 strong{ padding-right:10px;}
+.text_p1 span{ padding:2px 8px;  font-size:12px; color:#de1212; font-weight:bold; text-align:center; vertical-align:middle;}
+.text_p1 em{ display:inline-block; display:block; background: url(../images/code_btn.png) no-repeat; width:69px; height:29px; color:#fff; font-size:14px; font-style:normal; left:568px; top:0px;}
+.text_p2{ width:544px; padding-top:14px; font-size:12px; color:#000; line-height:18px;}
+.text_p3{ width:544px; font-size:12px; color:#000; line-height:24px;}
+.user_center_time{ left:10px; top:138px; font-size:14px; color:#de1212;}
+
+.user_center_code{ font-size:14px; color:#000; background:#FFF; width:220px; height:100px; padding:10px; border:#caccc6 solid 1px; right:0px; top:28px;}
+.code_p{ width:220px; padding-bottom:10px;}
+.user_center_code img{ width:65px; height:65px;}
+
+.user_center_booking{ width:770px; height:36px; border-bottom:#44687d dashed 1px;}
+.user_center_booking p{ width:790px; height:28px; font-size:20px; color:#000; font-weight:bold;}
+.user_center_booking p span{padding:2px 40px; font-size:12px; color:#696969; text-align:center; vertical-align:middle;}
+.user_center_booking p em{ color:#e11f1f; font-size:16px; font-style:normal; left:704px; top:4px;}
+
+.user_center_booking_message{ width:790px; height:122px;}
+.booking_message_p1{ font-size:12px; color:#010101; font-weight:bold; width:670px; height:20px; padding-top:10px; padding-left:10px;}
+.booking_message_p2{ font-size:12px; color:#010101; font-weight:bold; width:670px; height:28px; padding-left:10px; padding-top:4px; position:relative;}
+.booking_message_p2 em{ padding:2px 6px; font-style:normal; color:#000000; font-size:12px; position:absolute; left:178px; top:0;}
+.booking_message_p3{ font-size:12px; color:#010101; width:670px; height:28px; padding-left:10px;}
+.booking_message_p3 em{ background:#fff; padding:1px 8px; margin-left:4px; font-size:16px; color:#000; font-style:normal;}
+.booking_message_p4{ font-size:12px; color:#010101; width:670px; height:28px; padding-left:10px;}
+
+.total_p{ left:680px; top:70px; font-size:14px; color:#010101;}
+.total_p span{ font-size:18px; color:#e11212}
+.tel_num_p{ left:582px; top:100px; font-size:14px; color:#010101; font-weight:bold;}
+
+/*================================用户中心 电影生活==============================*/
+.my_movie_life_pic{ width:76px; height:120px; padding-top:15px; }
+.my_movie_life_pic img{ width:76px; height:98px;}
+.my_movie_life_pic_title{ width:150px; height:100px;padding-top:12px; font-size:14px; color:#010101; }
+.my_movie_life_pic_title_p1{ width:140px; height:68px; padding-left:4px; font-weight:bold; }
+.my_movie_life_pic_title_p2{ width:140px; height:20px; font-size:12px; color:#010101; padding-left:10px;}
+.my_movie_life_text{ width:490px; height:120px; padding-top:6px; }
+
+/*.booking_message_p1{ font-size:18px; color:#010101; font-weight:bold; width:670px; height:28px; padding-top:10px;}*/
+.my_movie_life_text_p1{ font-size:14px; color:#010101; font-weight:bold; width:670px; height:28px; padding-left:10px; padding-top:4px; position:relative}
+.my_movie_life_text_p1 span{ display:inline-block; display:block;  height:24px; padding-right:6px; font-style:normal; color:#000000; line-height:24px; cursor:pointer; float:left}
+.my_movie_life_text_p1 em{ display:inline-block; display:block; width:24px; height:24px; font-style:normal; color:#000000; cursor:pointer; float:left}
+.my_movie_life_text_p2{ font-size:12px; color:#010101; width:670px; height:28px; padding-left:10px; }
+.my_movie_life_text_p2 em{ background:#fff; padding:2px 20px; margin-left:4px; font-size:16px; color:#000; font-style:normal;}
+.my_movie_life_text_p3{ font-size:12px; color:#010101; width:670px; height:22px; padding-left:10px; padding-top:14px; }
+.my_movie_life_text_p4{ font-size:12px; color:#010101; width:670px; height:28px; padding-left:10px;}
+
+.my_movie_life_total{ left:554px; top:96px; font-size:12px; color:#010101;}
+.my_movie_life_total span{ font-size:18px; color:#e11212}
+.my_movie_life_money{ left:554px; top:56px; font-size:12px; color:#010101;}
+.my_movie_life_num{ left:554px; top:76px; font-size:12px; color:#010101;}
+
+.cancel_btn{ padding:6px 14px; background:#5b5b5b; font-size:14px; color:#fff; left:644px; top:2px; font-style:normal;}
+.pay_btn{ padding:6px 14px; background:#228088; font-size:14px; color:#fff; right:20px; top:2px;}
+.pay_icon{ background:url(../images/pay_no_btn.png) no-repeat; width:62px; height:31px; right:12px; top:10px;}
+
+/*===============================用户中心 个人信息=============================*/
+.user_center_personal_message_div{ width:490px; height:70px; padding-left:314px; margin-top:-1px;}
+.user_center_personal_message_title{ height:60px;  text-align:center; line-height:34px; font-size:14px; color:#fff; }
+.user_center_personal_message_title span{ font-size:22px; color:#fff; padding-left:8px; }
+.user_title{background:#c05017; height:60px; line-height:54px; padding-left:10px;}
+.user_title_bg{ height:60px; float:left}
+
+.header_pic_box{ width:190px; height:250px;  padding-left:80px; padding-top:10px;}
+.header_pic{ background:url(../images/header_pic_border.gif) no-repeat; width:189px; height:189px; padding-top:5px; text-align:center; vertical-align:middle;}
+.name_p{ width:189px; height:28px; text-align:center; font-size:16px; color:#44687d;}
+
+.personal_message{ width:520px; height:360px; }
+.personal_message p{ height:44px; font-size:14px; color:#000; padding-top:10px; padding-left:30px;}
+
+.modify_personal_message{ width:268px; height:36px; padding-top:10px; background:#228088; left:260px; top:470px; font-size:18px; color:#fff; text-align:center; cursor:pointer;}
+
+/*修改个人信息*/
+.modify_message{ width:486px; height:682px; padding-top:20px; margin:0 auto; }
+.upload_header_outer{ width:314px; height:189px; padding-left:66px; padding-bottom:40px;}
+.upload_header{ width:177px; height:177px; padding:6px; background:url(../images/upload_header_bg.png) no-repeat;}
+.upload_header img{ width:175px; height:175px;}
+.upload_header_input{ background:url(../images/upload_header_btn.png) no-repeat; width:100px; height:37px; margin-top:152px; margin-left:16px; }
+.upload_header_input input{ filter:alpha(opacity:0); opacity:0; margin-top:4px; margin-left:-10px;height:26px; cursor:pointer; left:-100px; top:0;}
+.modify_nama{ height:52px; padding:4px 0;}
+.modify_nama label{ width:70px; padding-right:30px; font-size:16px; color:#494948;}
+.modify_nama input{ width:282px;height:36px; background:none; border:0;}
+.input_border{ width:282px;height:34px; border:#494948 solid 1px;}
+.input_border input{width:276px;height:34px; padding-left:6px;background:none; border:0;}
+.modify_tel{ height:36px; padding:4px 0;}
+.modify_tel span{font-size:16px; color:#494948; padding-right:12px;}
+.modify_tel input{ background:url(../images/bind_btn.png) no-repeat; width:77px; height:38px; border:0; cursor:pointer;}
+.modify_tel_num{ padding-left:60px; padding-top:4px; height:50px;}
+.submit_tel_code_btn{ background:url(../images/modify_code_btn.png) no-repeat; width:112px; height:39px; margin-left:8px; cursor:pointer;}
+.submit_code{ height:38px;font-size:16px; color:#494948; }
+.code_name{ width:60px;}
+.bind_btn{ background:url(../images/bind_btn.png) no-repeat; width:77px; height:38px;margin-left:10px; cursor:pointer;}
+
+.modify_submit_btn{ width:380px; padding-top:110px; margin:0 auto;}
+.save_btn{ background:url(../images/save_btn_bg.png) no-repeat; width:158px; height:52px; padding-top:8px; margin-right:40px; border:0; text-align:center; cursor:pointer;}
+.cancel_btn{ background:url(../images/cancel_btn_bg.png) no-repeat; width:158px; height:52px; border:0; text-align:center; cursor:pointer;}
+
+.modify_content_hidden{ display:none;}
+
+
+/*===============================用户中心 喜欢的影院=============================*/
+.user_center_cinema_right_content{ width:794px; height:650px; padding-top:18px; }
+.user_center_cinema_right_content ul{width:800px; height:540px; }
+.user_center_cinema_right_content ul li{ width:780px; height:118px; padding:15px 10px 10px 10px; margin-bottom:15px; background:url(../images/user_center_right_li_bg.png) repeat-x;}
+.user_center_cinema_pic{ width:150px; height:112px; border:#949291 solid 1px; }
+.user_center_cinema_pic img{ width:149px; height:112px;}
+.user_center_cinema_text{ width:600px; height:112px; }
+.user_center_cinema_text a:link{ font-size:16px; color:#000;}
+.user_center_cinema_text a:visited{ font-size:16px; color:#000;}
+.cinema_title_p{ font-size:16px; color:#62564c; padding-left:4px;}
+.love_cinema_p{ width:580px; height:62px; padding-bottom:10px; padding-left:20px; font-size:16px; color:#000; font-weight:bold; }
+.love_cinema_address_p{ width:580px; height:24px; padding-left:20px; font-size:12px; color:#000; position:relative; }
+.love_cinema_address_p span{ display:inline-block; display:block;  height:24px; padding-right:6px; font-style:normal; color:#000000; line-height:24px; cursor:pointer; float:left}
+.love_cinema_address_p em{ display:inline-block; display:block; width:24px; height:24px; font-style:normal; color:#000000; cursor:pointer; float:left}
+
+.love_cinema_address_p span{ padding:0 8px 0 0;}
+.love_cinema_tel_p{ width:580px; height:26px; padding-left:20px; font-size:12px; color:#000; }
+
+.love_icon{ left:504px; top:-6px; width:200px;height:42px;}
+
+.love_cinema_right_btn{ width:580px;height:30px;padding-left:20px;}
+.love_cinema_right_btn a{display:inline-block;width:59px;height:25px;line-height:25px;padding-left:29px;text-align:center;color:#FFF;background: #44687d url(../images/user_center_love_cinema_btn.gif) no-repeat;}
+.love_cinema_right_btn a.dislike_btn{background-position:0 -25px;}
+
+.all_cinema_btn{ background:#a63f1e; width:150px; height:35px; text-align:center; padding-top:10px;}
+.all_cinema_btn a:link{ font-size:16px; color:#fff;}
+.all_cinema_btn a:visited{ font-size:16px; color:#fff;}
+
+.like_btn{ background:url(../images/attention_btn.png) no-repeat; width:59px; height:31px; border:0; cursor:pointer; }
+.dislike_btn{ background:url(../images/attention_btn_del.png) no-repeat; width:59px; height:31px; border:0; cursor:pointer;}
+
+
+/*===============================用户中心 我的电影生活=============================*/
+#right_box_MyMovieLife{ /*background: url(../images/user_center_MyMovieLifeBg.png) repeat-y;*/ width:848px; padding-left:8px; margin-bottom:30px;}
+.user_center_MyMovieLife_right_content{ width:848px; padding-top:14px; height:auto;}
+.user_center_MyMovieLife_right_content ul{ float:left; width:205px; height:auto; margin-right:7px; display:inline;}
+.user_center_MyMovieLife_right_content ul li{ padding-left:12px; padding-bottom:8px; border:#c9c7c6 solid 1px; margin-bottom:10px; background:url(../images/user_center_MyMovieLife_bg.png) repeat-x;}
+
+.MyMovieLife_time{ width:180px; height:27px; padding-top:5px; border-bottom:#383938 dashed 1px; font-size:14px; color:#000; font-weight:bold; text-align:center;}
+.MyMovieLife_pic{ width:178px; padding-top:4px; }
+.MyMovieLife_CinemaLogo{ width:168px; height:90px; border:#c7c6c6 solid 1px; padding:10px 6px;}
+.MyMovieLife_CinemaLogo img{ width:168px; height:88px; border:#c7c6c6 solid 1px;}
+.MyMovieLife_text_add{ width:192px;}
+.MyMovieLife_text_tel{ width:192px;}
+.MyMovieLife_name{ width:180px; height:27px; border-bottom:#383938 dashed 1px; font-size:14px; font-weight:bold; line-height:26px; color:#010101; text-align:center;}
+.MyMovieLife_message{ font-size:14px; color:#000; padding-top:4px;}
+.MyMovieLife_title{  width:180px; font-size:14px; font-weight:bold; line-height:20px; color:#000; text-align:center;}
+.MyMovieLife_title a:link{ font-size:16px; color:#000;}
+.MyMovieLife_title a:visited{ font-size:16px; color:#000;}
+.MyMovieLife_text{ font-size:12px; color:#575a5d; padding-top:4px;}
+
+/*==========================百度地图==================================*/
+#MapBoxDiv{ background:#FFF; width:700px; height:550px; position:absolute; left: 0; top: 0; border: 1px solid #000; z-index:1000}
+#MapMask{ background:#000; filter:alpha(opacity=50); opacity:0.5; position: absolute; left: 0; top: 0; z-index:999}
+
+#MapCloseDiv{ width:700px; height:30px; background:#fefefe; }
+#MapClose { position: absolute; right:4px; top:0px; text-decoration: none; color: #000; font-size:22px; display:inline-block;  }
+
+#MapShowDiv{ widows:700px; height:520px; /*background:#0F0;*/ overflow:hidden;}
+
+/*===========================分页=========================================*/
+.page{ width:770px; height:40px; text-align:center; vertical-align:middle; font-size:16px; padding-top:10px; border-right:#c9c7c4 solid 1px;  border-bottom:#c9c7c4 solid 1px; }
+.page a{ margin:0 2px; display:inline; color:#62564c;}
+.page a:link{ color:#62564c; padding:2px 8px; }
+.page a:hover{ color:#fff; background: #228088; }

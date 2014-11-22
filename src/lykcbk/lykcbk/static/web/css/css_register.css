@@ -1,0 +1,29 @@
+@charset "utf-8";
+
+/*===========================用户注册=============================*/
+.main_register{ width:984px; height:424px; margin:0 auto; padding-top:16px; margin-top:20px; margin-bottom:40px;/* padding-left:128px; */ background:url(../images/resigter_bg.png) repeat-y; }
+.register_title{ width:981px; height:35px; padding-top:0px; padding-bottom:6px; border-bottom:#62564c solid 1px;}
+.register_title a:link{ font-size:14px; color:#228088; text-decoration:underline; padding-left:4px;}
+.register_title a:visited{ font-size:14px; color:#228088;}
+.register_title p{ padding-left:20px; font-size:24px; color:#000;}
+.register_title p span{ font-size:14px; left:828px; top:10px;}
+.register_content{ width:780px; height:308px; padding:46px 128px; }
+.register_content p{ width:780px; height:74px; font-size:14px; color:#000;}
+.register_content p label{ padding-right:20px; line-height:34px; float:left}
+.register_content p input{ background:none; border:0; width:310px; height:36px; padding-left:10px; line-height:36px;}
+.register_content p span{ display:inline-block; display:block; width:330px; padding-left:20px; line-height:34px; font-size:12px; float:left}
+
+.stats1{ color:#a39991; }
+.stats2{ color:#FF0000; }
+.stats3{ color:#FF0000; }
+.stats4{ color:#008000; }
+
+.box_border{ width:320px; height:36px; border:#62564c solid 1px; float:left}
+.register_button{ width:520px; height:80px; padding-left:260px; padding-top:10px; }
+.register_button span{ display:inline-block; display:block; background:#228088; width:264px; height:44px; text-align:center; }
+.register_button input{ background:none; border:0; font-size:18px; color:#fff;width:264px; height:44px; padding-top:4px; cursor:pointer;}
+
+
+
+
+

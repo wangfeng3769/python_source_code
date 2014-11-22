@@ -1,0 +1,320 @@
+<?php 
+
+//初始化
+
+    //如果登入网站的域名是edoauto则自动跳转到eduoauto的域名去
+
+    if (strpos($_SERVER['SERVER_NAME'], 'edoauto')>-1) {
+
+        $address=sprintf("http://www.eduoauto.com%s",$_SERVER['REQUEST_URI']);
+
+        header("location:$address");
+
+        exit();
+
+    }
+
+
+
+    require_once (dirname(__FILE__) . '/../hfrm/Frm.php');
+
+    require_once (Frm::$ROOT_PATH . 'client/http/web.php');
+
+    session_start();
+
+    if ($_SESSION['uid']>0) {
+
+
+
+        if ($_SESSION['phone']>0) {
+
+            $op=selectOutput('ArrOutput','MemberClient');
+
+            $ret=$op->output('getUserInfo');
+
+            $userInfo=$ret['content'];
+
+            $isApprove=$userInfo['approve_id']>0;
+
+        }
+
+        else
+
+        {
+
+            $isApprove=false;
+
+        }
+
+        
+
+    }
+
+    
+
+
+
+ ?>
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta property="qc:admins" content="34406477776545715476375" />
+
+<title>易多汽车共享官网 - 中国首家自助快捷租车网，提供分时、自助的绿色出行方式</title>
+
+<link href="css/yiduo.css" rel="stylesheet" type="text/css" />
+
+<style>
+
+a{color:#4F4F4F;text-decoration:none;}
+
+.anniu-1:active{ background:url(img/anniu-1-2.png) no-repeat; color:#4F4F4F;}
+
+.anniu-4:active{ background:url(img/anniu-2-2.png) no-repeat; color:#4F4F4F;}
+
+.anniu-2:active{ color:#4F4F4F;}
+
+.anniu-3:active{ color:#4F4F4F;}
+
+.anniu-5:active{ background:url(img/anniu-3-2.png) no-repeat; color:#4F4F4F;}
+
+.anniu-6:active{ color:#4F4F4F;}
+
+.anniu-7:active{ color:#4F4F4F;}
+
+.anniu-9:active{ background: url(img/anniu-1-2.png) no-repeat; color:#4F4F4F;}
+
+.anniu-zhifu:active{ background:url(img/anniu-4-2.png) no-repeat; color:#4F4F4F;}
+
+.fenxiang-right{ width:180px; height:25px; float:right; margin:12px 0 0 0;}
+
+.fenxiang-right img{ width:22px; height:22px; float:left; margin:0 5px;}
+
+.anniu-denglu-bt:active{ background:url(img/denglu-bt1.gif) no-repeat; color:#fff;}
+
+</style>
+
+<!-- <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script> -->
+
+<script type="text/javascript" src="js/jquery-1.9.0.js"></script>
+
+<link rel="stylesheet" href="css/jquery-ui.css" />
+
+<script src="js/jquery-ui.js"></script>
+
+<script src="js/jquery-ui-slide.min.js"></script>
+
+<script src="js/jquery-ui-timepicker-addon.js"></script>
+
+<script type="text/javascript" src="js/eduo.js"></script>
+
+<script type="text/javascript" src="js/frm.js"></script>
+
+</head>
+
+    <body>
+
+<script type="text/javascript">
+
+$(function($) {
+
+  
+
+});
+
+</script>
+
+<div class="yetou">
+
+    <div class="yetou-1">
+
+     <a href="index.php"><img src="img/logo.jpg"/></a>
+
+     <p class="shezhi">
+
+     <a href="bangzhu.php" id="vLinkLogin" class="anniu-7" style="margin:5px 5px 0 10px;float:right;">使用手册</a>
+
+            <?php 
+
+            if ($_SESSION['uid']>0) {
+
+                $phone='****'.substr($_SESSION['phone'], 4);
+
+                ?>
+
+                    <a href="logout.php"class="anniu-denglu-bt" style="margin-left:10px; margin-top:0;">退出</a>
+
+                <b href="" class="anniu-7" style="float:right; margin-top:5px; text-align:right;"><?php echo $phone ?></b>
+
+                &nbsp; &nbsp;
+
+            
+
+            <?php   
+
+            }
+
+            else
+
+            {
+
+                ?>
+
+                 <a href="login.php" id="vLinkLogin" class="anniu-denglu-bt" style="margin-left:10px; margin-top:0;">登陆</a>
+
+                 <?php
+
+            }
+
+             ?>
+
+
+
+        </p>
+
+    
+
+       
+
+        <ul>
+
+            <li>
+
+                <a href="dingche.php" class="anniu-7">订车</a>
+
+            </li>
+
+            <li>
+
+                <a href="zhaoche.php" class="anniu-7">找车</a>
+
+            </li>
+
+            <li>
+
+                <a href="price.php" class="anniu-7">价格</a>
+
+            </li>
+
+            <?php if ($isApprove&&$_SESSION['uid']>0) { ?>
+
+           <li>
+
+                <a href="zhanghu_view.php" class="anniu-7">账户</a>
+
+            </li> 
+
+            <?php }elseif($_SESSION['uid']>0){ ?>
+
+            <li>
+
+                <a href="authentication.php" class="anniu-7">实名认证</a>
+
+            </li> 
+
+            <?php } ?>
+
+            <li>
+
+                <a href="order-list.php" class="anniu-7"></a>
+
+            </li>
+
+            <li>
+
+                <a href="#" class="anniu-7"></a>
+
+            </li>
+
+            <li>
+
+                <a href="#" class="anniu-7"></a>
+
+            </li>
+
+        </ul>
+
+         <div class="fenxiang-right"><!-- JiaThis Button BEGIN -->
+
+<div class="jiathis_style">
+
+<a class="jiathis_button_qzone"></a>
+
+<a class="jiathis_button_tsina"></a>
+
+<a class="jiathis_button_tqq"></a>
+
+<a class="jiathis_button_renren"></a>
+
+<a class="jiathis_button_kaixin001"></a>
+
+<a href="http://www.jiathis.com/share?uid=1764875" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+
+</div>
+
+<script type="text/javascript" >
+
+var jiathis_config={
+
+    data_track_clickback:true,
+
+    url:"http://www.eduoauto.com",
+
+    summary:"快来找找看你周围潜伏了多少辆可以随时使用的车！！",
+
+    title:"易多汽车共享 #校园租车#",
+
+    pic:"http://www.eduoauto.com/img/poster.jpg",
+
+    ralateuid:{
+
+        "tsina":"易多汽车共享"
+
+    },
+
+    appkey:{
+
+        "tsina":"2465585024",
+
+        "tqq":"100659467"
+
+    },
+
+    hideMore:false
+
+}
+
+</script>
+
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1764875" charset="utf-8"></script>
+
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+
+
+       
+
+        
+
+    </div>
+
+    <div style="position:absolute;top:25px;right:40px;">
+
+         <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=1842898179&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:1842898179:41" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
+         <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=895167635&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:895167635:41" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
+
+    </div>
+
+</div>

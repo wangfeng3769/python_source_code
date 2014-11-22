@@ -1,0 +1,31 @@
+{% extends "themes/simple/base.html" %}
+{% load pagination %}
+{% block head_block %}
+{% endblock %}
+
+{% block content %}
+	{% if entries %}
+	{% begin_pagination entries page %}
+	{% for entry in entries %}
+		<article class="post">
+			<h2><a href="/{{ entry.get_absolute_url|escape }}" rel="bookmark">{%if entry.sticky%}<b>[置顶]</b>{%endif%}{{entry.title|escape}}</a></h2>
+			<div class="pmeta">{{entry.date|date:"y-m-d"}} <span>&middot;</span> posted in <a href="/category/{{entry.category.slug}}">{{entry.category.name}}</a></div>
+			<div class="entry">
+				<p>{{entry.excerpt_content|safe}}</p>
+			</div>
+			<div class="ptags">
+			<span class="comments"><a href="/{{entry.link|escape}}#comments">{{entry.comments.count}} comments</a></span> 
+			tags: {% for tag in entry.get_tags %}
+						{% if forloop.last %}<a href="{{ tag.get_absolute_url }}">{{ tag.name }}</a>. 
+						{% else %}<a href="{{ tag.get_absolute_url }}">{{ tag.name }}</a>, 
+						{% endif %}
+					{% endfor %} 
+			</div>
+		</article>
+	{%endfor%}
+	{%else %}
+		<h2>not found</h2>
+		<p>sorry, but you are looking for something that isn't here.</p>
+	{%endif%}
+	{% end_pagination %}
+{% endblock%}

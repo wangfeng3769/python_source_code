@@ -1,0 +1,359 @@
+<include file="../Public/_header" />
+<div class="so_main">
+  <div class="page_tit">用户管理</div>
+  <!-------- 搜索用户 -------->
+  <div id="searchUser_div" <neq name="type" value="searchUser">style="display:none;"</neq>>
+  	<div class="page_tit">搜索用户 [ <a href="javascript:void(0);" onclick="searchUser();">隐藏</a> ]</div>
+	
+	<div class="form2">
+	<form method="post" action="{:U('admin/User/doSearchUser')}">
+    <dl class="lineD">
+      <dt>Email：</dt>
+      <dd>
+        <input name="email" id="email" type="text" value="{$email}">
+        <p>用户进行登录的帐号,多个时使用英文的","分割</p>
+      </dd>
+    </dl>
+	
+	<php>if($type != 'searchUser') $uid = '';</php>
+    <dl class="lineD">
+      <dt>用户ID：</dt>
+      <dd>
+        <input name="uid" id="uid" type="text" value="{$uid}">
+        <p>用户ID,多个时使用英文的","分割</p>
+      </dd>
+    </dl>
+	
+    <dl class="lineD">
+      <dt>昵称：</dt>
+      <dd>
+        <input name="uname" id="uname" type="text" value="{$uname}">
+        <p>多个时使用英文的","分割</p>
+      </dd>
+    </dl>
+	<dl class="lineD">
+      <dt>手机号：</dt>
+      <dd>
+        <input name="phone" id="phone" type="text" value="{$phone}">
+        <p>手机号,多个时使用英文的","分割</p>
+      </dd>
+    </dl>
+    <dl class="lineD">
+      <dt>所在地：</dt>
+      <dd>
+        <input name="location" id="location" type="text" value="{$location}">
+        <p>手机号,多个时使用英文的","分割</p>
+      </dd>
+    </dl> 
+	<dl>
+      <dt>用户组：</dt>
+      <dd>
+      	<a href="javascript:void(0);" onclick="folder('user_group', this);"><php>echo empty($user_group_id) ? '展开' : '收起';</php></a>
+        <div id="search_user_group" <php>if(empty($user_group_id)){</php>style="display:none;"<php>}</php>>
+			{:W('SelectUserGroup', array('user_group_id'=>$user_group_id))}
+		</div>
+      </dd>
+    </dl>
+    
+    <dl class="lineD">
+      <dt>性别：</dt>
+      <dd>
+      	<input name="sex" type="radio" value="" <eq name="sex" value="">checked</eq>>全部
+        <input name="sex" type="radio" value="1" <eq name="sex" value="1">checked</eq>>男
+        <input name="sex" type="radio" value="0" <eq name="sex" value="0">checked</eq>>女
+      </dd>
+    </dl>
+	
+	<dl class="lineD">
+      <dt>是否激活：</dt>
+      <dd>
+      	<input name="is_active" type="radio" value="" <eq name="is_active" value="">checked</eq>>全部
+        <input name="is_active" type="radio" value="1" <eq name="is_active" value="1">checked</eq>>是
+        <input name="is_active" type="radio" value="0" <eq name="is_active" value="0">checked</eq>>否
+      </dd>
+    </dl>
+    <dl class="lineD">
+      <dt>账户状态：</dt>
+      <dd>
+      	<input name="account_stat" type="radio" value="" <eq name="account_stat" value="">checked</eq>>全部
+        <input name="account_stat" type="radio" value="0" <eq name="account_stat" value="0">checked</eq>>可用
+        <input name="account_stat" type="radio" value="1" <eq name="account_stat" value="1">checked</eq>>违章
+        <input name="account_stat" type="radio" value="2" <eq name="account_stat" value="2">checked</eq>>欠费
+        <input name="account_stat" type="radio" value="3" <eq name="account_stat" value="3">checked</eq>>禁用
+        <input name="account_stat" type="radio" value="4" <eq name="account_stat" value="4">checked</eq>>删除
+      </dd>
+    </dl>
+    
+    <div class="page_btm">
+      <input type="submit" class="btn_b" value="确定" />
+    </div>
+	</form>
+  </div>
+
+  </div>
+  
+  <!-------- 用户列表 -------->
+  <div class="Toolbar_inbox">
+  	<div class="page right">{$html}</div>
+	<a href="{:U('admin/User/addUser')}" class="btn_a"><span>添加用户</span></a>
+	<a href="javascript:void(0);" class="btn_a" onclick="searchUser();">
+		<span class="searchUser_action"><neq name="type" value="searchUser">搜索用户<else/>搜索完毕</neq></span>
+	</a>
+  	<a href="javascript:void(0);" class="btn_a" onclick="changeUserGroup();"><span>转移用户组</span></a>
+	<a href="javascript:void(0);" class="btn_a" onclick="deleteUser();"><span>删除用户</span></a>
+	<div class="btn_a">
+		<form method="POST" action="{:U('admin/User/doSearchUser')}" > 
+			    <input name="key_word" type="text">
+			    <input type="submit" class="btn_b" value="快速查询" />
+		</form>
+	</div>	
+	<div class="btn_a">
+		<form method="POST" action="{:U('admin/User/doSearchUser')}" > 
+			    <input name="start" type="date">
+			    <input name="end" type="date">
+			    <select name="type">
+			    	<option value="0" selected>有消费</option>
+			    	<option value="1">无消费</option>
+			    </select>
+			    <input type="submit" class="btn_b" name="searchorder" value="时间搜索" />
+			    <font corlor="grey">按消费时间搜索</font>
+		</form>
+	</div>
+  </div>
+  <div class="list">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <th style="width:30px;">
+		<input type="checkbox" id="checkbox_handle" onclick="checkAll(this)" value="0">
+    	<label for="checkbox"></label>
+	</th>
+    <th class="line_l">ID</th>
+    <th class="line_l">用户登录名</th>
+    <th class="line_l">真实姓名</th>
+    <th class="line_l">群组</th>
+    <th class="line_l">会员类别</th>
+    <th class="line_l">帐户状态</th>
+    <th class="line_l">性别</th>
+    <th class="line_l">生日/年龄</th>
+    <th class="line_l">注册所在地</th>
+    <th class="line_l">注册时间</th>
+    <th class="line_l">操作</th>
+
+
+  </tr>
+  <volist id="vo" name="data">
+	  <tr overstyle='on' id="user_{$vo['uid']}">
+	  	<if condition="0 == $vo['admin_level'] && $mid != $vo['uid']">
+	    	<td><input type="checkbox" name="checkbox" id="checkbox2" onclick="checkon(this)" value="{$vo.uid}"></td>
+		<else />
+	    	<td><input type="checkbox" name="checkbox" id="checkbox2" value="" disabled></td>
+	    </if>
+	    <td>{$vo.uid}</td>
+	    <!-- <td>
+			<div style="float:left;margin-right:10px;border:1px solid #8098A8;height:30px;padding:1px;width:30px;"><img src="{$vo.uid|getUserFace='s'}" width="30"></div>
+			<div style="float:left"><space uid="vo.uid" class="fn" target="_blank">{uname}</space><br>{$vo.email}</div></td> -->
+		<td>
+			<php>if(empty($vo['phone'])){</php>暂无<php>}</php>
+				{$vo.phone}
+		</td>	
+		<td>
+			<php>if(empty($vo['true_name'])){</php>暂无<php>}</php>
+				{$vo.true_name}
+		</td>
+		<td>
+			<php>if(empty($vo['user_group'])){</php>暂无<php>}</php>
+			<volist name="vo['user_group']" id="group">
+				{$group['user_group_title']}<br />
+			</volist>
+		</td>
+
+		<td>
+			<php>if(empty($vo['user_type'])){</php>个人<php>}else{echo '学生';}</php>
+
+		</td>
+		<td>
+			<php>    if($vo['account_stat']==0){</php>可用<php>}</php>
+			<php>if($vo['account_stat']==1){</php>违章<php>}</php>
+			<php>if($vo['account_stat']==2){</php>欠费<php>}</php>
+			<php>if($vo['account_stat']==3){</php>禁用<php>}</php>
+			<php>if($vo['account_stat']==4){</php>删除<php>}</php>
+		</td>
+
+		<td>
+			<php>if(empty($vo['user_type'])){</php>男<php>}else{echo '女';}</php>
+
+		</td>
+
+		<td>
+			<php>if(empty($vo['birthday'])){</php>暂无<php>}else{echo $vo['birthday'].'/'.$vo['old'];}</php>
+
+		</td>
+
+		<td>
+			暂无
+
+		</td>
+		<td>
+			<php>if(empty($vo['ctime'])){</php>暂无<php>}else{echo date('Y-m-d H:m:i',$vo['ctime']);}</php>
+
+		</td>
+<!-- 		<td>
+			<php>if(empty($vo['vip_card'])){</php>暂无会员卡信息<php>}</php>
+			<volist name="vo['vip_card']" id="vip_card">
+				{$vip_card['card_number']}<br />
+			</volist>
+		</td> -->
+
+		<!-- <td>
+			<php>if(empty($vo['location'])){</php>暂无所在地信息<php>}</php>
+				{$vo.location}
+		</td>
+		<td>
+			<php>if(empty($vo['department'])){</php>暂无部门信息<php>}</php>
+			<volist name="vo['department']" id="dept">
+				{$dept['dept_title']}<br />
+			</volist>
+		</td>
+	    
+	    <td>{$vo.ctime|date="Y-m-d H:i",###}</td>
+	    <td><eq name="vo['is_active']" value="0">未激活<else/>激活</else></eq></td> -->
+	    <td align="center">
+			<!--<a href="javascript:void(0);" onclick="changeDepartment({$vo['uid']});">转移部门</a>-->
+			<a href="{:U('admin/User/editUser', array('uid'=>$vo['uid']))}">编辑</a>
+			<if condition="0 == $vo['admin_level'] && $mid != $vo['uid']">
+	    		<a href="javascript:void(0);" onclick="deleteUser({$vo['uid']});">删除</a>
+			<else />
+				<span>删除</span>
+	    	</if>
+	    	<br/><a href="{:U('admin/User/userDetail',array('uid'=>$vo['uid']))}">详情</a>
+		</td>
+	  </tr>
+  </volist>
+  </table>
+  </div>
+
+  <div class="Toolbar_inbox">
+	<div class="page right">{$html}</div>
+	<a href="{:U('admin/User/addUser')}" class="btn_a"><span>添加用户</span></a>
+	<a href="javascript:void(0);" class="btn_a" onclick="searchUser();">
+		<span class="searchUser_action"><neq name="type" value="searchUser">搜索用户<else/>搜索完毕</neq></span>
+	</a>
+  	<a href="javascript:void(0);" class="btn_a" onclick="changeUserGroup();"><span>转移用户组</span></a>
+	<a href="javascript:void(0);" class="btn_a" onclick="deleteUser();"><span>删除用户</span></a>
+  </div>
+</div>
+
+
+<script>
+	//鼠标移动表格效果
+	$(document).ready(function(){
+		$("tr[overstyle='on']").hover(
+		  function () {
+		    $(this).addClass("bg_hover");
+		  },
+		  function () {
+		    $(this).removeClass("bg_hover");
+		  }
+		);
+	});
+	
+	function checkon(o){
+		if( o.checked == true ){
+			$(o).parents('tr').addClass('bg_on') ;
+		}else{
+			$(o).parents('tr').removeClass('bg_on') ;
+		}
+	}
+	
+	function checkAll(o){
+		if( o.checked == true ){
+			$('input[name="checkbox"]').attr('checked','true');
+			$('tr[overstyle="on"]').addClass("bg_on");
+		}else{
+			$('input[name="checkbox"]').removeAttr('checked');
+			$('tr[overstyle="on"]').removeClass("bg_on");
+		}
+	}
+
+	//获取已选择用户的ID数组
+	function getChecked() {
+		var uids = new Array();
+		$.each($('table input:checked'), function(i, n){
+			uids.push( $(n).val() );
+		});
+		return uids;
+	}
+
+	//转移部门
+	function changeDepartment(uids) {
+		var uids = uids ? uids : getChecked();
+		uids = uids.toString();
+		if(!uids) {
+			ui.error('请先选择用户');
+			return false;
+		}
+
+		if(!confirm('转移成功后，已选择用户原来的部门信息将被覆盖，确定继续？')) return false;
+		
+		ui.box.load("{:U('admin/User/changeDepartment')}&uids="+uids, {title:'转移部门'});
+	}
+	
+	//转移用户组
+	function changeUserGroup(uids) {
+		var uids = uids ? uids : getChecked();
+		uids = uids.toString();
+		if(!uids) {
+			ui.error('请先选择用户');
+			return false;
+		}
+
+		if(!confirm('转移成功后，已选择用户原来的用户组信息将被覆盖，确定继续？')) return false;
+		
+		ui.box.load("{:U('admin/User/changeUserGroup')}&uids="+uids, {title:'转移用户组'});
+	}
+	
+	//删除用户
+	function deleteUser(uid) {
+		uid = uid ? uid : getChecked();
+		uid = uid.toString();
+		if(uid == '' || !confirm('删除成功后将无法恢复，确认继续？')) return false;
+		
+		$.post("{:U('admin/User/doDeleteUser')}", {uid:uid}, function(res){
+			if(res == '1') {
+				uid = uid.split(',');
+				for(i = 0; i < uid.length; i++) {
+					$('#user_'+uid[i]).remove();
+				}
+				ui.success('操作成功');
+			}else {
+				ui.error('操作失败');
+			}
+		});
+	}
+	
+	//搜索用户
+	var isSearchHidden = <neq name="type" value="searchUser">1<else/>0</neq>;
+	function searchUser() {
+		if(isSearchHidden == 1) {
+			$("#searchUser_div").slideDown("fast");
+			$(".searchUser_action").html("搜索完毕");
+			isSearchHidden = 0;
+		}else {
+			$("#searchUser_div").slideUp("fast");
+			$(".searchUser_action").html("搜索用户");
+			isSearchHidden = 1;
+		}
+	}
+	
+	function folder(type, _this) {
+		$('#search_'+type).slideToggle('fast');
+		if ($(_this).html() == '展开') {
+			$(_this).html('收起');
+		}else {
+			$(_this).html('展开');
+		}
+		
+	}
+</script>
+
+<include file="../Public/_footer" />

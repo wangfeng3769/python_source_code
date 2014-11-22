@@ -1,0 +1,55 @@
+<!-- $Id: equipment_info.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+{include file="pageheader.htm"}
+<script language="JavaScript" src="../js/formcheck.js"></script>
+<div class="main-div">
+<form method="post" action="" name="theForm" enctype="multipart/form-data" onSubmit="return Validator.Validate(this,2)">
+<table cellspacing="1" cellpadding="3" width="100%">
+  <tr>
+    <td class="label">{$lang[sim_phone_number]}</td>
+    <td><input dataType="Mobile" msg="手机号码不正确" name="phone_number" maxlength="60" value="{$brand.phone_number}" /></td>
+  </tr>
+  <tr>
+    <td class="label">{$lang[sim_card_provider]}</td>
+    <td><input type="text" name="provider" maxlength="60" value="{$brand.provider}" /></td>
+  </tr>
+  <tr>
+    <td class="label">{$lang[sim_service_password]}</td>
+   <td><input type="text" name="service_password" maxlength="60" value="{$brand.service_password}" /></td>
+  </tr>
+  <tr>
+    <td class="label">{$lang[sim_net_login_password]}</td>
+    <td><input type="text" name="login_password" maxlength="60" value="{$brand.login_password}" /></td>
+  </tr>
+   <tr>
+    <td class="label">{$lang[sim_card_location]}</td>
+   <td><input type="text" name="location" dataType="Chinese" msg="地址只允许中文" maxlength="60" value="{$brand.phone_location}" /></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><br />
+      <input type="submit" class="button" value="{$lang.button_submit}" />
+      <input type="reset" class="button" value="{$lang.button_reset}" />
+      <input type="hidden" name="act" value="{$form_action}" />
+      <input type="hidden" name="id" value="{$brand.id}" />
+      <input type="hidden" name="old_brandlogo" value="{$brand.equipment_logo}">
+    </td>
+  </tr>
+</table>
+</form>
+</div>
+{insert_scripts files="../js/utils.js"}
+{literal}
+<script language="JavaScript">
+<!--
+onload = function()
+{
+    // 开始检查订单
+    startCheckOrder();
+}
+/**
+ * 检查表单输入的数据
+ */
+
+//-->
+</script>
+{/literal}
+{include file="pagefooter.htm"}

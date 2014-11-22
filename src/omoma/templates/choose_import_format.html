@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% comment %}
+import format choice template for omoma
+copyright 2011 sebastien maccagnoni-munch
+
+this file is part of omoma.
+
+omoma is free software: you can redistribute it and/or modify
+it under the terms of the gnu general public license as published by
+the free software foundation, version 3.
+
+omoma is distributed in the hope that it will be useful,
+but without any warranty; without even the implied warranty of
+merchantability or fitness for a particular purpose.  see the
+gnu general public license for more details.
+
+you should have received a copy of the gnu general public license
+along with omoma. if not, see <http://www.gnu.org/licenses/>.
+{% endcomment %}
+
+{% load i18n %}
+{% load omoma %}
+
+{% block title %}{% trans "import transactions" %}{% endblock %}
+
+{% block content %}
+
+    {% contentbox _('import transactions') %}
+
+        <p>{% trans "please choose the format to import:" %}</p>
+
+        <ul>
+            {% for f,v in formats.items %}
+                <li><a href="{% if aid %}{% url import_transactions format=f aid=aid %}{% else %}{% url import_transactions format=f %}{% endif %}">{{ v.description }}</a></li>
+            {% endfor %}
+        </ul>
+        <a href="{% if aid %}{% url transactions aid=aid %}{% else %}{% url transactions %}{% endif %}">{% trans "cancel" %}</a>
+    {% endbox %}
+
+{% endblock content %}

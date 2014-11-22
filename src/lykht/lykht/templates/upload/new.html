@@ -1,0 +1,40 @@
+{% extends "admin/base_site.html" %}
+
+{% block content %}
+    {% if not cinema_list %}
+    <form method= "get" enctype="multipart/form-data" action="/upload/">{% csrf_token %}
+    {% else %}
+    <form method= "post" enctype="multipart/form-data" action="/upload/create/">{% csrf_token %}
+    {% endif %}
+        {% if cinema_list %}
+        <label>请选择上传文件</label>
+        <input type="file" name="file" />
+        {% endif %}
+
+         {%  if cinema_list %}
+        <label>选择票务平台</label>
+        <select name='platform'>
+            <option value='1'>火凤凰</option>
+            <option value='2'>顶新</option>
+            <option value='3'>满天星</option>
+        </select>
+         {% endif %}
+        {% if not cinema_list %}
+        <label>选择城市</label>
+        <select name='cityid'>
+            {%  for city in city_list %}
+                <option value="{{ city.cityid }}">{{ city.cityname }}</option>
+            {% endfor %}
+        </select>
+        {% endif %}
+        {% if cinema_list %}
+        <select name='cinema_id'>
+            {%  for cinema in cinema_list %}
+                <option value="{{ cinema.id }}">{{ cinema.name }}</option>
+            {% endfor %}
+        </select>
+         {% endif %}
+        <input type="submit" name="submit" value="提交" />
+    </form>
+{% endblock %}
+

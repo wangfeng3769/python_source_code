@@ -1,0 +1,64 @@
+<!-- $Id: brand_list.htm 15898 2009-05-04 07:25:41Z liuhui $ -->
+
+{if $full_page}
+{include file="pageheader.htm"}
+{insert_scripts files="../js/utils.js,listtable.js"}
+<!-- 品牌搜索 -->
+{include file="brand_search.htm"}
+<form method="post" action="" name="listForm">
+<!-- start brand list -->
+<div class="list-div" id="listDiv">
+{/if}
+  <table cellpadding="3" cellspacing="1">
+    id_approve 关联审核状态表id  result 审核结果 reason 结果原因 approve_time 审核时间 admin_id 管理员id  admin_name 管理员名
+    <tr>
+      <th>审核状态表id</th>
+      <th>审核结果</th>
+      <th>结果原因</th>
+      <th>审核时间</th>
+      <th>管理员名</th>
+    </tr>
+    {foreach from=$brand_list item=brand}
+    <tr>
+      <td align="center">{$brand.serial}</td>
+      <td align="center">{$brand.group_number}</td>
+      <td align="center">{$brand.card_number}</td>
+      <td align="center">{$brand.card_type}</td>
+      <td align="center"></td>
+      
+    </tr>
+    {foreachelse}
+    <tr><td class="no-records" colspan="10">{$lang.no_records}</td></tr>
+    {/foreach}
+    <tr>
+      <td align="right" nowrap="true" colspan="6">
+      {include file="page.htm"}
+      </td>
+    </tr>
+  </table>
+
+{if $full_page}
+<!-- end brand list -->
+</div>
+</form>
+
+<script type="text/javascript" language="javascript">
+  <!--
+  listTable.recordCount = {$record_count};
+  listTable.pageCount = {$page_count};
+
+  {foreach from=$filter item=item key=key}
+  listTable.filter.{$key} = '{$item}';
+  {/foreach}
+
+  {literal}
+  onload = function()
+  {
+      // 开始检查订单
+      startCheckOrder();
+  }
+  {/literal}
+  //-->
+</script>
+{include file="pagefooter.htm"}
+{/if}

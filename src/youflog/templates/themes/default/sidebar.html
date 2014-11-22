@@ -1,0 +1,83 @@
+{% load sidebar %}
+<!-- sidebar start -->
+<div id="sidebar">
+	<!-- sidebar left -->
+	<div id="sidebar_left">
+		 
+		<!-- search box -->
+		<div class="widget s">
+				<form action="http://www.google.com/search" method="get">
+					<div id="searchbox">
+						<input class="textfield" type="text" name="q" size="24" />
+						<input name="as_sitesearch" value="{{site.domain}}" type="hidden">
+						<input type="hidden" name="ie" value="utf-8" />
+						<input class="button" type="submit" value="search" />
+						<div class="tip">search this blog</div>
+						<div class="fixed"></div>
+					</div>
+				</form>
+		</div>
+		<div class="widget">
+			<h3>读者墙</h3>
+			{% get_reader_wall %}
+		</div>
+
+		<div id="sidebar-tab">
+			<div id="tab-title">
+				<h3><span class="selected">最新评论</span><span>近期热评</span><span>随机文章</span></h3>
+			</div>	
+			<div id="tab-content">
+				<ul>{% get_recent_posts %}</ul>
+				<ul class="hide">{% get_popular_posts %}</ul>
+				<ul class="hide">{% get_random_posts %}</ul>
+			</div>
+		</div>
+		
+		<div class="widget">
+			<script type="text/javascript"><!--
+			google_ad_client = "ca-pub-8325911329891044";
+			google_ad_slot = "7005241998";
+			google_ad_width = 300;
+			google_ad_height = 250;
+			//-->
+			</script>
+			<script type="text/javascript"
+			src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+			</script>
+		</div>
+		
+		<!-- recent comments -->
+			<div class="widget widget_recentcomments">
+				<h3>最新评论</h3>
+				<ul id="recent_comments">
+				   <div id="recentcomment_nav"></div>
+				</ul>
+			</div>
+
+	
+	
+	<!-- tag cloud -->{%comment%}
+		<div class="widget widget_tag_cloud">
+			<h3>标签云</h3>
+			{% get_tag_cloud %}
+		</div>
+
+		<div class="widget">
+			<h3>文章分类</h3>
+			{% get_categories %}
+		</div>{%endcomment%}
+		<div class="widget">
+			<h3>文章归档</h3>
+			<ul>
+			{%get_archives%}
+			</ul>
+		</div>
+		
+		<div class="widget widget_links">
+			<h3>友情链接</h3>
+			{%get_links%}
+		</div>
+	</div>
+	
+</div>
+<!-- sidebar end -->

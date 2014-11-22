@@ -1,0 +1,94 @@
+<div class="header_outer">
+    <div class="header pr">
+        <div class="logo fl">
+            <h1><a href="/"><img src="/static/web/images/logo.png" width="292" height="73" alt="乐影客" title="乐影客,乐电影,乐生活" /></a></h1>
+        </div>
+        <div class="city_list fl">
+            <span>目前在</span>
+            <span style="padding:0 60px;">&nbsp;&nbsp;</span>
+            <span>有</span>
+            <span class="released_num">{{hotcount}}</span>
+            <span>部影片正在热映</span>
+        </div>
+        {% if clientuser %}
+            <div id="set_up" class="set_up pa">
+                <div class="line fl"></div>
+                <div class="fl">
+                    <span>{{clientuser.username}}</span>
+                </div>
+                <div class="UserCenterListUp pa" id="UserCenterListUp" style="display: none">
+                    <ul>
+                        <li><a href="/lykweb/user/info">用户中心</a></li>
+                        <li><a href="/lykweb/user/logout">退出</a></li>
+                    </ul>
+                </div>
+            </div>
+        {% else %}
+            <div id="set_up" class="set_up pa">
+                <div class="line fl"></div>
+                <div class="fl">
+                    <span><a href="javascript:;" id="set_up_a" title="登录">登录</a>&nbsp;/&nbsp;<a href="/lykweb/user/registerinit" title="注册" target="_blank">注册</a></span>
+                </div>
+            </div>
+        {% endif %}
+        <div id="list" class="">
+            <div class="list pa" >
+                <input id="list_text" type="button" value="{{city_name}}" class="list_text"/>
+                <span id="list_icon" class="list_icon pa">&nbsp;&nbsp;</span>
+            </div>
+            <div id="city_list_up" class="city_list_up pa">
+                <div class="city_list_up_title">选择您所在的城市：</div>
+                <div id="city_list_up_box_outer" class="city_list_up_box_outer pa">
+                    <div id="city_list_up_box" class="city_list_up_box pa">
+                        <ul id="city_list_up_ul">
+                            {% if citylist %}
+                                {% for province in citylist %}
+                                    <li class="city_list_up_ul_li">
+                                        <span>{{province.pname}}：</span>
+                                        {% if province.clist %}
+                                        <ol class="city_list_up_ol">
+                                        {% for city in province.clist %}
+                                            <li><a href="/?cityid={{city.id}}">{{city.name}}</a></li>
+                                        {% endfor %}
+                                        </ol>
+                                        {% endif %}
+                                    </li>
+                                {% endfor %}
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+                <div id="city_list_scroll_bar_outer" class="city_list_scroll_bar_outer pr">
+                    <div id="city_list_scroll_bar" class="city_list_scroll_bar pa"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="main_login" class="main_login" style="display:none">
+    <div class="login_title">
+        <p class="pr">登录<span id="login_del_btn" class="pa"></span></p>
+    </div>
+    <div class="login_content">
+        <div class="login_content_left fl">
+            <form action="/lykweb/user/login" method="post">
+                <p><label class="fl">账号</label><em><input id="login_name" type="text" name="email" value="请输入您的账号" class="login_name" /></em></p>
+                <p><label class="fl">密码</label><em><input id="login_password" type="password" name="password" value="" class="login_password" /></em></p>
+                <div class="checked_login"><input type="checkbox" class="auto_login_btn" /><label>下次自动登录</label> <a href="#">忘记密码？</a></div>
+                <div class="login_button"><span><input type="submit" value="登录" /></span></div>
+            </form>
+        </div>
+        <div class="login_content_right fl">
+            <div class="login_bg_bar fl"></div>
+            <div class="login_register fl">
+                <p>还没有账号？</p>
+                <p>马上免费注册一个</p>
+                <div class="register_btn_a">
+                    <form action="/lykweb/user/registerinit" method="get"><input type="submit" value="注册" /></form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

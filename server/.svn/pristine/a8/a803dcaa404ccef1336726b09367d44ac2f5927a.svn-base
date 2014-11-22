@@ -1,0 +1,75 @@
+/* CSS Document */
+ body{padding:0px;margin:0;font-size:12px; font-family:"微软雅黑";color:#777; background:#fff;background:url(../img/ht-bg.jpg) repeat;}
+
+div,form,p,ul,li,ol,dl,dt,dd,h1,h2,h3,h4,h5,h6{ margin:0px;padding:0px;text-align:left;}
+button{ margin:0px;padding:0px; font-size:12px;}
+ul,ol,li,dl,dt,dd{list-style:none;}
+img{border:0;}
+table,td,tr,th,select,input,textarea{font-size:12px;}
+em,strong{ font-style:normal; font-weight:normal;}
+
+.dingbu{ width:100%; height:30px;background:#F46430;}
+.dingbu-1{width:980px;height:30px; margin:0 auto;}
+.dingbu-1-1{height:23px; float:right; margin:0 5px; padding:7px 0 0 0;font-family:"微软雅黑";font-size:12px; font-weight: normal; color:#fff; text-align:center;}
+.yetou{ width:100%; height:70px;background:#fff; border-bottom:1px solid #DDD;}
+.yetou-1{width:980px;height:70px; margin:0 auto;}
+.logo{width:980px;height:70px; margin:0 auto;}
+.logo img{width:303px; height:49px; float:left; margin:10px 0 0 20px;}
+
+.gongche-denglu{width:500px;height:70px;float:left;margin:0 0 0 120px;padding:0;}
+.gongche-denglu-1{height:20px; float:left;margin:25px 10px 0 10px;font-family:"微软雅黑";font-size:14px; font-weight: normal; color:#3B454E; text-align:right;}
+.chengse{ color:#F46430; margin:0 5px;}
+.tuichu{height:20px;float:right;font-weight:bold;margin:30px 10px 0 10px;font-family:"微软雅黑";font-size:12px;color:#3B454E; text-align:right;}
+
+.gongche-denglu-2{height:20px; float:left;margin:27px 5px 0 5px;font-family:"微软雅黑";font-size:12px; font-weight: normal; color:#3B454E; text-align:right;}
+.gongche-dl-sr{ width:120px;height:20px;margin:20px 10px 0 0;float:left; padding:4px;}
+
+
+
+.neirong{ width:100%; height:inherit; margin:0 auto;background:url(../img/ht-bg.jpg) repeat;}
+.neirong-1{ width:980px; height:inherit;margin:0 auto;}
+.dingche{ width:480px; height:520px; float:left; margin:5px 5px 0 0; background:#fff; border:1px solid #DDD;}
+
+.dl-bt-1{ width:103px; height:32px; float:left; margin:18px 0 0 5px; background:url(../img/zc-bt-3.jpg) no-repeat; text-align:center; padding:8px 0 0 0;font-family:"微软雅黑"; font-size:14px; font-weight:bold; color:#fff;}
+.dingche-1{ width:451px; height:285px; float:left; margin:8px 0 0 12px; background:url(../img/pic-bg.jpg) no-repeat;}
+.dingche-1 img{ width:418px; height:259px; float:left; margin:12px 0 0 18px;}
+.qucheshijian{ width:450px; height:30px; float:left; margin:20px 0 5px 20px;}
+
+.dl-bt-2{ width:60px; height:24px; float:left; margin:0 0 0 5px; background:url(../img/zc-bt-0.jpg) no-repeat; text-align:center; padding:5px 0 0 0;font-family:"微软雅黑"; font-size:12px; font-weight:bold; color:#fff;}
+.dl-bt-2-1{ width:60px; height:24px; float:left; margin:0 0 0 5px; background:url(../img/zc-bt-1.jpg) no-repeat; text-align:center; padding:5px 0 0 0;font-family:"微软雅黑"; font-size:12px; font-weight:bold; color:#fff;}
+.xiala{ width:60px;height:26px; margin:0 0 0 5px;float:left; padding:4px; }
+.gongche-denglu-3{height:20px; float:left;margin:5px 2px 0 5px;font-family:"微软雅黑";font-size:12px; font-weight: normal; color:#3B454E; text-align:right;}
+.dl-bt-3{ width:220px; height:32px; float:left; margin:20px 0 0 130px; background:url(../img/dl-bt-1.jpg) no-repeat; text-align:center; padding:9px 0 0 0;font-family:"微软雅黑"; font-size:14px; font-weight:bold; color:#fff;}
+.dl-bt-4{ width:75px; height:21px; float:left; margin:20px 0 0 135px; background:url(../img/shijianzhou-1.jpg) no-repeat; text-align:center; padding:4px 0 0 0;font-family:"微软雅黑"; font-size:12px; font-weight:bold; color:#fff;}
+.dl-bt-5{ width:75px; height:21px; float:left; margin:20px 0 0 10px; background:url(../img/shijianzhou-2.jpg) no-repeat; text-align:center; padding:4px 0 0 0;font-family:"微软雅黑"; font-size:12px; font-weight:bold; color:#fff;}
+.gongche-denglu-4{ width:440px;height:15px; float:left;margin:23px 5px 0 5px;font-family:"微软雅黑";font-size:14px; font-weight: bold; color:#3D4A53; text-align:left;}
+.dingche-2{ width:451px; height:285px; float:left; margin:8px 0 0 12px;}
+.shijianzhou{ width:442px; height:14px; float:left; margin:5px 0 0 5px; border:1px solid #3D4A53; background:url(../img/shijianzhou-bg-1.jpg) repeat-x;}
+.sjz-1{ height:14px; margin:0; float:left;border-left:1px solid #BC5302;border-right:1px solid #BC5302;background:url(../img/shijianzhou-bg-2.jpg) repeat-x;
+	position: absolute;
+}
+.shijianzhou-bj{ width:442px;float:left; margin:0 0 0 5px;}
+.shijianzhou-bj-1{width:54px;height:2px;float:left;border-left:1px solid #3D4A53;}
+.shijianzhou-bj-2{width:54px;height:10px; float:left;font-family:"微软雅黑"; font-weight:normal;font-size:12px;color:#3B454E; text-align:left;}
+
+.gongche-denglu-5{ width:930px;height:20px;float:left;margin:20px 0 0 40px;font-family:"微软雅黑";font-size:18px; font-weight: bold;color:#3D4A53;text-align:left;}
+.yuyue{ width:813px; height:180px; float:left; margin:20px 0 0 80px; background:url(../img/yuyue-bg.jpg) no-repeat;}
+.yuyue-1{ width:780px;height:20px; float:left; margin:32px 0 0 40px; padding:0;font-family:"微软雅黑";font-size:14px; font-weight: bold; color:#fff; text-align:left;}
+.yuyue-left{ width:400px; height:80px; float:left; margin:15px 0 0 40px;}
+.yuyue-left b{width:400px; height:25px; float:left; margin:15px 0 0 0;font-family:"微软雅黑";font-size:18px; font-weight: normal; color:#394046; text-align:left;}
+
+.tanchu-dd{ width:669px; height:345px; float:left; background:url(../img/tanchu-bg.gif) no-repeat;}
+.tanchu-dd-1{ width:600px;height:20px; float:left; margin:20px 0 0 40px; padding:0;font-family:"微软雅黑";font-size:14px; font-weight: bold; color:#3D4A53; text-align:left;}
+.tanchu-2{ width:580px; height:170px; float:left; margin:10px 0 0 40px; background:#fff; border:1px solid #ddd;}
+.guanbi{ width:20px; height:20px; float:left; margin:18px 0 0 0; background:url(../img/guanbi-1.jpg) no-repeat;}
+.tanchu-huizi{ height:20px; float:left; margin:10px 0 0 10px;font-family:"微软雅黑";font-size:12px; font-weight: normal; color:#3D4A53; text-align:left;}
+
+.tanchu-dd2{ width:382px; height:181px; float:left; background:url(../img/tanchu2-bg.gif) no-repeat;}
+.tanchu-dd-1{ width:300px;height:20px; float:left; margin:20px 0 0 40px; padding:0;font-family:"微软雅黑";font-size:14px; font-weight: bold; color:#3D4A53; text-align:left;}
+.guanbi{ width:20px; height:20px; float:left; margin:18px 0 0 0; background:url(../img/guanbi-1.jpg) no-repeat;}
+.tanchu-huizi{ height:20px; float:left; margin:10px 0 0 10px;font-family:"微软雅黑";font-size:12px; font-weight: normal; color:#3D4A53; text-align:left;}
+
+.fanye{ width:400px; height:50px; float:left; margin:20px 0 0 300px;}
+.fanye-bt{height:15px; float:left; margin:0 0 0 5px;padding:5px;font-family:"微软雅黑";font-size:12px; border:1px solid #ddd;font-weight: bold; color:#3D4A53; text-align:center;}
+
+.tanchu-dd3{ width:382px; height:200px; float:left; background:url(../img/tanchu2-bg1.gif) no-repeat;}

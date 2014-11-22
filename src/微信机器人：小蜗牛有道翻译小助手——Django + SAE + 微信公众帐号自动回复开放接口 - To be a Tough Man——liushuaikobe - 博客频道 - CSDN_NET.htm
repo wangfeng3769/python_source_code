@@ -1,0 +1,727 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>微信机器人：小蜗牛有道翻译小助手——Django + SAE + 微信公众帐号自动回复开放接口 - To be a Tough Man——liushuaikobe - 博客频道 - CSDN.NET</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="序　　某一天上着多核程序设计的课上，无聊刷rss，偶然看见一片文章，一个哥们用微信公众帐号自动回复接口和php写了一个自动翻译的机器人，让我眼前一亮，我决定自己动手做一个，技术上选了Django，服务器用的是SAE。准备工作　　Sina App Engine　　首先作为一个屌丝开发者要解决服务器的问题。去SAE的官网上用新浪微博的帐号注册一个帐号，成功后会赠给你500云豆，可供" />
+<script src="http://static.blog.csdn.net/scripts/jquery.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/ad.js?v=1.1"></script>
+<link rel="Stylesheet" type="text/css" href="http://static.blog.csdn.net/skin/dark1/css/style.css?v=1.1" />
+<link id="RSSLink" title="RSS" type="application/rss+xml" rel="alternate" href="/liushuaikobe/rss/list" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link type="text/css" rel="stylesheet" href="http://static.blog.csdn.net/scripts/SyntaxHighlighter/styles/default.css" />
+</head>
+<body>
+<script src="http://csdnimg.cn/pubnav/js/pub_topnav_2011.js"type="text/javascript"></script>
+<div id="container">
+<div id="header">
+    <div class="header">
+        <div id="blog_title">
+            <h1><a href="/liushuaikobe">To be a Tough Man——liushuaikobe</a></h1>
+            <h2>把心放宽，做好技术</h2>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<div id="navigator">
+    <div class="navigator_bg"></div>
+    <div class="navigator">
+        <ul>
+            <li id="btnContents"><a href="/liushuaikobe?viewmode=contents"><span><img src="http://static.blog.csdn.net/images/ico_list.gif">目录视图</span></a></li>
+            <li id="btnView"><a href="/liushuaikobe?viewmode=list"><span><img src="http://static.blog.csdn.net/images/ico_summary.gif">摘要视图</span></a></li>
+            <li id="btnRss"><a href="/liushuaikobe/rss/list"><span><img src="http://static.blog.csdn.net/images/ico_rss.gif">订阅</span></a></li>
+</ul>
+    </div>
+</div>
+<script type="text/javascript">
+    var username = "liushuaikobe";
+    var blog_address = "http://blog.csdn.net/liushuaikobe";
+    var static_host = "http://static.blog.csdn.net";
+    var currentUserName = "";
+</script>
+        
+<div id="body">
+<div id="main">
+<div class="main">
+<div class="notice"> 
+
+<a href="http://blog.csdn.net/blogdevteam/article/details/8687376
+" target="_blank">
+<font color=blue>2013年7月微软MVP申请开始啦！ 
+   </font></a>
+
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a href="http://www.csdn.net/article/2013-03-19/2814545" target="_blank"><font color=red>专访许长敬之移动互联网 
+</font></a>
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a href="http://blog.csdn.net/blogdevteam/article/details/8699892" target="_blank"><font color=blue>有奖征集活动系列—《iOS游戏编程之旅》 
+
+
+</font></a>
+
+<br />
+
+
+
+
+
+<a href="http://bbs.csdn.net/topics/390397409
+"target="_blank">
+<font color=red>【有奖提问】CSDN论坛第1期专家问答开始
+
+
+ </font></a>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a href="http://geek.csdn.net"target="_blank">
+<font color=red>来极客头条，推荐你的博客
+ </font></a>
+
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a href="http://bbs.csdn.net/topics/390393217"target="_blank">
+<font color=red>下载频道3月领任务~赚下载分！ 
+  </font></a>
+
+
+</div><div id="article_details" class="details">
+    <div class="article_title">
+    <span class="ico ico_type_Original"></span>
+    <h3>
+        <span class="link_title"><a href="/liushuaikobe/article/details/8453716">
+        微信机器人：小蜗牛有道翻译小助手——Django + SAE + 微信公众帐号自动回复开放接口
+        </a></span>
+    </h3>
+</div>
+
+        
+    <div class="article_manage">
+        <span class="link_categories">
+        分类：
+            <a href="/liushuaikobe/article/category/1067457">Python</a> 
+        </span>
+    <span class="link_postdate">2012-12-31 12:19</span>
+    <span class="link_view" title="阅读次数">5060人阅读</span>
+    <span class="link_comments" title="评论次数"><a href="#comments">评论</a>(32)</span>
+    <span class="link_collect"><a href="javascript:void(0);" onclick="javascript:collectArticle('微信机器人：小蜗牛有道翻译小助手——Django + SAE + 微信公众帐号自动回复开放接口','8453716');return false;" title="收藏">收藏</a></span>
+    <span class="link_report"><a href="#report"  onclick="javascript:report(8453716,2);return false;" title="举报">举报</a></span>
+    
+</div>
+<div class="tag2box"><a href='http://blog.csdn.net/tag/details.html?tag=django' target=_blank>django</a><a href='http://blog.csdn.net/tag/details.html?tag=Django' target=_blank>Django</a><a href='http://blog.csdn.net/tag/details.html?tag=python' target=_blank>python</a><a href='http://blog.csdn.net/tag/details.html?tag=Python' target=_blank>Python</a><a href='http://blog.csdn.net/tag/details.html?tag=SAE' target=_blank>SAE</a><a href='http://blog.csdn.net/tag/details.html?tag=sae' target=_blank>sae</a></div>
+
+
+    
+<div id="article_content" class="article_content">
+
+<h3>序</h3>
+<p>　　某一天上着多核程序设计的课上，无聊刷rss，偶然看见一片文章，一个哥们用微信公众帐号自动回复接口和php写了一个自动翻译的机器人，让我&#30524;前一亮，我决定自己动手做一个，技术上选了Django，服务器用的是SAE。</p>
+<h3>准备工作</h3>
+<h4>　　Sina App Engine</h4>
+<div></div>
+<p>　　首先作为一个屌丝开发者要解决服务器的问题。去SAE的<a href="http://sae.sina.com.cn/" target="_blank">官网</a>上用新浪微博的帐号注册一个帐号，成功后会赠给你500云豆，可供一个开发者试用大概5天。SAE非常优秀，如果以后我们想在上面写点应用什么的，可以去申请实名认证和开发者认证，那样每个月都会给你一定数量的云豆，应该能满足日常需求。由于现在SAE上部署Python还处于公测阶段，因此我们要去申请开通可以在上面部署Python程序的权限，现在很好申请的，不一会就会收到已经为你开放了部署Python应用权限的邮件，网上搜到的啥啥还需要排队都是过去了（不排除当你看到这篇文章时SAE已经可以允许所有开发者部署Python的应用了）。</p>
+<p style="text-align:center"><img src="http://img.my.csdn.net/uploads/201212/30/1356876083_4219.png" alt=""></p>
+<p><br>
+　　OK，完成这些后，就可以到<a href="http://sae.sina.com.cn/?m=devcenter&amp;catId=289" target="_blank">SAE的文档中心</a>读文档来照着文档里面的样例创建一个应用了。</p>
+<h4>　　有道API</h4>
+<p>　　然后，去<a href="http://fanyi.youdao.com/openapi?path=data-mode" target="_blank">有道API</a>申请一个key，申请的时候网站地址随便填就行。有道API非常简单，直接以GET的形式把要翻译的文本发送到指定的url，然后它会给我们回复翻译结果，我们可以选择xml、json等返回&#26684;式，我选得是xml，接着，在浏览器里面按着指定的&#26684;式输入url，就可以看到返回结果啦：</p>
+<p></p>
+<pre name="code" class="html">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;youdao-fanyi&gt;
+    &lt;errorCode&gt;0&lt;/errorCode&gt;
+    &lt;query&gt;&lt;![CDATA[这里是有道翻译API]]&gt;&lt;/query&gt;
+    &lt;!-- 有道翻译 --&gt;
+    &lt;translation&gt;
+            &lt;paragraph&gt;&lt;![CDATA[Here is the youdao translation API]]&gt;&lt;/paragraph&gt;
+        &lt;/translation&gt;
+&lt;/youdao-fanyi&gt;</pre>
+<p>　　注意，如果是对词进行翻译的话有的词还会返回一些啥网络释义，基本释义啥的，具体对这个xml解析的方法请看下面的代码。</p>
+<h4>　　微信公众帐号</h4>
+<p>　　接着，我们要去微信的<a href="http://mp.weixin.qq.com/">公众帐号平台</a>去申请一个公众帐号，不能用现有的已绑定私人微信帐号的QQ号申请，我用的是一个平时不用的QQ号申请的，申请成功后，可以大致看看微信公众帐号的管理平台（现在你知道那些公众帐号，比如王力宏的帐号啥的是怎么运作的了吧），接着去这里仔细阅读微信公众帐号自动回复开放接口的文档，你要从这里学一种如何让用户认证的思想（就是如果用户做了XX，给我返回了XX结果，那么我就能确定，用户是“合法”的），或者认证的方法。大致有一个认识后，赶紧下载他给的样例php源码，也是唯一的可以参考的源码，仔细阅读，如下：<br>
+</p>
+<p></p>
+<pre name="code" class="php">&lt;?php
+/**
+  * wechat php test
+  */
+
+//define your token
+define(&quot;TOKEN&quot;, &quot;weixin&quot;);
+$wechatObj = new wechatCallbackapiTest();
+$wechatObj-&gt;valid();
+
+class wechatCallbackapiTest
+{
+	public function valid()
+    {
+        $echoStr = $_GET[&quot;echostr&quot;];
+
+        //valid signature , option
+        if($this-&gt;checkSignature()){
+        	echo $echoStr;
+        	exit;
+        }
+    }
+
+    public function responseMsg()
+    {
+		//get post data, May be due to the different environments
+		$postStr = $GLOBALS[&quot;HTTP_RAW_POST_DATA&quot;];
+
+      	//extract post data
+		if (!empty($postStr)){
+       echoStr         
+              	$postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
+                $fromUsername = $postObj-&gt;FromUserName;
+                $toUsername = $postObj-&gt;ToUserName;
+                $keyword = trim($postObj-&gt;Content);
+                $time = time();
+                $textTpl = &quot;&lt;xml&gt;
+							&lt;ToUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/ToUserName&gt;
+							&lt;FromUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/FromUserName&gt;
+							&lt;CreateTime&gt;%s&lt;/CreateTime&gt;
+							&lt;MsgType&gt;&lt;![CDATA[%s]]&gt;&lt;/MsgType&gt;
+							&lt;Content&gt;&lt;![CDATA[%s]]&gt;&lt;/Content&gt;
+							&lt;FuncFlag&gt;0&lt;/FuncFlag&gt;
+							&lt;/xml&gt;&quot;;             
+				if(!empty( $keyword ))
+                {
+              		$msgType = &quot;text&quot;;
+                	$contentStr = &quot;Welcome to wechat world!&quot;;
+                	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+                	echo $resultStr;
+                }else{
+                	echo &quot;Input something...&quot;;
+                }
+
+        }else {
+        	echo &quot;&quot;;
+        	exit;
+        }
+    }
+		
+	private function checkSignature()
+	{
+        $signature = $_GET[&quot;signature&quot;];
+        $timestamp = $_GET[&quot;timestamp&quot;];
+        $nonce = $_GET[&quot;nonce&quot;];	
+        		
+		$token = TOKEN;
+		$tmpArr = array($token, $timestamp, $nonce);
+		sort($tmpArr);
+		$tmpStr = implode( $tmpArr );
+		$tmpStr = sha1( $tmpStr );
+		
+		if( $tmpStr == $signature ){
+			return true;
+		}else{
+			return false;
+		}
+	}
+}
+
+?&gt;
+</pre>　　很简单吧，以至于被一些人说写的很水，但是我觉得，这份php源码还是很有含金量的；网上一些哥们还抱怨啥啥的直接部署样例php不能运行啥的，拜托，有点职业精神好不好，连我这个之前完全不会php的人都能看出来要调用里面的responseMsg( )方法才能实现自动回复，样例里面的只是调用了微信接入的认证功能的函数。<br>
+<p>上面的代码写的很好，不需要我多解释，相信大家能看出来它是怎么工作的。</p>
+<h3>设计与实现</h3>
+<p>　　接着就可以实现我们自己的应用了，首先把我们在SAE上创建的应用通过SVN检出到本地，然后切换到检出的目录，用Django的命令创建一个应用，目录结构如下：</p>
+<p style="text-align:center"><img src="http://img.my.csdn.net/uploads/201212/31/1356927873_3146.png" alt=""><br>
+</p>
+<p style="text-align:left">　　其中，index.wsgi和config.yaml是SAE规定的文件，具体请仔细阅读SAE的文档。</p>
+<p style="text-align:left">　　之后就可以编写我们自己的服务端代码了，大致思想就是：用户A向公众帐号发送一条消息，微信平台会按着公众帐号预先的设置，把用户A的消息内容和一些其他信息（如创建时间等）以xml的形式post到我们预先设置好的url上（这个url的服务端就是我们要写的在SAE上的应用），我们要做的就是每当接受到微信post请求，我们解析微信平台post过来的xml，得到用户A的消息内容，把消息内容以get的形式发送到有道API，获取有道API返回的xml（或json等），解析，之后按微信平台规定的&#26684;式构造成一个xml，作为微信平台post请求的结果给其返回，微信平台收到结果后，会把消息自动回复给用户，用户就能收到翻译结果了。</p>
+<p style="text-align:left">　　用一个图表示上述过程如下：</p>
+<p style="text-align:left"><img src="http://img.my.csdn.net/uploads/201212/31/1356923119_9565.jpg" alt=""><br>
+</p>
+<h3>源码</h3>
+<p style="text-align:left">　　下面贴出逻辑处理部分代码如下（Views.py），各函数功能不言而喻：</p>
+<p style="text-align:left"></p>
+<pre name="code" class="python"># -*- coding: utf-8 -*-
+from django.http import HttpResponse
+from django.template import RequestContext, Template
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.encoding import smart_str, smart_unicode
+
+import xml.etree.ElementTree as ET
+import urllib,urllib2,time,hashlib
+
+TOKEN = &quot;你设置的Token&quot;
+
+YOUDAO_KEY = 你申请到的有道的Key
+YOUDAO_KEY_FROM = &quot;有道的key-from&quot;
+YOUDAO_DOC_TYPE = &quot;xml&quot;
+
+@csrf_exempt
+def handleRequest(request):
+	if request.method == 'GET':
+		#response = HttpResponse(request.GET['echostr'],content_type=&quot;text/plain&quot;)
+		response = HttpResponse(checkSignature(request),content_type=&quot;text/plain&quot;)
+		return response
+	elif request.method == 'POST':
+		#c = RequestContext(request,{'result':responseMsg(request)})
+		#t = Template('{{result}}')
+		#response = HttpResponse(t.render(c),content_type=&quot;application/xml&quot;)
+		response = HttpResponse(responseMsg(request),content_type=&quot;application/xml&quot;)
+		return response
+	else:
+		return None
+
+def checkSignature(request):
+	global TOKEN
+	signature = request.GET.get(&quot;signature&quot;, None)
+	timestamp = request.GET.get(&quot;timestamp&quot;, None)
+	nonce = request.GET.get(&quot;nonce&quot;, None)
+	echoStr = request.GET.get(&quot;echostr&quot;,None)
+
+	token = TOKEN
+	tmpList = [token,timestamp,nonce]
+	tmpList.sort()
+	tmpstr = &quot;%s%s%s&quot; % tuple(tmpList)
+	tmpstr = hashlib.sha1(tmpstr).hexdigest()
+	if tmpstr == signature:
+		return echoStr
+	else:
+		return None
+
+def responseMsg(request):
+	rawStr = smart_str(request.raw_post_data)
+	#rawStr = smart_str(request.POST['XML'])
+	msg = paraseMsgXml(ET.fromstring(rawStr))
+	
+	queryStr = msg.get('Content','You have input nothing~')
+
+	raw_youdaoURL = &quot;http://fanyi.youdao.com/openapi.do?keyfrom=%s&amp;key=%s&amp;type=data&amp;doctype=%s&amp;version=1.1&amp;q=&quot; % (YOUDAO_KEY_FROM,YOUDAO_KEY,YOUDAO_DOC_TYPE)	
+	youdaoURL = &quot;%s%s&quot; % (raw_youdaoURL,urllib2.quote(queryStr))
+
+	req = urllib2.Request(url=youdaoURL)
+	result = urllib2.urlopen(req).read()
+
+	replyContent = paraseYouDaoXml(ET.fromstring(result))
+
+	return getReplyXml(msg,replyContent)
+
+def paraseMsgXml(rootElem):
+	msg = {}
+	if rootElem.tag == 'xml':
+		for child in rootElem:
+			msg[child.tag] = smart_str(child.text)
+	return msg
+
+def paraseYouDaoXml(rootElem):
+	replyContent = ''
+	if rootElem.tag == 'youdao-fanyi':
+		for child in rootElem:
+			# 错误码
+			if child.tag == 'errorCode':
+				if child.text == '20':
+					return 'too long to translate\n'
+				elif child.text == '30':
+					return 'can not be able to translate with effect\n'
+				elif child.text == '40':
+					return 'can not be able to support this language\n'
+				elif child.text == '50':
+					return 'invalid key\n'
+
+			# 查询字符串
+			elif child.tag == 'query':
+				replyContent = &quot;%s%s\n&quot; % (replyContent, child.text)
+
+			# 有道翻译
+			elif child.tag == 'translation': 
+				replyContent = '%s%s\n%s\n' % (replyContent, '-' * 3 + u'有道翻译' + '-' * 3, child[0].text)
+
+			# 有道词典-基本词典
+			elif child.tag == 'basic': 
+				replyContent = &quot;%s%s\n&quot; % (replyContent, '-' * 3 + u'基本词典' + '-' * 3)
+				for c in child:
+					if c.tag == 'phonetic':
+						replyContent = '%s%s\n' % (replyContent, c.text)
+					elif c.tag == 'explains':
+						for ex in c.findall('ex'):
+							replyContent = '%s%s\n' % (replyContent, ex.text)
+
+			# 有道词典-网络释义
+			elif child.tag == 'web': 
+				replyContent = &quot;%s%s\n&quot; % (replyContent, '-' * 3 + u'网络释义' + '-' * 3)
+				for explain in child.findall('explain'):
+					for key in explain.findall('key'):
+						replyContent = '%s%s\n' % (replyContent, key.text)
+					for value in explain.findall('value'):
+						for ex in value.findall('ex'):
+							replyContent = '%s%s\n' % (replyContent, ex.text)
+					replyContent = '%s%s\n' % (replyContent,'--')
+	return replyContent
+
+def getReplyXml(msg,replyContent):
+	extTpl = &quot;&lt;xml&gt;&lt;ToUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/ToUserName&gt;&lt;FromUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/FromUserName&gt;&lt;CreateTime&gt;%s&lt;/CreateTime&gt;&lt;MsgType&gt;&lt;![CDATA[%s]]&gt;&lt;/MsgType&gt;&lt;Content&gt;&lt;![CDATA[%s]]&gt;&lt;/Content&gt;&lt;FuncFlag&gt;0&lt;/FuncFlag&gt;&lt;/xml&gt;&quot;;
+	extTpl = extTpl % (msg['FromUserName'],msg['ToUserName'],str(int(time.time())),'text',replyContent)
+	return extTpl</pre><br>
+<p>　　之后通过SVN把项目部署到SAE上，就OK啦～</p>
+<p></p>
+<h3>遇到的问题</h3>
+<p></p>
+<p></p>
+<p>　　现在网上这种参考的代码还很少，在SAE上部署调试也非常困难，无奈下我自己写了个脚本，模仿微信平台给自己部署在SAE上的服务端POST消息，看返回的结果。如果出现错误，Django都会产生一个优美的错误页面，获取这个错误页面把它写到本地的一个html里面，用浏览器打开就可以知道是什么错误了。</p>
+<p><span style="white-space:pre"></span>写的过程中还是遇到不少问题的：</p>
+<h4><span style="white-space:pre"></span>1.Django的CSRF错误：</h4>
+<p><span style="white-space:pre"></span>我用的Django 1.4，我尝试了大家说的很多解决办法都会出现403错误，无奈下只能暂时通过修饰符把Django的CSRF暂时禁掉，这个还要以后学Django的深入调研一下；</p>
+<h4><span style="white-space:pre"></span>2.Django的编码错误：</h4>
+<p><span style="white-space:pre"></span>我也尝试了很多方法，但是都不行，主要是中文处理上，遇到了很多麻烦，最终在<a href="http://www.saltycrane.com/blog/2008/11/python-unicodeencodeerror-ascii-codec-cant-encode-character/" target="_blank">这里</a>找到了完美的解决方案，用可爱的Django自带的可爱的方法：smart_str、smart_unicode，就能完美处理中文了。</p>
+<br>
+<p></p>
+<h3>成果截图</h3>
+<p style="text-align:left">　　下面上图：</p>
+<p style="text-align:left"><img src="http://img.my.csdn.net/uploads/201212/31/1356923830_4275.png" alt=""><img src="http://img.my.csdn.net/uploads/201212/31/1356923845_5489.png" alt=""><img src="http://img.my.csdn.net/uploads/201212/31/1356923861_6430.png" alt=""><img src="http://img.my.csdn.net/uploads/201212/31/1356927897_4126.png" alt=""><br>
+</p>
+<h3>欢迎试用</h3>
+<p style="text-align:left">　　怎么样，还不错呃，欢迎大家试用（如果没反应，很可能是SAE没有云豆了）：</p>
+<p style="text-align:left"><img src="http://img.my.csdn.net/uploads/201212/31/1356923926_5023.jpg" alt=""><br>
+</p>
+<p style="text-align:left">　　如果这篇文章对你有用，请顶一下，欢迎讨论。</p>
+<p style="text-align:left">　　注：转载请注明出处（本文地址：<a href="http://blog.csdn.net/liushuaikobe/article/details/8453716">http://blog.csdn.net/liushuaikobe/article/details/8453716</a>）。</p>
+<p style="text-align:left"><br>
+</p>
+<p style="text-align:left"><br>
+</p>
+
+</div>
+<div class="share_buttons" id="sharePanel"></div>
+<!--192.168.1.236-->
+<div class="article_next_prev">
+    <li class="prev_article"><span>上一篇：</span><a href="/liushuaikobe/article/details/8271314">哈工大软件学院编译原理实验3——语义分析</a></li>
+    <li class="next_article"><span>下一篇：</span><a href="/liushuaikobe/article/details/8457065">To be a tough man</a></li>
+</div>
+
+
+            <div id="digg" ArticleId="8453716">
+            <dl id="btnDigg" class="digg digg_disable">
+                <dt>顶</dt>
+                <dd>20</dd>
+            </dl>
+            <dl id="btnBury" class="digg digg_disable">
+                <dt>踩</dt>
+                <dd>0</dd>
+            </dl>
+        </div>
+
+</div>
+<div id="ad_cen"></div>
+<script type="text/javascript">
+    new Ad(4, 'ad_cen');
+</script>
+<div id="comment_title" class="panel_head">查看评论<a name="comments"></a></div>
+<div id="comment_list"></div>
+<div id="comment_bar"></div>
+<div id="comment_form"></div>
+<div class="announce">* 以上用户言论只代表其个人观点，不代表CSDN网站的观点或立场<a name="reply"></a><a name="quote"></a></div>
+<script type="text/javascript">
+    var fileName = '8453716';
+    var commentscount = 32;
+    var islock = false
+</script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/comment.js?v=1.8"></script>
+<div id="ad_bot"></div>
+<script type="text/javascript">
+    new Ad(5, 'ad_bot');
+</script>
+<div id="report_dialog"></div>
+
+<div id="d-top" style="display:none;">
+<a id="d-top-a" href="#" title="回到顶部">
+<img src="http://static.blog.csdn.net/images/top.png" alt="TOP" /></a>
+</div>
+<script type="text/javascript">
+    $(function(){
+        var d_top=$('#d-top');
+        document.onscroll=function(){
+            var scrTop=(document.body.scrollTop||document.documentElement.scrollTop);
+            if(scrTop>500){
+                d_top.show();
+            }else{
+                d_top.hide();
+            }
+        }
+        $('#d-top-a').click(function(){
+            scrollTo(0,0);
+            this.blur();
+            return false;
+        });
+    });
+</script>
+
+
+
+<div class="clear"></div>
+</div>
+</div>
+
+<div id="side">
+<div class="side">
+<div id="panel_Profile" class="panel">
+    <ul class="panel_head"><span>个人资料</span></ul>
+    <ul class="panel_body profile">
+        <div id="blog_userface">
+            <a href="http://my.csdn.net/liushuaikobe" target="_blank">
+            <img src="http://avatar.csdn.net/E/4/2/1_liushuaikobe.jpg" title="访问我的空间" style="max-width:90%"/>
+            </a>
+            <br />
+            <span><a href="http://my.csdn.net/liushuaikobe" class="user_name" target="_blank">liushuaikobe</a></span>
+        </div>
+<div class="interact">
+<!--<a href="#" class="attented" title="已关注"></a>-->
+<a href="javascript:void(0);" class="attent" id="span_add_follow" title="[加关注]"></a>
+<a href="javascript:void(0);" class="letter" onclick="loginto(1)" title="[发私信]"></a>
+</div>
+        <div id="blog_medal">
+        </div>
+        <ul id="blog_rank">
+            <li>访问：<span>36291次</span></li>
+            <li>积分：<span>892分</span></li>
+            <li>排名：<span>第11171名</span></li>
+        </ul>
+        <ul id="blog_statistics">
+            <li>原创：<span>45篇</span></li>
+            <li>转载：<span>6篇</span></li>
+            <li>译文：<span>0篇</span></li>
+            <li>评论：<span>104条</span></li>
+        </ul>
+    </ul>
+</div>
+<script type="text/javascript">
+    var _blogger = 'liushuaikobe';
+</script>
+
+
+
+<div id="custom_column_21910338" class="panel">
+    <ul class="panel_head"><span>关于liushuaikobe</span></ul>
+    <ul class="panel_body">
+        
+<div>
+<div><strong>Liu Shuai</strong> <br>
+<strong><em>Harbin Institute of Technology</em></strong> <br>
+<strong>Blog : </strong><a href="http://blog.csdn.net/liushuaikobe">http://blog.csdn.net/liushuaikobe</a>
+<br>
+<strong>Sina Weibo : </strong><a href="http://weibo.com/liushuaikobe">http://weibo.com/liushuaikobe</a>
+<br>
+<strong>Email : </strong><a href="mailto:liushuaikobe1993@163.com">liushuaikobe1993@163.com</a><br>
+<strong>Alternative Email : </strong><a href="mailto:liushuaikobe@gmail.com">liushuaikobe@gmail.com</a>
+</div>
+</div>
+
+    </ul>
+</div><div class="panel" id="panel_Search">
+    <ul class="panel_head"><span>文章搜索</span></ul>
+    <ul class="panel_body">
+        <form id="frmSearch" action="http://so.csdn.net/search" class="form_search" target="_blank">
+        <span><input id="inputSearch" type="text" class="blogsearch" title="请输入关键字" /></span>
+        <input id="btnSubmit" type="submit" value="搜索" title="search in blog" />
+        <input type="hidden" name="q" id="inputQ" />
+        <input type="hidden" name="t" value="blog" />
+        <a id="btnSearchBlog" target="_blank"></a>
+        </form>
+    </ul>
+</div><div id="panel_Category" class="panel">
+    <ul class="panel_head"><span>文章分类</span></ul>
+    <ul class="panel_body">
+        <li>
+        <a href="http://blog.csdn.net/liushuaikobe/article/category/875049">C/C++</a><span>(9)</span>
+        </li>
+        <li>
+        <a href="http://blog.csdn.net/liushuaikobe/article/category/875050">Java</a><span>(8)</span>
+        </li>
+        <li>
+        <a href="http://blog.csdn.net/liushuaikobe/article/category/875457">IDE感想</a><span>(13)</span>
+        </li>
+        <li>
+        <a href="http://blog.csdn.net/liushuaikobe/article/category/923720">OS</a><span>(4)</span>
+        </li>
+        <li>
+        <a href="http://blog.csdn.net/liushuaikobe/article/category/927498">Android</a><span>(12)</span>
+        </li>
+        <li>
+        <a href="http://blog.csdn.net/liushuaikobe/article/category/1067457">Python</a><span>(10)</span>
+        </li>
+        <li>
+        <a href="http://blog.csdn.net/liushuaikobe/article/category/1278423">编译原理</a><span>(3)</span>
+        </li>
+    </ul>
+</div><div id="panel_Archive" class="panel">
+    <ul class="panel_head"><span>文章存档</span></ul>
+    <ul class="panel_body">
+        <div id="archive_list">
+        <!--归档统计-->
+        <li><a href="http://blog.csdn.net/liushuaikobe/article/month/2013/03">2013年03月</a><span>(2)</span></li><li><a href="http://blog.csdn.net/liushuaikobe/article/month/2013/02">2013年02月</a><span>(1)</span></li><li><a href="http://blog.csdn.net/liushuaikobe/article/month/2013/01">2013年01月</a><span>(2)</span></li><li><a href="http://blog.csdn.net/liushuaikobe/article/month/2012/12">2012年12月</a><span>(2)</span></li><li><a href="http://blog.csdn.net/liushuaikobe/article/month/2012/11">2012年11月</a><span>(5)</span></li><li><a href="http://blog.csdn.net/liushuaikobe/article/month/2012/10">2012年10月</a><span>(2)</span></li><li><a href="http://blog.csdn.net/liushuaikobe/article/month/2012/09">2012年09月</a><span>(2)</span></li><li><a href="http://blog.csdn.net/liushuaikobe/article/month/2012/08">2012年08月</a><span>(2)</span></li><li><a href="http://blog.csdn.net/liushuaikobe/article/month/2012/04">2012年04月</a><span>(2)</span></li><li><a href="http://blog.csdn.net/liushuaikobe/article/month/2012/03">2012年03月</a><span>(5)</span></li><li><a href="http://blog.csdn.net/liushuaikobe/article/month/2012/02">2012年02月</a><span>(1)</span></li><li><a href="http://blog.csdn.net/liushuaikobe/article/month/2012/01">2012年01月</a><span>(2)</span></li><li><a href="http://blog.csdn.net/liushuaikobe/article/month/2011/12">2011年12月</a><span>(6)</span></li><li><a href="http://blog.csdn.net/liushuaikobe/article/month/2011/11">2011年11月</a><span>(9)</span></li><li><a href="http://blog.csdn.net/liushuaikobe/article/month/2011/10">2011年10月</a><span>(2)</span></li><li><a href="http://blog.csdn.net/liushuaikobe/article/month/2011/09">2011年09月</a><span>(2)</span></li><li><a href="http://blog.csdn.net/liushuaikobe/article/month/2011/08">2011年08月</a><span>(4)</span></li>
+        </div>
+    </ul>
+</div>
+<div id="hotarticls" class="panel">
+    <ul class="panel_head"><span>阅读排行</span></ul>
+    <ul class="panel_body itemlist">
+        <li>
+            <a href="/liushuaikobe/article/details/7348238" title="Visual Studio 2010已安装，sql server 2008 management studio安装教程">Visual Studio 2010已安装，sql server 2008 management studio安装教程</a><span>(6294)</span>
+        </li>
+        <li>
+            <a href="/liushuaikobe/article/details/8453716" title="微信机器人：小蜗牛有道翻译小助手——Django + SAE + 微信公众帐号自动回复开放接口">微信机器人：小蜗牛有道翻译小助手——Django + SAE + 微信公众帐号自动回复开放接口</a><span>(5060)</span>
+        </li>
+        <li>
+            <a href="/liushuaikobe/article/details/7030944" title="Android新建Activity">Android新建Activity</a><span>(2705)</span>
+        </li>
+        <li>
+            <a href="/liushuaikobe/article/details/7235233" title="android桌面时钟小控件开发记录">android桌面时钟小控件开发记录</a><span>(2381)</span>
+        </li>
+        <li>
+            <a href="/liushuaikobe/article/details/7163368" title="Android4.0下的Calendar、events、reminder简单Demo">Android4.0下的Calendar、events、reminder简单Demo</a><span>(1436)</span>
+        </li>
+        <li>
+            <a href="/liushuaikobe/article/details/6939012" title="HIT软件学院第一次OS实验">HIT软件学院第一次OS实验</a><span>(1333)</span>
+        </li>
+        <li>
+            <a href="/liushuaikobe/article/details/8108811" title="哈工大软件学院编译原理实验1——词法分析">哈工大软件学院编译原理实验1——词法分析</a><span>(1168)</span>
+        </li>
+        <li>
+            <a href="/liushuaikobe/article/details/6965859" title="HIT软件学院第二次OS实验">HIT软件学院第二次OS实验</a><span>(1049)</span>
+        </li>
+        <li>
+            <a href="/liushuaikobe/article/details/7023484" title="HIT软件学院第五次OS实验">HIT软件学院第五次OS实验</a><span>(1021)</span>
+        </li>
+        <li>
+            <a href="/liushuaikobe/article/details/7031240" title="Android中SQLite应用详解">Android中SQLite应用详解</a><span>(908)</span>
+        </li>
+    </ul>
+</div>
+<div id="hotarticls2" class="panel">
+    <ul class="panel_head"><span>评论排行</span></ul>
+    <ul class="panel_body itemlist">
+        <li>
+            <a href="/liushuaikobe/article/details/8453716" title="微信机器人：小蜗牛有道翻译小助手——Django + SAE + 微信公众帐号自动回复开放接口">微信机器人：小蜗牛有道翻译小助手——Django + SAE + 微信公众帐号自动回复开放接口</a><span>(32)</span>
+        </li>
+        <li>
+            <a href="/liushuaikobe/article/details/7235233" title="android桌面时钟小控件开发记录">android桌面时钟小控件开发记录</a><span>(20)</span>
+        </li>
+        <li>
+            <a href="/liushuaikobe/article/details/7348238" title="Visual Studio 2010已安装，sql server 2008 management studio安装教程">Visual Studio 2010已安装，sql server 2008 management studio安装教程</a><span>(12)</span>
+        </li>
+        <li>
+            <a href="/liushuaikobe/article/details/6939012" title="HIT软件学院第一次OS实验">HIT软件学院第一次OS实验</a><span>(7)</span>
+        </li>
+        <li>
+            <a href="/liushuaikobe/article/details/6899071" title="Dijkstra算法">Dijkstra算法</a><span>(7)</span>
+        </li>
+        <li>
+            <a href="/liushuaikobe/article/details/7167543" title="数据结构课设题目——求第K短的最短路径">数据结构课设题目——求第K短的最短路径</a><span>(6)</span>
+        </li>
+        <li>
+            <a href="/liushuaikobe/article/details/8115980" title="用户界面设计小Quiz——缺省值问题">用户界面设计小Quiz——缺省值问题</a><span>(3)</span>
+        </li>
+        <li>
+            <a href="/liushuaikobe/article/details/7163368" title="Android4.0下的Calendar、events、reminder简单Demo">Android4.0下的Calendar、events、reminder简单Demo</a><span>(3)</span>
+        </li>
+        <li>
+            <a href="/liushuaikobe/article/details/8457065" title="To be a tough man">To be a tough man</a><span>(2)</span>
+        </li>
+        <li>
+            <a href="/liushuaikobe/article/details/8170032" title="哈工大软件学院编译原理实验2——语法分析">哈工大软件学院编译原理实验2——语法分析</a><span>(2)</span>
+        </li>
+    </ul>
+</div>
+<div id="homepageArticles" class="panel">
+    <ul class="panel_head"><span>推荐文章</span></ul>
+    <ul class="panel_body" id="ad_commend">
+    </ul>
+</div>
+<script type="text/javascript">
+    new Ad(12, 'ad_commend');
+</script><div id="newcomments" class="panel">
+<ul class="panel_head"><span>最新评论</span></ul>
+<ul class="panel_body itemlist">
+    <li>
+    <a href="/liushuaikobe/article/details/8453716#comments">微信机器人：小蜗牛有道翻译小助手——Django + SAE + 微信公众帐号自动回复开放接口</a>
+    <p style="margin:0px;"><a href="/ccloup" class="user_name">ccloup</a>:
+自己想要用java实现这个微信平台接口  但是我怎么测试自己的例子是否成功啊  代码未放到服务器上？...
+    </p>
+    </li>
+    <li>
+    <a href="/liushuaikobe/article/details/8453716#comments">微信机器人：小蜗牛有道翻译小助手——Django + SAE + 微信公众帐号自动回复开放接口</a>
+    <p style="margin:0px;"><a href="/liushuaikobe" class="user_name">liushuaikobe</a>:
+@ruanjiangongcheng07:这个是当初为了调试，想把Django的错误信息（错误页面）...
+    </p>
+    </li>
+    <li>
+    <a href="/liushuaikobe/article/details/8453716#comments">微信机器人：小蜗牛有道翻译小助手——Django + SAE + 微信公众帐号自动回复开放接口</a>
+    <p style="margin:0px;"><a href="/Fedora_Jumper" class="user_name">Fedora_Jumper</a>:
+Hi,能看下你的confg.yaml index.wsgi 还有urls.py的代码吗？如果能看下全...
+    </p>
+    </li>
+    <li>
+    <a href="/liushuaikobe/article/details/8453716#comments">微信机器人：小蜗牛有道翻译小助手——Django + SAE + 微信公众帐号自动回复开放接口</a>
+    <p style="margin:0px;"><a href="/ruanjiangongcheng07" class="user_name">ruanjiangongcheng07</a>:
+@liushuaikobe:你的应用目录机构里面的。
+    </p>
+    </li>
+    <li>
+    <a href="/liushuaikobe/article/details/7235233#comments">android桌面时钟小控件开发记录</a>
+    <p style="margin:0px;"><a href="/liushuaikobe" class="user_name">liushuaikobe</a>:
+@liyuan02:代码我都在文中贴出来了啊～
+    </p>
+    </li>
+    <li>
+    <a href="/liushuaikobe/article/details/7235233#comments">android桌面时钟小控件开发记录</a>
+    <p style="margin:0px;"><a href="/liyuan02" class="user_name">liyuan02</a>:
+代码现在可以提供一下了吗？ 谢谢！
+    </p>
+    </li>
+    <li>
+    <a href="/liushuaikobe/article/details/8646555#comments">Android内核的编译与裁剪</a>
+    <p style="margin:0px;"><a href="/zouliping123" class="user_name">zouliping123</a>:
+看着还行哇～～
+    </p>
+    </li>
+    <li>
+    <a href="/liushuaikobe/article/details/7348238#comments">Visual Studio 2010已安装，sql server 2008 management studio安装教程</a>
+    <p style="margin:0px;"><a href="/sugeladid" class="user_name">sugeladid</a>:
+mrak,弱弱得问win8 x64是不是装不了sqlserver2005。。。于是我发现vs2010...
+    </p>
+    </li>
+    <li>
+    <a href="/liushuaikobe/article/details/8453716#comments">微信机器人：小蜗牛有道翻译小助手——Django + SAE + 微信公众帐号自动回复开放接口</a>
+    <p style="margin:0px;"><a href="/CJ__Zhang" class="user_name">CJ__Zhang</a>:
+@milian91:我也遇到同样的情况了，你的问题解决了吗？
+    </p>
+    </li>
+    <li>
+    <a href="/liushuaikobe/article/details/8115980#comments">用户界面设计小Quiz——缺省值问题</a>
+    <p style="margin:0px;"><a href="/liushuaikobe" class="user_name">liushuaikobe</a>:
+@xjswmc:敢问兄台是？
+    </p>
+    </li>
+</ul>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+
+<div class="clear"></div>
+</div>
+
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/newblog.min.js?v=1.1"></script>
+<script type="text/javascript" src="http://medal.blog.csdn.net/showblogmedal.ashx?blogid=1139626"></script>
+
+<script type="text/javascript" src="http://csdnimg.cn/pubfooter/js/publib_footer.js"></script>
+
+<script type="text/javascript" src="http://passport.csdn.net/content/loginbox/login.js"></script>
+<script type="text/javascript">document.write("<img src=http://counter.csdn.net/pv.aspx?id=24 border=0 width=0 height=0>");</script>
+<script type="text/javascript" src="http://www.csdn.net/ui/scripts/Csdn/counter.js"></script>
+
+
+<script type="text/javascript" src="http://ad.csdn.net/scripts/ad-blog.js"></script>
+</div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% comment %}
+iou attachment template for omoma
+copyright 2011 sebastien maccagnoni-munch
+
+this file is part of omoma.
+
+omoma is free software: you can redistribute it and/or modify
+it under the terms of the gnu general public license as published by
+the free software foundation, version 3.
+
+omoma is distributed in the hope that it will be useful,
+but without any warranty; without even the implied warranty of
+merchantability or fitness for a particular purpose.  see the
+gnu general public license for more details.
+
+you should have received a copy of the gnu general public license
+along with omoma. if not, see <http://www.gnu.org/licenses/>.
+{% endcomment %}
+
+{% load i18n %}
+{% load omoma %}
+
+{% block title %}{% trans "attach iou to a transaction" %}{% endblock %}
+
+{% block content %}
+
+    {% contentbox "iou details" %}
+        <p>{% trans "you are about to attach the following iou to a transaction:" %}</p>
+        <dl>
+            <dt>{% trans "description" %}</dt><dd>{{ iou.transaction.description }}</dd>
+            <dt>{% trans "from" %}</dt><dd>{{ iou.owner.username }}</dd>
+            <dt>{% trans "amount" %}</dt><dd>{{ iou.amount|money:iou.transaction.account }}</dd>
+            <dt>{% trans "date" %}</dt><dd>{{ iou.transaction.date|date:"short_date_format" }}</dd>
+            <dt>{% trans "type of iou" %}</dt><dd>{{ iou.recipienttype }}</dd>
+        </dl>
+    {% endbox %}
+
+    {% gettransactionsmatchingiou iou %}
+
+    {% if transactionsmatchingiou %}
+
+        {% contentbox _("existing transactions") %}
+
+            <p>{% trans "the following existing transactions could match this iou:" %}</p>
+            <table>
+                <tr class="header">
+                    <th class="links"></th>
+                    <th class="description">{% trans "description" %}</th>
+                    <th class="categories">{% trans "categories" %}</th>
+                    <th class="date">{% trans "date" %}</th>
+                </tr>
+                {% for t in transactionsmatchingiou %}
+                    <tr>
+                        <td class="links">
+                            <a href="{% url attach_transaction_to_iou iid=iou.id tid=t.id %}">
+                                <img src="/static/icon_attach.png" class="icon" />
+                            </a>
+                        </td>
+                        <td class="description">{{ t.description }}</td>
+                        <td class="categories">{% for tc in t.transactioncategory_set.all %}{{ tc.category.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                        <td class="date">{{ t.date|date:"short_date_format" }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% endbox %}
+
+    {% endif %}
+
+    {% contentbox _("new transaction") %}
+        <form action="{% url new_transaction iid=iou.id %}" method="post">
+            {% csrf_token %}
+            <table>
+                {{ transactionform }}
+            </table>
+            <input type="submit" value="{% trans "create and back" %}" />
+            <input type="submit" name="create_modify" value="{% trans "create and modify" %}" />
+            <a href="{% url ious %}">{% trans "cancel" %}</a>
+        </form>
+    {% endbox %}
+{% endblock content %}

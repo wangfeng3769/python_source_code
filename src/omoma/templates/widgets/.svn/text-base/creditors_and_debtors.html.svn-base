@@ -1,0 +1,55 @@
+{% comment %}
+creditors and debtors list template for omoma
+copyright 2011 sebastien maccagnoni-munch
+
+this file is part of omoma.
+
+omoma is free software: you can redistribute it and/or modify
+it under the terms of the gnu general public license as published by
+the free software foundation, version 3.
+
+omoma is distributed in the hope that it will be useful,
+but without any warranty; without even the implied warranty of
+merchantability or fitness for a particular purpose.  see the
+gnu general public license for more details.
+
+you should have received a copy of the gnu general public license
+along with omoma. if not, see <http://www.gnu.org/licenses/>.
+{% endcomment %}
+
+{% load i18n %}
+{% load omoma %}
+
+{% contentbox _('debtors and creditors') %}
+
+    {% getioupeerslist %}
+
+    {% if ioupeerslist %}
+        <table>
+            <tr class="header">
+                <th class="links"></th>
+                <th class="person">{% trans "person" %}</th>
+                <th class="ioutype"></th>
+                <th class="amount">{% trans "amount" %}</th>
+            </tr>
+
+            {% for peer in ioupeerslist %}
+                <tr>
+                    <td class="links">
+                        <a href="{% url ious recipient=peer.name %}">
+                            <img src="/static/icon_details.png" class="icon" />
+                        </a>
+                    </td>
+                    <td class="person">{{ peer.name }}</td>
+                    <td class="ioutype">{{ peer.type }}</td>
+                    <td class="amount">{{ peer.amount }}</td>
+                </tr>
+            {% endfor %}
+
+        </table>
+
+    {% else %}
+        <p>{% trans "i have no debt and no credit." %}</p>
+    {% endif %}
+
+{% endbox %}

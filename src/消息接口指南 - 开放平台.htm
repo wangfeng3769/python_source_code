@@ -1,0 +1,634 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0099)http://mp.weixin.qq.com/wiki/index.php -->
+<HTML dir=ltr lang=zh-cn><HEAD><TITLE>消息接口指南 - 开放平台</TITLE>
+<META charset=UTF-8>
+<META name=GENERATOR content="MSHTML 8.00.6001.19400"><LINK rel="shortcut icon" 
+href="/favicon.ico"><LINK title="开放平台 (zh-cn)" rel=search 
+type=application/opensearchdescription+xml 
+href="/wiki/opensearch_desc.php"><LINK rel=EditURI type=application/rsd+xml 
+href="http://mp.weixin.qq.com/wiki/api.php?action=rsd"><LINK title=开放平台的Atom订阅 
+rel=alternate type=application/atom+xml 
+href="/wiki/index.php?title=%E7%89%B9%E6%AE%8A:%E6%9C%80%E8%BF%91%E6%9B%B4%E6%94%B9&amp;feed=atom"><LINK 
+rel=stylesheet href="消息接口指南%20-%20开放平台_files/load.css">
+<META name=ResourceLoaderDynamicStyles content=""><!--[if lt IE 7]><style type="text/css">body{behavior:url("/wiki/skins/vector/csshover.min.htc")}</style><![endif]--></HEAD>
+<BODY class="mediawiki ltr ns-0 ns-subject page-消息接口指南 skin-vector"><!--网站头部-->
+<SCRIPT type=text/javascript 
+src="消息接口指南%20-%20开放平台_files/jquery-1.4.3.min.js"></SCRIPT>
+
+<STYLE>.headWrap {
+	HEIGHT: 105px
+}
+.header {
+	BORDER-BOTTOM: #a1a1a1 1px solid; MIN-WIDTH: 1300px; TEXT-ALIGN: left; PADDING-BOTTOM: 14px; BACKGROUND-COLOR: #fff; MARGIN: 0px 0px 36px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 20px; box-shadow: 0px 1px 3px #B3B3B3
+}
+.header .headerContent {
+	PADDING-BOTTOM: 0px; MARGIN: 0px auto; PADDING-LEFT: 0px; WIDTH: 960px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+.block {
+	DISPLAY: block
+}
+IMG {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px
+}
+.header .icon {
+	WIDTH: 350px; BACKGROUND: url(http://res.wx.qq.com/mpres/htmledition/images/login/logo.png) no-repeat 0px 0px; HEIGHT: 52px
+}
+</STYLE>
+
+<DIV class=headWrap>
+<DIV id=header class=header>
+<DIV class=headerContent>
+<DIV class=left><A class=block href="http://mp.weixin.qq.com/wiki"><IMG 
+alt=微信公众平台 src="消息接口指南%20-%20开放平台_files/logo.png"></A> </DIV>
+<DIV class=clr></DIV></DIV></DIV></DIV>
+<DIV></DIV>
+<DIV class=bottomnav><A class=loginbtn title=登录 
+href="http://mp.weixin.qq.com/wiki/index.php?title=特殊:用户登录&amp;returnto=消息接口指南"></A><A 
+class=topbtn onclick="document.getElementById('header').scrollIntoView(true);" 
+href="javascript:;"></A></DIV>
+<SCRIPT type=text/javascript src="消息接口指南%20-%20开放平台_files/wiki.js"></SCRIPT>
+<!--[if IE 6]>
+<style type="text/css">
+html{background-image:url(about:blank);background-attachment:fixed;}
+#content{overflow-x:hidden;}
+.bottomnav{position:absolute;top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-30));}
+</style>
+<![endif]--><!--网站头部-->
+<DIV id=mw-page-base class=noprint></DIV>
+<DIV id=mw-head-base class=noprint></DIV>
+<DIV class=mainwrapper><!-- content -->
+<DIV id=content><!-- header -->
+<DIV style="VISIBILITY: hidden" id=mw-head class=noprint><!-- 0 -->
+<DIV id=p-personal>
+<H5>个人工具</H5>
+<UL>
+  <LI id=pt-login><A accessKey=o title="我们鼓励您登录，但这并不是必须的 [o]" 
+  href="http://mp.weixin.qq.com/wiki/index.php?title=%E7%89%B9%E6%AE%8A:%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95&amp;returnto=%E6%B6%88%E6%81%AF%E6%8E%A5%E5%8F%A3%E6%8C%87%E5%8D%97">登录</A></LI></UL></DIV><!-- /0 -->
+<DIV id=left-navigation><!-- 0 -->
+<DIV id=p-namespaces class=vectorTabs>
+<H5>名字空间</H5>
+<UL>
+  <LI id=ca-nstab-main class=selected><SPAN><A accessKey=c title="查看页面内容 [c]" 
+  href="http://mp.weixin.qq.com/wiki/index.php?title=%E6%B6%88%E6%81%AF%E6%8E%A5%E5%8F%A3%E6%8C%87%E5%8D%97">页面</A></SPAN></LI>
+  <LI id=ca-talk class=new><SPAN><A accessKey=t title="关于页面正文的讨论 [t]" 
+  href="http://mp.weixin.qq.com/wiki/index.php?title=%E8%AE%A8%E8%AE%BA:%E6%B6%88%E6%81%AF%E6%8E%A5%E5%8F%A3%E6%8C%87%E5%8D%97&amp;action=edit&amp;redlink=1">讨论</A></SPAN></LI></UL></DIV><!-- /0 --><!-- 1 -->
+<DIV id=p-variants class="vectorMenu emptyPortlet">
+<H5><SPAN>变换</SPAN><A 
+href="http://mp.weixin.qq.com/wiki/index.php?title=%E6%B6%88%E6%81%AF%E6%8E%A5%E5%8F%A3%E6%8C%87%E5%8D%97#"></A></H5>
+<DIV class=menu>
+<UL></UL></DIV></DIV><!-- /1 --></DIV>
+<DIV id=right-navigation><!-- 0 -->
+<DIV id=p-views class=vectorTabs>
+<H5>查看</H5>
+<UL>
+  <LI id=ca-view class=selected><SPAN><A 
+  href="http://mp.weixin.qq.com/wiki/index.php?title=%E6%B6%88%E6%81%AF%E6%8E%A5%E5%8F%A3%E6%8C%87%E5%8D%97">阅读</A></SPAN></LI>
+  <LI id=ca-viewsource><SPAN><A accessKey=e title="此页面已被保护，你可以查看其源代码。 [e]" 
+  href="http://mp.weixin.qq.com/wiki/index.php?title=%E6%B6%88%E6%81%AF%E6%8E%A5%E5%8F%A3%E6%8C%87%E5%8D%97&amp;action=edit">查看源代码</A></SPAN></LI>
+  <LI id=ca-history class="collapsible "><SPAN><A accessKey=h 
+  title="此页面的早前修订版本 [h]" 
+  href="http://mp.weixin.qq.com/wiki/index.php?title=%E6%B6%88%E6%81%AF%E6%8E%A5%E5%8F%A3%E6%8C%87%E5%8D%97&amp;action=history">查看历史</A></SPAN></LI></UL></DIV><!-- /0 --><!-- 1 -->
+<DIV id=p-cactions class="vectorMenu emptyPortlet">
+<H5><SPAN>动作</SPAN><A 
+href="http://mp.weixin.qq.com/wiki/index.php?title=%E6%B6%88%E6%81%AF%E6%8E%A5%E5%8F%A3%E6%8C%87%E5%8D%97#"></A></H5>
+<DIV class=menu>
+<UL></UL></DIV></DIV><!-- /1 --><!-- 2 -->
+<DIV id=p-search>
+<H5><LABEL for=searchInput>搜索</LABEL></H5>
+<FORM id=searchform action=/wiki/index.php><INPUT value=特殊:搜索 type=hidden 
+name=title> <INPUT accessKey=f id=searchInput title="搜索该网站 [f]" type=text 
+name=search> <INPUT id=searchGoButton class=searchButton title=如果相同的标题存在的话便直接前往该页面 value=进入 type=submit name=go> 
+<INPUT id=mw-searchButton class=searchButton title=搜索该文字的页面 value=搜索 type=submit name=fulltext> 
+</FORM></DIV><!-- /2 --></DIV></DIV><!-- /header --><A id=top></A>
+<DIV style="DISPLAY: none" id=mw-js-message></DIV><!-- firstHeading -->
+<H1 id=firstHeading class=firstHeading>消息接口指南
+<DIV><A class=back 
+onclick="document.referrer ?location.replace(document.referrer):location.href='/wiki/index.php';return false;" 
+href="javascript:;">返回</A></DIV></H1><!-- /firstHeading --><!-- bodyContent -->
+<DIV id=bodyContent class=bodyContent><!-- tagline -->
+<DIV id=siteSub>出自开放平台</DIV><!-- /tagline --><!-- subtitle -->
+<DIV id=contentSub></DIV><!-- /subtitle --><!-- jumpto -->
+<DIV id=jump-to-nav>跳转到： <A 
+href="http://mp.weixin.qq.com/wiki/index.php?title=%E6%B6%88%E6%81%AF%E6%8E%A5%E5%8F%A3%E6%8C%87%E5%8D%97#mw-head">导航</A>, 
+<A 
+href="http://mp.weixin.qq.com/wiki/index.php?title=%E6%B6%88%E6%81%AF%E6%8E%A5%E5%8F%A3%E6%8C%87%E5%8D%97#p-search">搜索</A> 
+</DIV><!-- /jumpto --><!-- bodytext -->
+<TABLE id=toc class=toc>
+  <TBODY>
+  <TR>
+    <TD>
+      <DIV id=toctitle>
+      <H2>目录</H2></DIV>
+      <UL>
+        <LI class="toclevel-1 tocsection-1"><A 
+        href="http://mp.weixin.qq.com/wiki/index.php?title=%E6%B6%88%E6%81%AF%E6%8E%A5%E5%8F%A3%E6%8C%87%E5%8D%97#.E7.AE.80.E4.BB.8B"><SPAN 
+        class=tocnumber>1</SPAN> <SPAN class=toctext>简介</SPAN></A></LI>
+        <LI class="toclevel-1 tocsection-2"><A 
+        href="http://mp.weixin.qq.com/wiki/index.php?title=%E6%B6%88%E6%81%AF%E6%8E%A5%E5%8F%A3%E6%8C%87%E5%8D%97#.E7.94.B3.E8.AF.B7.E6.B6.88.E6.81.AF.E6.8E.A5.E5.8F.A3"><SPAN 
+        class=tocnumber>2</SPAN> <SPAN class=toctext>申请消息接口</SPAN></A></LI>
+        <LI class="toclevel-1 tocsection-3"><A 
+        href="http://mp.weixin.qq.com/wiki/index.php?title=%E6%B6%88%E6%81%AF%E6%8E%A5%E5%8F%A3%E6%8C%87%E5%8D%97#.E7.BD.91.E5.9D.80.E6.8E.A5.E5.85.A5"><SPAN 
+        class=tocnumber>3</SPAN> <SPAN class=toctext>网址接入</SPAN></A></LI>
+        <LI class="toclevel-1 tocsection-4"><A 
+        href="http://mp.weixin.qq.com/wiki/index.php?title=%E6%B6%88%E6%81%AF%E6%8E%A5%E5%8F%A3%E6%8C%87%E5%8D%97#.E6.B6.88.E6.81.AF.E6.8E.A8.E9.80.81"><SPAN 
+        class=tocnumber>4</SPAN> <SPAN class=toctext>消息推送</SPAN></A> 
+        <UL>
+          <LI class="toclevel-2 tocsection-5"><A 
+          href="http://mp.weixin.qq.com/wiki/index.php?title=%E6%B6%88%E6%81%AF%E6%8E%A5%E5%8F%A3%E6%8C%87%E5%8D%97#.E6.96.87.E6.9C.AC.E6.B6.88.E6.81.AF"><SPAN 
+          class=tocnumber>4.1</SPAN> <SPAN class=toctext>文本消息</SPAN></A></LI>
+          <LI class="toclevel-2 tocsection-6"><A 
+          href="http://mp.weixin.qq.com/wiki/index.php?title=%E6%B6%88%E6%81%AF%E6%8E%A5%E5%8F%A3%E6%8C%87%E5%8D%97#.E5.9B.BE.E7.89.87.E6.B6.88.E6.81.AF"><SPAN 
+          class=tocnumber>4.2</SPAN> <SPAN class=toctext>图片消息</SPAN></A></LI>
+          <LI class="toclevel-2 tocsection-7"><A 
+          href="http://mp.weixin.qq.com/wiki/index.php?title=%E6%B6%88%E6%81%AF%E6%8E%A5%E5%8F%A3%E6%8C%87%E5%8D%97#.E5.9C.B0.E7.90.86.E4.BD.8D.E7.BD.AE.E6.B6.88.E6.81.AF"><SPAN 
+          class=tocnumber>4.3</SPAN> <SPAN class=toctext>地理位置消息</SPAN></A></LI>
+          <LI class="toclevel-2 tocsection-8"><A 
+          href="http://mp.weixin.qq.com/wiki/index.php?title=%E6%B6%88%E6%81%AF%E6%8E%A5%E5%8F%A3%E6%8C%87%E5%8D%97#.E9.93.BE.E6.8E.A5.E6.B6.88.E6.81.AF"><SPAN 
+          class=tocnumber>4.4</SPAN> <SPAN class=toctext>链接消息</SPAN></A></LI>
+          <LI class="toclevel-2 tocsection-9"><A 
+          href="http://mp.weixin.qq.com/wiki/index.php?title=%E6%B6%88%E6%81%AF%E6%8E%A5%E5%8F%A3%E6%8C%87%E5%8D%97#.E4.BA.8B.E4.BB.B6.E6.8E.A8.E9.80.81"><SPAN 
+          class=tocnumber>4.5</SPAN> <SPAN 
+        class=toctext>事件推送</SPAN></A></LI></UL></LI>
+        <LI class="toclevel-1 tocsection-10"><A 
+        href="http://mp.weixin.qq.com/wiki/index.php?title=%E6%B6%88%E6%81%AF%E6%8E%A5%E5%8F%A3%E6%8C%87%E5%8D%97#.E6.B6.88.E6.81.AF.E5.9B.9E.E5.A4.8D"><SPAN 
+        class=tocnumber>5</SPAN> <SPAN class=toctext>消息回复</SPAN></A> 
+        <UL>
+          <LI class="toclevel-2 tocsection-11"><A 
+          href="http://mp.weixin.qq.com/wiki/index.php?title=%E6%B6%88%E6%81%AF%E6%8E%A5%E5%8F%A3%E6%8C%87%E5%8D%97#.E5.9B.9E.E5.A4.8D.E6.96.87.E6.9C.AC.E6.B6.88.E6.81.AF"><SPAN 
+          class=tocnumber>5.1</SPAN> <SPAN class=toctext>回复文本消息</SPAN></A></LI>
+          <LI class="toclevel-2 tocsection-12"><A 
+          href="http://mp.weixin.qq.com/wiki/index.php?title=%E6%B6%88%E6%81%AF%E6%8E%A5%E5%8F%A3%E6%8C%87%E5%8D%97#.E5.9B.9E.E5.A4.8D.E9.9F.B3.E4.B9.90.E6.B6.88.E6.81.AF"><SPAN 
+          class=tocnumber>5.2</SPAN> <SPAN class=toctext>回复音乐消息</SPAN></A></LI>
+          <LI class="toclevel-2 tocsection-13"><A 
+          href="http://mp.weixin.qq.com/wiki/index.php?title=%E6%B6%88%E6%81%AF%E6%8E%A5%E5%8F%A3%E6%8C%87%E5%8D%97#.E5.9B.9E.E5.A4.8D.E5.9B.BE.E6.96.87.E6.B6.88.E6.81.AF"><SPAN 
+          class=tocnumber>5.3</SPAN> <SPAN 
+        class=toctext>回复图文消息</SPAN></A></LI></UL></LI>
+        <LI class="toclevel-1 tocsection-14"><A 
+        href="http://mp.weixin.qq.com/wiki/index.php?title=%E6%B6%88%E6%81%AF%E6%8E%A5%E5%8F%A3%E6%8C%87%E5%8D%97#.E6.B3.A8.E6.84.8F.E4.BA.8B.E9.A1.B9"><SPAN 
+        class=tocnumber>6</SPAN> <SPAN class=toctext>注意事项</SPAN></A></LI>
+        <LI class="toclevel-1 tocsection-15"><A 
+        href="http://mp.weixin.qq.com/wiki/index.php?title=%E6%B6%88%E6%81%AF%E6%8E%A5%E5%8F%A3%E6%8C%87%E5%8D%97#.E7.A4.BA.E4.BE.8B.E4.BB.A3.E7.A0.81"><SPAN 
+        class=tocnumber>7</SPAN> <SPAN 
+  class=toctext>示例代码</SPAN></A></LI></UL></TD></TR></TBODY></TABLE>
+<H2><SPAN id=.E7.AE.80.E4.BB.8B class=mw-headline><B>简介</B></SPAN></H2>
+<P>公众平台消息接口为开发者提供了一种新的消息处理方式。 </P>
+<H2><SPAN id=.E7.94.B3.E8.AF.B7.E6.B6.88.E6.81.AF.E6.8E.A5.E5.8F.A3 
+class=mw-headline><B>申请消息接口</B></SPAN></H2>
+<P>点击<A class="external text" 
+href="http://mp.weixin.qq.com/cgi-bin/operadvancedfunc?op=list&amp;t=wxm-developer-api&amp;lang=zh_CN" 
+rel=nofollow>申请</A>，填写网址url和token，其中token可由开发者可以任意填写，用作生成签名。 </P>
+<P><BR><A class=image title=填写信息 
+href="http://mp.weixin.qq.com/wiki/index.php?title=%E6%96%87%E4%BB%B6:Callbackprofile.jpg"><IMG 
+alt=填写信息 src="消息接口指南%20-%20开放平台_files/Callbackprofile.jpg" width=799 
+height=452></A> </P>
+<H2><SPAN id=.E7.BD.91.E5.9D.80.E6.8E.A5.E5.85.A5 
+class=mw-headline><B>网址接入</B></SPAN></H2>
+<P>公众平台用户提交信息后，微信服务器将发送GET请求到填写的URL上，并且带上四个参数： </P>
+<TABLE border=1 cellSpacing=0 cellPadding=4 align=center>
+  <TBODY>
+  <TR>
+    <TH style="WIDTH: 180px">参数 </TH>
+    <TH style="WIDTH: 470px">描述 </TH></TR>
+  <TR>
+    <TD>signature </TD>
+    <TD>微信加密签名 </TD></TR>
+  <TR>
+    <TD>timestamp </TD>
+    <TD>时间戳 </TD></TR>
+  <TR>
+    <TD>nonce </TD>
+    <TD>随机数 </TD></TR>
+  <TR>
+    <TD>echostr </TD>
+    <TD>随机字符串 </TD></TR></TBODY></TABLE>
+<P>开发者通过检验signature对请求进行校验（下面有校验方式）。若确认此次GET请求来自微信服务器，请原样返回echostr参数内容，则接入生效，否则接入失败。 
+</P>
+<P>signature结合了开发者填写的token参数和请求中的timestamp参数、nonce参数。 </P><PRE>加密/校验流程：
+1. 将token、timestamp、nonce三个参数进行字典序排序
+2. 将三个参数字符串拼接成一个字符串进行sha1加密
+3. 开发者获得加密后的字符串可与signature对比，标识该请求来源于微信
+</PRE>
+<P><BR></P>
+<H2><SPAN id=.E6.B6.88.E6.81.AF.E6.8E.A8.E9.80.81 
+class=mw-headline><B>消息推送</B></SPAN></H2>
+<P>当普通微信用户向公众账号发消息时，微信服务器将POST该消息到填写的URL上。结构如下： </P>
+<H3><SPAN id=.E6.96.87.E6.9C.AC.E6.B6.88.E6.81.AF 
+class=mw-headline>文本消息</SPAN></H3><PRE> &lt;xml&gt;
+ &lt;ToUserName&gt;&lt;![CDATA[toUser]]&gt;&lt;/ToUserName&gt;
+ &lt;FromUserName&gt;&lt;![CDATA[fromUser]]&gt;&lt;/FromUserName&gt; 
+ &lt;CreateTime&gt;1348831860&lt;/CreateTime&gt;
+ &lt;MsgType&gt;&lt;![CDATA[text]]&gt;&lt;/MsgType&gt;
+ &lt;Content&gt;&lt;![CDATA[this is a test]]&gt;&lt;/Content&gt;
+ &lt;MsgId&gt;1234567890123456&lt;/MsgId&gt;
+ &lt;/xml&gt;
+</PRE>
+<TABLE border=1 cellSpacing=0 cellPadding=4 align=center>
+  <TBODY>
+  <TR>
+    <TH style="WIDTH: 180px">参数 </TH>
+    <TH style="WIDTH: 470px">描述 </TH></TR>
+  <TR>
+    <TD>ToUserName </TD>
+    <TD><B>开发者</B>微信号 </TD></TR>
+  <TR>
+    <TD>FromUserName </TD>
+    <TD>发送方帐号（一个OpenID） </TD></TR>
+  <TR>
+    <TD>CreateTime </TD>
+    <TD>消息创建时间 （整型） </TD></TR>
+  <TR>
+    <TD>MsgType </TD>
+    <TD>text </TD></TR>
+  <TR>
+    <TD>Content </TD>
+    <TD>文本消息内容 </TD></TR>
+  <TR>
+    <TD>MsgId </TD>
+    <TD>消息id，64位整型 </TD></TR></TBODY></TABLE>
+<H3><SPAN id=.E5.9B.BE.E7.89.87.E6.B6.88.E6.81.AF 
+class=mw-headline>图片消息</SPAN></H3><PRE> &lt;xml&gt;
+ &lt;ToUserName&gt;&lt;![CDATA[toUser]]&gt;&lt;/ToUserName&gt;
+ &lt;FromUserName&gt;&lt;![CDATA[fromUser]]&gt;&lt;/FromUserName&gt;
+ &lt;CreateTime&gt;1348831860&lt;/CreateTime&gt;
+ &lt;MsgType&gt;&lt;![CDATA[image]]&gt;&lt;/MsgType&gt;
+ &lt;PicUrl&gt;&lt;![CDATA[this is a url]]&gt;&lt;/PicUrl&gt;
+ &lt;MsgId&gt;1234567890123456&lt;/MsgId&gt;
+ &lt;/xml&gt;
+</PRE>
+<TABLE border=1 cellSpacing=0 cellPadding=4 align=center>
+  <TBODY>
+  <TR>
+    <TH style="WIDTH: 180px">参数 </TH>
+    <TH style="WIDTH: 470px">描述 </TH></TR>
+  <TR>
+    <TD>ToUserName </TD>
+    <TD><B>开发者</B>微信号 </TD></TR>
+  <TR>
+    <TD>FromUserName </TD>
+    <TD>发送方帐号（一个OpenID） </TD></TR>
+  <TR>
+    <TD>CreateTime </TD>
+    <TD>消息创建时间 （整型） </TD></TR>
+  <TR>
+    <TD>MsgType </TD>
+    <TD>image </TD></TR>
+  <TR>
+    <TD>PicUrl </TD>
+    <TD>图片链接 </TD></TR>
+  <TR>
+    <TD>MsgId </TD>
+    <TD>消息id，64位整型 </TD></TR></TBODY></TABLE>
+<H3><SPAN id=.E5.9C.B0.E7.90.86.E4.BD.8D.E7.BD.AE.E6.B6.88.E6.81.AF 
+class=mw-headline>地理位置消息</SPAN></H3><PRE>&lt;xml&gt;
+&lt;ToUserName&gt;&lt;![CDATA[toUser]]&gt;&lt;/ToUserName&gt;
+&lt;FromUserName&gt;&lt;![CDATA[fromUser]]&gt;&lt;/FromUserName&gt;
+&lt;CreateTime&gt;1351776360&lt;/CreateTime&gt;
+&lt;MsgType&gt;&lt;![CDATA[location]]&gt;&lt;/MsgType&gt;
+&lt;Location_X&gt;23.134521&lt;/Location_X&gt;
+&lt;Location_Y&gt;113.358803&lt;/Location_Y&gt;
+&lt;Scale&gt;20&lt;/Scale&gt;
+&lt;Label&gt;&lt;![CDATA[位置信息]]&gt;&lt;/Label&gt;
+&lt;MsgId&gt;1234567890123456&lt;/MsgId&gt;
+&lt;/xml&gt; 
+</PRE>
+<TABLE border=1 cellSpacing=0 cellPadding=4 align=center>
+  <TBODY>
+  <TR>
+    <TH style="WIDTH: 180px">参数 </TH>
+    <TH style="WIDTH: 470px">描述 </TH></TR>
+  <TR>
+    <TD>ToUserName </TD>
+    <TD><B>开发者</B>微信号 </TD></TR>
+  <TR>
+    <TD>FromUserName </TD>
+    <TD>发送方帐号（一个OpenID） </TD></TR>
+  <TR>
+    <TD>CreateTime </TD>
+    <TD>消息创建时间 （整型） </TD></TR>
+  <TR>
+    <TD>MsgType </TD>
+    <TD>location </TD></TR>
+  <TR>
+    <TD>Location_X </TD>
+    <TD>地理位置纬度 </TD></TR>
+  <TR>
+    <TD>Location_Y </TD>
+    <TD>地理位置经度 </TD></TR>
+  <TR>
+    <TD>Scale </TD>
+    <TD>地图缩放大小 </TD></TR>
+  <TR>
+    <TD>Label </TD>
+    <TD>地理位置信息 </TD></TR>
+  <TR>
+    <TD>MsgId </TD>
+    <TD>消息id，64位整型 </TD></TR></TBODY></TABLE>
+<H3><SPAN id=.E9.93.BE.E6.8E.A5.E6.B6.88.E6.81.AF 
+class=mw-headline>链接消息</SPAN></H3><PRE>&lt;xml&gt;
+&lt;ToUserName&gt;&lt;![CDATA[toUser]]&gt;&lt;/ToUserName&gt;
+&lt;FromUserName&gt;&lt;![CDATA[fromUser]]&gt;&lt;/FromUserName&gt;
+&lt;CreateTime&gt;1351776360&lt;/CreateTime&gt;
+&lt;MsgType&gt;&lt;![CDATA[link]]&gt;&lt;/MsgType&gt;
+&lt;Title&gt;&lt;![CDATA[公众平台官网链接]]&gt;&lt;/Title&gt;
+&lt;Description&gt;&lt;![CDATA[公众平台官网链接]]&gt;&lt;/Description&gt;
+&lt;Url&gt;&lt;![CDATA[url]]&gt;&lt;/Url&gt;
+&lt;MsgId&gt;1234567890123456&lt;/MsgId&gt;
+&lt;/xml&gt; 
+</PRE>
+<TABLE border=1 cellSpacing=0 cellPadding=4 align=center>
+  <TBODY>
+  <TR>
+    <TH style="WIDTH: 180px">参数 </TH>
+    <TH style="WIDTH: 470px">描述 </TH></TR>
+  <TR>
+    <TD>ToUserName </TD>
+    <TD>接收方微信号 </TD></TR>
+  <TR>
+    <TD>FromUserName </TD>
+    <TD>发送方微信号，若为普通用户，则是一个OpenID </TD></TR>
+  <TR>
+    <TD>CreateTime </TD>
+    <TD>消息创建时间 </TD></TR>
+  <TR>
+    <TD>MsgType </TD>
+    <TD>消息类型，link </TD></TR>
+  <TR>
+    <TD>Title </TD>
+    <TD>消息标题 </TD></TR>
+  <TR>
+    <TD>Description </TD>
+    <TD>消息描述 </TD></TR>
+  <TR>
+    <TD>Url </TD>
+    <TD>消息链接 </TD></TR>
+  <TR>
+    <TD>MsgId </TD>
+    <TD>消息id，64位整型 </TD></TR></TBODY></TABLE>
+<H3><SPAN id=.E4.BA.8B.E4.BB.B6.E6.8E.A8.E9.80.81 
+class=mw-headline>事件推送</SPAN></H3>
+<P>事件推送只支持微信4.5版本，目前仅开启自定义菜单接口事件推送。其余功能即将开放，敬请期待。 </P><PRE>&lt;xml&gt;&lt;ToUserName&gt;&lt;![CDATA[toUser]]&gt;&lt;/ToUserName&gt;
+&lt;FromUserName&gt;&lt;![CDATA[FromUser]]&gt;&lt;/FromUserName&gt;
+&lt;CreateTime&gt;123456789&lt;/CreateTime&gt;
+&lt;MsgType&gt;&lt;![CDATA[event]]&gt;&lt;/MsgType&gt;
+&lt;Event&gt;&lt;![CDATA[EVENT]]&gt;&lt;/Event&gt;
+&lt;EventKey&gt;&lt;![CDATA[EVENTKEY]]&gt;&lt;/EventKey&gt;
+&lt;/xml&gt;
+</PRE>
+<TABLE border=1 cellSpacing=0 cellPadding=4 align=center>
+  <TBODY>
+  <TR>
+    <TH style="WIDTH: 180px">参数 </TH>
+    <TH style="WIDTH: 470px">描述 </TH></TR>
+  <TR>
+    <TD>ToUserName </TD>
+    <TD>接收方微信号 </TD></TR>
+  <TR>
+    <TD>FromUserName </TD>
+    <TD>发送方微信号，若为普通用户，则是一个OpenID </TD></TR>
+  <TR>
+    <TD>CreateTime </TD>
+    <TD>消息创建时间 </TD></TR>
+  <TR>
+    <TD>MsgType </TD>
+    <TD>消息类型，event </TD></TR>
+  <TR>
+    <TD>Event </TD>
+    <TD>事件类型，subscribe(订阅)、unsubscribe(取消订阅)、CLICK(自定义菜单点击事件) </TD></TR>
+  <TR>
+    <TD>EventKey </TD>
+    <TD>事件KEY值，与自定义菜单接口中KEY值对应 </TD></TR></TBODY></TABLE>
+<H2><SPAN id=.E6.B6.88.E6.81.AF.E5.9B.9E.E5.A4.8D 
+class=mw-headline><B>消息回复</B></SPAN></H2>
+<P>对于每一个POST请求，开发者在响应包中返回特定xml结构，对该消息进行响应（现支持回复文本、图文、语音、视频、<B>音乐</B>和对收到的消息进行星标操作）。 
+</P>
+<P>微信服务器在<B>五秒内</B>收不到响应会断掉连接。 </P>
+<P>回复xml结构如下： </P>
+<H3><SPAN id=.E5.9B.9E.E5.A4.8D.E6.96.87.E6.9C.AC.E6.B6.88.E6.81.AF 
+class=mw-headline>回复文本消息</SPAN></H3><PRE> &lt;xml&gt;
+ &lt;ToUserName&gt;&lt;![CDATA[toUser]]&gt;&lt;/ToUserName&gt;
+ &lt;FromUserName&gt;&lt;![CDATA[fromUser]]&gt;&lt;/FromUserName&gt;
+ &lt;CreateTime&gt;12345678&lt;/CreateTime&gt;
+ &lt;MsgType&gt;&lt;![CDATA[text]]&gt;&lt;/MsgType&gt;
+ &lt;Content&gt;&lt;![CDATA[content]]&gt;&lt;/Content&gt;
+ &lt;FuncFlag&gt;0&lt;/FuncFlag&gt;
+ &lt;/xml&gt;
+</PRE>
+<TABLE border=1 cellSpacing=0 cellPadding=4 align=center>
+  <TBODY>
+  <TR>
+    <TH style="WIDTH: 180px">参数 </TH>
+    <TH style="WIDTH: 470px">描述 </TH></TR>
+  <TR>
+    <TD>ToUserName </TD>
+    <TD>接收方帐号（收到的OpenID） </TD></TR>
+  <TR>
+    <TD>FromUserName </TD>
+    <TD>开发者微信号 </TD></TR>
+  <TR>
+    <TD>CreateTime </TD>
+    <TD>消息创建时间 </TD></TR>
+  <TR>
+    <TD>MsgType </TD>
+    <TD>text </TD></TR>
+  <TR>
+    <TD>Content </TD>
+    <TD>回复的消息内容,长度不超过2048字节 </TD></TR>
+  <TR>
+    <TD>FuncFlag </TD>
+    <TD>位0x0001被标志时，星标刚收到的消息。 </TD></TR></TBODY></TABLE>
+<H3><SPAN id=.E5.9B.9E.E5.A4.8D.E9.9F.B3.E4.B9.90.E6.B6.88.E6.81.AF 
+class=mw-headline>回复音乐消息</SPAN></H3><PRE> &lt;xml&gt;
+ &lt;ToUserName&gt;&lt;![CDATA[toUser]]&gt;&lt;/ToUserName&gt;
+ &lt;FromUserName&gt;&lt;![CDATA[fromUser]]&gt;&lt;/FromUserName&gt;
+ &lt;CreateTime&gt;12345678&lt;/CreateTime&gt;
+ &lt;MsgType&gt;&lt;![CDATA[music]]&gt;&lt;/MsgType&gt;
+ &lt;Music&gt;
+ &lt;Title&gt;&lt;![CDATA[TITLE]]&gt;&lt;/Title&gt;
+ &lt;Description&gt;&lt;![CDATA[DESCRIPTION]]&gt;&lt;/Description&gt;
+ &lt;MusicUrl&gt;&lt;![CDATA[MUSIC_Url]]&gt;&lt;/MusicUrl&gt;
+ &lt;HQMusicUrl&gt;&lt;![CDATA[HQ_MUSIC_Url]]&gt;&lt;/HQMusicUrl&gt;
+ &lt;/Music&gt;
+ &lt;FuncFlag&gt;0&lt;/FuncFlag&gt;
+ &lt;/xml&gt;
+</PRE>
+<TABLE border=1 cellSpacing=0 cellPadding=4 align=center>
+  <TBODY>
+  <TR>
+    <TH style="WIDTH: 180px">参数 </TH>
+    <TH style="WIDTH: 470px">描述 </TH></TR>
+  <TR>
+    <TD>ToUserName </TD>
+    <TD>接收方帐号（收到的OpenID） </TD></TR>
+  <TR>
+    <TD>FromUserName </TD>
+    <TD>开发者微信号 </TD></TR>
+  <TR>
+    <TD>CreateTime </TD>
+    <TD>消息创建时间 </TD></TR>
+  <TR>
+    <TD>MsgType </TD>
+    <TD>music </TD></TR>
+  <TR>
+    <TD>MusicUrl </TD>
+    <TD>音乐链接 </TD></TR>
+  <TR>
+    <TD>HQMusicUrl </TD>
+    <TD>高质量音乐链接，WIFI环境优先使用该链接播放音乐 </TD></TR>
+  <TR>
+    <TD>FuncFlag </TD>
+    <TD>位0x0001被标志时，星标刚收到的消息。 </TD></TR></TBODY></TABLE>
+<H3><SPAN id=.E5.9B.9E.E5.A4.8D.E5.9B.BE.E6.96.87.E6.B6.88.E6.81.AF 
+class=mw-headline>回复图文消息</SPAN></H3><PRE> &lt;xml&gt;
+ &lt;ToUserName&gt;&lt;![CDATA[toUser]]&gt;&lt;/ToUserName&gt;
+ &lt;FromUserName&gt;&lt;![CDATA[fromUser]]&gt;&lt;/FromUserName&gt;
+ &lt;CreateTime&gt;12345678&lt;/CreateTime&gt;
+ &lt;MsgType&gt;&lt;![CDATA[news]]&gt;&lt;/MsgType&gt;
+ &lt;ArticleCount&gt;2&lt;/ArticleCount&gt;
+ &lt;Articles&gt;
+ &lt;item&gt;
+ &lt;Title&gt;&lt;![CDATA[title1]]&gt;&lt;/Title&gt; 
+ &lt;Description&gt;&lt;![CDATA[description1]]&gt;&lt;/Description&gt;
+ &lt;PicUrl&gt;&lt;![CDATA[picurl]]&gt;&lt;/PicUrl&gt;
+ &lt;Url&gt;&lt;![CDATA[url]]&gt;&lt;/Url&gt;
+ &lt;/item&gt;
+ &lt;item&gt;
+ &lt;Title&gt;&lt;![CDATA[title]]&gt;&lt;/Title&gt;
+ &lt;Description&gt;&lt;![CDATA[description]]&gt;&lt;/Description&gt;
+ &lt;PicUrl&gt;&lt;![CDATA[picurl]]&gt;&lt;/PicUrl&gt;
+ &lt;Url&gt;&lt;![CDATA[url]]&gt;&lt;/Url&gt;
+ &lt;/item&gt;
+ &lt;/Articles&gt;
+ &lt;FuncFlag&gt;1&lt;/FuncFlag&gt;
+ &lt;/xml&gt; 
+</PRE>
+<TABLE border=1 cellSpacing=0 cellPadding=4 align=center>
+  <TBODY>
+  <TR>
+    <TH style="WIDTH: 180px">参数 </TH>
+    <TH style="WIDTH: 470px">描述 </TH></TR>
+  <TR>
+    <TD>ToUserName </TD>
+    <TD>接收方帐号（收到的OpenID） </TD></TR>
+  <TR>
+    <TD>FromUserName </TD>
+    <TD>开发者微信号 </TD></TR>
+  <TR>
+    <TD>CreateTime </TD>
+    <TD>消息创建时间 </TD></TR>
+  <TR>
+    <TD>MsgType </TD>
+    <TD>news </TD></TR>
+  <TR>
+    <TD>ArticleCount </TD>
+    <TD>图文消息个数，限制为10条以内 </TD></TR>
+  <TR>
+    <TD>Articles </TD>
+    <TD>多条图文消息信息，默认第一个item为大图 </TD></TR>
+  <TR>
+    <TD>Title </TD>
+    <TD>图文消息标题 </TD></TR>
+  <TR>
+    <TD>Description </TD>
+    <TD>图文消息描述 </TD></TR>
+  <TR>
+    <TD>PicUrl </TD>
+    <TD>图片链接，支持JPG、PNG格式，较好的效果为大图640*320，小图80*80，限制图片链接的域名需要与开发者填写的基本资料中的Url一致 
+    </TD></TR>
+  <TR>
+    <TD>Url </TD>
+    <TD>点击图文消息跳转链接 </TD></TR></TBODY></TABLE>
+<P><BR></P>
+<H2><SPAN id=.E6.B3.A8.E6.84.8F.E4.BA.8B.E9.A1.B9 
+class=mw-headline><B>注意事项</B></SPAN></H2>
+<P>1.用户OpenID对一个公众号是固定唯一的串 </P>
+<P>2.请使用80端口 </P>
+<H2><SPAN id=.E7.A4.BA.E4.BE.8B.E4.BB.A3.E7.A0.81 
+class=mw-headline><B>示例代码</B></SPAN></H2>
+<P>PHP：<A class="external text" 
+href="http://mp.weixin.qq.com/mpres/htmledition/res/wx_sample.zip" 
+rel=nofollow>下载</A> </P><!-- 
+NewPP limit report
+Preprocessor node count: 58/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+--><!-- Saved in parser cache with key doc_wiki-wx:pcache:idhash:7-0!*!0!!zh-cn!2!edit=0 and timestamp 20130322092116 -->
+<DIV class=printfooter>取自“<A 
+href="http://mp.weixin.qq.com/wiki/index.php?title=%E6%B6%88%E6%81%AF%E6%8E%A5%E5%8F%A3%E6%8C%87%E5%8D%97">http://mp.weixin.qq.com/wiki/index.php?title=%E6%B6%88%E6%81%AF%E6%8E%A5%E5%8F%A3%E6%8C%87%E5%8D%97</A>”</DIV><!-- /bodytext --><!-- catlinks -->
+<DIV id=catlinks class="catlinks catlinks-allhidden"></DIV><!-- /catlinks -->
+<DIV class=visualClear></DIV></DIV><!-- /bodyContent --></DIV><!-- /content --><!-- panel -->
+<DIV id=mw-panel class=noprint><!-- logo -->
+<DIV id=p-logo><A 
+style="BACKGROUND-IMAGE: url(/wiki/skins/common/images/logo.jpg)" title=访问首页 
+href="http://mp.weixin.qq.com/wiki/index.php?title=%E9%A6%96%E9%A1%B5"></A></DIV><!-- /logo -->
+<FORM class=searchform><INPUT accessKey=s class=searchform_text type=text 
+name=search placeholder="搜索关键字 [alt-s]"> <INPUT class=searchform_btn title=搜索该文字的页面 value=搜索 type=submit name=fulltext> 
+</FORM><!-- 消息接口 -->
+<DIV id=p-.E6.B6.88.E6.81.AF.E6.8E.A5.E5.8F.A3 class=portal>
+<H5><SPAN class=portal_arrow></SPAN>消息接口</H5>
+<DIV class=body>
+<UL>
+  <LI id=n-.E6.B6.88.E6.81.AF.E6.8E.A5.E5.8F.A3.E6.8C.87.E5.8D.97><A 
+  href="http://mp.weixin.qq.com/wiki/index.php?title=%E6%B6%88%E6%81%AF%E6%8E%A5%E5%8F%A3%E6%8C%87%E5%8D%97">消息接口指南</A></LI></UL></DIV></DIV><!-- /消息接口 --><!-- 通用接口 -->
+<DIV id=p-.E9.80.9A.E7.94.A8.E6.8E.A5.E5.8F.A3 class=portal>
+<H5><SPAN class=portal_arrow></SPAN>通用接口</H5>
+<DIV class=body>
+<UL>
+  <LI id=n-.E6.8E.A5.E5.8F.A3.E6.96.87.E6.A1.A3><A 
+  href="http://mp.weixin.qq.com/wiki/index.php?title=%E9%80%9A%E7%94%A8%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3">接口文档</A></LI></UL></DIV></DIV><!-- /通用接口 --><!-- 自定义菜单接口 -->
+<DIV id=p-.E8.87.AA.E5.AE.9A.E4.B9.89.E8.8F.9C.E5.8D.95.E6.8E.A5.E5.8F.A3 
+class=portal>
+<H5><SPAN class=portal_arrow></SPAN>自定义菜单接口</H5>
+<DIV class=body>
+<UL>
+  <LI id=n-.E6.8E.A5.E5.8F.A3.E6.96.87.E6.A1.A3><A 
+  href="http://mp.weixin.qq.com/wiki/index.php?title=%E8%87%AA%E5%AE%9A%E4%B9%89%E8%8F%9C%E5%8D%95%E6%8E%A5%E5%8F%A3">接口文档</A></LI></UL></DIV></DIV><!-- /自定义菜单接口 --><!-- 使用限制 -->
+<DIV id=p-.E4.BD.BF.E7.94.A8.E9.99.90.E5.88.B6 class=portal>
+<H5><SPAN class=portal_arrow></SPAN>使用限制</H5>
+<DIV class=body>
+<UL>
+  <LI id=n-.E6.8E.A5.E5.8F.A3.E6.9D.83.E9.99.90><A 
+  href="http://mp.weixin.qq.com/wiki/index.php?title=%E6%8E%A5%E5%8F%A3%E6%9D%83%E9%99%90">接口权限</A></LI></UL></DIV></DIV><!-- /使用限制 --><!-- 返回码说明 -->
+<DIV id=p-.E8.BF.94.E5.9B.9E.E7.A0.81.E8.AF.B4.E6.98.8E class=portal>
+<H5><SPAN class=portal_arrow></SPAN>返回码说明</H5>
+<DIV class=body>
+<UL>
+  <LI id=n-.E8.BF.94.E5.9B.9E.E7.A0.81.E8.AF.B4.E6.98.8E><A 
+  href="http://mp.weixin.qq.com/wiki/index.php?title=%E8%BF%94%E5%9B%9E%E7%A0%81%E8%AF%B4%E6%98%8E">返回码说明</A></LI></UL></DIV></DIV><!-- /返回码说明 --><!-- SEARCH --><!-- /SEARCH --><!-- TOOLBOX --><!-- /TOOLBOX --><!-- LANGUAGES --><!-- /LANGUAGES --></DIV><!-- /panel --></DIV><!-- footer -->
+<DIV id=footer>
+<UL id=footer-places>
+  <LI id=footer-about><A href="http://www.tencent.com/zh-cn/index.shtml" 
+  target=_blank>关于腾讯</A>&nbsp;|&nbsp; </LI>
+  <LI id=footer-policy><A 
+  href="http://mp.weixin.qq.com/cgi-bin/readtemplate?t=wxm-agreement&amp;type=info&amp;lang=zh_CN" 
+  target=_blank>服务协议</A>&nbsp;|&nbsp;</LI>
+  <LI id=footer-contactus><A href="http://kf.qq.com/special_auto/weixin.html" 
+  target=_blank>客服中心</A></LI></UL>
+<UL id=footer-icons class=noprint>
+  <LI id=footer-poweredbyico><A href="http://www.mediawiki.org/"><IMG 
+  alt="Powered by MediaWiki" 
+  src="消息接口指南%20-%20开放平台_files/poweredby_mediawiki_88x31.png" width=88 
+  height=31></A> </LI></UL>
+<DIV style="CLEAR: both">Copyright&nbsp;© 2012-2013 Tencent. All Rights 
+Reserved.</DIV></DIV><!-- /footer -->
+<SCRIPT src="消息接口指南%20-%20开放平台_files/load.php"></SCRIPT>
+
+<SCRIPT>if ( window.mediaWiki ) {
+	mediaWiki.config.set({"wgCanonicalNamespace": "", "wgCanonicalSpecialPageName": false, "wgNamespaceNumber": 0, "wgPageName": "消息接口指南", "wgTitle": "消息接口指南", "wgAction": "view", "wgArticleId": 7, "wgIsArticle": true, "wgUserName": null, "wgUserGroups": ["*"], "wgCurRevisionId": 260, "wgCategories": [], "wgBreakFrames": false, "wgRestrictionEdit": [], "wgRestrictionMove": []});
+}
+</SCRIPT>
+
+<SCRIPT>if ( window.mediaWiki ) {
+	mediaWiki.loader.load(["mediawiki.util", "mediawiki.legacy.wikibits", "mediawiki.legacy.ajax"]);
+	mediaWiki.loader.go();
+}
+</SCRIPT>
+
+<SCRIPT>if ( window.mediaWiki ) {
+	mediaWiki.user.options.set({"ccmeonemails":0,"cols":80,"contextchars":50,"contextlines":5,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":1,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"highlightbroken":1,"imagesize":2,"justify":0,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"quickbar":1,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":0,"showjumplinks":1,"shownumberswatching":1,"showtoc":1,"showtoolbar":1,"skin":"vector","stubthreshold":0,"thumbsize":2,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":0,"watchdefault":0,"watchdeletion":0,
+	"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"variant":"zh-cn","language":"zh-cn","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false});;mediaWiki.loader.state({"user.options":"ready"});
+}
+</SCRIPT>
+<!-- fixalpha -->
+<SCRIPT type=text/javascript> if ( window.isMSIE55 ) fixalpha(); </SCRIPT>
+<!-- /fixalpha --><!-- Served in 0.118 secs. --></BODY></HTML>

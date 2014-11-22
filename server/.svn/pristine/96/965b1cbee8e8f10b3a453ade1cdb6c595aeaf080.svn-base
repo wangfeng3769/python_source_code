@@ -1,0 +1,36 @@
+<!-- $Id: agency_info.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+{include file="pageheader.htm"}
+{insert_scripts files="../js/transport.js,../js/region.js"}
+<script type="text/JavaScript" src="../js/formcheck.js"></script>
+<div class="main-div">
+<form method="post" action="cancel_orderform.php" name="theForm" enctype="multipart/form-data" onSubmit="return Validator.Validate(this,2)">
+<table cellspacing="1" cellpadding="3" width="100%" >
+	<tr>
+    <td class="label">{$lang.credit_card_BANK}</td>
+    <td>提前
+      <input name="time" dataType="Number" msg="押金调整金额只允许数字" value="{$list[0].value}" size="12 maxlength="60 />  
+     	 小时以内，取消订单，收取订单时间租金的
+      <input dataType="Range" min="-100" max="100"  msg="数值在{-100,100}之间" name="value" size="10 maxlength="60" value="{$list[1].value}"/>%
+      	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+    <td>
+    </td>
+  </tr>
+
+</table>
+<table align="">
+  <tr>
+    <td colspan="2" align="center"><input type="submit" class="button" value="{$lang.button_submit}"/>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="hidden" name="act" value="{$form_action}" />
+      <input type="hidden" name="id" value="{$credit_card.id}" />
+    </td>
+  </tr>
+</table>
+</form>
+</div>
+{insert_scripts files="../js/utils.js"}
+{literal}
+
+{/literal}
+{include file="pagefooter.htm"}

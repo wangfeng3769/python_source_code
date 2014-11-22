@@ -1,0 +1,51 @@
+<!-- $Id: brand_info.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+{include file="pageheader.htm"}
+<script type="text/JavaScript" src="../js/formcheck.js"></script>
+
+<div class="main-div">
+<form method="post" action="" name="theForm" enctype="multipart/form-data" onSubmit="return Validator.Validate(this,2)">
+<table cellspacing="1" cellpadding="3" width="100%">
+  
+  <tr>
+    <td class="label">会员组</td>
+    <td><select name="group_id" dataType="Require" msg="所有">
+			{foreach from=$group item='s'}
+			<option value="{$s.user_group_id}" {if $brand.group_id eq $s.user_group_id}selected{/if}>{$s.title}</option>
+			{/foreach}
+		</select></td>
+  </tr>
+  
+  <tr>
+    <td class="label">时间租金/押金折扣</td>
+    <td><input   name="discount"  dataType="Range" min="0" max="1000"  msg="数值在{0,1000}之间" value="{$brand.discount}">%</td>
+	
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><br />
+      <input type="submit" class="button" value="{$lang.button_submit}" />
+      <input type="reset" class="button" value="{$lang.button_reset}" />
+      <input type="hidden" name="act" value="{$form_action}" />
+      <input type="hidden" name="id" value="{$brand.id}" />
+    </td>
+  </tr>
+</table>
+</form>
+</div>
+{insert_scripts files="../js/utils.js"}
+{literal}
+<script language="JavaScript">
+<!--
+
+onload = function()
+{
+    // 开始检查订单
+    startCheckOrder();
+}
+/**
+ * 检查表单输入的数据
+ */
+
+//-->
+</script>
+{/literal}
+{include file="pagefooter.htm"}

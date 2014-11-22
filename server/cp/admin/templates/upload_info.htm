@@ -1,0 +1,103 @@
+<!-- $Id: bonus_type_info.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+
+<script type="text/javascript" src="../js/calendar.php?lang={$cfg_lang}"></script>
+<link href="../js/calendar/calendar.css" rel="stylesheet" type="text/css" />
+
+{include file="pageheader.htm"}
+<div class="main-div">
+<form action="bonus.php" method="post" name="theForm" enctype="multipart/form-data" onsubmit="return validate()">
+<table width="100%">
+  <tr>
+    <td class="label">{$lang.type_name}</td>
+    <td>
+      <input type='text' name='type_name' maxlength="30" value="{$bonus_arr.type_name}" size='20' />    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <a href="javascript:showNotice('Type_money_a');" title="{$lang.form_notice}">
+      <img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}"></a>{$lang.type_money}</td>
+    <td>
+    <input type="text" name="type_money" value="{$bonus_arr.type_money}" size="20" />
+    <br /><span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="Type_money_a">{$lang.type_money_notic}</span>    </td>
+  </tr>
+  
+  
+   <tr>
+    <td class="label">
+      <a title="上传红包icon">上传红包icon
+     </a></td>
+    <td>
+      <input name="icon" type="file"  size="20" />
+      <br /><span class="notice-span"> 上传该红包显示的图片</span>    </td>
+  </tr>
+  <tr id="1" style="display:none">
+    <td class="label">
+      <a href="javascript:showNotice('Order_money_a');" title="{$lang.form_notice}">
+      <img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}"></a>{$lang.min_amount}</td>
+    <td>
+      <input name="min_amount" type="text" id="min_amount" value="{$bonus_arr.min_amount}" size="20" />
+      <br /><span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="Order_money_a">{$lang.order_money_notic}</span>    </td>
+  </tr>
+  
+  
+  <tr>
+    <td class="label">&nbsp;</td>
+    <td>
+      <input type="submit" value="{$lang.button_submit}" class="button" />
+      <input type="reset" value="{$lang.button_reset}" class="button" />
+      <input type="hidden" name="act" value="{$form_act}" />
+      <input type="hidden" name="type_id" value="{$bonus_arr.type_id}" />    </td>
+  </tr>
+</table>
+</form>
+</div>
+{insert_scripts files="../js/utils.js,validator.js"}
+{literal}
+<script language="javascript">
+<!--
+document.forms['theForm'].elements['type_name'].focus();
+/**
+ * 检查表单输入的数据
+ */
+function validate()
+{
+
+  return true;
+}
+onload = function()
+{
+  {/literal}
+  get_value = '{$bonus_arr.send_type}';
+  {literal}
+
+  showunit(get_value)
+  // 开始检查订单
+  startCheckOrder();
+}
+/* 红包类型按订单金额发放时才填写 */
+function gObj(obj)
+{
+  var theObj;
+  if (document.getElementById)
+  {
+    if (typeof obj=="string") {
+      return document.getElementById(obj);
+    } else {
+      return obj.style;
+    }
+  }
+  return null;
+}
+
+function showunit(get_value)
+{
+  gObj("1").style.display =  (get_value == 2) ? "" : "none";
+  document.forms['theForm'].elements['selbtn1'].disabled  = (get_value != 1 && get_value != 2);
+  document.forms['theForm'].elements['selbtn2'].disabled  = (get_value != 1 && get_value != 2);
+
+  return;
+}
+//-->
+</script>
+{/literal}
+{include file="pagefooter.htm"}

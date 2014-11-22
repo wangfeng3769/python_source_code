@@ -1,0 +1,111 @@
+<!-- $Id: category_list.htm 17019 2010-01-29 10:10:34Z liuhui $ -->
+{if $full_page}
+{include file="pageheader.htm"}
+{insert_scripts files="../js/utils.js,listtable.js"}
+<script type="text/JavaScript" src="../js/formcheck.js"></script>
+<script type="text/javascript">
+	var mile=0;
+	function accountGene(t)
+	{
+		var factorCount = 0;
+		var j=0;
+		var mile=0;
+		for( var i = 1; i <= t; ++ i )
+		{
+			var start = document.getElementById( 'start' + i ).innerHTML;
+			var end = document.getElementById( 'end' + i ).innerHTML;
+			var mile = document.getElementById( 'mile' + i ).value;
+			
+				var fator=calculateFactor( start , end ,mile);
+				if(mile > 0 && fator != 0 )
+				{
+				
+					factorCount  +=  fator;
+					++j;
+				}
+			
+			
+		}
+			if ( j == 0 )
+			{
+				var r = 0; 
+			}
+			else
+			{
+				if(!isNaN(factorCount))
+				{
+					var r = Math.ceil(parseInt(factorCount/j));
+				}else{
+					var r = 0;
+				}
+			}
+			document.getElementById("mile_factor").innerHTML = r;	
+			document.getElementById("gene").value = r;
+		factorCount = 0;
+		j=0;
+			
+	}
+		if( mile !=0 )
+		{
+			function calculateFactor( start , end , mile )
+			{
+				var gene;
+				start=parseInt(start);
+				end=parseInt(end);
+				if( start > end)
+				{
+					gene = (end + 99999999 - start)/mile;
+				}
+				else
+				{
+					gene = (end - start)/mile;
+				}
+				return gene;
+			}
+		}
+		else
+		{
+			var	factorCount = 0;
+		}
+</script>
+
+
+<!-- start ad position list -->
+<div class="list-div" id="listDiv">
+{/if}
+<form action="car.php?act=gene&id={$id}" method="post" name="theForm" enctype="multipart/form-data" onSubmit="return Validator.Validate(this,2)">
+<table width="100%" cellspacing="1"  cellpadding="2" id="list-table" align= "center">
+  <tr>
+	<th>序号</th>
+    <th>起始脉冲</th>
+    <th>结束脉冲</th>
+    <th>公里数</th>
+    
+  </tr>
+  {foreach from=$car_order_info item=gene2 name=car}	
+  <tr align= "center">
+   
+	
+    <td width="10%">{$gene2.tid}</td>
+
+    <td width="10%" id="start{$gene2.tid}">{$gene2.start_mileage}</td>
+    <td width="10%" id="end{$gene2.tid}">{$gene2.end_mileage}</td>
+    <td width="10%"><input  require="ture" dataType="Compare" msg="公里数为正整数" to="0" operator="GreaterThanEqual" name="mileage" id="mile{$gene2.tid}"  onkeyup="accountGene({$smarty.foreach.car.total})"/></td>
+  </tr>
+  {/foreach}
+
+  
+</table>
+
+
+<p id="mileage_gene"><div align= "center"><b >当前里程因子：</b>{$mile_factor}</div>
+<div align= "center"><b>计算所得里程因子：</b><span id="mile_factor"></span> </div>
+<input type="hidden" name= "gene" id="gene" value=""/></p>
+<p align="center"><input  type="submit" value="确定"/ ></p>
+{if $full_page}
+</div>
+</form>
+
+{include file="pagefooter.htm"}
+{/if}
+

@@ -1,0 +1,109 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- $Id: brand_list.htm 15898 2009-05-04 07:25:41Z liuhui $ -->
+{if $full_page}
+{include file="pageheader.htm"}
+<script type="text/javascript" src="../js/calendar.php"></script>
+<link href="../js/calendar/calendar.css" rel="stylesheet" type="text/css" />
+{insert_scripts files="../js/utils.js,listtable.js"}
+<!-- 品牌搜索 -->
+<div>
+<form method="post" action="javascript:searchRecharge()" name="searchForm">
+ <!-- <img src="images/icon_search.gif" width="26" height="22" border="0" alt="SEARCH" /> -->
+      会员名称<input name="userName" type="text" id="userName" size="15"><br> 
+      手机号码<input name="phone" type="text" id="phone" size="15"><br> 
+      操作人名<input name="operator" type="text" id="operator" size="15"><br> 
+      充值原因<input name="reason" type="text" id="reason" size="34"><br>
+      
+
+      充值金额<input name="amount1" type="text" id="amount1" size="15">
+      至<input name="amount2" type="text" id="amount2" size="15"><br>
+      
+     充值时间<input type="text" name="start_time" maxlength="60" size="15" readonly="readonly" id="start_time_id" />
+      <input name="start_time_btn" type="button" id="start_time_btn" onclick="return showCalendar('start_time_id', '%Y-%m-%d %H:%M', '24', false, 'start_time_btn');" value="{$lang.btn_select}" class="button"/>
+      至     
+      <input type="text" name="end_time" maxlength="60" size="15" readonly="readonly" id="end_time_id" />
+      <input name="end_time_btn" type="button" id="end_time_btn" onclick="return showCalendar('end_time_id', '%Y-%m-%d %H:%M', '24', false, 'end_time_btn');" value="{$lang.btn_select}" class="button"/> <br>
+
+       <input type="submit" value="{$lang.button_search}" class="button" />
+
+
+
+
+  </form>
+</div>
+
+<form method="post" action="" name="Form">
+{$lang.all_status}
+<!-- start brand list -->
+<div class="list-div" id="listDiv">
+{/if}
+  <table cellpadding="3" cellspacing="1">
+    <tr>
+      <th>充值时间</th>
+      <th>会员姓名</th>
+      <th>会员手机号</th>
+      <th>操作人</th>
+      <th>充值金额(元)</th>
+      <th>充值原因</th>
+      <th>账户余额</th>
+
+    </tr>
+    {foreach from=$recharge item=brand}
+    <tr>
+      <td align="center">{$brand.recharge_time}</td>
+      <td align="center">{$brand.userName}</td>
+      <td align="center">{$brand.phone}</td>
+      <td align="center">{$brand.operator}</td>
+      <td align="center">{$brand.amount}</td>
+      <td align="center">{$brand.reason}</td>
+      <td align="center">{$brand.balance}</td>
+    </tr>
+    {/foreach}
+    <!-- 分页 开始 -->
+    <tr>
+      <td align="right" nowrap="true" colspan="6">
+      {include file="page.htm"}
+      </td>
+    </tr>
+    <!-- 分页 结束-->
+  </table>
+
+{if $full_page}
+<!-- end brand list -->
+</div>
+</form>
+
+<script type="text/javascript" language="javascript">
+  listTable.recordCount = {$record_count};
+  listTable.pageCount = {$page_count};
+
+  {foreach from=$filter item=item key=key}
+
+  listTable.filter.{$key} = '{$item}';
+  
+  {/foreach}
+
+  {literal}
+  function searchRecharge()
+  {
+    listTable.filter['userName'] = Utils.trim(document.forms['searchForm'].elements['userName'].value);
+    listTable.filter['phone'] = Utils.trim(document.forms['searchForm'].elements['phone'].value);
+    listTable.filter['operator'] = Utils.trim(document.forms['searchForm'].elements['operator'].value);
+    listTable.filter['reason'] = Utils.trim(document.forms['searchForm'].elements['reason'].value);
+
+    listTable.filter['amount1'] = Utils.trim(document.forms['searchForm'].elements['amount1'].value);
+    listTable.filter['amount2'] = Utils.trim(document.forms['searchForm'].elements['amount2'].value);
+
+    listTable.filter['start_time'] = Utils.trim(document.forms['searchForm'].elements['start_time'].value);
+    listTable.filter['end_time'] = Utils.trim(document.forms['searchForm'].elements['end_time'].value);
+    
+    listTable.filter['page'] = 1;
+    listTable.loadList();
+  }
+
+</script>
+
+{/literal}
+
+{include file="pagefooter.htm"}
+{/if}

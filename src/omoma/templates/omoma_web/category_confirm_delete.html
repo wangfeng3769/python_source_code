@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% comment %}
+category deletion confirmation template for omoma
+copyright 2011 sebastien maccagnoni-munch
+
+this file is part of omoma.
+
+omoma is free software: you can redistribute it and/or modify
+it under the terms of the gnu general public license as published by
+the free software foundation, version 3.
+
+omoma is distributed in the hope that it will be useful,
+but without any warranty; without even the implied warranty of
+merchantability or fitness for a particular purpose.  see the
+gnu general public license for more details.
+
+you should have received a copy of the gnu general public license
+along with omoma. if not, see <http://www.gnu.org/licenses/>.
+{% endcomment %}
+
+{% load i18n %}
+{% load omoma %}
+
+{% block title %}{% trans "delete category" %}{% endblock %}
+
+{% block content %}
+    {% contentbox _("delete category") %}
+        <p>{% trans "you are about to delete the following category and all its children:" %}</p>
+        <dl>
+            <dt>{% trans "name" %}</dt>
+            <dd>{{ category.name }}</dd>
+
+            <dt>{% trans "transactions" %}</dt>
+            <dd>{{ category.count_transactions }}</dd>
+
+            <dt>{% trans "children" %}</dt>
+            <dd>{% categorytree category %}</dd>
+        </dl>
+        <p>{% trans "this action cannot be undone." %}</p>
+        <form method="post">
+            {% csrf_token %}
+            <input type="submit" value="{% trans "yes, remove" %}" />
+            <a href="{% url categories %}">{% trans "cancel" %}</a>
+        </form>
+    {% endbox %}
+{% endblock content %}

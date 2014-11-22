@@ -1,0 +1,41 @@
+<!-- $Id: brand_info.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+{include file="pageheader.htm"}
+<script type="text/JavaScript" src="../js/formcheck.js"></script>
+<div class="main-div">
+<form method="post" action="" name="theForm" enctype="multipart/form-data" onSubmit="return Validator.Validate(this,2)">
+<table cellspacing="1" cellpadding="3" width="100%">
+  <tr>
+    <td class="label">每小时系统预估里程数</td>
+    <td><input dataType="Number" msg="每小时系统预估里程数只允许数字" name="hour_km" maxlength="60" value="{$hour_km}" />{$lang.require_field}</td>
+  </tr>
+  <tr>
+    <td class="label">每日系统预估里程数</td>
+    <td><input dataType="Number" msg="每日系统预估里程数只允许数字" name="day_km" maxlength="60" value="{$day_km}" />{$lang.require_field}</td>
+  </tr>
+ 
+
+  <tr>
+    <td colspan="2" align="center"><br />
+      <input type="submit" class="button" value="{$lang.button_submit}" />
+      <input type="reset" class="button" value="{$lang.button_reset}" />
+      <input type="hidden" name="act" value="config" />
+    </td>
+  </tr>
+</table>
+</form>
+</div>
+{insert_scripts files="../js/utils.js"}
+{literal}
+<script language="JavaScript">
+<!--
+onload = function()
+{
+    // 开始检查订单
+    startCheckOrder();
+}
+
+
+//-->
+</script>
+{/literal}
+{include file="pagefooter.htm"}

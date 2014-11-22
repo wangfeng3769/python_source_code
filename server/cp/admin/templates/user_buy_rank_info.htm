@@ -1,0 +1,64 @@
+<!-- $Id: user_rank_info.htm 15053 2008-10-25 03:07:46Z testyang $ -->
+{include file="pageheader.htm"}
+<script type="text/JavaScript" src="../js/formcheck.js"></script>
+
+<div class="main-div">
+<form action="user_buy_rank.php" method="post" name="theForm" onSubmit="return Validator.Validate(this,2)">
+<table width="100%">
+  <tr>
+    <td class="label">等级: </td>
+    <td><input type="text" name="id" value="{$rank.id}" maxlength="20" />{$lang.require_field}</td>
+  </tr>
+  <tr>
+    <td class="label">等级名称: </td>
+    <td><input dataType="Chinese" msg="奖章名称只允许中文" name="name" value="{$rank.name}" size="10" maxlength="20" /></td>
+  </tr>
+  <tr>
+    <td class="label">所需点数: </td>
+    <td><input dataType="Number" msg="所需点数只允许数字" name="point" value="{$rank.point}" size="10" maxlength="20" /></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+      <input type="hidden" name="act" value="{$form_action}" />
+      <input type="hidden" name="old_id" value="{$rank.id}" />
+      <input type="submit" value="{$lang.button_submit}" class="button" />
+      <input type="reset" value="{$lang.button_reset}" class="button" />
+    </td>
+  </tr>
+</table>
+</form>
+</div>
+{insert_scripts files="../js/utils.js"}
+{literal}
+<script language="JavaScript">
+<!--
+document.forms['theForm'].elements['id'].focus();
+
+onload = function()
+{
+  // 开始检查订单
+  
+}
+
+/**
+ * 检查表单输入的数据
+ */
+
+
+function doSpecial()
+{
+  if(document.forms['theForm'].elements['special_rank'].checked)
+  {
+      document.forms['theForm'].elements['max_points'].disabled = "true";
+      document.forms['theForm'].elements['min_points'].disabled = "true";
+  }
+  else
+  {
+      document.forms['theForm'].elements['max_points'].disabled = "";
+      document.forms['theForm'].elements['min_points'].disabled = "";
+  }
+}
+//-->
+</script>
+{/literal}
+{include file="pagefooter.htm"}

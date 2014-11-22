@@ -1,0 +1,29 @@
+{% comment %}
+home widgets template for omoma
+copyright 2011 sebastien maccagnoni-munch
+
+this file is part of omoma.
+
+omoma is free software: you can redistribute it and/or modify
+it under the terms of the gnu general public license as published by
+the free software foundation, version 3.
+
+omoma is distributed in the hope that it will be useful,
+but without any warranty; without even the implied warranty of
+merchantability or fitness for a particular purpose.  see the
+gnu general public license for more details.
+
+you should have received a copy of the gnu general public license
+along with omoma. if not, see <http://www.gnu.org/licenses/>.
+{% endcomment %}
+
+<table class="container">
+    <tr class="container">
+        <td class="left">
+            {% include "widgets/balance.html" %}
+        </td>
+        <td class="right">
+            {% include "widgets/creditors_and_debtors.html" %}
+        </td>
+    </tr>
+</table>

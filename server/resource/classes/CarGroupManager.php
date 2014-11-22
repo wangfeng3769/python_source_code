@@ -1,0 +1,83 @@
+<?php 
+/**
+* 
+*/
+class CarGroupManager
+{
+	
+	function __construct()
+	{
+
+	}
+
+	function getBanerCarIds($userId)
+	{
+		require_once (Frm::$ROOT_PATH . 'user/classes/UserManager.php');
+		$um = new UserManager();
+		$user=$um->getUser($userId);
+		$userGroupId=$user['user_group_id'];
+		//先选出用户组的特权车组,过滤掉用户的特权车组,并且过略掉没对应车辆群组的群组
+		$sql = " SELECT c2u.car_group FROM  edo_cp_car_group2user_group c2u
+				 WHERE c2u.user_group='$userGroupId' ";
+		$db = Frm::getInstance ()->getDb ();
+		$userCarGroup=array();
+		$ret = $db->getAll ( $sql );
+		foreach ($ret as $v) {
+			$userCarGroup[]=$v['car_group'];
+		}
+		unset($ret);
+
+		if (empty($userCarGroup)) {
+			$userCarGroupStr='(0)';
+
+		}
+		else
+		{
+			$userCarGroupStr='('.implode(',', $userCarGroup).')';	
+		}
+		
+
+		$sql = " SELECT DISTINCT c2u.car_group FROM  edo_cp_car_group2user_group c2u
+				 WHERE c2u.user_group<>'$userGroupId' AND c2u.car_group NOT IN $userCarGroupStr ";
+		$ret = $db->getAll ( $sql );
+
+		if (empty($ret)) {
+			return array();
+		}
+
+		$carGroupIds=array();
+		foreach ($ret as $v) {
+			$carGroupIds[]=$v['car_group'];
+		}
+
+		$strCarGroupIds=implode(',', $carGroupIds);
+		//modify by yangbei 增加车辆下线判断
+		// $sql =  " SELECT c.id FROM edo_cp_car c WHERE c.group IN ($strCarGroupIds);
+		$sql =  " SELECT c.id FROM edo_cp_car c WHERE c.group IN ($strCarGroupIds) AND c.delete_stat=0";
+		$ret=$db->getAll($sql);
+		$carIds=array();
+
+		foreach ($ret as $v) {
+			$carIds[]=$v['id'];
+		}
+
+
+		return $carIds;
+	}
+	//add by yangbei 增加车辆停运判断
+	public function isPausePermit($userId)
+	{
+		require_once (Frm::$ROOT_PATH . 'user/classes/UserManager.php');
+		$um = new UserManager();
+		$user=$um->getUser($userId);
+		$userGroupId=$user['user_group_id'];
+
+		$sql =  "SELECT group_id FROM edo_car_stop WHERE group_id=".$userGroupId;
+		$db = Frm::getInstance ()->getDb ();
+		$ret=$db->getOne($sql);
+		return $ret;
+	}
+	
+}
+
+ ?>

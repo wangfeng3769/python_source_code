@@ -1,0 +1,39 @@
+<!-- $Id: brand_list.htm 15898 2009-05-04 07:25:41Z liuhui $ -->
+
+{if $full_page}
+{include file="pageheader.htm"}
+{insert_scripts files="../js/utils.js,listtable.js"}
+<!-- 品牌搜索 -->
+{include file="brand_search.htm"}
+<form method="post" action="" name="listForm">
+<!-- start brand list -->
+<div class="list-div" id="listDiv">
+{/if}
+  <table cellpadding="3" cellspacing="1" align="center">
+    <tr>
+      <th>{$lang[vip_card_serial]}</th>
+      <th>{$lang[vip_card_group_number]}</th>
+      <th>{$lang[vip_card_number]}</th>
+      <th>{$lang[vip_card_type]}</th>
+      <th>错误原因</th>
+      
+      
+    </tr>
+    {foreach from=$brand_list item=brand}
+    <tr>
+      <td align="center">{$brand.serial}</td>
+      <td align="center">{$brand.group_number}</td>
+      <td align="center">{$brand.card_number}</td>
+      <td align="center">{$brand.card_type}</td>
+      <td align="center"><span style = "color:red;">{$brand.code}</span></td>
+    </tr>
+    {/foreach}
+
+  </table>
+
+{if $full_page}
+<!-- end brand list -->
+</div>
+
+{include file="pagefooter.htm"}
+{/if}

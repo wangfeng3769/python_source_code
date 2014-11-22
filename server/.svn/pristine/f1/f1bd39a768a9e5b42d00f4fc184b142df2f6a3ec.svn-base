@@ -1,0 +1,78 @@
+{include file="pageheader.htm"}
+{insert_scripts files="validator.js,../js/transport.js,../js/region.js"}
+<script type="text/JavaScript" src="../js/formcheck.js"></script>
+<div class="main-div">
+<form method="post" action="car.php" name="theForm" onSubmit="return Validator.Validate(this,2)">
+
+<table cellspacing="1" cellpadding="3" width="100%">
+<!-- <tr>
+	<th>投入运营时间</th>
+    <th>投入运营里程数</th>
+    <th>运营合同期</th>
+    <th>供应商代</th>
+</tr> -->
+<tr>
+	<td class="label">投入运营时间:</td>
+	<td> 
+		<input name="init_time" value="{$car.init_time}" dataType="Require" msg="投入运营时间不能为空"/> 
+	</td>
+<tr>
+	<td class="label">投入运营里程数:</td>
+	<td> 
+		<input name="init_mile" value="{$car.init_mile}" dataType="Require" msg="投入运营里程数不能为空"/> 
+	</td>
+</tr>
+<tr>
+	<td class="label">运营合同期:</td>
+	<td> 
+		<input name="compact_start" value="{$car.compact_start}" dataType="Require" msg="运营合同期不能为空"/>起始时间(0000-00-00,年-月-日) <br>
+		<input name="compact_end" value="{$car.compact_end}"/>结束时间(0000-00-00,年-月-日)
+	</td>
+</tr>
+<tr>
+	<td class="label">供应商代:</td>
+	<td> 
+		<input name="provider_code" value="{$car.provider_code}" dataType="Require" msg="供应商代不能为空"/> 
+	</td>
+</tr>
+</table>
+
+<table align="center">
+  <tr>
+    <td colspan="2" align="center">
+      <input type="submit" class="button" value="{$lang.button_submit}" />
+      <input type="reset" class="button" value="{$lang.button_reset}" />
+      <input type="hidden" name="act" value="{$form_action}" />
+      <input type="hidden" name="id" value="{$car_id}" />
+    </td>
+  </tr>
+</table>
+</form>
+</div>
+
+{literal}
+<script language="JavaScript">
+<!--
+// document.forms['theForm'].elements['car_group_name'].focus();
+
+// onload = function()
+// {
+//     // 开始检查订单
+//     startCheckOrder();
+// }
+/**
+ * 检查表单输入的数据
+ */
+// function submit_valide(){
+//   for(i=0;i<3;i++){
+//     var flag=0,
+//     if(document.sipe.menu[i].checked==true){
+//         flag=1;alert(document.sipe.menu[i].value);    
+//     }
+//     if(flag=1){return true;}else{return flalse;}
+//   }
+// }
+//-->
+</script>
+{/literal}
+{include file="pagefooter.htm"}

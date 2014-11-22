@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% comment %}
+automatic category assignment template for omoma
+copyright 2011 sebastien maccagnoni-munch
+
+this file is part of omoma.
+
+omoma is free software: you can redistribute it and/or modify
+it under the terms of the gnu general public license as published by
+the free software foundation, version 3.
+
+omoma is distributed in the hope that it will be useful,
+but without any warranty; without even the implied warranty of
+merchantability or fitness for a particular purpose.  see the
+gnu general public license for more details.
+
+you should have received a copy of the gnu general public license
+along with omoma. if not, see <http://www.gnu.org/licenses/>.
+{% endcomment %}
+
+{% load i18n %}
+{% load omoma %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+
+    {% contentbox title %}
+        <form method="post">
+            {% csrf_token %}
+            <table>
+                {{ form }}
+            </table>
+            {% if new %}
+                <input type="submit" value="{% trans "create" %}" />
+                <a href="{% url automaticrules %}">{% trans "cancel" %}</a>
+            {% else %}
+                <input type="submit" value="{% trans "modify" %}" />
+                <a href="{% url automaticrules %}">{% trans "back" %}</a>
+            {% endif %}
+        </form>
+
+    {% endbox %}
+
+{% endblock content %}

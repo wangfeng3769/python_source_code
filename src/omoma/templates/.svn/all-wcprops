@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/templates
+END
+attach_iou.html
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/templates/attach_iou.html
+END
+cleaning.html
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/templates/cleaning.html
+END
+choose_import_format.html
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/templates/choose_import_format.html
+END
+pending_ious.html
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/templates/pending_ious.html
+END
+skeleton.html
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/templates/skeleton.html
+END
+pagination.html
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/templates/pagination.html
+END
+automaticrules.html
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/templates/automaticrules.html
+END
+import_transactions.html
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/templates/import_transactions.html
+END
+500.html
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/templates/500.html
+END
+403.html
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/templates/403.html
+END
+404.html
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/templates/404.html
+END
+login.html
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/templates/login.html
+END
+sidebar.html
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/templates/sidebar.html
+END
+notifications.html
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/templates/notifications.html
+END
+base.html
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/templates/base.html
+END

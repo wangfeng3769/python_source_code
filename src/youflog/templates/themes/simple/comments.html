@@ -1,0 +1,46 @@
+{% load comment pagination%}
+<script type="text/javascript" src="/static/js/comment-reply.js"></script>
+{% get_comment_form for object as commentform %}
+	<h3 id="comments">{{entry.comments.count}} responses to "{{entry.title}}"</h3>
+
+	{% get_threaded_comment_list for object %}
+
+	{% if not entry.allow_comment %}
+		<p class="nocomments">comments are closed.</p>
+	{%endif%}
+
+
+{% if entry.allow_comment %}
+<div id="respond">
+<h3>leave a reply</h3>
+<div id="cancel-comment-reply">
+		<small><a rel="nofollow" id="cancel-comment-reply-link" href="#respond" style="display:none;">点击这里取消回复</a></small>
+	</div>
+<form action="/postcomment" method="post" id="commentform">
+	<p>{{commentform.author}}
+	<label for="author">name <b style='color:red'>*</b></label></p>
+	
+	<p>{{commentform.email}}
+	<label for="email">mail (will not be published) <b style='color:red'>*</b></label></p>
+	
+	<p>{{commentform.url}}
+	<label for="url">website</label></p>
+	<p><input id="safecode" type="text" name="safecode"/>
+	<label for="safecode">验证码 <b style='color:red'>*</b><img onclick="this.setattribute('src','/image_code')" src="/image_code" alt="checkcode"/></label>
+	</p>
+	<p>{% include "themes/default/smily.html" %}</p>
+	
+	<p><textarea name="content" id="comment" cols="100%" rows="10" tabindex="5"></textarea></p>
+	
+	{{ commentform.content_type }}
+	 {{ commentform.object_pk }}
+	 {{ commentform.parent_id }}
+	
+	<p>
+	<input name="submit" type="submit" id="submit" tabindex="7" value="submit comment" />
+	<input type="checkbox" name="mail_notify" style="width: auto;margin-left:10px;" checked="checked" tabindex="6"/>
+    <label for="mail_notify">有回复时邮件通知我</label>
+	</p>
+</form>
+</div>
+{%endif%}

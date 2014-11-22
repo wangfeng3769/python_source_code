@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% comment %}
+categories list template for omoma
+copyright 2011 sebastien maccagnoni-munch
+
+this file is part of omoma.
+
+omoma is free software: you can redistribute it and/or modify
+it under the terms of the gnu general public license as published by
+the free software foundation, version 3.
+
+omoma is distributed in the hope that it will be useful,
+but without any warranty; without even the implied warranty of
+merchantability or fitness for a particular purpose.  see the
+gnu general public license for more details.
+
+you should have received a copy of the gnu general public license
+along with omoma. if not, see <http://www.gnu.org/licenses/>.
+{% endcomment %}
+
+{% load i18n %}
+{% load omoma %}
+
+{% block title %}{% trans "categories" %}{% endblock %}
+
+{% block content %}
+    {% contentbox _("categories") %}
+        <a href="{% url new_category %}"><img src="/static/icon_add.png" class="icon" /> {% trans "add category" %}</a>
+        <table>
+            <tr class="header">
+                <th class="links"></th>
+                <th class="name">{% trans "name" %}</th>
+                <th class="nbtransactions">{% trans "transactions" %}</th>
+            </tr>
+
+            {% for c in category_list %}
+                <tr>
+                    <td class="links">
+                        <a href="{% url category cid=c.id %}">
+                            <img src="/static/icon_edit.png" class="icon" />
+                        </a>
+                        <a href="{% url delete_category cid=c.id %}">
+                            <img src="/static/icon_delete.png" class="icon" />
+                        </a>
+                    </td>
+                    <td class="name">{{ c }}</td>
+                    <td class="nbtransactions">{{ c.count_transactions }}</td>
+                </tr>
+            {% endfor %}
+
+        </table>
+    {% endbox %}
+{% endblock content %}

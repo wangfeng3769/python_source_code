@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% comment %}
+single transactions template for omoma
+copyright 2011 sebastien maccagnoni-munch
+
+this file is part of omoma.
+
+omoma is free software: you can redistribute it and/or modify
+it under the terms of the gnu general public license as published by
+the free software foundation, version 3.
+
+omoma is distributed in the hope that it will be useful,
+but without any warranty; without even the implied warranty of
+merchantability or fitness for a particular purpose.  see the
+gnu general public license for more details.
+
+you should have received a copy of the gnu general public license
+along with omoma. if not, see <http://www.gnu.org/licenses/>.
+{% endcomment %}
+
+{% load i18n %}
+{% load omoma %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+
+    {% contentbox title %}
+        <form method="post">
+            {% csrf_token %}
+            <table>
+                {{ form }}
+            </table>
+            {% if new %}
+                <input type="submit" value="{% trans "create" %}" />
+                <a href="{% if iid %}{% url iou iid=iid %}{% else %}{% if aid %}{% url transactions aid=aid %}{% else %}{% url transactions %}{% endif %}{% endif %}">{% trans "cancel" %}</a>
+            {% else %}
+                <input type="submit" value="{% trans "modify" %}" />
+                <a href="{% if aid %}{% url transactions aid=aid %}{% else %}{% url transactions %}{% endif %}">{% trans "back" %}</a>
+            {% endif %}
+        </form>
+
+    {% endbox %}
+
+    {% if not new %}
+
+        {% getiouslinkedtorecipienttransaction form.instance %}
+        {% if iouslinkedtorecipienttransaction %}
+            {% contentbox _('ious from other people') %}
+
+                <table>
+                    <tr class="header">
+                        <th class="links"></th>
+                        <th class="recipient">{% trans "recipient" %}</th>
+                        <th class="amount">{% trans "amount" %}</th>
+                        <th class="ioutype">{% trans "type of iou" %}</th>
+                        <th class="accepted">{% trans "accepted" %}</th>
+                    </tr>
+
+                    {% for i in iouslinkedtorecipienttransaction %}
+                        <tr>
+                            <td class="links">
+                                <a href="{% if aid %}{% url detach_iou_from_transaction aid=aid tid=form.instance.id iid=i.id %}{% else %}{% url detach_iou_from_transaction tid=form.instance.id iid=i.id %}{% endif %}">
+                                    <img src="/static/icon_delete.png" class="icon" />
+                                </a>
+                            </td>
+                            <td class="recipient">{{ i.owner }}</td>
+                            <td class="amount">{{ i.amount|money:i.transaction.account }}</td>
+                            <td class="ioutype">{{ i.recipienttype }}</td>
+                            <td class="accepted">{{ i.get_accepted_display|capfirst }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+
+            {% endbox %}
+        {% endif %}
+
+        {% getiousmatchingrecipienttransaction form.instance %}
+        {% if iousmatchingrecipienttransaction %}
+            {% contentbox _('pending ious') %}
+                <p>{% trans "the following pending ious could match this transaction:" %}</p>
+
+                <table>
+                    <tr class="header">
+                        <th class="links"></th>
+                        <th class="from">{% trans "from" %}</th>
+                        <th class="date">{% trans "date" %}</th>
+                        <th class="ioutype">{% trans "type" %}</th>
+                    </tr>
+                    {% for i in iousmatchingrecipienttransaction %}
+                        <tr>
+                            <td class="links">
+                                <a href="{% if aid %}{% url attach_iou_to_transaction iou=i.id tid=form.instance.id aid=aid %}{% else %}{% url attach_iou_to_transaction iou=i.id tid=form.instance.id %}{% endif %}">
+                                    <img src="/static/icon_attach.png" class="icon" />
+                                </a>
+                            </td>
+                            <td class="from">{{ i.owner }}</td>
+                            <td class="date">{{ i.transaction.date|date:"short_date_format" }}</td>
+                            <td class="ioutype">{{ i.recipienttype }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+
+            {% endbox %}
+        {% endif %}
+
+    {% endif %}
+
+{% endblock content %}

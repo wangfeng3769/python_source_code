@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+{% comment %}
+ious list template for omoma
+copyright 2011 sebastien maccagnoni-munch
+
+this file is part of omoma.
+
+omoma is free software: you can redistribute it and/or modify
+it under the terms of the gnu general public license as published by
+the free software foundation, version 3.
+
+omoma is distributed in the hope that it will be useful,
+but without any warranty; without even the implied warranty of
+merchantability or fitness for a particular purpose.  see the
+gnu general public license for more details.
+
+you should have received a copy of the gnu general public license
+along with omoma. if not, see <http://www.gnu.org/licenses/>.
+{% endcomment %}
+
+{% load i18n %}
+{% load omoma %}
+
+{% block title %}{% trans "ious" %}{% endblock %}
+
+{% block content %}
+
+    {% include "widgets/creditors_and_debtors.html" %}
+
+    {% contentbox title %}
+
+        {% if iou_list %}
+
+            {% include "pagination.html" %}
+            <table>
+                <tr class="header">
+                    <th class="links"></th>
+                    <th class="description">{% trans "description" %}</th>
+                    {% if not recipient %}
+                        <th class="recipient">{% trans "recipient" %}</th>
+                    {% endif %}
+                    <th class="amount">{% trans "amount" %}</th>
+                    <th class="date">{% trans "date" %}</th>
+                    <th class="ioutype">{% trans "type of iou" %}</th>
+                </tr>
+
+                {% for i in iou_list %}
+                    {% if i.recipient == request.user %}
+                        <tr>
+                            <td class="links">
+                                <a href="{% url reject_iou iid=i.id %}">
+                                    <img src="/static/icon_reject.png" class="icon" />
+                                </a>
+                            </td>
+                            <td class="description">{% if i.money_transaction and i.recipient_transaction %}{{ i.recipient_transaction.description }}{% else %}{{ i.transaction.description }}{% endif %}</td>
+                            {% if not recipient %}
+                                <td class="recipient">{{ i.owner.username }}</td>
+                            {% endif %}
+                            <td class="amount">{{ i.amount|money:i.transaction.account }}</td>
+                            <td class="date">{% if i.money_transaction and i.recipient_transaction %}{{ i.recipient_transaction.date|date:"short_date_format" }}{% else %}{{ i.transaction.date|date:"short_date_format" }}{% endif %}</td>
+                            <td class="ioutype">{{ i.recipienttype }}</td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td class="links">
+                                <a href="{% url iou iid=i.id %}">
+                                    <img src="/static/icon_edit.png" class="icon" />
+                                </a>
+                                <a href="{% url delete_iou iid=i.id %}">
+                                    <img src="/static/icon_delete.png" class="icon" />
+                                </a>
+                            </td>
+                            <td class="description">{{ i.transaction.description }}</td>
+                            {% if not recipient %}
+                                <td class="recipient">{{ i.recipient.username }}</td>
+                            {% endif %}
+                            <td class="amount">{{ i.amount|money:i.transaction.account }}</td>
+                            <td class="date">{{ i.transaction.date|date:"short_date_format" }}</td>
+                            <td class="ioutype">{{ i.ownertype }}</td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+
+            </table>
+            {% include "pagination.html" %}
+
+        {% else %}
+            <p>{% trans "there is no iou." %}</p>
+        {% endif %}
+
+    {% endbox %}
+
+    {% getotherpendingiouslist %}
+
+    {% if otherpendingiouslist %}
+        {% contentbox _("pending ious") %}
+
+            <p>{% trans "you are waiting for the following ious to be accepted:" %}</p>
+
+            <table>
+                <tr class="header">
+                    <th class="links"></th>
+                    <th class="description">{% trans "description" %}</th>
+                    <th class="recipient">{% trans "recipient" %}</th>
+                    <th class="amount">{% trans "amount" %}</th>
+                    <th class="date">{% trans "date" %}</th>
+                    <th class="ioutype">{% trans "type of iou" %}</th>
+                </tr>
+
+                {% for i in otherpendingiouslist %}
+
+                    <tr>
+                        <td class="links">
+                                <a href="{% url iou iid=i.id %}">
+                                    <img src="/static/icon_edit.png" class="icon" />
+                                </a>
+                                <a href="{% url delete_iou iid=i.id %}">
+                                    <img src="/static/icon_delete.png" class="icon" />
+                                </a>
+                        </td>
+                        <td class="description">{{ i.transaction.description }}</td>
+                        <td class="recipient">{{ i.recipient }}</td>
+                        <td class="amount">{{ i.amount|money:i.transaction.account }}</td>
+                        <td class="date">{{ i.transaction.date|date:"short_date_format" }}</td>
+                        <td class="ioutype">{{ i.ownertype }}</td>
+                    </tr>
+
+                {% endfor %}
+
+            </table>
+
+        {% endbox %}
+    {% endif %}
+
+{% endblock content %}

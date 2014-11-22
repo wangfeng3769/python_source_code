@@ -1,0 +1,683 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="keywords" content="乐影客" />
+<meta http-equiv="description" content="乐影客" />
+<title>影片信息</title>
+<link href="/static/web/css/css.css" rel="stylesheet" type="text/css" />
+<link href="/static/web/css/css_message.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<!--<iframe src="/lykweb/header" border="0" vspace="0" hspace="0" marginwidth="0" marginheight="0" framespacing="0" frameborder="0" scrolling="no" width="100%" height="110" ></iframe>-->
+{% include 'header.html' %}
+<div class="main_message pr">
+    <div class="hot_mes_left fl">
+        <h3 class="mes_mov_tle fl">{{movie.title}}</h3>
+        <div class="mes_total ">
+            {% if movie.score %}<span class="mes_num">{{movie.score}}</span><span class="mes_point ">分</span>{% endif %}
+        </div>
+        <div class="mes_mov_pic" >
+            {% if movie.poster_image_url %}
+            <img src="{{movie.poster_image_url}}" alt="{{movie.title}}" title="{{movie.title}}" />
+            {% else %}
+            <img src="http://115.182.92.236/m/movie_poster_default.jpg" alt="{{movie.title}}" title="{{movie.title}}" />
+            {% endif %}
+        </div>
+    </div>
+
+    {% if movie.sessionscount %}
+    <div class="hot_mes_right fl">
+    	<ul class="fl">
+            {% if movie.lastsession %}
+        	<li>
+            	<div class="hot_mes_right_ul_bg_future">
+                    <p class="hot_mes_right_blank_future fl">马上开演</p>
+                    <p class="hot_mes_right_title_future fl"><a href="/lykweb/cinema/info/{{movie.lastsession.cinema_id}}">{{movie.lastsession.cinema_name}}</a>&nbsp;&nbsp;&nbsp;&nbsp;{{movie.lastsession.showtime}}</p>
+                </div>
+            </li>
+            {% endif %}
+            {% if movie.cinema_mostsession %}
+            <li>
+            	<div class="hot_mes_right_ul_bg_future">
+                    <p class="hot_mes_right_blank_future fl">热门影院</p>
+                    <p class="hot_mes_right_title_future fl"><a href="/lykweb/cinema/info/{{movie.cinema_mostsession.id}}">{{movie.cinema_mostsession.name}}</a>&nbsp;&nbsp;&nbsp;&nbsp;{{movie.cinema_mostsession.num_filmsessions}}场</p>
+                </div>
+            </li>
+            {% endif %}
+            {% if movie.cinema_activity %}
+            <li>
+            	<div class="hot_mes_right_ul_bg_future">
+                    <p class="hot_mes_right_blank_future fl">官方活动</p>
+                    <p class="hot_mes_right_title_future fl"><a href="/lykweb/cinema/info/{{movie.cinema_activity.id}}">{{movie.cinema_activity.name}}</a></p>
+                	<!--<p class="hot_mes_right_type fl">{{movie.cinema_activity.activity_title}}</p>-->
+                </div>
+            </li>
+            {% endif %}
+            {% if movie.cinemacountByPark %}
+            <li>
+            	<div class="hot_mes_right_ul_bg_future">
+                    <p class="hot_mes_right_blank_future fl">免费停车</p>
+                    <p class="hot_mes_right_title_future fl"><a href="/lykweb/cinema/info/{{movie.cinemaByPark.id}}">{{movie.cinemaByPark.name}}</a></p>
+                    <!--<p class="hot_mes_right_type fl">{{movie.cinemacountByPark}}个影院可以免费停车</p>-->
+                </div>
+            </li>
+            {% endif %}
+            {% if movie.cinemacountBySeat %}
+            <li>
+            	<div class="hot_mes_right_ul_bg_future">
+                    <p class="hot_mes_right_blank_future fl">在线选座</p>
+                    <p class="hot_mes_right_title_future fl"><a href="/lykweb/cinema/info/{{movie.cinemaBySeat.id}}">{{movie.cinemaBySeat.name}}</a></p>
+                    <!--<p class="hot_mes_right_type fl">{{movie.cinemacountBySeat}}个影院可以在线实时选座</p>-->
+                </div>
+            </li>
+            {% endif %}
+            {% if movie.cinemacountBy3D %}
+            <li>
+                <div class="hot_mes_right_ul_bg_future">
+                    <p class="hot_mes_right_blank_future fl">3D/IMAX厅</p>
+                    <p class="hot_mes_right_title_future fl"><a href="/lykweb/cinema/info/{{movie.cinemaBy3D.id}}">{{movie.cinemaBy3D.name}}</a>&nbsp;&nbsp;&nbsp;&nbsp;等{{movie.cinemacountBy3D}}家影院</p>
+                </div>
+            </li>
+            {% endif %}
+        </ul>
+        <span class="movie_more pa">观影导航</span>
+    </div>
+    {% elif movie.newslist %}
+    <div class="hot_mes_right fl">
+        <ul class="fl">
+            {% for news in movie.newslist %}
+            <li>
+                {% if news.img_url %}
+                <div class="hot_mes_right_ul_bg">
+                    <div class="hot_mes_right_blank fl" ><img src="{{news.img_url}}" alt="" title="" align="top"  /></div>
+                    <div class="hot_mes_right_NewsBox_Pic fl">
+                        <p class="hot_mes_right_title "><a href="{{news.url}}" target="_blank">{{news.title}}</a></p>
+                        <p class="hot_mes_right_content">
+                            <a href="{{news.url}}" target="_blank">{{news.content}}</a>
+                        </p>
+                    </div>
+                </div>
+                {% else %}
+                <div class="hot_mes_right_ul_bg only_text">
+                    <div class="hot_mes_right_NewsBox_text">
+                        <p class="hot_mes_right_title2"><a href="{{news.url}}" target="_blank">{{news.title}}</a></p>
+                        <p class="hot_mes_right_content2">
+                            <a href="{{news.url}}" target="_blank">{{news.content}}</a>
+                        </p>
+                    </div>
+                </div>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+        <span class="movie_more pa"><a href="#">电影新闻</a></span>
+    </div>
+    {% endif %}
+</div>
+
+<div class="main_message2">
+    <div class="mes_left fl">
+        <div id="tab_box" class="tab_box">
+            <div id="tab_title" class="tab_title">
+                <ul>
+                    <li class="active">排场导航</li>
+                    <li>评分/影评</li>
+                    <li>电影介绍</li>
+                    <li>预告片</li>
+                    <li>剧照</li>
+                    <!--<li>电影周边</li>-->
+                </ul>
+            </div>
+            <div id="tab_content" class="tab_content">
+            	<div class="box" style="display:block;">
+                	<div class="viewing_nav">
+                        {% if movie.cinemascount %}
+                    	<p>{{city_name}}共<span>{{movie.cinemascount}}</span>家影院正在上映此片，今明两天共有<span>{{movie.sessionscount}}</span>场，还有<span>{{movie.sessionscountlast}}</span>场可观影</p>
+                        {% else %}
+                        <p style="text-align: left;padding: 16px 0px 16px 33px;">暂无排场信息</p>
+                        {% endif %}
+                        <div class="cinema_search_outer" >
+                        	<div id="release_time" class="release_time fl">
+                                <ul>
+                                    <li class="active">{{today}}</li>
+                                    <input id="Today" type="hidden" value="{{todaystr}}" />
+                                    <li>{{tomorrow}}</li>
+                                    <input id="Tomorrow" type="hidden" value="{{tomorrowstr}}" />
+                                </ul> 
+                            </div>
+
+                            <div class="cinema_search fl pr">
+                                <input id="search_city_list" class="search_city_list fl " type="button" value="全部城区"/>
+                                <span id="city_list_icon" class="city_list_icon fl"></span>
+                                <div class="cinema_search_input fl"><input id="cinema_search_input" type="text" name="ckeyword" value="影院索引" /></div>
+                                <span id="cinema_search_btn" class="cinema_search_btn fl"><input type="button" value=" "  /></span>
+                                <div id="area_list_up" class="area_list_up pa">
+                                    <ol id="area_list_up_ol">
+                                        <li class="active">全部城区</li>
+                                        {% if districts %}
+                                            {% for district in districts %}
+                                                <li>{{district.districtname}}</li>
+                                                <input type="hidden" name="areaid" value="{{district.districtid}}" />
+                                            {% endfor %}
+                                        {% endif %}
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="cinema_data pr" style="display:block;">
+                            <div class="box_title pr">影院选择</div><input id="cinema_result_btn" type="hidden" value=""/>
+                            <div id="cinema_select" class="cinema_select pa">
+                                <div id="cinema_select_box" class="pa">
+                                    {% if cinemalistByToday %}
+                                    <table id="cinema_select_table" class="cinema_select_table"  border="0" cellpadding="0" cellspacing="0">
+                                        <tbody>
+                                            {% for cinemaSelect in cinemalistByToday %}
+                                                <tr>
+                                                    <td class="cin_sel"><input class="CinemaChecked" type="checkbox" value="{{cinemaSelect.id}}" /></td>
+                                                    <td class="cin_name"><a href="/lykweb/cinema/info/{{cinemaSelect.id}}">{{cinemaSelect.name}}</a></td>
+                                                    <td class="cin_total">{{cinemaSelect.num_filmsessions}}场</td>
+                                                    <td class="cin_bank"><input class="AreaValue" type="hidden" value="{{cinemaSelect.districtname}}" /></td>
+                                                    {% if cinemaSelect.activitylist %}
+                                                    {% for activity in cinemaSelect.activitylist %}
+                                                        <td class="cin_type"><span class="type_span"><a href="/lykweb/activity/info/{{activity.id}}">{{activity.iconname}}</a></span></td>
+                                                    {% endfor %}
+                                                    {% endif %}
+                                                </tr>
+                                            {% endfor %}
+                                        </tbody>    
+                                    </table>
+                                    {% endif %}
+                                </div>    
+                          	</div>
+                            <div class="up_shadow_bg2 pa" style="left:0px; top:287px;"></div>
+                            
+                            <div id="cinema_select_bar_outer" class="cinema_select_bar_outer pr">
+                            	<div id="cinema_select_bar" class="cinema_select_bar pa"></div>
+                            </div>
+                            
+                            <div class="box_title pr" style="top:46px;">场次对比结果</div>
+                            <div class="table_outer_bg pr" >
+                                <table class="cinema_result_table" style="table-layout:fixed; border-bottom:#5b5b5b solid 1px;"  border="0" cellpadding="0" cellspacing="0">
+                                    <tbody>
+                                        <tr>
+                                            <th class="result_time">开演时间</th>
+                                            <th class="result_name">电影院</th>
+                                            <th class="result_bank1">影厅</th>
+                                            <th class="result_bank2">版本</th>
+                                            <th class="result_money">票价</th>
+                                            <!--<th class="result_type">优惠活动</th>-->
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div id="cinema_result" class="cinema_result pa">
+                                    <div id="cinema_result_box" class="cinema_result_box pa">
+                                        <!--<table id="cinema_result_table" class="cinema_result_table" style="table-layout:fixed;"  border="0" cellpadding="0" cellspacing="0">-->
+
+                                        <!--</table>-->
+                                    </div>
+                                </div>
+
+                                <div id="cinema_result_bar_outer" class="cinema_result_bar_outer pr">
+                                    <div id="cinema_result_bar" class="cinema_result_bar pa" style="display: none"></div>
+                                </div>
+                            </div>
+                            <div class="up_shadow_bg2 pa" style="left:0px; top:690px;"></div>
+                        </div>
+
+                        <div class="cinema_data pr">
+                            <div class="box_title pr">影院选择</div><input id="cinema_result_btn2" type="hidden" value=""/>
+                            <div id="cinema_select2" class="cinema_select pa">
+                                <div id="cinema_select_box2" class="pa">
+                                    {% if cinemalistByTomorrow %}
+                                    <table id="cinema_select_table2" class="cinema_select_table"  border="0" cellpadding="0" cellspacing="0">
+                                        <tbody>
+                                            {% for cinemaSelect in cinemalistByTomorrow %}
+                                            <tr>
+                                                <td class="cin_sel"><input class="CinemaChecked2" type="checkbox" value="{{cinemaSelect.id}}" /></td>
+                                                <td class="cin_name">{{cinemaSelect.name}}</td>
+                                                <td class="cin_total">{{cinemaSelect.num_filmsessions}}场</td>
+                                                <td class="cin_bank"><input class="AreaValue" type="hidden" value="{{cinemaSelect.districtname}}" /></td>
+                                                {% if cinemaSelect.activitylist %}
+                                                {% for iconname in cinemaSelect.activitylist %}
+                                                    <td class="cin_type"><span class="type_span">{{iconname}}</span></td>
+                                                {% endfor %}
+                                                {% endif %}
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="up_shadow_bg2 pa" style="left:0px; top:287px;"></div>
+
+                            <div id="cinema_select_bar_outer2" class="cinema_select_bar_outer pr">
+                                <div id="cinema_select_bar2" class="cinema_select_bar pa"></div>
+                            </div>
+
+                            <div class="box_title pr" style="top:46px;">场次对比结果</div>
+                            <div class="table_outer_bg pr">
+                                <table class="cinema_result_table" style="table-layout:fixed; border-bottom:#5b5b5b solid 1px;"  border="0" cellpadding="0" cellspacing="0">
+                                    <tbody>
+                                        <tr>
+                                            <th class="result_time">开演时间</th>
+                                            <th class="result_name">电影院</th>
+                                            <th class="result_bank1">影厅</th>
+                                            <th class="result_bank2">版本</th>
+                                            <th class="result_money">票价</th>
+                                            <!--<th class="result_type">优惠活动</th>-->
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div id="cinema_result2" class="cinema_result pa">
+                                    <div id="cinema_result_box2" class="cinema_result_box pa">
+                                        <!--<table id="cinema_result_table2" class="cinema_result_table" style="table-layout:fixed;"  border="0" cellpadding="0" cellspacing="0">-->
+
+                                        <!--</table>-->
+                                    </div>
+                            </div>
+
+                            <div id="cinema_result_bar_outer2" class="cinema_result_bar_outer pr">
+                                <div id="cinema_result_bar2" class="cinema_result_bar pa" style="display: none"></div>
+                            </div>
+                        </div>
+                        <div class="up_shadow_bg2 pa" style="left:0px; top:690px;"></div>
+                        </div>
+                    </div>
+                    <input id="MovieID" type="hidden" value="{{movie.id}}" />
+                </div>
+                <div class="box" style="display:none">
+                     <div class="movie_point">
+                         <div class="movie_main_total">
+                            <p class="movie_main_total_p">综合评分<span>{{movie.score}}</span><em>分</em></p>
+                            <p>*乐影客根据媒体评分和观众评分的加权算法，得出综合评分结论，仅供参考。</p>
+                         </div>
+                         <div class="movie_rating">
+                            <div class="movie_rating_title pr">影片评价<span class="pa">*影片评分来自各大权威媒体的专业观影团和用户的评分结果</span></div>
+                            <div class="movie_rating_content">
+                                {% if movie.movie_pro_scores %}
+                                <div class="professional_evaluation_content">
+                                    <div class="professional_evaluation_content_title">专业观影团</div>
+                                    <ul>
+                                    {% for movie_score in movie.movie_pro_scores %}
+                                        {% if forloop.counter == 1 or forloop.counter == 4 or forloop.counter == 7 %}
+                                        <li>
+                                        {% endif %}
+                                            <div class="professional_evaluation_bg">
+                                            <p class="rating_team_logo"><img src="{{movie_score.mediaicon}}" width="32" height="31" alt="" title="" /></p>
+                                            <p class="rating_team_name">{{movie_score.medianame}}<br/>（{{movie_score.scoresource}}）</p>
+                                            <p class="rating_team_point">{{movie_score.score}}分</p>
+                                            </div>
+                                        {% if forloop.counter == 3 or forloop.counter == 6 or forloop.counter == movie.movie_pro_scores_count %}
+                                        </li>
+                                        {% endif %}
+                                    {% endfor %}
+                                    </ul>
+                                </div>
+                                {% endif %}
+                                {% if movie.movie_user_scores %}
+                                <div class="user_evaluation_content">
+                                    <div class="user_evaluation_content_title">用户</div>
+                                    <ul>
+                                    {% for movie_score in movie.movie_user_scores %}
+                                        {% if forloop.counter == 1 or forloop.counter == 4 or forloop.counter == 7 %}
+                                        <li>
+                                        {% endif %}
+                                            <div class="professional_evaluation_bg">
+                                            <p class="rating_team_logo"><img src="{{movie_score.mediaicon}}" width="32" height="31" alt="" title="" /></p>
+                                            <p class="rating_team_name">{{movie_score.medianame}}<br/>（{{movie_score.scoresource}}）</p>
+                                            <p class="rating_team_point">{{movie_score.score}}分</p>
+                                            </div>
+                                        {% if forloop.counter == 3 or forloop.counter == 6 or forloop.counter == movie.movie_user_scores_count %}
+                                        </li>
+                                        {% endif %}
+                                    {% endfor %}
+                                    </ul>
+                                </div>
+                                {% endif %}
+                            </div>
+                            <div class="up_shadow_bg2" ></div>
+                         </div>
+                         <!--<div class="professional_appraise">-->
+                            <!--<div class="movie_rating_title">专业影评</div>-->
+                            <!--<div class="movie_rating_content" style=" width:589px; height:158px; padding:10px;">-->
+                                <!--&lt;!&ndash;<img src="/static/web/images/specialty_text_bg.png" width="611" height="196" />&ndash;&gt;-->
+                                <!--<div class="professional_appraise_pic fl">-->
+                                    <!--<p><img src="/static/web/images/professional_pic_logo.png" width="54" height="53" /></p>-->
+                                    <!--<p class="professional_appraise_pic_P">豆瓣网观影团</p>-->
+                                <!--</div>-->
+                                <!--<p class="professional_appraise_text fl">-->
+                                    <!--正如导演冯德伦在宣传时所说，《太极1》是在播种，等到做足功课之后，《太极2》就是猛龙过江了。此言并不浮夸，相对于第一集的着重剧情铺垫和风格建立，第二集就开始放开手脚娱乐观众了，不管是在打斗场面还是幽默制造上，都要比第一集更丰满，尤其是对节奏的把握，连贯流畅，没有多余的情感抒发。其实，第一集的时候，主创团队和观众都在互相试探，电影想要知道自己的气质是否受欢迎，而观众也在询问自己是否会爱上这种类型。在经过一轮的博弈之后，《太极2》恰好在观众尚未回过神的时候上映，再进行一次拉票和冲击，此后的武侠片便可大胆运用这种电影语言了。-->
+                                <!--</p>-->
+                           <!--</div>-->
+                         <!--</div>-->
+                         <!--<div class="up_shadow_bg2 " ></div>-->
+                        {% if movie.movie_cinecisms %}
+                         <div class="small_appraise">
+                            <div class="movie_rating_title">微影评</div>
+                            <div class="small_appraise_content">
+                                <ul id="small_appraise_content_ul">
+                                    {% for movie_cinecism in movie.movie_cinecisms %}
+                                        <li>
+                                            <div class="small_appraise_content_left fl">
+                                                {% if movie_cinecism.portrait_url %}
+                                                <p class="small_appraise_head"><img src="{{movie_cinecism.portrait_url}}" width="82" height="84" /></p>
+                                                {% else %}
+                                                <p class="small_appraise_head"><img src="/static/web/cinecism_pr.png" width="82" height="84" /></p>
+                                                {% endif %}
+                                                <p class="small_appraise_name">{{movie_cinecism.username}}</p>
+                                            </div>
+                                            <div class="small_appraise_content_right fl">
+                                                <div class="small_appraise_text">
+                                                    <p>{{movie_cinecism.content}}</p>
+                                                </div>
+                                                <p class="small_appraise_time">{{movie_cinecism.pubtime}}</p>
+                                            </div>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                                <div id="page" class="page"></div>
+                            </div>
+                            <div class="up_shadow_bg2" ></div>
+                         </div>
+                         {% endif %}
+                     </div>
+                </div>
+                <div class="box" style="display:none">
+                    <div class="box_mov_con">
+                        <div class="box_title" style="text-align:left; padding-left:10px; width:599px;">电影资料</div>
+                        <p class="introduction">
+                        {% if movie.directors %}
+                            导演： {{movie.directors}}<br/>
+                        {% endif %}
+                        {% if movie.actors %}
+                            主演： {{movie.actors}}<br/>
+                        {% endif %}
+                        {% if movie.filmtype %}
+                            类型： {{movie.filmtype}}<br/>
+                        {% endif %}
+                        {% if movie.pubdate %}
+                            上映日期： {{movie.pubdate}}<br/>
+                        {% endif %}
+                        {% if movie.mins %}
+                            片长： {{movie.mins}}<br/>
+                        {% endif %}
+                        {% if movie.certification %}
+                            分级： {{movie.certification}}<br/>
+                        {% endif %}
+                        {% if movie.language %}
+                            对白语言： {{movie.language}}<br/>
+                        {% endif %}
+                        </p>
+                        <div class="up_shadow_bg2" ></div>
+                        <div class="pr" style="height:374px;">
+                            <div class="box_title" style="text-align:left; padding-left:10px; width:599px;">剧情放送</div>
+                            <div id="plot" class="plot pa">
+                                <p id="plot_box" class="plot_box pa">
+                                    {{movie.plots}}
+                                </p>
+                            </div>
+                            <div id="cinema_result_bar_outer_plot" class="cinema_result_bar_outer pr">
+                                <div id="cinema_result_bar_plot" class="cinema_result_bar pa"></div>
+                            </div>
+                        </div>
+                        <div class="up_shadow_bg2" ></div>
+                    </div>
+                </div>
+                <div class="box" style="display:none">
+                    <div class="stills">
+                        <p style="padding-top:10px; text-align:left; font-size:14px; color:#62564c; font-weight:bold; padding-left:20px; border-bottom:#c9c5c1 solid 0px;">暂无预告片</p>
+                        {% if False and movie.movie_trailers %}
+                            <p>共<span>{{movie.movie_trailers_count}}</span>个预告片</p>
+                            <ul id="trailers_pic_ul">
+                            {% for trailer in movie.movie_trailers %}
+                                <!--<embed src="{{trailer.video_url}}"-->
+                                       <!--autostart="false" loop="true" width="180" height="124">-->
+                                <!--</embed>-->
+                                <li>
+                                    <a href="{{trailer.video_url}}"><img src="{{trailer.image_url}}" width="180" height="124" alt="" title="" /><p style="text-align: center;width: auto;border-bottom:none;height: 0px;padding-top: 0px;padding-right: 0px;color: #62564C;font-size: 14px;">{{forloop.counter}}</p></a>
+                                    <!--<p class="notice_text">日期:2012年08月01日</p>-->
+                                    <!--<p class="notice_text">片长:01分57秒</p>-->
+                                </li>
+                            {% endfor %}
+                            </ul>
+                            <div id="pageTrailer" class="page" style=" padding-bottom:0; border:0;"></div>
+                        {% endif %}
+                    </div>
+                    <div class="up_shadow_bg2" ></div>
+                </div>
+                <div class="box" style="display:none">
+                    <div class="stills">
+                        {% if movie.movie_stills %}
+                            <p>共<span>{{movie.movie_stills_count}}</span>个剧照</p>
+                            <ul id="stills_pic_ul">
+                                {% for still_image_url in movie.movie_stills %}
+                                    <li><img class="StillsPic" src="{{still_image_url}}" width="137" height="137" alt="" title="" /></li>
+                                {% endfor %}
+                            </ul>
+                            <div id="pagePic" class="page" style=" padding-bottom:0; border:0;"></div>
+                        {% endif %}
+                    </div>
+                    <div class="up_shadow_bg2" ></div>
+                </div>
+                <!--<div class="box" style="display:none">
+                    <div class="box_game_loading">
+                        <ul>
+                            <li>
+                                <div class="game_outer_box">
+                                <a href="#" target="_blank"><img src="/static/web/images/game1.jpg" width="180" height="124" alt="" title="" /></a>
+                                <p class="game_loading pr">
+                                    <span class="game_name">光晕游戏</span><span class="loading pa"><a href="#">下载</a></span>
+                                </p>
+                                <p class="game_text">闯过中级关卡赢2张电影票</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="game_outer_box">
+                                <a href="#" target="_blank"><img src="/static/web/images/game2.jpg" width="180" height="124" alt="" title="" /></a>
+                                <p class="game_loading pr">
+                                    <span class="game_name">致命游戏</span><span class="loading pa"><a href="#">下载</a></span>
+                                </p>
+                                <p class="game_text">闯过中级关卡赢2张电影票</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="game_outer_box">
+                                <a href="#" target="_blank"><img src="/static/web/images/game3.jpg" width="180" height="124" alt="" title="" /></a>
+                                <p class="game_loading pr">
+                                    <span class="game_name">BATMAN</span><span class="loading pa"><a href="#">下载</a></span>
+                                </p>
+                                <p class="game_text">闯过中级关卡赢2张电影票</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="game_outer_box">
+                                <a  href="#" target="_blank"><img src="/static/web/images/game4.jpg" width="180" height="124" alt="" title="" /></a>
+                                <p class="game_loading pr">
+                                    <span class="game_name">权利的游戏</span><span class="loading pa"><a href="#">下载</a></span>
+                                </p>
+                                <p class="game_text">闯过中级关卡赢2张电影票</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="game_outer_box">
+                                <a href="#" target="_blank"><img src="/static/web/images/game5.jpg" width="180" height="124" alt="" title="" /></a>
+                                <p class="game_loading pr">
+                                    <span class="game_name">心里游戏</span><span class="loading pa"><a href="#">下载</a></span>
+                                </p>
+                                <p class="game_text">闯过中级关卡赢2张电影票</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="game_outer_box">
+                                    <a href="#" target="_blank"><img src="/static/web/images/game6.jpg" width="180" height="124" alt="" title="" /></a>
+                                    <p class="game_loading pr">
+                                        <span class="game_name">饥饿游戏</span><span class="loading pa"><a href="#">下载</a></span>
+                                    </p>
+                                    <p class="game_text">闯过中级关卡赢2张电影票</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                <div class="up_shadow_bg2" ></div>
+                </div>-->
+            </div>
+        </div>
+    </div>
+    <div class="main_right fr">
+        {% if activitylist %}
+        <div class="right_title">
+            <p class="fl">全城共有<span class="right_title_text" >{{activitycount}}</span>个活动正在举行</p>
+            <p class="activity_more fr"><a href="/lykweb/activity/list">更多</a></p>
+        </div>
+        <div class="activity_content">
+            {% for activity in activitylist %}
+            {% if forloop.counter <= 3 %}
+            {% if activity.image_url %}
+            <div class="activity pr">
+                <p class="atv_P pa">活动<span class="activity_num pa">{{forloop.counter}}.</span></p>
+                <div class="activity_title">
+                    <span><a href="/lykweb/activity/info/{{activity.id}}">{{activity.title}}</a></span>
+                </div>
+                <div class="activity_pic fl">
+                    <a href="/lykweb/activity/info/{{activity.id}}"><img src="{{activity.image_url}}" width="306" height="188" alt="" title="" /></a>
+                </div>
+                <div class="activity_text_total fl">
+                    <p class="activity_text"><a href="/lykweb/activity/info/{{activity.id}}">{{activity.description}}</a></p>
+                    <div class="activity_time">
+                        <a href="/lykweb/activity/info/{{activity.id}}">
+                            &nbsp;&nbsp;活动时间：<br/>
+                            <span>{{activity.starttime}}至</span><br/>
+                            <span>{{activity.endtime}}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="activity_NoPic pr">
+                <p class="atv_P pa">活动<span class="activity_num pa">{{forloop.counter}}.</span></p>
+                <div class="activity_title">
+                    <span><a href="/lykweb/activity/info/{{activity.id}}">{{activity.title}}</a></span>
+                </div>
+                <p class="activity_NoPic_text">
+                    <a href="/lykweb/activity/info/{{activity.id}}">{{activity.description}}</a>
+                </p>
+                <div class="activity_NoPic_time">
+                    <a href="/lykweb/activity/info/{{activity.id}}">
+                        活动时间：<br/>
+                        <span>{{activity.starttime}}至{{activity.endtime}}</span>
+                    </a>
+                </div>
+            </div>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="mes_bottom">
+	<div class="hot_movie fl">
+        <div id="hot_movie_tle" class="hot_movie_tle pr">
+          热门影片
+          <span id="hot_movie_more_btn" class="pa"><a href="javascript:;">更多</a></span>
+        </div>
+        <ul>
+        	{% if hotlist %}
+                {% for movie in hotlist %}
+                    {% if forloop.counter <= 4 %}
+                        <li><a href="/lykweb/movie/info/{{movie.id}}"><img src="{{movie.poster_image_url}}" width="146" height="202" alt="{{movie.title}}" title="{{movie.title}}" /></a></li>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </ul>
+        
+        <ol>
+            {% if hotlist %}
+                {% for movie in hotlist %}
+                    {% if forloop.counter <= 4 %}
+                        <li><a href="/lykweb/movie/info/{{movie.id}}">《{{movie.title}}》</a></li>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </ol>
+    </div>
+    
+    <div class="hot_cinema fr">
+        <div class="mes_atv_title">
+            <p class="HotCinemaName fl">热门影院</p><p class="hot_cinema_more fr"><a href="/lykweb/cinema/list">更多</a></p>
+        </div>
+        <ul>
+            {% if hotcinemas %}
+                {% for cinema in hotcinemas %}
+                    <li><a href="/lykweb/cinema/info/{{cinema.id}}">{{forloop.counter}}.{{cinema.name}}</a></li>
+                {% endfor %}
+            {% endif %}
+        </ul>
+        <div class="hot_cinema_shadow_bg"></div>
+    </div>
+</div>
+
+<div id="hot_movie_Box">
+    <div class="hot_movie_header pr">
+        <div class="hot_movie_title">
+            <div class="hot_movie_pic fl"><h1><img src="/static/web/images/hot_movie_logo.jpg" width="292" height="59" alt="" title="" /></h1></div>
+            <div class="hot_movie_text fl">目前在<span>{{city_name}}</span>有<em>{{hotcount}}</em>部影片正在热映</div>
+            <span id="close" class="hot_movie_delete pa"></span>
+        </div>
+        <div id="hot_movie_tab_title" class="hot_movie_tab_title">
+            <ul>
+                <li class="active">正在热映</li>
+                <li>即将上映</li>
+            </ul>
+        </div>
+    </div>
+    <div class="pop_window_tab_box active">
+        <div id="hot_movie_content" class="hot_movie_content pa">
+            <div id="hot_movie_tab_box" class="hot_movie_tab_box">
+                <ul>
+                    {% if hotlist %}
+                    {% for hotmovie in hotlist %}
+                    <li><a href="/lykweb/movie/info/{{hotmovie.id}}">{% if hotmovie.score %}<em>{{hotmovie.score}}</em>{% endif %}<img src="{{hotmovie.poster_image_url}}" alt="" title="{{hotmovie.title}}" /><p class="HotMovieTitle">《{{hotmovie.title}}》</p><p class="HotMovieFieldNum">共{{hotmovie.sessionscount}}场</p></a></li>
+                    {% endfor %}
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+
+        <div id="define_scroll_bar_outer" class="define_scroll_bar_outer pr">
+            <div id="define_scroll_bar" class="define_scroll_bar"></div>
+        </div>
+    </div>
+
+    <div class="pop_window_tab_box">
+        <div id="hot_movie_content2" class="hot_movie_content pa">
+            <div id="hot_movie_tab_box2" class="hot_movie_tab_box">
+                <ul>
+                    {% if willlist %}
+                    {% for willmovie in willlist %}
+                    <li><a href="/lykweb/movie/info/{{willmovie.id}}">{% if willmovie.score %}<em>{{willmovie.score}}</em>{% endif %}<img src="{{willmovie.poster_image_url}}" alt="" title="{{willmovie.title}}" /><p class="HotMovieTitle">《{{willmovie.title}}》</p></a></li>
+                    {% endfor %}
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+
+        <div id="define_scroll_bar_outer2" class="define_scroll_bar_outer pr">
+            <div id="define_scroll_bar2" class="define_scroll_bar"></div>
+        </div>
+    </div>
+</div>
+<div id="mark_bg" style="display:none"></div>
+
+<!--<iframe src="/static/web/footer.html" border="0" vspace="0" hspace="0" marginwidth="0" marginheight="0" framespacing="0" frameborder="0" scrolling="no" width="100%" height="140" ></iframe>-->
+{% include 'footer.html' %}
+
+<script src="/static/web/js/base.js" type="text/javascript"></script>
+<script src="/static/web/js/common_movie.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!-- $Id: brand_info.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+{include file="pageheader.htm"}
+<script type="text/JavaScript" src="../js/formcheck.js"></script>
+<div class="main-div">
+<form method="post" action="" name="theForm" enctype="multipart/form-data" onSubmit="return Validator.Validate(this,2)">
+<table cellspacing="1" cellpadding="3" width="100%">
+  <tr>
+    <td class="label">会员类别</td>
+    <td>
+    <select name="user_type" dataType="Require" msg="所有">
+      <option value='0'>所有</option>
+    {foreach from=$user_type item='p'}
+      <option {if $p.id==$brand.user_type_id} selected {/if} value="{$p.id}" >{$p.name}</option>
+    {/foreach}
+  </select>
+  </td>
+  </tr>
+  
+  <tr id="discount" style="">
+    <td class="label">押金折扣(%)</td>
+    <td><input require="ture" dataType="Compare" msg="数值必须在0以上" to="0" operator="GreaterThanEqual" name="discount" value="{$brand.discount}">%</td>
+  </tr>
+  <tr>
+  <tr id="adjust_money" style="">
+    <td class="label">押金调整金额(元)</td>
+    <td><input dataType="Double" msg="押金调整金额只允许数字" name="adjust_money" value="{$brand.adjust_money}">元</td>
+  </tr>
+
+
+  
+  <tr>
+    <td colspan="2" align="center"><br />
+      <input type="submit" class="button" value="{$lang.button_submit}" />
+      <input type="reset" class="button" value="{$lang.button_reset}" />
+      <input type="hidden" name="act" value="{$form_action}" />
+      <input type="hidden" name="id" value="{$brand.id}" />
+    </td>
+  </tr>
+</table>
+</form>
+</div>
+{insert_scripts files="../js/utils.js"}
+{literal}
+<script language="JavaScript">
+<!--
+function selectRadio(e)
+{
+  // var f = document.getEelementByName()    0百分比, 1金额
+  var d = document.getElementById('discount');
+  var a = document.getElementById('adjust_money');
+
+  if (e.value==1)
+  {
+    a.style.display="";
+    d.style.display="none";
+  }
+  else
+  { 
+    a.style.display="none";
+    d.style.display="";
+  }
+}
+onload = function()
+{
+    // 开始检查订单
+    startCheckOrder();
+}
+/**
+ * 检查表单输入的数据
+ */
+
+//-->
+
+</script>
+{/literal}
+{include file="pagefooter.htm"}

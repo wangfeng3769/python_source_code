@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>登陆</title>
+<link href="css/index.css" rel="stylesheet" type="text/css" />
+<style>
+a{color:#4F4F4F;text-decoration:none;}
+
+.anniu-1:active{ background:url(img/bt-2.png) no-repeat; color:#3A434A;}
+.fanhui-bt:active{ background:url(img/fanhui-2.jpg) no-repeat; color:#DD5523;}
+.anniu-3:active{ background:url(img/bt2-2.jpg) no-repeat; color:#fff;}
+.anniu-4:active{ background:url(img/bt3-2.jpg) no-repeat; color:#fff;}
+
+
+.youce-bt-3:active{ background:url(img/yc-bt-3-2.jpg) no-repeat; color:#fff;}
+.fanye-1:active{ background:#F86834; color:#fff;}
+.tuichu:active{color:#F56833;}
+
+</style>
+</head>
+
+<body>
+<div class="shouye">
+<div class="shouye-title"><a href="#" class="fanhui-bt">返回</a><p class="title">确认预订</p></div>
+<div style="height:10px;"></div>
+<div class="tishi-2"><img src="img/tishi-pic.jpg"/><p class="tishi-txt">请确认以下信息后提交预订！</p></div>
+<div style="height:10px;"></div>
+<div class="shijianzhou" style="width:300px; height:255px;">
+<p style="height:15px;"></p>
+<p class="dingdan-xinxi" style="border-bottom:2px solid #ddd;">驾驶用户姓名：邬国轩</p>
+<p style="height:9px;"></p>
+<p class="dingdan-xinxi">取车时间：2013-5-16 9:30</p>
+<p style="height:5px;"></p>
+<p class="dingdan-xinxi">还车时间：2013-5-16 9:30</p>
+<p style="height:5px;"></p>
+<p class="dingdan-xinxi">车牌号：津MHF205</p>
+<p style="height:5px;"></p>
+<p class="dingdan-xinxi">用途：西郊竞标</p>
+<p style="width:300px; margin:0 auto;"><a href="#" class="anniu-4" style="margin-left:47px;">确定</a><a href="#" class="anniu-4" style="margin-left:10px;">取消</a></p>
+</div>
+<div style="height:25px;"></div>
+
+<div class="tishi" style="height:160px;"><p class="tishi-1"><img src="img/queren-pic.jpg"/></p></div>
+</div>
+
+</body>
+</html>

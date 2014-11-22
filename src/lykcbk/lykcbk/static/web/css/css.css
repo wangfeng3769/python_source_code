@@ -1,0 +1,380 @@
+@charset "utf-8";
+body,textarea,input,select,option{font-size:12px;color:#333;font-family:微软雅黑,Tahoma,Arial,sans-serif;}
+body,h1,h2,h3,h4,h5,h6,p,dl,dd,ul,ol,textarea,input,select,option,form{margin:0;padding:0;}
+th,td,ul,ol,textarea,input,select,option{padding:0}
+textarea{overflow:auto;resize:none}
+table{border-collapse:collapse}
+li{list-style:none}
+a img{border:none}
+a{text-decoration:none;outline: none;}
+a:active {star:expression(this.onFocus=this.blur());}
+:focus { outline:0; }
+
+.fl{float:left}
+.fr{float:right}
+.clears{zoom:1;}
+.clears:after{content:"";display:block;height:0;clear:both;visibility:hidden;}
+.img img{display:block}
+body{ background:url(../images/body_bg.gif) repeat; /*height:100%;*/width:100%;}
+html{height:100%;}
+.pa{position:absolute;}
+.pr{position:relative;}
+
+/*==========================头部样式==========================*/
+.header_outer{ width:100%; height:100px; background:url(../images/header_bg.png) repeat-x;}
+.header{ width:980px; height:73px; margin:0 auto; z-index:100; }
+.header .logo{ width:292px; height:73px;  }
+
+/*城市列表样式*/
+.city_list{ width:512px; margin-top:30px; text-align:center; vertical-align:middle; font-size:14px;  color:#c6c6c2;}
+.released_num{ font-size:20px;color:#e27838; vertical-align:middle; line-height:22px;}
+.set_up{ width:270px; height:46px; margin-top:24px; left:846px; top:4px; font-size:16px; text-align:center; color:#ebeae6; }
+.set_up a{ font-size:16px; color:#ebeae6; font-weight:normal;}
+.set_up a:link{ font-size:16px; color:#ebeae6; font-weight:normal;}
+.set_up a:visited{  font-size:16px;color:#ebeae6; font-weight:100;}
+
+/*登录后用户中心、退出样式*/
+.UserCenterListUp{ left:0; top:46px; width:125px; height:92px; z-index: 999;}
+.UserCenterListUp ul{ background:url(../images/UserCenterList_up_bg.png) no-repeat; width:123px; height:82px; padding-top:10px;}
+.UserCenterListUp ul li{ width:123px; height:28px; font-size:16px; color:#FFF; line-height:20px; cursor:pointer; padding-top: 8px;}
+.UserCenterListUp ul li a{font-size:16px; color:#FFF; }
+.UserCenterListUp ul li a:visited{font-size:16px; color:#FFF; }
+.ListUp_icon{ background:url(../images/icon.png) no-repeat; background-position:-34px -157px; width:0px; height:9px; padding:0px 3px; margin-left:2px; }
+
+.list{ left:454px; top:0px; width:100px; height:81px;  background:url(../images/city_list.png) no-repeat;  text-align:center; vertical-align:middle;  }
+.list_text{ width:100px; padding-top:20px;/* left:22px; top:22px; */font-size:22px; color:#ffffff; background:none; border:0; cursor:pointer; text-align:center; }
+.list_icon{ background:url(../images/icon.png) no-repeat; background-position: -10px -18px; width:16px; height:12px; left:42px; top:56px; text-align:center; cursor:pointer;}
+
+/*城市下拉列表样式*/
+.list_icon_up{background:url(../images/icon.png) no-repeat; background-position: -25px -18px; width:17px; height:12px; left:42px; top:56px; text-align:center; cursor:pointer;}
+.city_list_up_title{ width:320px; height:30px; padding-left:15px; border-bottom:#383731 solid 2px; font-size:14px; color:#fff;}
+
+.city_list_up{ width:336px; height:227px; padding-top:14px; background:url(../images/header_city_list_up_bg.png) no-repeat; left:336px; top:80px; visibility:hidden;/* display:none; */z-index:100;}
+.city_list_up ul{ width:300px; padding-top:0px; padding-left:10px; padding-right:5px; }
+.city_list_up_ul_li{ font-size:14px; color:#FFF; padding-bottom:4px;}
+.city_list_up_ul_li span{ display:inline-block; display:block; width:56px; text-align:right;float:left}
+.city_list_up ul a:link{font-size:14px; color:#FFF;}
+.city_list_up ul a:visited{font-size:14px; color:#FFF;}
+
+.city_list_up_ol{ width:244px; float:left}
+.city_list_up_ol li{ float:left; padding-left:10px; padding-right:10px;  margin-bottom:4px; text-align:center; cursor:pointer}
+
+.city_list_up_box_outer{ width:300px; height:180px; left:0; top:52px; overflow:hidden;}
+.city_list_up_box{ width:300px; left:0; top:0;}
+
+.city_list_scroll_bar_outer{ width:12px; height:180px; left:312px; top:6px;}
+.city_list_scroll_bar{ background:#373736; width:12px; height:70px; left:0; top:0px;}
+
+.line{ width:20px; height:25px; border-left:solid #858683 1px;}
+
+/*==============================用户登录====================================*/
+.main_login{ width:640px; height:285px; border:#a39d96 solid 1px; z-index:10000; position:absolute; left:0; top:0;}
+.login_title{ width:640px; height:50px; border-bottom:#c6c0bb solid 1px; background:#f0ece8;}
+.login_title p{ width:620px; height:30px; padding:10px 0 8px 20px; font-size:20px; color:#62564c; font-weight:bold; }
+.login_title p span{ background:url(../images/icon.png) no-repeat; background-position:-1px -184px; width:16px; height:16px; left:612px; top:14px; cursor:pointer;}
+
+/*弹窗透明背景*/
+.PicMark{ position: absolute; left: 0; top: 0; background: #000; filter:alpha(opacity=50); opacity: 0.5; z-index:9999;}
+
+/*==============================用户登录 左侧=============================*/
+.login_content_left{ width:384px; height:214px; padding-top:20px; padding-left:20px; background:#FFF;}
+.login_content_left p{ width:378px; height:18px; padding:8px 0 30px 0; text-align:center}
+.login_content_left p em{ float:left; width:340px; height:34px; display:inline-block; display:block; padding-left:2px; border:#62564c solid 1px; }
+.login_content_left p em input{ line-height:30px;}
+.login_content_left p label{ display:inline-block; display:block; height:34px; padding-right:10px; line-height:34px;}
+.login_name{ background:none; border:0; width:320px; height:32px;}
+.login_password{ background:none; border:0; width:320px; height:32px;}
+
+.checked_login{ padding-left:24px;}
+.checked_login a:link{ color:#c05017; text-decoration:underline;}
+.checked_login a:visited{ color:#c05017; text-decoration:underline;}
+.checked_login label{ padding:0 180px 0 4px;}
+.auto_login_btn{ width:20px;}
+
+.login_button{ width:184px; padding-left:90px; padding-top:30px; }
+.login_button span{background:#44687e; width:180px; height:38px; display:inline-block; display:block; text-align:center;  }
+.login_button input{ background:none; border:0; font-size:16px; color:#fff; width:180px; height:36px; cursor:pointer;}
+
+/*==============================用户登录 右侧=============================*/
+.login_content_right{ width:236px; height:234px; background:#eeeeef}
+.login_bg_bar{ background:url(../images/login_bg.gif) no-repeat; width:6px; height:235px;}
+.login_register{ height:164px; padding-top:70px; padding-left:24px;}
+.login_register p{ width:170px; height:28px; color:#000; font-size:18px; padding:0 0 4px 10px;}
+.register_btn_a{ width:180px; height:38px; background:#c05017; margin-top:46px; /*padding-top:4px;*/ text-align:center; line-height:18px; }
+.register_btn_a input{ background:none; border:0; font-size:16px; color:#fff; width:180px; height:36px; padding-top:0px; cursor:pointer;}
+
+/*==========================主体样式==========================*/
+.main{ width:980px; overflow:hidden;  margin:0 auto;  }
+
+/*轮播图正在热映数字按钮*/
+.MovePic_outer{ width:980px; height:434px; background:url(../images/MovePicOuter_bg.png) repeat-x; }
+.movie_list{ width:964px; height:54px; margin:0 auto; padding-top:16px; overflow:hidden; position:relative; }
+.movie_list ul{ height:22px; padding:11px 0;position:absolute; margin-left:0px; display:inline; }
+.movie_list ul li{ float:left; width:31px; height:34px;padding-top:5px; background:url(../images/movie_list_bg4.png) no-repeat; position:relative;}
+.movie_list ul li a{ width:28px; height:24px; display:block; font-size:14px; font-family:"黑体"; font-weight:bold; color:#000;line-height:24px;text-align:center;}
+.movie_list ul li a:hover{ font-size:16px; color:#fff; background:#c65631;}
+.movie_list ul li.active a{ font-size:14px; color:#fff; background:#c65631; }
+
+.movie_list_page{ float:left; width:31px; height:34px;padding-top:5px; background:url(../images/movie_list_bg4.png) no-repeat; position:relative;}
+.movie_list_page a{ width:28px; height:24px; display:block; font-size:14px; font-family:"黑体"; font-weight:bold; color:#4B4B4B;line-height:22px;text-align:center;}
+.movie_list_page a:hover{ font-size:16px; color:#fff; background:#c65631;}
+
+.movie_list_page2{ float:left; width:31px; height:34px;padding-top:5px; background:url(../images/movie_list_bg4.png) no-repeat; position:relative;}
+.movie_list_page2 span{ width:28px; height:24px; display:block; font-size:14px; font-family:"黑体"; font-weight:bold; color:#9A9790; line-height:22px;text-align:center;}
+
+/*轮播图正在热映图片列表样式*/
+.move_pic{ width:980px; height:400px; overflow:hidden; }
+.move_pic img{ width:186px; height:260px;}
+.move_pic ul{ width:9224px; height:400px; overflow:hidden; position:absolute; left:0; top:0;}
+.move_pic ul li{ height:272px; float:left; vertical-align:middle; padding-top:36px; margin-right:6px;}
+.move_pic ul li.active{ width:222px; height:335px; float:left; vertical-align:middle; padding:6px 4px 4px 6px; margin-left:-6px; margin-right:0px; background:url(../images/MoviePicActvieBg.png) no-repeat;}
+.move_pic ul li.active img{ width:220px; height:319px;}
+.move_pic ul li a{ position:relative; display:inline-block; }
+.move_pic ul li.active div{ right:10px; top:-6px; width:33px; height:42px; line-height:30px; background:url(../images/SmallPicAll.png) no-repeat; background-position:-1px -175px; display:block; text-align:center; font-size:16px; color:#fff; font-weight:bold;}
+.move_pic ul li.active p{ display:block; }
+
+/*左右按钮以及评分样式*/
+.pic_bg_active{width:258px; height:382px; background:url(../images/pic_bg.png) no-repeat; left:382px; top:0px; cursor:pointer; z-index:-1}
+.arrow_l{ background:url(../images/arrow_l.png) no-repeat; width:53px; height:99px; left:0; top:120px; cursor:pointer; z-index:99;}
+.arrow_r{ background:url(../images/arrow_r.png) no-repeat; width:53px; height:99px; right:0; top:120px; cursor:pointer; z-index:99;}
+
+.move_pic_mark{ right:10px; top:-1px; width:33px; height:42px; line-height:30px; background:url(../images/SmallPicAll.png) no-repeat; background-position:-1px -175px; display:block; text-align:center; font-size:16px; color:#fff; font-weight:bold; z-index:99;}
+
+/*轮播图即将上映数字按钮*/
+.movie_list_btn{ background:url(../images/list_num_btn.png) no-repeat; width:98px; height:45px; margin-top:5px; cursor:pointer;}
+.movie_list_btn2{ width:90px; height:34px; background:url(../images/SmallPicAll.png) no-repeat; background-position:0 -320px; cursor:pointer;}
+.movie_list ol{ width:900px; height:34px; padding:11px 0;position:absolute; left:873px; top:16px; }
+.movie_list ol li{ float:left;width:31px; height:34px;padding-top:5px; display:inline;background:url(../images/movie_list_bg3.png) no-repeat;position:relative;}
+.movie_list ol li a{ width:31px; height:24px;display:block;font-size:14px;font-weight:bold; color:#000; line-height:22px;text-align:center;}
+.movie_list ol li a:hover{ font-size:16px; color:#fff; background:#c65631;}
+.movie_list ol li.active a{ font-size:14px; color:#fff; background:#c65631;}
+.movie_list_bg4{ background:url(../images/list_num_bg.png) no-repeat; width:4px; height:45px; margin-top:5px; }
+
+/*轮播图图即将上映图片列表样式*/
+.move_pic ol{ width:9224px; height:400px; overflow:hidden; position:absolute; top:0; left:0; }
+.move_pic ol li{ height:272px; float:left; vertical-align:middle; padding-top:36px; margin-right:6px;}
+.move_pic ol li.active{ width:222px; height:335px; float:left; vertical-align:middle; padding:6px 4px 4px 6px; margin-left:-6px; margin-right:0px; background:url(../images/MoviePicActvieBg.png) no-repeat;}
+.move_pic ol li.active img{ width:220px; height:319px;}
+.move_pic ol li a{ position:relative;display:inline-block; }
+.move_pic ol li.active div{ right:10px; top:-6px; width:33px; height:42px; line-height:30px; background:url(../images/SmallPicAll.png) no-repeat; background-position:-1px -175px; display:block; text-align:center;font-size:16px; color:#fff; font-weight:bold;}
+.move_pic ol li.active p{ display:block}
+
+.pic_bg_active{width:258px; height:382px; background:url(../images/pic_bg.png) no-repeat; left:382px; top:0px; cursor:pointer; z-index:-1}
+.pic_title{ width:224px; font-size:16px; color:#000; text-align:center; display:none; line-height:22px; font-weight:bold; padding-top:10px; }
+
+/*全部图片按钮样式*/
+.AllPicBtn{ background:url(../images/SmallPicAll.png) no-repeat; background-position:-3px -40px; width:70px; height:22px; top:318px; left:896px; padding:10px 8px 8px; font-size:14px; color:#fff;}
+.AllPicBtn a:link{color:#fff;}
+.AllPicBtn a:visited{color:#fff;}
+
+/*轮播图电影海报标题提示文字样式*/
+.NumMovieTitle{ height:22px; left:-37px; right:-37px; top:-24px; position:absolute; display:none;font-size:12px; color:#000; text-align:center; line-height:20px; }
+.NumMovieTitle.active{ background:none; height:22px; display:none;left:-27px; top:-24px;position:absolute; font-size:12px; color:#000; text-align:center; line-height:20px;}
+.NumMovieTitle .title{background:none; height:22px;}
+.NumMovieTitleIcon{ height:4px; text-align:center}
+
+
+/*==========================主体左侧==========================*/
+
+/*轮播图联动观影导航样式*/
+.main_left{ width:630px; padding-top:12px; display:none; }
+
+.main_left_tab_box{ width:609px; display:none;}
+.main_left_tab_box.active{ display: block;}
+
+.main_left_tab_box2{ display:none;}
+.main_left_tab_box2.active{ display: block;}
+
+.total{ width:602px; height:30px; padding-left:14px; padding-right:14px; padding-top:6px; color:#fff; font-size:14px;line-height:22px; background:url(../images/total_bg.png) repeat-x; }
+.total_text{ display:inline-block; font-size:20px; color:#e77a38; padding:0 4px; }
+.cin_nav{ width:628px; color:#000; font-size:20px; }
+.cin_nav_title{ width:628px; height:28px; padding-top:8px; background: url(../images/total_bg.png) repeat-x; font-size:16px; color:#000; text-align:center; font-weight:bold; z-index:4 }
+
+.cin_nav_title p{ width:76px; font-size:14px; font-weight:bold; color:#ebeae6; }
+
+.cin_nav_con{ width:628px;}
+.cin_nav_con ul{ width:628px; background:url(../images/cin_nav_con_ul_bg.png) repeat-y; border-right:#dadad8 solid 1px; border-left:#dadad8 solid 1px;}
+.cin_nav_con ul li{ width:628px; height:36px; border-top:#dadad8 solid 1px; padding-top:10px;  position:relative; overflow:hidden;}
+
+.start_now{ width:628px; height:32px; position:absolute; left:628px; top:0; overflow:hidden; padding-top:14px}
+.start_now_hot_cinema{ width:628px; height:40px;}
+
+.cin_nav_title_son{width:105px; padding-left:8px; font-size:14px; color:#000; font-weight:bold; }
+.cin_nav_title_son a:link{font-size:14px; color:#000; text-decoration:underline;}
+.cin_nav_title_son a:visited{font-size:14px; color:#000; text-decoration:underline;}
+
+.cin_nav_mes{width:480px; font-size:14px; color:#000; }
+.cin_nav_mes span{ padding:0 16px;}
+.cin_nav_mes a:link{ color:#000;font-size:14px; }
+.cin_nav_mes a:visited{ color:#000;font-size:14px; }
+
+/*热门影院样式*/
+.hot_cin_nav{width:610px; color:#000; font-size:20px;}
+.hot_cin_nav_con{ width:628px;  padding-top:6px; padding-bottom:40px;}
+.hot_cin_nav_con ul{ width:628px; border:#dad9d5 solid 1px; background:url(../images/cin_nav_con_ul_bg.png) repeat-y;}
+.hot_cin_nav_con ul li{ width:628px; height:40px;}
+.hot_cin_nav_con ul li.last_li{ width:628px; height:50px;}
+
+.cin_more{ width:56px; height:20px; font-size:14px; color:#ebeae6; text-align:center; }
+.cin_more a:link{ font-size:14px; color:#ebeae6;}
+.cin_more a:visited{ font-size:14px; color:#ebeae6;}
+
+.cin_title{ width:290px; font-size:14px; color:#000; padding:10px 0 15px 10px; }
+.cin_title a:link{ font-size:14px; color:#000; }
+.cin_title a:visited{ font-size:14px; color:#000; }
+.cin_title2{ width:220px; font-size:14px; color:#6b9b20; font-weight:bold; padding:15px 0 15px 10px; }
+.cin_title2 a:link{ font-size:14px; color:#6b9b20; text-decoration:underline;}
+.cin_title2 a:visited{ font-size:14px; color:#6b9b20; text-decoration:underline;}
+
+.gifts span{ display:inline-block; display:block; float:left; width:50px; height:22px; background:#afaca7; margin-right:16px; color:#6d6b68; font-size:12px; line-height:22px; text-align:center;}
+.gifts{ width:300px; font-size:14px; color:#000; font-weight:bold; padding:15px 0;}
+
+/*阴影样式*/
+.up_shadow_bg{ width:628px; height:12px; background:url(../images/up_shadow_bg.png) no-repeat;}
+.right_shadow_bg{ width:6px; height:49px; background:url(../images/right_shadow_bg.png) no-repeat;}
+
+.line3{ width:2px; height:15px; border-left:#228088 solid 1px; position:absolute; left:0; top:16px;}
+
+/*电影报道*/
+.MovieNews{ left:0; top:20px; margin-top:14px;}
+.MovieNewsContent{ width:608px; height:108px; background:url(../images/movie_news_bg.png) repeat-y; padding:10px 10px 10px 10px; border:1px solid #DADAD8; margin-bottom:4px;}
+.MovieNewsContentTitle{ font-size:14px; color:#000; }
+.MovieNewsContentTitle a:link{font-size:14px; color:#000; text-decoration:underline;}
+.MovieNewsContentTitle a:visited{font-size:14px; color:#000; text-decoration:underline;}
+.MovieNewsContentBox{ width:608px; padding-top:10px; font-size:12px; color:#000;}
+.MovieNewsText{ width:492px; padding-left:4px; color:#747473;}
+.MovieNewsText a:link{font-size:12px; color:#747473; }
+.MovieNewsText a:visited{font-size:12px; color:#747473; }
+.MovieNewsPic{width:104px;height:72px;text-align:center;overflow:hidden; }
+.MovieNewsPic img{ height:70px; width: auto;}
+.MovieNewsText2{ width:618px; color:#747473;}
+.MovieNewsText2 a:link{font-size:12px; color:#747473; }
+.MovieNewsText2 a:visited{font-size:12px; color:#747473; }
+
+.up_shadow_news_bg{ width:628px; height:6px; background:url(../images/up_shadow_news_bg.png) no-repeat;}
+
+/*==========================主体右侧==========================*/
+.main_right{ width:334px; padding-top:12px; position:relative;}
+.right_title{ width:324px; height:40px; padding-left:10px; color:#fff; font-size:14px; line-height:34px; background:url(../images/total_bg.png) repeat-x;  }
+.right_title_text{ font-size:20px; color:#E77A38}
+.activity_more{ width:58px; height:26px; line-height:34px; text-align:center; font-size:14px; color:#ebeae6; font-weight:bold;}
+.activity_more a:link{ font-size:14px; color:#ebeae6; font-weight:bold;}
+.activity_more a:visited{ font-size:14px; color:#ebeae6; font-weight:bold;}
+
+.activity_content{ padding-left:4px;}
+
+/*有图片的活动样式*/
+.activity{ width:310px; height:204px; padding:5px 4px 14px 14px; background:url(../images/active_bg.png) repeat-y; margin-bottom:6px; left:0; top:0; border:1px solid #DADAD8}
+.atv_P{ width:80px; height:38px; background: url(../images/SmallPicAll.png) no-repeat; background-position:-1px -84px; left:-5px; top:0px; padding-left:10px; font-size:16px; color:#fff; line-height:28px;}
+.activity_num{ font-size:26px; color:#FFF; left:44px; top:0px;}
+.activity_time{ width:152px; height:50px; padding-left:10px;  font-size:12px; color:#c65631; }
+.activity_time a:link{font-size:12px; color:#c65631; }
+.activity_time a:visited{font-size:12px; color:#c65631; }
+.activity_time span{ padding-left:10px;}
+.activity_title{ width:237px; height:39px; font-size:16px; color:#000;  line-height:20px;font-weight: bold;padding-left: 68px;}
+.activity_title a:link{ font-size:16px; color:#000; }
+.activity_title a:visited{ font-size:16px; color:#000;}
+.activity_pic img{ width:142px; height:166px;}
+.activity_text{ width:155px; height:118px; padding-left:8px; font-size:12px; color:#010101;}
+.activity_text a:link{font-size:12px; color:#010101}
+.activity_text a:visited{font-size:12px; color:#010101}
+.activity_text2{ width:130px; height:110px; left:200px; top:132px; font-size:14px; color:#575a5d}
+.activity_btn{ width:306px; height:42px; background: url(../images/atv_btn_bg.png) repeat-x; font-size:18px; color:#fff; line-height:40px; text-align:center; cursor:pointer;}
+
+/*没有图片的活动样式*/
+.activity_NoPic{width:310px; height:182px; padding:14px 4px 14px 14px; background:url(../images/active_bg.png) repeat-y; margin-bottom:6px; left:0; top:0; border:1px solid #DADAD8}
+.activity_NoPic_text{ width:298px; padding-bottom:10px; font-size:12px; color:#010101; text-indent:2em;}
+.activity_NoPic_text a:link{font-size:12px; color:#010101; }
+.activity_NoPic_text a:visited{font-size:12px; color:#010101; }
+.activity_NoPic_time{width:310px; height:40px; font-size:12px; color:#c65631;line-height: 16px;}
+.activity_NoPic_time a:link{font-size:12px; color:#c65631; }
+.activity_NoPic_time a:visited{font-size:12px; color:#c65631; }
+
+
+/*==========================尾部样式==========================*/
+.footer{ width:980px; height:142px; margin:0 auto; }
+.footer_ad{ width:980px; height:74px; background:url(../images/footer_tool_bg.png) repeat-x; background-position:0 -46px; margin:0 auto; padding-bottom:40px; text-align:center;}
+.footer_ad img{ vertical-align:middle;}
+.footer_ad a{ display:inline-block;}
+.footer_ad ol{ padding:0 25px; padding-top:18px; overflow:hidden;}
+.footer_ad ol li{ float:left; width:330px; padding-left:130px; font-size:20px; color:#000; line-height:28px; }
+.footer_ad ol li span{ padding:0 6px;}
+.footer_ad ol li em{ font-style:normal; width:1px; height:16px;  }
+.footer_ad ol li a{ display:inline-block; display:block; float:left; width:190px; }
+.footer_ad ol li a:link{font-size:20px; color:#000; }
+.footer_ad ol li a:visited{font-size:20px; color:#000; }
+.bottom{ width:980px; height:100px; padding-top:40px;  border-top:#525252 solid 2px; font-size:14px; color:#888272; line-height:24px;}
+
+.line2{ width:0px; height:34px; border-left:solid #000 1px;}
+
+/*==========================公共主体下部 热门影院 热门影片==================*/
+.mes_bottom{ width:980px; height:380px; padding-top:20px; margin:0 auto; overflow:hidden; }
+.hot_cinema{ width:335px; }
+.hot_cinema ul{ width:335px; border-right:#c4c3bf solid 1px;}
+.hot_cinema ul li{ width:320px; height:33px; font-size:14px; color:#000; line-height:24px; padding-top:4px; padding-left:16px; background:url(../images/hot_cinema_ul_li_bg.png) repeat-x;}
+.mes_atv_title{ font-size:14px; color:#EBEAE6}
+.hot_cinema ul li a{ font-size:14px; color:#000;}
+.hot_cinema ul li a:link{ font-size:14px; color:#000; font-weight:normal;}
+.hot_cinema ul li a:visited{ font-size:14px; color:#000; font-weight:normal;}
+
+.hot_movie{ width:609px; height:324px; }
+.hot_movie_tle{width:595px; height:34px; background:url(../images/total_bg.png) repeat-x; font-size:14px; color:#ebeae6; font-weight:bold; line-height:26px; padding-left:14px; padding-top:4px;}
+.hot_movie_tle span{ left:562px; top:6px; text-align:center; color:#FFF; font-size:14px;  }
+.hot_movie_tle a{ color:#FFF; font-size:16px; font-weight:bold; line-height:24px;}
+.hot_movie ul{ padding-top:4px; width:900px; overflow:hidden; }
+.hot_movie ul li{ float:left; margin-right:3px; width:150px; height:224px;}
+.hot_movie ul li img{ width:150px; height:224px;}
+.hot_movie ol{padding-top:6px; width:900px; overflow:hidden;}
+.hot_movie ol li{ float:left; width:146px; height:42px; font-size:14px; margin-right:11px; letter-spacing:-1px; color:#000; text-align:center;}
+.hot_mov_title span{font-size:16px; color:#62564c; text-align:center; padding:0 8px; border:#000 solid 1px;}
+.hot_movie ol li a:link{ color:#000; font-size:14px; font-weight:normal;}
+.hot_movie ol li a:visited{ color:#000; font-size:14px; font-weight:normal;}
+
+.mes_atv_title{ width:320px; height:38px; padding-left:14px; color:#ebeae6; font-size:14px; line-height:34px; font-weight:bold; background:url(../images/total_bg.png) repeat-x; margin-bottom:4px; }
+.hot_cinema_shadow_bg{ background:url(../images/hot_cinema_ul_shadow.png) no-repeat; width:335px; height:10px;}
+
+.HotCinemaName{ font-size:14px; color:#EBEAE6}
+
+.hot_cinema_more{ width:58px; height:26px; line-height:34px; text-align:center; font-size:16px; color:#fff; font-weight:bold;}
+.hot_cinema_more a:link{ font-size:16px; color:#fff; font-weight:bold;}
+.hot_cinema_more a:visited{ font-size:16px; color:#fff; font-weight:bold;}
+
+/*=============================弹窗更多影片弹窗===============================*/
+#mark_bg{ background:#000; filter:alpha(opacity=50); opacity:0.5;  position:absolute; left:0; top:0; z-index:999;}
+#hot_movie_Box{border:#333333 solid 1px; width:718px; height:600px; background:#f0ede9; margin:0 auto; padding:10px 20px 10px 20px; position:absolute; left:0; top:0; z-index:1000; visibility:hidden;}
+
+/*弹窗更多影片头部样式*/
+.hot_movie_header{width:720px; height:134px; }
+.hot_movie_title{ width:720px; height:70px; margin-bottom:10px; border-bottom:#6e6259 solid 1px;}
+.hot_movie_pic{ width:300px; height:68px; }
+.hot_movie_text{ width:400px; height:42px; padding-top:26px;  font-size:14px; color:#6e6259; font-weight:bold;}
+.hot_movie_text span{padding:0 6px; font-size:14px; color:#e77a38;}
+.hot_movie_text em{ padding:0 6px; font-size:14px; color:#e77a38; font-style:normal;}
+
+.hot_movie_delete{ left:716px; top:2px; background:url(../images/icon.png) no-repeat; background-position:-1px -184px; width:16px; height:16px; cursor:pointer;}
+
+.hot_movie_content{ width:720px; height:440px; padding-top:0px; left:20px; top:150px; overflow:hidden; }
+.hot_movie_tab_title{ width:451px; height:35px; border-bottom:#000 solid 1px; padding-left:238px; padding-top:10px;  text-align:center; }
+.hot_movie_tab_title ul{}
+.hot_movie_tab_title ul li{ float:left; height:34px; width:98px; border:#756960 solid 1px; line-height:30px; margin-right:12px; font-size:14px; color:#000; font-weight:bold;cursor:pointer;}
+.hot_movie_tab_title ul li.active{ float:left; height:34px; width:98px;  color:#fff; font-size:14px; line-height:30px; font-weight:bold; background:#228088; margin-right:12px;cursor:pointer;}
+
+.pop_window_tab_box{ display:none;}
+.pop_window_tab_box.active{ display:block;}
+
+.hot_movie_tab_box{ width:758px; padding-top:0px;top:0px; position:absolute;;display:block}
+.hot_movie_tab_box.active{width:758px; padding-top:0px;top:0px; position:absolute;display:block}
+.hot_movie_tab_box ul{ width:860px; height:480px; }
+.hot_movie_tab_box ul li{ float:left; width:148px; height:228px; padding-left:0px; padding-right:32px; }
+.hot_movie_tab_box ul li img{ width:148px; height:190px;}
+.HotMovieTitle{text-align:center; font-size:14px; color:#000;}
+.HotMovieFieldNum{text-align:center; font-size:12px; color:#228088;}
+.hot_movie_tab_box ul li a{ display:inline-block; display:block; position:relative; height:254px;}
+.hot_movie_tab_box ul li a em{ position:absolute; background:url(../images/SmallPicAll.png) no-repeat; background-position:-1px -175px; left:108px; top:0px; width:33px; height:42px; text-align:center; font-size:16px; color:#fff; font-style:normal; line-height:34px; }
+.hot_movie_tab_box ul li a:link{ font-size:16px; color:#000;}
+.hot_movie_tab_box ul li a:visited{ font-size:16px; color:#000;}
+
+/*更多影片滚动条样式*/
+.define_scroll_bar_outer{ background:#f0ede9; width:16px; height:400px; left:714px; top:6px; }
+.define_scroll_bar{ background:#969695; width:16px; height:88px; top:10px; position:absolute;}
+.define_scroll_bar.active{ background:#969695; width:16px; height:88px; top:10px; position:absolute;display: block; }

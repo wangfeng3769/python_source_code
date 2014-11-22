@@ -1,0 +1,87 @@
+<!-- $Id: category_list.htm 17019 2010-01-29 10:10:34Z liuhui $ -->
+{if $full_page}
+{include file="pageheader.htm"}
+
+{insert_scripts files="../js/utils.js,listtable.js"}
+<!-- 车辆搜索 -->
+<div class="form-div">
+  <form action="javascript:search()" name="searchForm">
+    <img src="images/icon_search.gif" width="26" height="22" border="0" alt="SEARCH" />
+    <input name="keyword" type="text" id="keyword" size="15">
+    {$lang.all_status}
+    <input type="submit" value="{$lang.button_search}" class="button" />
+    <font color='gray'>(用户电话号码,奖章名称)</font>
+  </form>
+</div>
+
+<!-- 车辆搜索 -->
+<form method="post" action="" name="listForm">
+<!-- start ad position list -->
+<div class="list-div" id="listDiv">
+{/if}
+
+<table width="100%" cellspacing="1"  cellpadding="2" id="list-table">
+  <tr>
+  	<th>用户号码</th>
+	<th>奖章名称</th>
+    <th>生效时间</th>
+    <th>使用时间</th>
+    <th>{$lang.handler}</th>
+  </tr>
+  {foreach from=$userMedalList item=userMedal}
+  <tr align="center" class="{$car.level}" id="{$car.level}_{$car.id}">
+    <td width="10%">{$userMedal.phone}</td>
+    <td width="10%">{$userMedal.name}</td>
+    <td width="10%">{$userMedal.time_fm}</td>
+    <td width="10%">{$userMedal.use_time_fm}</td>
+    <td width="24%" align="center">
+      <a href="javascript:void(0);" onclick="listTable.remove({$userMedal.id}, '{$lang.drop_confirm}')" title="{$lang.remove}">{$lang.remove}</a> | 
+      <a href="user_medal.php?act=add&uid={$userMedal.uid}">添加奖章</a> | 
+    </td>
+  </tr>
+  {/foreach}
+</table>
+{if $full_page}
+</div>
+</form>
+
+{literal}
+<script language="JavaScript">
+
+function search()
+{
+ 
+  listTable.filter['keyword'] = document.forms['searchForm'].elements['keyword'].value;
+  listTable.filter['page'] = 1;
+  listTable.loadList();
+}
+
+listTable.listCallback = function(result, txt) 
+{
+    if (result.error > 0) 
+    {
+        alert(result.message);
+    }
+    else 
+    {
+        try 
+        {
+            document.getElementById('listDiv').innerHTML = result.content;
+            // bind_order_event();
+            if (typeof result.filter == "object") 
+            {
+                listTable.filter = result.filter;
+            }
+            listTable.pageCount = result.page_count;
+        }
+        catch(e)
+        {
+            alert(e.message);
+        }
+    }
+}
+</script>
+{/literal}
+
+{include file="pagefooter.htm"}
+{/if}

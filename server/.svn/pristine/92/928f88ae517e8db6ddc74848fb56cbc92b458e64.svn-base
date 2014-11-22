@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<hfrm>
+	<local_charset>utf-8</local_charset>
+	<local_timezone>Asia/Chongqing</local_timezone>
+	
+	<log>
+		<max_size>10000000</max_size><!-- 字节 -->
+		<folder>log</folder>
+		<debug_log>false</debug_log>
+		<buffer_size>500000</buffer_size>
+	</log>
+	
+	<database>
+		<mode>mysql</mode>
+		<charset>utf8</charset>
+		<user>root</user>
+		<password>123456</password>
+		<address>127.0.0.1</address>
+		<name>edo</name>
+		<port>3306</port>
+		<max_once_selected>500</max_once_selected><!-- 一次select的最大条数 -->
+	</database>
+	
+	<sms_platform>
+	    <user_id>j20852</user_id>
+	    <password>568762</password>
+	    <url>http://112.91.147.37:7902/MWGate/wmgw.asmx/MongateCsSpSendSmsNew</url>
+	</sms_platform>
+</hfrm>

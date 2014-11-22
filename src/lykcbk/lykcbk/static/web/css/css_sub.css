@@ -1,0 +1,81 @@
+@charset "utf-8";
+
+/*==========================主体样式==========================*/
+#wrap{ width:980px; margin:0 auto; padding-bottom:26px;}
+.atv_main{ width:980px;/* height:2000px; */background:url(../images/atv_bg.png) repeat; }
+
+/*==========================首映典礼样式==========================*/
+.atv_title_bar{ width:960px; height:26px; padding-left:20px; padding-bottom:10px; background:url(../images/total_bg.png) repeat-x; font-size:16px; color:#fff; font-weight:bold; line-height:38px;}
+
+.premiere{ padding-left:0px; height:334px;}
+.ppt_pic{ width:980px; height:300px; overflow:hidden; left:0; top:0; z-index:1;}
+.ppt_pic ul{ position: absolute; left:-511px; top:0; }
+.ppt_pic ul li{ width:668px; float: left; padding-right:8px;}
+.ppt_pic ul li.active{ float:left; }
+.ppt_pic ul li img{ width:668px; height:296px;}
+.ppt_btn{ width:955px; height:50px; left:0; top:4px; }
+.ppt_btn ol{ left:876px; top:4px;overflow:hidden;}
+.ppt_btn ol li{ float:left; padding-right:6px; background:url(../images/list_icon.png) no-repeat; background-position:-1px -152px; width:9px; height:9px; cursor:pointer;}
+.ppt_btn ol li.active{ float:left; padding-right:6px; background:url(../images/list_icon.png) no-repeat; background-position:-1px -160px; width:9px; height:9px; cursor:pointer;}
+.btn_bg{ width:930px; height:72px; left:0; top:222px; background:#000; filter:alpha(opacity=60); opacity:0.6; z-index:1;}
+
+.atv_tit1{ left:-48px; top:-22px; z-index:3; }
+.atv_tit2{ left:-48px; top:-42px; z-index:3; }
+
+.atv_ppt_arrow_l{ background:url(../images/arrow_l.png) no-repeat; width:53px; height:99px; left:0; top:100px; cursor:pointer; z-index:99;}
+.atv_ppt_arrow_r{ background:url(../images/arrow_r.png) no-repeat; width:53px; height:99px; right:0; top:100px; cursor:pointer; z-index:99;}
+
+/*==========================影片活动样式==========================*/
+.movie_atv{  height:auto;}
+.atv_content{ width:980px;overflow:hidden;}
+.movie_atv ul { width:1020px; padding-top:10px;}
+.movie_atv ul li{ width:320px; height:225px;  float: left; margin-right:9px; margin-bottom:20px; }
+.atv_buy_ticket{ left:270px; top:46px; z-index:3; background:url(../images/atv_buy_ticket.png) no-repeat; width:56px; height:52px;}
+.movie_atv .pic img{ width:286px; height:186px;}
+
+.movie_activity{ width:302px; height:204px; padding:5px 4px 14px 14px; background:url(../images/active_bg.png) repeat-y; margin-bottom:6px; left:0; top:0; border:1px solid #DADAD8}
+.movie_atv_P{ width:80px; height:38px; background: url(../images/SmallPicAll.png) no-repeat; background-position:-1px -84px; left:-5px; top:0px; padding-left:10px; font-size:16px; color:#fff; line-height:28px;}
+.movie_activity_num{ font-size:26px; color:#FFF; left:44px; top:0px;}
+.movie_activity_time{ width:150px; height:50px; padding-left:10px;  font-size:12px; color:#c65631; }
+.movie_activity_time a:link{font-size:12px; color:#c65631; }
+.movie_activity_time a:visited{font-size:12px; color:#c65631; }
+.movie_activity_time span{ padding-left:10px;}
+.movie_activity_title{ height:39px; font-size:16px; color:#000;  line-height:20px;font-weight: bold;text-align: center;}
+.movie_activity_title a:link{ font-size:16px; color:#000; }
+.movie_activity_title a:visited{ font-size:16px; color:#000;}
+.movie_activity_pic img{ width:142px; height:166px;}
+.movie_activity_text{ width:152px; height:118px; padding-left:8px; font-size:12px; color:#010101;}
+.movie_activity_text a:link{font-size:12px; color:#010101}
+.movie_activity_text a:visited{font-size:12px; color:#010101}
+.movie_activity_text2{ width:130px; height:110px; left:200px; top:132px; font-size:14px; color:#575a5d}
+.movie_activity_btn{ width:306px; height:42px; background: url(../images/atv_btn_bg.png) repeat-x; font-size:18px; color:#fff; line-height:40px; text-align:center; cursor:pointer;}
+
+.movie_activity_NoPic{width:302px; height:204px; padding:5px 4px 14px 14px; background:url(../images/active_bg.png) repeat-y; margin-bottom:6px; left:0; top:0; border:1px solid #DADAD8}
+.movie_activity_NoPic_text{ width:298px; padding-bottom:10px; font-size:12px; color:#010101; text-indent:2em;}
+.movie_activity_NoPic_text a:link{font-size:12px; color:#010101; }
+.movie_activity_NoPic_text a:visited{font-size:12px; color:#010101; }
+.movie_activity_NoPic_time{width:310px; height:40px; font-size:12px; color:#c65631;line-height: 16px;}
+.movie_activity_NoPic_time a:link{font-size:12px; color:#c65631; }
+.movie_activity_NoPic_time a:visited{font-size:12px; color:#c65631; }
+
+/*==========================影院活动样式==========================*/
+.cinema_atv{  height:auto;}
+.cinema_atv ul { width:1020px; padding-top:10px;}
+.cinema_atv ul li{ width:320px; height:225px;  float: left; margin-right:9px; margin-bottom:20px; }
+.atv_free{ left:270px; top:46px; z-index:3; background:url(../images/atv_free.png) no-repeat; width:56px; height:52px;}
+.title{ width:248px; margin:0 auto; padding-top:18px; padding-bottom:5px; font-size:18px; line-height:24px; font-weight:bold;}
+.pic{ text-align:center}
+.cinema_atv .pic img{ width:286px; height:186px;}
+.text{ width:286px; padding-left:10px; padding-top:6px; font-size:12px; color:#000; }
+.time{ text-align:left; width:278px; height:45px; padding-left:8px; padding-top:4px;background:url(../images/avt_time_bg.png) repeat-x; left:11px; bottom:0px; line-height:20px; font-size:12px; color:#fff;}
+
+/*==========================活动积分样式==========================*/
+.atv_integration{ height:auto; }
+.atv_integration ul{ width:460px; height:240px; padding-left:16px; overflow:hidden;}
+.atv_integration ul li{ width:410px; font-size:14px; color:#000; margin-top:14px; }
+.atv_integration ul li a:link,a:visited{ text-decoration:underline;  font-size:14px; color:#000; }
+.atv_integration ol{ width:420px; height:240px; overflow:hidden; }
+.atv_integration ol li{ width:410px; margin-top:16px; }
+.atv_integration ol li a:link,a:visited{ text-decoration:underline; font-size:14px; color:#000; }
+
+

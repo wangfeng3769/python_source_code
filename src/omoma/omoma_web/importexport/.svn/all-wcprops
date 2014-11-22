@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/omoma_web/importexport
+END
+ofxparser.py
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/omoma_web/importexport/ofxparser.py
+END
+qifparser.py
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/omoma_web/importexport/qifparser.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/omoma_web/importexport/__init__.py
+END
+buxfercsvparser.py
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/64/tags/omoma-0.2/omoma/omoma_web/importexport/buxfercsvparser.py
+END

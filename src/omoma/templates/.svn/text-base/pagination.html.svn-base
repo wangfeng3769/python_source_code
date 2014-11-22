@@ -1,0 +1,45 @@
+{% comment %}
+pagination template for omoma
+copyright 2011 sebastien maccagnoni-munch
+
+this file is part of omoma.
+
+omoma is free software: you can redistribute it and/or modify
+it under the terms of the gnu general public license as published by
+the free software foundation, version 3.
+
+omoma is distributed in the hope that it will be useful,
+but without any warranty; without even the implied warranty of
+merchantability or fitness for a particular purpose.  see the
+gnu general public license for more details.
+
+you should have received a copy of the gnu general public license
+along with omoma. if not, see <http://www.gnu.org/licenses/>.
+{% endcomment %}
+
+{% if paginator.num_pages > 1 %}
+    <p class="pagination">
+
+        {% if page_obj.number > 1 %}
+            <a href="?page=1">1... </a>
+        {% endif %}
+
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}">
+                <img src="/static/icon_previous.png" class="icon" />
+            </a>
+        {% endif %}
+
+        <span class="pagenumber">{{ page_obj.number }}</span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">
+                <img src="/static/icon_next.png" class="icon" />
+            </a>
+        {% endif %}
+
+        {% if paginator.num_pages > page_obj.number %}
+            <a href="?page={{ paginator.num_pages }}"> ...{{ paginator.num_pages }}</a>
+        {% endif %}
+    </p>
+{% endif %}

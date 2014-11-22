@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% comment %}
+account deletion confirmation template for omoma
+copyright 2011 sebastien maccagnoni-munch
+
+this file is part of omoma.
+
+omoma is free software: you can redistribute it and/or modify
+it under the terms of the gnu general public license as published by
+the free software foundation, version 3.
+
+omoma is distributed in the hope that it will be useful,
+but without any warranty; without even the implied warranty of
+merchantability or fitness for a particular purpose.  see the
+gnu general public license for more details.
+
+you should have received a copy of the gnu general public license
+along with omoma. if not, see <http://www.gnu.org/licenses/>.
+{% endcomment %}
+
+{% load i18n %}
+{% load omoma %}
+
+{% block title %}{% trans "delete account" %}{% endblock %}
+
+{% block content %}
+    {% contentbox _("delete account") %}
+        <p>{% trans "you are about to delete the following account and all its transactions:" %}</p>
+        <dl>
+            <dt>{% trans "name" %}</dt>
+            <dd>{{ account.name }}</dd>
+
+            <dt>{% trans "currency" %}</dt>
+            <dd>{{ account.currency.fullname }}</dd>
+
+            <dt>{% trans "start balance" %}</dt>
+            <dd>{{ account.start_balance }}</dd>
+
+            <dt>{% trans "current balance" %}</dt>
+            <dd>{{ account.current_balance }}</dd>
+
+            <dt>{% trans "number of transactions" %}</dt>
+            <dd>{{ account.count_transactions }} {% trans "transactions" %}</dd>
+        </dl>
+        <p>{% trans "this action cannot be undone." %}</p>
+        <form method="post">
+            {% csrf_token %}
+            <input type="submit" value="{% trans "yes, remove" %}" />
+            <a href="{% url accounts %}">{% trans "cancel" %}</a>
+        </form>
+    {% endbox %}
+{% endblock content %}

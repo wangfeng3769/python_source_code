@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+<title>注册</title>
+<link href="css/yiduo.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/frm.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/transport.js"></script>
+<script type="text/javascript" src="js/utils.js"></script>
+<style>
+a{color:#4F4F4F;text-decoration:none;}
+.anniu-1:active{ background:url(img/anniu-1-2.png) no-repeat; color:#4F4F4F;}
+.anniu-4:active{ background:url(img/anniu-2-2.png) no-repeat; color:#4F4F4F;}
+.anniu-2:active{ color:#4F4F4F;}
+.anniu-3:active{ color:#4F4F4F;}
+.anniu-5:active{ background:url(img/anniu-3-2.png) no-repeat; color:#4F4F4F;}
+.anniu-6:active{ color:#4F4F4F;}
+</style>
+</head>
+
+<body>
+<iframe src ="header.html" frameborder="0" marginheight="0" marginwidth="0" frameborder="0" scrolling="auto" id="ifm" name="ifm" onload="javascript:dyniframesize('ifm');" width="100%">
+</iframe> 
+<div class="zhuce">
+<div class="zhuce-1">实名认证未通过</div>
+
+<div class="renzheng-1"><p class="zhuce-txt-1" style="width:710px; height:50px">您未通过实名认证审核，请<a href="#" class="anniu-6">修改信息</a>后重新提交！</p>
+
+</div>
+
+</div>
+<iframe src ="footer.html" frameborder="0" marginheight="0" marginwidth="0" frameborder="0" scrolling="auto" id="ifm2" name="ifm2" onload="javascript:dyniframesize('ifm2');" width="100%">
+</iframe>	
+</body>
+</html>

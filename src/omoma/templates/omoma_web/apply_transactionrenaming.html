@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% comment %}
+apply automatic transaction renaming template for omoma
+copyright 2011 sebastien maccagnoni-munch
+
+this file is part of omoma.
+
+omoma is free software: you can redistribute it and/or modify
+it under the terms of the gnu general public license as published by
+the free software foundation, version 3.
+
+omoma is distributed in the hope that it will be useful,
+but without any warranty; without even the implied warranty of
+merchantability or fitness for a particular purpose.  see the
+gnu general public license for more details.
+
+you should have received a copy of the gnu general public license
+along with omoma. if not, see <http://www.gnu.org/licenses/>.
+{% endcomment %}
+
+{% load i18n %}
+{% load omoma %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+
+    {% contentbox title %}
+
+        {% if transactions %}
+
+            <p>{% trans "this rule fits to the following transactions..." %}</p>
+
+            <form class="fulltable" method="post">
+                {% csrf_token %}
+                <table>
+                    <tr class="header">
+                        <th class="links"></th>
+                        <th class="description">{% trans "description" %}</th>
+                        <th class="amount">{% trans "amount" %}</th>
+                        <th class="categories">{% trans "categories" %}</th>
+                        <th class="date">{% trans "date" %}</th>
+                        <th class="account">{% trans "account" %}</th>
+                    </tr>
+                    {% for t in transactions %}
+                        <tr>
+                            <td class="links"><input type="checkbox" name="applyto" value="{{ t.id }}" /></td>
+                            <td class="description">{{ t.description }}{% if t.has_iou %}&nbsp;<img src="/static/icon_iou.png" class="icon" />{% endif %}{% if t.original_description and t.original_description != t.description %}&nbsp;<span class="originaldescription">(&nbsp;{{ t.original_description }}&nbsp;)</span>{% endif %}</td>
+                            <td class="amount">{{ t.amount|signedmoney:t.account }}</td>
+                            <td class="categories">{% for tc in t.transactioncategory_set.all %}{{ tc.category.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                            <td class="date">{{ t.date|date:"short_date_format" }}</td>
+                            <td class="account">{{ t.account }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+                <input type="submit" value="{% trans "rename selected transactions" %}" />
+            </form>
+        {% else %}
+            {% trans "this rule does not fit to any transaction." %}
+        {% endif %}
+    {% endbox %}
+
+{% endblock content %}

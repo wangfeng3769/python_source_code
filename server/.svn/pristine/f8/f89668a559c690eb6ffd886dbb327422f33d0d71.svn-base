@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+		<title>实名认证</title>
+		<link href="css/yiduo.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="js/config.js"></script>
+		<script type="text/javascript" src="js/frm.js"></script>
+		<script type="text/javascript" src="js/app.js"></script>
+		<script type="text/javascript" src="js/transport.js"></script>
+		<script type="text/javascript" src="js/utils.js"></script>
+		<script type="text/javascript" src="js/web.js"></script>
+
+		<script>
+			var result = document.getElementById('result');
+
+			var file = document.getElementById('file');
+
+			function judgeElement() {
+				if (window.navigator.userAgent.indexOf("MSIE") >= 1) {
+					var file = document.getElementById('file');
+					document.getElementById('img').src = file.value;
+
+				} else {
+					readData();
+					var file = document.getElementById('file');
+					document.getElementById('img').style.display = 'none';
+
+				}
+			}
+
+			function move(event) {
+				event = event || window.event;
+				var file = document.getElementById('file');
+				file.style.left = event.clientX - 50 + 'px';
+				file.style.top = event.clientY - 10 + 'px';
+			}
+
+			function readData() {
+
+				var file = document.getElementById("file").files[0];
+				alert(file);
+				var reader = new FileReader();
+
+				//绑定事件处理函数
+
+				reader.onload = function(e) {
+
+					var result = document.getElementById('result');
+					result.innerHTML = '<img src=' + this.result + " alt='' />";
+
+					// alert("load");
+
+				}
+				console.log(reader);
+				reader.readAsDataURL(file);
+			}
+		</script>
+
+		<style>
+			a {
+				color: #4F4F4F;
+				text-decoration: none;
+			}
+			.anniu-1:active {
+				background: url(img/anniu-1-2.png) no-repeat;
+				color: #4F4F4F;
+			}
+			.anniu-4:active {
+				background: url(img/anniu-2-2.png) no-repeat;
+				color: #4F4F4F;
+			}
+			.anniu-2:active {
+				color: #4F4F4F;
+			}
+			.anniu-3:active {
+				color: #4F4F4F;
+			}
+			.anniu-5:active {
+				background: url(img/anniu-3-2.png) no-repeat;
+				color: #4F4F4F;
+			}
+
+			#xuanze {
+				background: url(img/3.png) no-repeat
+			}
+			#xuanze2 {
+				background: url(img/3.png) no-repeat
+			}
+
+		</style>
+	</head>
+
+	<body onload="a = new FileUploadClass();">
+		<form id="vForm" method="post" target="vFormSubmitIfrm" action="../client/index.php?class=UserManager&item=saveVerificationImgs" enctype="multipart/form-data">
+			<iframe src ="header.html" frameborder="0" marginheight="0" marginwidth="0" frameborder="0" scrolling="auto" id="ifm" name="ifm" onload="javascript:dyniframesize('ifm');" width="100%"></iframe>
+			<div id="vFirstStep" class="zhuce">
+				<div class="zhuce-1">
+					注册成功
+				</div>
+				<div class="zhuce-1">
+					<p class="zhuce-txt-1" style="width:680px">
+						恭喜您，注册成功！如果您有驾照，请完善以下信息进行实名认证。
+					</p>
+					<a href="javascript:window.location.href = 'index.html'" class="anniu-1"> 我没有驾照 </a>
+				</div>
+
+				<div class="renzheng-1" style="height:260px">
+					<p class="zhuce-txt-1" style="width:430px;">
+						第一步：请上传持身份证正面头部照片
+					</p>
+					<p class="zhuce-txt" style="width:150px">
+						请注意
+					</p>
+					<p class="zhuce-txt-3" style="width:300px">
+						·照片信息必须真实有效
+					</p>
+					<p class="zhuce-txt-3" style="width:300px">
+						·照片须免冠，未化妆
+					</p>
+					<p class="zhuce-txt-3" style="width:300px">
+						·手持证件人的五官必须完整清晰
+					</p>
+					<p class="zhuce-txt-3" style="width:300px">
+						·文件为源文件（未经任何软件编辑）
+					</p>
+				</div>
+
+				<div class="renzheng" >
+					<div name="result" id="result"  style="width:450px;overflow: hidden;margin: 0px;float: left"></div>
+					<img id="img1" src="img/pic.jpg" style=" width:450px; overflow:hidden;float: left">
+					<span class="denglu-1-2" style="width:360px" >
+						<input id="xuanze" calss="anniu-5" type="button" onmousemove="move(event)" value="" size="30" onclick="file.click()" 	style="height:19px; width:63px;margin:120px 0 0 20px;clear: both"/>
+						<input type="file" id="file" name="id" onchange="a.loadImg('file','img1');" style="display: none"/>
+						<input type="button" value="读取图像" style="display: none" onclick="readData();" />
+					</span>
+				</div>
+
+				<div class="denglu-1-2" style="width:960px">
+					<a href="javascript:nextStep()" class="anniu-5" style="margin:20px 0 0 400px"> 下一步 </a>
+				</div>
+			</div>
+
+			<div id="vNextStep" class="zhuce" style="display: none">
+				<div class="renzheng-1" style="height:200px">
+					<p class="zhuce-txt-1" style="width:500px;">
+						第二步：请上传驾驶证、学生证和省份证背面照
+					</p>
+					<p class="zhuce-txt" style="width:150px">
+						请注意
+					</p>
+					<p class="zhuce-txt-3" style="width:300px">
+						·照片信息必须真实有效
+					</p>
+					<p class="zhuce-txt-3" style="width:300px">
+						·文件为源文件（未经任何软件编辑）
+					</p>
+				</div>
+
+				<div class="renzheng" >
+					<div name="result" id="result"  style="width:450px;overflow: hidden;margin: 0px;float: left"></div>
+					<img id="img" src="img/pic-2.jpg" style=" width:450px; overflow:hidden;float: left">
+					<span class="denglu-1-2" style="width:360px" >
+						<input id="xuanze2" calss="anniu-5" type="button" onmousemove="move(event)" value="" size="30" onclick="file2.click()"    style="height:19px; width:63px;margin:120px 0 0 20px;clear: both"/>
+						<input type="file" id="file2" name="others" onchange="a.loadImg('file2','img');" style="display: none"/>
+						<input type="button" value="读取图像" style="display: none" onclick="readData();" />
+					</span>
+				</div>
+				<div class="denglu-1-2" style="width:960px">
+					<a href="javascript:submitToAppr()" class="anniu-5" style="margin:20px 0 0 400px"> 提交认证 </a>
+				</div>
+			</div>
+
+		</form>
+	</body>
+</html>
+<iframe id="vFormSubmitIfrm" src="false" style="display: none" onload="ifrmLoader();"></iframe>
+<iframe src ="footer.html" frameborder="0" marginheight="0" marginwidth="0" frameborder="0" scrolling="auto" id="ifm2" name="ifm2" onload="javascript:dyniframesize('ifm2');" width="100%"></iframe>
+
+<script type="text/jscript">
+function nextStep(){
+$( "vFirstStep" ).style.display = "none";
+$( "vNextStep" ).style.display = "block";
+}
+
+function submitToAppr(){
+$( "vForm" ).submit();
+}
+
+function ifrmLoader(){
+var ret = vFormSubmitIfrm.document.body.innerHTML;
+parseRet(ret , function(){
+	alert( "提交审核信息成功。" );
+	window.location = '../www/index.html';
+});
+}
+</script>

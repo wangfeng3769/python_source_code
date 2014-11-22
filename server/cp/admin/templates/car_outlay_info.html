@@ -1,0 +1,61 @@
+<!-- $Id: category_info.htm 16752 2009-10-20 09:59:38Z wangleisvn $ -->
+{include file="pageheader.htm"}
+<!-- start add new category form -->
+<script language="JavaScript" src="../js/formcheck.js"></script>
+<script type="text/javascript" src="../js/calendar.php"></script>
+<div class="main-div">
+  <form action="car.php" method="post" name="theForm" enctype="multipart/form-data" onSubmit="return Validator.Validate(this,2)">
+  <table width="100%" id="general-table">
+    
+      <tr>
+        <td class="label">缴费日期:</td>
+        <td>
+          <input Type="text"  name='pay_time'dataType="Require" msg="车牌号不能为空" require="ture" maxlength="20" value='{$car.number|escape:html}'/> <font>日期格式:YYYY-MM-DD</font>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="label">开始时间:</td> 
+        <td>
+          <input Type="text" require="false"  name='start_time' value='{$car.model}'/> <font>日期格式:YYYY-MM-DD</font>
+        </td>
+      </tr>
+      
+       <tr>
+        <td class="label">结束时间:</td>
+        <td>
+          <input Type="text" require="false"  name='end_time' value='{$car.model}'/> <font>日期格式:YYYY-MM-DD</font>
+        </td>
+      </tr>
+
+       <tr>
+        <td class="label">缴费金额:</td>
+        <td>
+          <input Type="text" require="false"  name='money' value='{$car.model}'  /> <font> 元</font>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="label">用途:</td>
+        <td>
+          <input Type="text" require="false"  name='purpose' value='{$car.model}' size="16" /> 
+        </td>
+      </tr>
+    </table>
+      <div class="button-div">
+        <input type="submit" value="{$lang.button_submit}" />
+        <input type="reset" value="{$lang.button_reset}" />
+      </div>
+    <input type="hidden" name="act" value="{$form_act}" />
+    <input type="hidden" name="id" value="{$car_id}" />
+  </form>
+</div>
+{insert_scripts files="../js/utils.js"}
+{literal}
+<script language="JavaScript">
+<!--
+
+//-->
+</script>
+{/literal}
+{include file="pagefooter.htm"}

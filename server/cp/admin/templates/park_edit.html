@@ -1,0 +1,145 @@
+<!-- $Id: brand_info.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+{include file="pageheader.htm"}
+{insert_scripts files="../js/utils.js,selectzone.js,win.js"}
+<script language="JavaScript" src="../js/formcheck.js"></script>
+<div class="main-div">
+<form method="post" action="car.php" name="theForm" enctype="multipart/form-data" onSubmit="return Validator.Validate(this,2)">
+<table cellspacing="1" cellpadding="3" width="100%">
+
+  <tr>
+    <td class="label">经纬度</td>
+    <td>
+	<input name="car_id" size ="20" maxlength="60" value="{$car_id}" type="hidden"/>
+	<input dataType="Double" msg="经度只允许数字" name="longitude" id="longitude" size ="20" maxlength="60" value="{$brand.longitude}" />，
+	<input dataType="Double" msg="纬度只允许数字" name="latitude" id="latitude" size ="20" maxlength="60" value="{$brand.latitude}" />
+	</td>
+  </tr>
+  <tr>
+    <td class="label">半径</td>
+    <td><input dataType="Double" msg="半径只允许数字" name="radius" size="10" value="{$brand.radius}">米</td>
+
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><br />
+      <input type="submit" class="button" value="{$lang.button_submit}" />
+      <input type="reset" class="button" value="{$lang.button_reset}" />
+      <input type="hidden" name="act" value="{$form_action}" />
+      <input type="hidden" name="old_brandname" value="{$brand.brand_name}" />
+      <input type="hidden" name="id" value="{$brand.id}" />
+      <input type="hidden" name="old_brandlogo" value="{$brand.brand_logo}">
+    </td>
+  </tr>
+</table>
+</form>
+</div>
+{insert_scripts files="../js/utils.js"}
+{literal}
+<script language="JavaScript">
+<!--
+var regionTreeArr = new Array();
+{foreach from=$region_tree item='e'}
+regionTreeArr.push({$e}) ;
+{/foreach}
+regionTreeArr.push({$city_id});
+
+onload = function()
+{
+    // 开始检查订单
+    // startCheckOrder();
+    getBaiduEarth() 
+}
+/**
+ * 检查表单输入的数据
+ */
+
+
+function selectRegion(region_id)
+{
+	region_type = region_id.name.substr(7) ;
+	for(afterRegion = region_type*1+1;afterRegion<10;afterRegion++)
+	{
+		//alert("region_"+afterRegion);
+		if(document.getElementById("region_"+afterRegion))
+		{
+			document.getElementById('regionSpan').removeChild(document.getElementById("region_"+afterRegion));
+		}
+		else
+		{
+			break;
+		}
+	}
+	if( region_id.value==0 )
+	{
+		return ;
+	}
+	
+	//alert(region_type);
+	Ajax.call('?is_ajax=1&act=getRegions&region_type='+region_type, 'region_id=' + region_id.value, selectRegionCallback, 'POST', 'JSON') ;
+	document.theForm.city.value=region_id.value ;
+	
+	city = region_id.value;
+	//changeParent(0, 0);
+}
+
+function selectRegionCallback( res, ss )
+{
+	str = '';	
+	region_type = res.content.region_type*1+1;
+	
+	if(res.content.obj.length==0)
+		return ;
+	var selectNode = document.createElement("select");
+	selectNode.name= "region_"+region_type;
+	selectNode.id= "region_"+region_type;
+	if(window.addEventListener) // Mozilla, Netscape, Firefox 
+	{
+		selectNode.addEventListener('change', function (){selectRegion(selectNode)}); 
+	}
+	else// IE 
+	{ 
+		selectNode.attachEvent('onchange',function (){selectRegion(selectNode)}); 
+	} 
+	optionNode = document.createElement("option");
+	optionNode.text = "----";
+	optionNode.value = 0;
+	selectNode.options.add(optionNode);
+	document.getElementById('regionSpan').appendChild(selectNode);
+	defaultValue = false;
+	for (a in res.content.obj)
+	{
+		if(a=="toJSONString")
+		continue ;
+		optionNode = document.createElement("option");
+		optionNode.text = res.content.obj[a].region_name;
+		optionNode.value = res.content.obj[a].region_id;
+
+		if(regionTreeArr[region_type]&&regionTreeArr[region_type]==res.content.obj[a].region_id)
+		{
+			optionNode.selected = true;
+			defaultValue = true;
+
+		}
+		selectNode.options.add(optionNode);
+	}
+	if(defaultValue)
+	{
+		selectRegion(document.getElementById(selectNode.id));
+	}
+	//document.getElementById("region_"+region_type).setAttribute('onchange', "selectRegion(this)");
+}
+
+if( regionTreeArr.length>0 )
+{
+	document.getElementById('region_0').value=regionTreeArr[0] ;
+	selectRegion( document.getElementById('region_0') );
+}
+
+
+function earth()
+{
+	getBaiduEarth() ;
+}
+//-->
+</script>
+{/literal}
+{include file="pagefooter.htm"}

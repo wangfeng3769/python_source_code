@@ -1,0 +1,527 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="keywords" content="乐影客" />
+<meta http-equiv="description" content="乐影客" />
+<title>影片信息</title>
+<link href="/static/web/css/css.css" rel="stylesheet" type="text/css" />
+<link href="/static/web/css/css_message.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<iframe src="/lykweb/header" border="0" vspace="0" hspace="0" marginwidth="0" marginheight="0" framespacing="0" frameborder="0" scrolling="no" width="100%" ></iframe>
+
+<div class="main_message pr">
+    <div class="hot_mes_left fl">
+        <h3 class="mes_mov_tle fl">{{movie.title}}</h3>
+        <div class="mes_total ">
+            <span class="mes_num">{{movie.score}}</span><span class="mes_point ">分</span>
+        </div>
+        <div class="mes_mov_pic"><img src="{{movie.poster_image_url}}" width="357" height="219" alt="" title="" /></div>
+
+    </div>
+    <div class="hot_mes_right fl">
+        <ul>
+            {% if movie_featureOfCinema %}
+            <li>
+                <p class="hot_mes_right_title fl"><u>{{movie_featureOfCinema.msahang.cinemaname}}</u></p>
+                <p class="hot_mes_right_type fl">{{movie_featureOfCinema.msahang.time}}</p>
+            </li>
+            <li>
+                <p class="hot_mes_right_title fl"><u>{{movie_featureOfCinema.zuire.cinemaname}}</u></p>
+                <p class="hot_mes_right_type fl">{{movie_featureOfCinema.zuire.total}}场</p>
+            </li>
+            <li>
+                <p class="hot_mes_right_title fl"><u>{{movie_featureOfCinema.guanfang.cinemaname}}</u></p>
+                <p class="hot_mes_right_type fl">{{movie_featureOfCinema.guanfang.desc}}</p>
+            </li>
+            <li>
+                <p class="hot_mes_right_title fl"><u>{{movie_featureOfCinema.mianfei.cinemaname}}</u></p>
+                <p class="hot_mes_right_type fl">{{movie_featureOfCinema.mianfei.total}}场</p>
+            </li>
+            <li>
+                <p class="hot_mes_right_title fl"><u>{{movie_featureOfCinema.zaixian.cinemaname}}</u></p>
+                <p class="hot_mes_right_type fl">{{movie_featureOfCinema.zaixian.total}}个影院可以{{movie_featureOfCinema.zaixian.desc}}</p>
+            </li>
+            {% endif %}
+        </ul>
+
+    </div>
+    <span class="movie_more pa">更多</span>
+</div>
+
+<div class="main_message2">
+    <div class="mes_left fl">
+        <div id="tab_box" class="tab_box">
+            <div id="tab_title" class="tab_title">
+                <ul>
+                    <li>观影导航</li>
+                    <li >评分/影评</li>
+                    <li class="active">电影介绍</li>
+                    <li>预告片</li>
+                    <li>剧照</li>
+                    <li>电影周边</li>
+                </ul>
+            </div>
+            <div id="tab_content" class="tab_content">
+            	<div class="box" style="display:none;">
+                	<div class="viewing_nav">
+                    	<p>北京共<span>118</span>家影院正在上映此片，今天共有<span>1191</span>场，还有<span>682</span>场可观影</p>
+                        <div class="cinema_search_outer" >
+                        	<div class="release_time fl">
+                                <ul>
+                                    <li class="active">11月7日</li>
+                                    <li>11月8日</li>
+                                </ul> 
+                            </div>
+                        
+                            <div class="cinema_search fl">
+                                <div class="search_city_list fl ">全部城区</div>
+                                <span class="city_list_icon fl"></span>
+                                <div class="cinema_search_input fl"><input type="text" value="影院索引" /></div>
+                                <span class="cinema_search_btn fl"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="cinema_data">
+                            <div class="box_title">影院选择</div>
+                            <div class="cinema_select">
+                                <table class="cinema_select_table"  border="0" cellpadding="0" cellspacing="0">
+                                    <tbody>
+                                        <tr>
+                                            <td class="cin_sel"><input type="checkbox" /></td>
+                                            <td class="cin_name">万达CBD店</td>
+                                            <td class="cin_total">119场</td>
+                                            <td class="cin_bank"></td>
+                                            <td class="cin_type"><span class="type_span">首映</span></td>
+                                            <td class="cin_award"><span class="type_span">赠品</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="cin_sel"><input type="checkbox" /></td>
+                                            <td class="cin_name">北京橙天嘉禾凤凰城影院 </td>
+                                            <td class="cin_total">109场</td>
+                                            <td class="cin_bank"></td>
+                                            <td class="cin_type"><span class="type_span">优惠</span></td>
+                                            <td class="cin_award"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="cin_sel"><input type="checkbox" /></td>
+                                            <td class="cin_name">大地数字影院-北京延庆金锣湾</td>
+                                            <td class="cin_total">95场</td>
+                                            <td class="cin_bank"></td>
+                                            <td class="cin_type"><span class="type_span">优惠</span></td>
+                                            <td class="cin_award"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="cin_sel"><input type="checkbox" /></td>
+                                            <td class="cin_name">星美上地店</td>
+                                            <td class="cin_total">90场</td>
+                                            <td class="cin_bank"></td>
+                                            <td class="cin_type"><span class="type_span">赠品</span></td>
+                                            <td class="cin_award"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="cin_sel"><input type="checkbox" /></td>
+                                            <td class="cin_name">海航活力天宝国际影城</td>
+                                            <td class="cin_total">67场</td>
+                                            <td class="cin_bank"></td>
+                                            <td class="cin_type"><span class="type_span">优惠</span></td>
+                                            <td class="cin_award"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="cin_sel"><input type="checkbox" /></td>
+                                            <td class="cin_name">首都时代影院</td>
+                                            <td class="cin_total">115场</td>
+                                            <td class="cin_bank"></td>
+                                            <td class="cin_type"><span class="type_span">优惠</span></td>
+                                            <td class="cin_award"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="cin_sel"><input type="checkbox" /></td>
+                                            <td class="cin_name">万达CBD店</td>
+                                            <td class="cin_total">119场</td>
+                                            <td class="cin_bank"></td>
+                                            <td class="cin_type"><span class="type_span">首映</span></td>
+                                            <td class="cin_award"><span class="type_span">赠品</span></td>
+                                        </tr>
+                                        
+                                    </tbody>    
+                                </table>
+                          	</div>
+                            <div class="box_title">场次对比结果</div>
+                            <div class="cinema_result">
+                            	<table class="cinema_result_table" style="table-layout:fixed;"  border="0" cellpadding="0" cellspacing="0">
+                                    <tbody>
+                                    	<tr>
+                                        	<th class="result_time">开演时间</th>
+                                            <th class="result_name">电影院</th>
+                                            <th class="result_bank1"></th>
+                                            <th class="result_bank2"></th>
+                                            <th class="result_money">票价</th>
+                                            <th class="result_type">优惠活动</th>
+                                            <th class="result_book"></th>
+                                        </tr>
+                                        <tr>
+                                            <td class="result_time">11:30</td>
+                                            <td class="result_name">万达CBD店</td>
+                                            <td class="result_bank1">3号厅</td>
+                                            <td class="result_bank2">国语2D</td>
+                                            <td class="result_money">&yen;45</td>
+                                            <td class="result_type"><span class="type_span">首映</span></td>
+                                            <td class="result_book"><span class="type_span2">购票</span><br /><span class="ticket_from">来自网票网</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="result_time">11:30</td>
+                                            <td class="result_name">万达CBD店</td>
+                                            <td class="result_bank1">3号厅</td>
+                                            <td class="result_bank2">国语2D</td>
+                                            <td class="result_money">&yen;45</td>
+                                            <td class="result_type"><span class="type_span">首映</span></td>
+                                            <td class="result_book"><span class="type_span2">购票</span><br /><span class="ticket_from">来自格瓦拉</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="result_time">11:30</td>
+                                            <td class="result_name">万达CBD店</td>
+                                            <td class="result_bank1">3号厅</td>
+                                            <td class="result_bank2">国语2D</td>
+                                            <td class="result_money">&yen;45</td>
+                                            <td class="result_type"><span class="type_span">首映</span></td>
+                                            <td class="result_book"><span class="type_span2">购票</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="result_time">11:30</td>
+                                            <td class="result_name">万达CBD店</td>
+                                            <td class="result_bank1">3号厅</td>
+                                            <td class="result_bank2">国语2D</td>
+                                            <td class="result_money">&yen;45</td>
+                                            <td class="result_type"><span class="type_span">首映</span></td>
+                                            <td class="result_book"><span class="type_span2">购票</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="result_time">11:30</td>
+                                            <td class="result_name">万达CBD店</td>
+                                            <td class="result_bank1">3号厅</td>
+                                            <td class="result_bank2">国语2D</td>
+                                            <td class="result_money">&yen;45</td>
+                                            <td class="result_type"><span class="type_span">首映</span></td>
+                                            <td class="result_book"><span class="type_span2">购票</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="result_time">11:30</td>
+                                            <td class="result_name">万达CBD店</td>
+                                            <td class="result_bank1">3号厅</td>
+                                            <td class="result_bank2">国语2D</td>
+                                            <td class="result_money">&yen;45</td>
+                                            <td class="result_type"><span class="type_span">首映</span></td>
+                                            <td class="result_book"><span class="type_span2">购票</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="result_time">11:30</td>
+                                            <td class="result_name">万达CBD店</td>
+                                            <td class="result_bank1">3号厅</td>
+                                            <td class="result_bank2">国语2D</td>
+                                            <td class="result_money">&yen;45</td>
+                                            <td class="result_type"><span class="type_span">首映</span></td>
+                                            <td class="result_book"><span class="type_span2">购票</span><br /><span class="ticket_from">来自E票网</span></td>
+                                        </tr>
+                                        
+                                        
+                                    </tbody>    
+                                </table>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="box" style="display:none">
+                    <div class="movie_point">
+                        <div class="movie_main_total">
+                            <p class="movie_main_total_p">综合评分<span>7.9</span><em>分</em></p>
+                            <p>*乐视网根据媒体评分和观众评分的加权算法，得出综合评分结论，仅供参考。</p>
+                        </div>
+                        <div class="movie_rating">
+                            <div class="movie_rating_title pr">影片评价<span class="pa">*影片评分来自各大权威媒体的专业观影团和用户的评分结果</span></div>
+                            <div class="movie_rating_content"><img src="/static/web/images/movie_point_bg.png" width="623" height="204" /></div>
+                        </div>
+                        <div class="professional_appraise">
+                            <div class="movie_rating_title">专业影评</div>
+                            <div class="movie_rating_content"><img src="/static/web/images/specialty_text_bg.png" width="611" height="196" /></div>
+                        </div>
+
+                        <div class="small_appraise">
+                            <div class="movie_rating_title">微影评</div>
+                            <div class="small_appraise_content">
+                                <ul>
+                                    <li>
+                                        <div class="small_appraise_content_left fl">
+                                            <p class="small_appraise_head"><img src="/static/web/images/head_img1.png" width="82" height="84" /></p>
+                                            <p class="small_appraise_name">***********</p>
+                                        </div>
+                                        <div class="small_appraise_content_right fl">
+                                            <div class="small_appraise_text">
+                                                <p>正如导演冯德伦在宣传时所说，《太极1》是在播种，等到做足功课之后，《太极2》就是猛龙过江了。此言并不浮夸，相对于第一集的着重剧情铺垫和风造上，都要比</p>
+                                            </div>
+                                            <p class="small_appraise_time">2012.11.1&nbsp;&nbsp;&nbsp;&nbsp;19:20</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="small_appraise_content_left fl">
+                                            <p class="small_appraise_head"><img src="/static/web/images/head_img2.png" width="84" height="84" /></p>
+                                            <p class="small_appraise_name">***********</p>
+                                        </div>
+                                        <div class="small_appraise_content_right fl">
+                                            <div class="small_appraise_text">
+                                                <p>正如导演冯德伦在宣传时所说，《太极1》是在播种，等到做足功课之后，《太极2》就是猛龙过江了。此言并不浮夸，相对于第一集的着重剧情铺垫和风造上，都要比</p>
+                                            </div>
+                                            <p class="small_appraise_time">2012.11.1&nbsp;&nbsp;&nbsp;&nbsp;19:20</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="movie_page">
+                            <a href="#" class="prev-page disable">< 前页</a>
+                            <a href="#">1</a>
+                            <a class="active" href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#">4</a>
+                            <a href="#">5</a>
+                            <span>......</span>
+                            <a href="#">10</a>
+                            <a  href="#" class="next-page">后页 ></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="box" style="display:block;">
+                    <div class="box_mov_con">
+                        <div class="box_title">电影资料</div>
+                        <p class="introduction">
+                            {% if movie.directors %}
+                            导演： {{movie.directors}}<br/>
+                            {% endif %}
+                            {% if movie.actors %}
+                            主演： {{movie.actors}}<br/>
+                            {% endif %}
+                            {% if movie.filmtype %}
+                            类型： {{movie.filmtype}}<br/>
+                            {% endif %}
+                            {% if movie.pubdate %}
+                            上映日期： {{movie.pubdate}}<br/>
+                            {% endif %}
+                            {% if movie.mins %}
+                            片长： {{movie.mins}}<br/>
+                            {% endif %}
+                            {% if movie.certification %}
+                            分级： {{movie.certification}}<br/>
+                            {% endif %}
+                            {% if movie.language %}
+                            对白语言： {{movie.language}}<br/>
+                            {% endif %}
+                        </p>
+                        <div class="box_title">剧情放送</div>
+                        <p class="plot">
+                            {{movie.plots}}
+                        </p>
+                    </div>
+                </div>
+                <div class="box" style="display:none">
+                    <div class="box_notice_mov">
+                        <ul>
+                            {% if movie_trailers %}
+                                {% for trailer in movie_trailers %}
+                                    <li>
+                                        <a href="{{trailer.video_url}}"><img src="{{trailer.image_url}}" width="180" height="124" alt="" title="" /></a>
+                                        <!--<p class="notice_text">中文版预告片</p>-->
+                                        <!--<p class="notice_text">日期:2012年08月01日</p>-->
+                                        <!--<p class="notice_text">片长:01分57秒</p>-->
+                                    </li>
+                                {% endfor %}
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="box" style="display:none">
+               	    <div class="stills">
+                        {% if movie_stills %}
+                            <p>共<span>{{movie_stills.count}}</span>个剧照</p>
+                            <ul>
+                                {% for still in movie_stills %}
+                                    <li><img src="{{still.image_url}}" width="137" height="137" alt="" title="" /></li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="box" style="display:none">
+                    <div class="box_game_loading">
+                        <ul>
+                            <li>
+                                <a href="#" target="_blank"><img src="/static/web/images/game1.jpg" width="180" height="124" alt="" title="" /></a>
+                                <p class="game_loading pr">
+                                    <span class="game_name">光晕游戏</span><span class="loading pa">下载</span>
+                                </p>
+                                <p class="game_text">闯过中级关卡赢2张电影票</p>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank"><img src="/static/web/images/game2.jpg" width="180" height="124" alt="" title="" /></a>
+                                <p class="game_loading pr">
+                                    <span class="game_name">致命游戏</span><span class="loading pa">下载</span>
+                                </p>
+                                <p class="game_text">闯过中级关卡赢2张电影票</p>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank"><img src="/static/web/images/game3.jpg" width="180" height="124" alt="" title="" /></a>
+                                <p class="game_loading pr">
+                                    <span class="game_name">BATMAN</span><span class="loading pa">下载</span>
+                                </p>
+                                <p class="game_text">闯过中级关卡赢2张电影票</p>
+                            </li>
+                            <li>
+                                <a  href="#" target="_blank"><img src="/static/web/images/game4.jpg" width="180" height="124" alt="" title="" /></a>
+                                <p class="game_loading pr">
+                                    <span class="game_name">权利的游戏</span><span class="loading pa">下载</span>
+                                </p>
+                                <p class="game_text">闯过中级关卡赢2张电影票</p>
+                            </li>
+                            <li>
+                            	<a href="#" target="_blank"><img src="/static/web/images/game5.jpg" width="180" height="124" alt="" title="" /></a>
+                                <p class="game_loading pr">
+                                    <span class="game_name">心里游戏</span><span class="loading pa">下载</span>
+                                </p>
+                                <p class="game_text">闯过中级关卡赢2张电影票</p>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank"><img src="/static/web/images/game6.jpg" width="180" height="124" alt="" title="" /></a>
+                                <p class="game_loading pr">
+                                    <span class="game_name">饥饿游戏</span><span class="loading pa">下载</span>
+                                </p>
+                                <p class="game_text">闯过中级关卡赢2张电影票</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+      	
+    </div>
+    
+    <div class="mes_right fl">
+        <div class="mes_atv fr">
+            <div class="mes_atv_title">
+                <span class="activity_more fr"><a href="#">更多</a></span>热门活动
+            </div>
+          
+            <div class="activity pr">
+                <span class="activity_num pa">1.</span>
+                <div class="activity_time pa">
+                    开始时间：<span>2012-10-8 14:25:00</span><br/>
+                    结束时间：<span>2012-10-22 14:25:00</span>
+                </div>
+                <div class="activity_title pa">
+                    <span>《二次曝光》免费观影报名</span>
+                </div>
+                <div class="activity_pic pa">
+                    <img src="/static/web/images/hd_1.jpg" width="298" height="111" alt="" title="" /> 
+                </div>
+                <p class="activity_text pa">
+                    观影后两天内，需在时光网《二次曝光》资料页为其打分、添加观影方式和电影标签，并在时光微评发布一条观影感受；凡参加活动后在规定时间不发布者，将自动失去下次免费观影机会。
+                </p>
+            </div>
+            
+            <div class="activity pr">
+                <span class="activity_num pa">2.</span>
+              <div class="activity_time pa">
+                    开始时间：<span>2012-10-8 14:25:00</span><br/>
+                    结束时间：<span>2012-10-22 14:25:00</span>
+                </div>
+                <div class="activity_title pa">
+                    <span>#向李玉提问#赢珍藏好礼</span>
+                </div>
+                <div class="activity_pic pa">
+                    <img src="/static/web/images/hd_2.jpg" width="151" height="191" alt="" title="" />
+                </div>
+                <p class="activity_text2 pa">
+                    你是从哪部电影开始认识导演李玉的？如果给你一个与她近距离接触的机会，你有什么问题想要问她？  曝光你的内心，向李玉提问，赢取李玉签名《二次曝光》电影珍藏画报！
+                </p>
+            </div>
+            
+         	
+        </div>
+    </div>
+</div>
+
+<div class="mes_bottom">
+	<div class="hot_movie fl">
+        <div id="hot_movie_tle" class="hot_movie_tle pr">
+          热门影片
+          <span id="hot_movie_more_btn" class="pa"><a href="javascript:;">看看其他影片</a></span>
+        </div>
+        <ul>
+            {% if hotlist %}
+                {% for movie in hotlist %}
+                    {% if forloop.counter <= 4 %}
+                        <li><a href="/lykweb/movie/info/{{movie.id}}"><img src="{{movie.poster_image_url}}" width="146" height="202" alt="{{movie.title}}" title="{{movie.title}}" /></a></li>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </ul>
+        
+        <ol>
+            <li>《十二星座离奇事件》</li>
+            <li>《消失的子弹》</li>
+            <li>《敢死队2》</li>
+            <li>《八星抱喜》</li>
+        </ol>
+    </div>
+    
+    <div class="hot_cinema fl">
+        <div class="mes_atv_title">
+            <span class="activity_more fr"><a href="/lykweb/cinema/list">更多</a></span>热门影院
+        </div>
+        <ul>
+            {% if hotcinemas %}
+                {% for cinema in hotcinemas %}
+                    <li><a href="/lykweb/cinema/info/{{cinema.id}}">{{forloop.counter}}.{{cinema.name}}</a></li>
+                {% endfor %}
+            {% endif %}
+        </ul>
+    </div>
+</div>
+
+<div id="hot_movie_Box" style="display:none;">
+    <div class="hot_movie_title pr">
+        <div class="hot_movie_pic fl"><h1><img src="/static/web/images/hot_movie_logo.jpg" width="292" height="59" alt="" title="" /></h1></div>
+        {% if hotcount %}
+            <div class="hot_movie_text fl">目前在<span>北京</span>有<em>{{hotcount}}</em>部影片正在热映</div>
+        {% endif %}
+        <span id="close" class="hot_movie_delete pa"></span>
+    </div>
+    <div class="hot_movie_content">
+        <!--<div class="hot_movie_tab_title">
+            <ul>
+                <li class="active">正在热映</li>
+                <li>即将热映</li>
+            </ul>
+        </div>-->
+        <div class="hot_movie_tab_box" style="display:block">
+            <ul>
+                {% if hotlist %}
+                    {% for movie in hotlist %}
+                        <li><a href="/lykweb/movie/info/{{movie.id}}"><img src="{{movie.poster_image_url}}" width="168" height="216" alt="{{movie.title}}" title="{{movie.title}}" /></a><p>{{movie.title}}</p></li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="mark_bg" style="display:none"></div>
+
+<iframe src="/static/web/footer.html" border="0" vspace="0" hspace="0" marginwidth="0" marginheight="0" framespacing="0" frameborder="0" scrolling="no" width="100%" height="140" ></iframe>
+<script src="/static/web/js/base.js" type="text/javascript"></script>
+<script src="/static/web/js/common_movie.js" type="text/javascript"></script>
+</body>
+</html>
